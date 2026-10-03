@@ -68,9 +68,14 @@ jobs:
       # Nur der Grundbestand und die Werkzeuge. Die Zusätze "suche" und
       # "modelle" bleiben draußen: sie zögen torch und die Modellbibliotheken
       # nach, und die braucht hier niemand.
+      # setuptools und wheel kommen mit dem Läufer und sind dort nicht immer
+      # aktuell; pip-audit meldet ihre Schwachstellen zu Recht. Sie gehören
+      # nicht zu diesem Projekt, lassen sich aber mit einer Zeile beheben —
+      # und eine Schwachstelle, die sich beheben lässt, wird behoben und nicht
+      # ausgenommen.
       - name: Pakete einrichten
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip setuptools wheel
           pip install -e ".[entwicklung]"
 
       # ruff, ruff format, mypy und bandit brechen ab. Das war bis zum
@@ -133,14 +138,6 @@ jobs:
         run: |
           set +e
           pytest -m "not langsam and not netz and not container" --color=yes
-
-      # Der Containerlauf baut ein Abbild und startet es ohne Netz. Das dauert
-      # ein paar Minuten und steht darum hinter den schnellen Prüfungen: wer
-      # einen Fehler im Programmtext gemacht hat, soll das nach einer Minute
-      # erfahren und nicht nach sechs. Gebaut wird mit MIT_SUCHMODELL=0 — ohne
-      # das Einbettungsmodell ist das Abbild 400 Megabyte statt 8 Gigabyte.
-      - name: pytest — Container ohne Netz
-        run: pytest -m container --color=yes
           ergebnis=$?
           set -e
           if [ "$ergebnis" -eq 5 ]; then
@@ -148,6 +145,16 @@ jobs:
             exit 0
           fi
           exit "$ergebnis"
+
+      # Der Containerlauf baut ein Abbild und startet es ohne Netz. Das dauert
+      # ein paar Minuten und steht darum hinter den schnellen Prüfungen: wer
+      # einen Fehler im Programmtext gemacht hat, soll das nach einer Minute
+      # erfahren und nicht nach sechs. Gebaut wird mit MIT_SUCHMODELL=0 — ohne
+      # das Einbettungsmodell ist das Abbild 400 Megabyte statt 8 Gigabyte.
+      # Nur auf einer Python-Fassung: das Abbild bringt seine eigene mit.
+      - name: pytest — Container ohne Netz
+        if: matrix.python == '3.13'
+        run: pytest -m container --color=yes
 
       # Gegenprobe ohne Modell und ohne Netz: dass die Regeldateien lesbar sind
       # und die Einstufung durchläuft. Die erwarteten Zahlen stehen hier
