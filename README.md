@@ -294,6 +294,16 @@ mitgelieferten Rechtstexten: [NOTICE](NOTICE).
 
 ## Mitarbeit
 
+Vor jedem Vorschlag:
+
+```bash
+scripts/alles_pruefen.sh           # was der Prüfstand prüft
+scripts/alles_pruefen.sh --alles   # zusätzlich Container und Präsentation
+```
+
+Das Skript führt dieselben Befehle aus wie der Prüfstand auf GitHub, in
+derselben Reihenfolge — wer nur einen Teil prüft, merkt einen Fehler erst dort.
+
 Fehler und Wünsche gehören in die Fehlerverwaltung. Es gibt drei Vorlagen, und
 die Wahl ist wichtig:
 

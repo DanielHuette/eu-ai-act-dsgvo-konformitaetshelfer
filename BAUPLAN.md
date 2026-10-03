@@ -300,6 +300,17 @@ durchlaufen, und der Prüfstand muss bei einem Befund abbrechen.** Ein Lauf, der
 dauerhaft rot ist, wird nicht gelesen — dann fällt auch der erste echte Fehler
 nicht auf. Jede Ausnahme wird in `pyproject.toml` begründet.
 
+Lege ein Skript an, das **genau dasselbe prüft wie der Prüfstand**, in
+derselben Reihenfolge und mit denselben Befehlen. Wer nur einen Teil prüft,
+schiebt einen Fehler in den Prüfstand und merkt es erst dort — hier war es
+einmal die Formatierung eines Ordners, der beim Aufruf nicht dabeistand, und
+einmal fehlende Typangaben fremder Pakete, die auf dem Entwicklungsrechner
+zufällig schon lagen. Der zweite Fall ist der unangenehmere: der Prüfstand
+meldet etwas, das lokal niemand nachvollziehen kann.
+
+Darum gehören **alle** Prüfwerkzeuge samt Typangaben in die
+Entwicklungsabhängigkeiten, nicht nur die, die gerade fehlen.
+
 ### Stufe 10 — Die Präsentation
 
 14 Folien, 16:9, für Fachkundige **und** Fachfremde: Lage, Beispiel, der

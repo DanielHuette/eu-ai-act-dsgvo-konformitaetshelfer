@@ -647,9 +647,7 @@ class Suchbestand:
             # Ein Bestand ohne Vektoren ist kein Bestand. Würde er abgelegt,
             # fiele das erst beim Laden auf - und dann als Längenfehler, der
             # nichts über die Ursache sagt.
-            raise RuntimeError(
-                "Der Bestand ist nicht gebaut. Erst bauen(), dann ablegen()."
-            )
+            raise RuntimeError("Der Bestand ist nicht gebaut. Erst bauen(), dann ablegen().")
         pfad.parent.mkdir(parents=True, exist_ok=True)
         np.save(pfad.with_suffix(".vektoren.npy"), self.vektoren)
         beipack = {
