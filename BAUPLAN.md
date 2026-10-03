@@ -12,7 +12,7 @@ der wirklich gemacht wurde.
 | | |
 |---|---|
 | **Aufwand** | ein Arbeitstag für einen Assistenten mit Werkzeugen, davon rund eine Stunde reine Rechenzeit |
-| **Ergebnis** | 2.721 Rechtsstellen · 57 Pflichten · 44 Anwendungsfälle · 158 Prüfungen · PC, Container, Android, Präsentation |
+| **Ergebnis** | 2.721 Rechtsstellen · 57 Pflichten · 44 Anwendungsfälle · 161 Prüfungen · PC, Container, Android, Präsentation |
 | **Voraussetzung** | Python 3.11+, Netzzugang zu EUR-Lex und Hugging Face, Docker, rund 20 GB Platte |
 | **Nicht vorausgesetzt** | Rechtskenntnis des Assistenten — die Rechtsfragen stehen unten als Prüfkriterien |
 
@@ -282,7 +282,7 @@ Mindestens so viel wie hier, aufgeteilt nach Gegenstand:
 |---|---|---:|
 | `test_einstufung.py` | alle 44 Fälle, Merkmalsfilter, Rückfallprüfungen | 33 |
 | `test_korpus.py` | Zielzahlen, Kennungsform, keine Doppelten, kein Beiwerk | 18 |
-| `test_suche.py` | vier Wege, Ablegen und Laden, kein pickle | 22 |
+| `test_suche.py` | vier Wege, Ablegen und Laden, kein pickle | 25 |
 | `test_antwort.py` | Angriffsreihe, erfundene Fundstellen, Auskunft ohne Modell | 36 |
 | `test_dienst.py` | sieben Pfade, Ratenbegrenzung, Fehlerantworten | 23 |
 | `test_cli.py` | fünf Befehle, `--json`, Schutzwall | 16 |
