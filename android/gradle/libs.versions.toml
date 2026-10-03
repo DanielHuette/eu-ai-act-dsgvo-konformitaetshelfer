@@ -2,7 +2,7 @@
 # sonst noch davon abhängt.
 
 [versions]
-bauwerkzeug = "8.13.2"
+bauwerkzeug = "9.4.1"
 kotlin = "2.2.20"
 # Compose-Sammelfassung: legt ui, foundation und material3 zueinander passend
 # fest, damit keine Einzelfassung aus der Reihe fällt.
