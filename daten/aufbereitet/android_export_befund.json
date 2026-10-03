@@ -1,17 +1,17 @@
 {
  "gebaut": "2026-10-03",
- "dauer_sekunden": 146.0,
+ "dauer_sekunden": 346.7,
  "modell": "intfloat/multilingual-e5-small",
  "dimensionen": 384,
- "korpus_pruefsumme": "ee77d5ad168f28d973bfcf9e54663fc3f68e3f3772dafa5b3f7c53634fde6718",
+ "korpus_pruefsumme": "77d4cb0ada9d3cd891236af17dc53e5231e2a67ba1adb92eb9561d64b073ac20",
  "dateien": {
-  "recht.db_mb": 8.4,
-  "einbetter.onnx_mb": 118.1,
-  "tokenizer.json_mb": 17.1
+  "recht.db_mb": 10.35,
+  "einbetter.onnx_mb": null,
+  "tokenizer.json_mb": null
  },
  "zeilen": {
-  "einheit": 1972,
-  "vektor": 1972,
+  "einheit": 2721,
+  "vektor": 2721,
   "pflicht": 57,
   "risikoregel": 28,
   "fall": 44,
@@ -21,7 +21,7 @@
  "proben": {
   "fts:Hochrisiko": 425,
   "fts:Bewerbungen": 5,
-  "fts:Einwilligung": 70,
+  "fts:Einwilligung": 83,
   "fts:beschaftigte (ohne Umlaut)": 13,
   "rechtsgrundlagen_ohne_fundstelle": [],
   "pflichten:hochrisiko_anhang_iii": 41,
@@ -30,11 +30,8 @@
   "pflichten:minimal": 1
  },
  "onnx": {
-  "ausgefuehrt": true,
-  "onnx_mb": 118.1,
-  "wortschatz_mb": 17.1,
-  "aehnlichkeit_8bit_zu_32bit": 0.9907,
-  "hinweis": "Die Einheiten im Bestand sind mit dem 32-Bit-Modell gerechnet, die App rechnet Fragen mit dem 8-Bit-Modell. Die gemessene Ähnlichkeit sagt, wie weit beide auseinanderliegen."
+  "ausgefuehrt": false,
+  "uebersprungen_weil": "mit --ohne-onnx abgewählt"
  },
  "fehler": [],
  "pflichten": 57,

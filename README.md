@@ -320,6 +320,35 @@ Sicherheitslücken nicht öffentlich melden, sondern nach
 | [docs/entscheidungen.md](docs/entscheidungen.md) | Die Architekturentscheidungen mit Begründung und Folgen |
 | [docs/haftung.md](docs/haftung.md) | Was das Werkzeug nicht ist |
 
+## Präsentation
+
+[docs/praesentation.html](docs/praesentation.html) erklärt Architektur,
+Funktionsweise und Betrieb auf 14 Folien — für Fachkundige und für Fachfremde.
+Die Datei im Browser öffnen: sie läuft ohne Netz, blättert mit den Pfeiltasten
+und ergibt gedruckt eine Folie je Seite (auch als PDF).
+
+Geändert wird sie nicht in dieser Datei, sondern in den einzelnen Folien unter
+`praesentation/folien/`; zusammengesetzt wird sie mit
+
+```bash
+python scripts/praesentation_bauen.py --messen
+```
+
+Das `--messen` sieht im Browser nach, ob jede Folie auf ihre Fläche passt und
+keine Schrift unter 24 Punkte fällt. Eine Folie, deren Inhalt überläuft, wird
+beim Vortrag unten abgeschnitten — und das sieht man dem Text nicht an.
+
+## Nachbauen
+
+[BAUPLAN.md](BAUPLAN.md) ist der vollständige Auftrag, mit dem sich dieses
+Werkzeug in einem Durchgang nachbauen lässt: elf Stufen, zehn Grundsätze, die
+Zielzahlen als Prüfkriterien und die Fallstricke, die hier Stunden gekostet
+haben — von der Firewall bei EUR-Lex bis zu den Standardrändern des Browsers,
+die eine Präsentation unbemerkt abschneiden.
+
+Er ist an einen Programmierassistenten gerichtet und so geschrieben, dass keine
+Rückfrage offenbleibt.
+
 ## Lizenz
 
 Apache License 2.0, siehe [LICENSE](LICENSE). Copyright 2026 Daniel Hütte.

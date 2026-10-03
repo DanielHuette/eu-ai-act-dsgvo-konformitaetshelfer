@@ -1,0 +1,26 @@
+{
+ "v": 4,
+ "createdOnFiles": { "v": 1, "at": "2026-10-03T22:00:00Z" },
+ "lists": "css",
+ "title": "EU AI Act und DSGVO Konformitätshelfer",
+ "order": ["cover", "lage", "beispiel", "grundsatz", "bestand", "suche",
+           "einstufung", "pflichten", "sicherheit", "orte", "anleitung-pc",
+           "anleitung-telefon", "geprueft", "grenzen"],
+ "sections": {
+  "s1": { "description": "Wozu der Helfer da ist und was er einem Mitarbeiter abnimmt.", "start": "cover" },
+  "s2": { "description": "Wie er arbeitet: Rechtsbestand, vier Suchwege, Einstufung aus dem Regelwerk, Sicherheitsarchitektur.", "start": "bestand" },
+  "s3": { "description": "Betriebsanleitung für Rechner, Container und Telefon.", "start": "orte" },
+  "s4": { "description": "Was nachgeprüft ist und wo die Grenzen liegen.", "start": "geprueft" }
+ },
+ "faces": {
+  "source-serif-4": {
+   "family": "Source Serif 4",
+   "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300..700&display=swap"
+  },
+  "ibm-plex-sans": {
+   "family": "IBM Plex Sans",
+   "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+  }
+ },
+ "designSystems": []
+}

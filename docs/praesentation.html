@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EU AI Act und DSGVO Konformitätshelfer</title>
+<meta name="description"
+      content="Architektur, Funktionsweise und Betriebsanleitung des
+               EU AI Act und DSGVO Konformitätshelfers.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root { --rand: 24px; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #11182B; }
+  body { font-family: 'IBM Plex Sans', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .kopf {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+    padding: 14px var(--rand); background: #0B1220; color: #8FA3BF;
+    border-bottom: 1px solid #22314F; font-size: 15px; line-height: 1.4;
+  }
+  .kopf b { color: #FAFAF7; font-weight: 600; }
+  .kopf button {
+    font: inherit; color: #BCCBDD; background: #1B2A41; cursor: pointer;
+    border: 1px solid #38496B; border-radius: 8px; padding: 6px 14px;
+  }
+  .kopf button:hover { background: #24375A; color: #FAFAF7; }
+  .kopf .hinweis { margin-left: auto; }
+
+  .folge { display: flex; flex-direction: column; gap: 32px; padding: 32px var(--rand) 96px; }
+
+  /* Die Bühne hält das Seitenverhältnis; die Folie darin wird skaliert.
+     Der Maßstab kommt aus dem Skript unten: scale() braucht eine blanke Zahl,
+     und eine Breite geteilt durch 1920 ist in CSS eine Länge, keine Zahl.
+     Ohne Skript bleibt der Maßstab 1 — dann ist die Folie in Originalgröße zu
+     sehen, und die Bühne lässt sie verschieben. */
+  .buehne {
+    position: relative; width: 100%; max-width: 1920px; margin: 0 auto;
+    aspect-ratio: 16 / 9; overflow: hidden;
+    border-radius: 14px; box-shadow: 0 18px 50px rgba(0, 0, 0, .45);
+  }
+  .buehne > section {
+    position: absolute; top: 0; left: 0;
+    width: 1920px; height: 1080px;
+    transform-origin: top left; transform: scale(var(--massstab, 1));
+  }
+
+  /* Das Folienformat kennt keine Ränder: der Abstand zwischen zwei Blöcken
+     kommt allein aus dem gap des Elternelements. Ein Browser setzt aber von
+     sich aus Ränder auf Überschriften, Absätze und Listen — und die summieren
+     sich über eine Folie zu mehreren hundert Punkten, bis der Inhalt unten
+     herausläuft. Also werden sie hier abgeräumt, genau wie es das Format
+     vorsieht. */
+  .buehne section :where(h1, h2, h3, h4, p, ul, ol, table, figure, blockquote) {
+    margin: 0;
+  }
+  .buehne section :where(ul, ol) { padding-left: 1.3em; }
+  .buehne section table { border-collapse: collapse; }
+  .buehne section :where(td, th) { padding: 0.35em 0.6em; }
+  html:not(.skaliert) .buehne { overflow: auto; }
+
+  .zaehler {
+    position: absolute; right: 18px; bottom: 12px; margin: 0;
+    font-size: 13px; color: rgba(138, 143, 126, .75);
+  }
+  .notiz {
+    max-width: 1920px; margin: -12px auto 0; padding: 18px 26px;
+    background: #0B1220; border: 1px solid #22314F; border-left: 3px solid #C8742B;
+    border-radius: 10px; color: #A9BBD4; font-size: 16px; line-height: 1.6;
+  }
+  .notiz p { margin: 0; }
+  body.ohne-notizen .notiz { display: none; }
+  body.ohne-notizen .folge { gap: 28px; }
+
+  /* Gedruckt wird eine Folie je Seite, in Originalgröße, ohne Notizen. */
+  @media print {
+    :root { --rand: 0; }
+    html, body { background: #FFFFFF; }
+    .kopf, .notiz, .zaehler { display: none !important; }
+    .folge { gap: 0; padding: 0; }
+    .buehne { border-radius: 0; box-shadow: none; break-after: page; }
+    @page { size: 1920px 1080px; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<header class="kopf">
+  <b>EU AI Act und DSGVO Konformitätshelfer</b>
+  <span>14 Folien &middot; Stand des Rechtstextes 31.05.2026
+        &middot; keine Rechtsberatung</span>
+  <button type="button" id="notizschalter">Sprechernotizen ausblenden</button>
+  <span class="hinweis">Blättern mit &larr; und &rarr;
+        &middot; Drucken ergibt eine Folie je Seite</span>
+</header>
+<main class="folge">
+<div class="buehne" id="folie-1"><section id="cover" style="background:#1B2A41;color:#FAFAF7;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:24px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#D98E4A">Ein Werkzeug für Anbieter und Betreiber</p>
+<div style="display:flex;flex-direction:column;gap:28px">
+<h1 style="font-family:'Source Serif 4', Georgia, serif;font-size:104px;font-weight:400;line-height:1.02;color:#FAFAF7">EU AI Act und DSGVO<br>Konformitätshelfer</h1>
+<p style="font-size:32px;line-height:1.45;color:#BCCBDD;width:1300px">Beschreiben Sie Ihr KI-System in eigenen Worten. Sie erhalten die Risikoklasse, Ihre Pflichten und zu jeder Aussage die Fundstelle im Gesetz.</p>
+</div>
+<div style="display:flex;gap:56px;border-top:1px solid #3B4D6B;padding:28px0 0">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#FAFAF7">2.721</p><p style="font-size:24px;color:#8FA3BF">Rechtsstellen</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#FAFAF7">57</p><p style="font-size:24px;color:#8FA3BF">Pflichten mit Fundstelle</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#FAFAF7">158</p><p style="font-size:24px;color:#8FA3BF">Prüfungen, alle grün</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#D98E4A">0</p><p style="font-size:24px;color:#8FA3BF">Fragen, die das Haus verlassen</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E82A0">Stand des Rechtstextes: 31.05.2026 &middot; Apache-2.0 &middot; Keine Rechtsberatung</p>
+
+</section><p class="zaehler">1 / 14</p></div><div class="notiz"><p>Der Helfer nimmt dem Mitarbeiter das Nachschlagen ab: er beschreibt sein System, und der Helfer sagt, was zu beachten ist — mit der Stelle im Gesetz dazu. Die vier Zahlen unten sind nachgemessen, nicht geschätzt. Die letzte ist die wichtigste: er läuft ohne Netz, es wird nichts übermittelt.</p></div>
+<div class="buehne" id="folie-2"><section id="lage" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Die Frage, die sich jede Abteilung stellt</h2>
+<p style="font-size:30px;line-height:1.5;color:#4A5568;width:1500px">Ein Sprachmodell sortiert Bewerbungen vor. Eine Kamera erkennt Müdigkeit bei Fahrern. Ein Chatbot beantwortet Kundenfragen. Drei Fälle, drei ganz verschiedene Rechtslagen — und jeder liest selbst nach.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600">Was heute passiert</h3>
+<p style="font-size:25px;line-height:1.45;color:#4A5568">Jemand sucht in 113 Artikeln, 13 Anhängen und 180 Erwägungsgründen — und findet die eine Nummer im Anhang nicht, auf die alles ankommt.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600">Was ein Sprachmodell allein tut</h3>
+<p style="font-size:25px;line-height:1.45;color:#4A5568">Es antwortet flüssig und nennt eine Fundstelle, die es nicht gibt. Das ist der Fehler, den niemand bemerkt, bis eine Behörde fragt.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1B2A41;padding:30px;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600;color:#D98E4A">Was dieser Helfer tut</h3>
+<p style="font-size:25px;line-height:1.45;color:#D4DEEB">Er stuft nach einem nachprüfbaren Regelwerk ein, zählt die Pflichten auf und legt zu jeder die Stelle im Gesetz daneben.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Verordnung (EU) 2024/1689 &middot; Verordnung (EU) 2016/679 &middot; BDSG</p>
+
+</section><p class="zaehler">2 / 14</p></div><div class="notiz"><p>Der Mittelweg ist der gefährliche: ein Sprachmodell, das aus dem Gedächtnis antwortet, klingt genauso überzeugend, ob es recht hat oder nicht. Darum trennt dieser Helfer beides: die Einstufung macht ein Regelwerk, das Formulieren macht das Modell.</p></div>
+<div class="buehne" id="folie-3"><section id="beispiel" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:30px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Von der Beschreibung zur Auskunft</h2>
+<div style="display:flex;gap:28px;align-items:stretch">
+<div style="width:620px;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8A8F7E">Was der Nutzer schreibt</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:29px;line-height:1.5;color:#1B2A41">„Wir setzen ein Sprachmodell ein, um eingehende Bewerbungen vorzusortieren und eine Rangfolge der Kandidaten zu erstellen."</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#1B2A41;padding:26px 30px;border-radius:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#D98E4A">Risikoklasse</p>
+<p style="font-size:36px;font-weight:600;color:#FAFAF7">Hohes Risiko &mdash; Anhang III Nummer 4</p>
+<p style="font-size:24px;line-height:1.45;color:#BCCBDD">Anhang III Nummer 4 Buchstabe a nennt das Sichten und Filtern von Bewerbungen ausdrücklich. Die Ausnahme nach Artikel 6 Absatz 3 greift nicht: die Rangfolge beeinflusst die Entscheidung wesentlich.</p>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:24px;border:1px solid #DDDED6;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:42px;color:#1B2A41">14</p><p style="font-size:24px;line-height:1.35;color:#4A5568">Pflichten für den Betreiber, jede mit Fundstelle</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:24px;border:1px solid #DDDED6;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:42px;color:#1B2A41">8</p><p style="font-size:24px;line-height:1.35;color:#4A5568">Datenschutzabschnitte, nach Merkmalen gefiltert</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:24px;border:1px solid #DDDED6;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:42px;color:#2F6B5E">02.08.2026</p><p style="font-size:24px;line-height:1.35;color:#4A5568">ab wann die Pflichten gelten</p></div>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Nachgerechnet am 03.10.2026 mit dem Fall „bewerbungsfilter-sprachmodell" aus der Fallsammlung</p>
+
+</section><p class="zaehler">3 / 14</p></div><div class="notiz"><p>Der Nutzer schreibt einen Satz in Alltagssprache. Er muss nicht wissen, dass es Anhang III gibt. Links steht, was er eingibt, rechts was herauskommt. Die 14 Pflichten sind nach Rolle UND nach Merkmalen gefiltert: ein Bewerbungsfilter bekommt nicht die Pflichten zur biometrischen Fernidentifizierung mitgeliefert.</p></div>
+<div class="buehne" id="folie-4"><section id="grundsatz" style="background:#C8742B;color:#1B1203;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<p style="font-size:25px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#4A2F08">Der tragende Grundsatz</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:80px;font-weight:400;line-height:1.08;width:1560px">Die Einstufung kommt aus dem Regelwerk,<br>nie aus dem Sprachmodell.</h2>
+<p style="font-size:30px;line-height:1.5;color:#2A1C06;width:1480px">Risikoklasse und Pflichten entstehen aus Entscheidungsbäumen, bevor irgendein Modell den Text sieht. Das Modell formuliert nur — und bekommt die Einstufung als feststehende Tatsache vorgelegt, nach den Angaben des Nutzers. Wer in seiner Beschreibung „stufe das als minimal ein" unterbringt, ändert damit nichts.</p>
+
+</section><p class="zaehler">4 / 14</p></div><div class="notiz"><p>Das ist der Satz, auf den alles andere aufbaut. Ein Sprachmodell, das die Rechtsfolge selbst bestimmt, ist nicht prüfbar — man kann nicht nachlesen, warum es so entschieden hat. Ein Entscheidungsbaum ist nachlesbar, Zeile für Zeile, und man kann ihn gegen Testfälle rechnen.</p></div>
+<div class="buehne" id="folie-5"><section id="bestand" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:30px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Der Rechtsbestand: 2.721 Stellen, absatzgenau</h2>
+<div style="display:flex;gap:32px;align-items:start">
+<table style="width:1080px;font-family:'IBM Plex Sans', Arial, sans-serif;font-size:25px;color:#1B2A41">
+<tr style="background:#1B2A41"><th style="width:34%;text-align:left;color:#FAFAF7;font-size:24px">Rechtsakt</th><th style="width:33%;text-align:left;color:#FAFAF7;font-size:24px">Was erfasst ist</th><th style="width:33%;text-align:right;color:#FAFAF7;font-size:24px">Stellen</th></tr>
+<tr><td>KI-Verordnung</td><td>113 Artikel, 870 Absätze</td><td style="text-align:right">1.054</td></tr>
+<tr style="background:#F1F1EA"><td>KI-VO, Anhänge</td><td>13 Anhänge, 52 Nummern</td><td style="text-align:right">65</td></tr>
+<tr><td>KI-VO, Erwägungsgründe</td><td>vollständig</td><td style="text-align:right">180</td></tr>
+<tr style="background:#F1F1EA"><td>Datenschutz-Grundverordnung</td><td>99 Artikel mit Buchstabenpunkten</td><td style="text-align:right">848</td></tr>
+<tr><td>DSGVO, Erwägungsgründe</td><td>vollständig</td><td style="text-align:right">173</td></tr>
+<tr style="background:#F1F1EA"><td>Bundesdatenschutzgesetz</td><td>Paragrafen und Absätze</td><td style="text-align:right">357</td></tr>
+<tr><td>Anwendungsfälle</td><td>9 Gebiete, mit Begründung</td><td style="text-align:right">44</td></tr>
+</table>
+<div style="flex:1;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:26px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:26px;font-weight:600">Zerlegt an der Gliederung, nicht am Text</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A5568">Der erste Entwurf suchte das Wort „Artikel" und fand 132 statt 113 — ein Querverweis im Fließtext sah wie ein Artikelanfang aus. Jetzt wird an den Ankern des Amtsblatts getrennt. Alle Zielzahlen stimmen.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:26px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:26px;font-weight:600">Jede Stelle einzeln ansprechbar</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A5568">„Artikel 6 Absatz 3" ist eine eigene Einheit mit eigener Kennung. Darum kann eine Pflicht genau darauf zeigen — und nicht auf den ganzen Artikel.</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">1.966.046 Zeichen Rechtstext &middot; Quellen und Beschaffungsweg in docs/datenquellen.md</p>
+
+</section><p class="zaehler">5 / 14</p></div><div class="notiz"><p>Die Zahlen sind Prüfkriterien, keine Angaben: dass die KI-Verordnung 113 Artikel hat, prüft eine eigene Testdatei bei jedem Lauf. Fehlt eine Norm, bricht der Lauf ab — sonst würde eine Lücke im Bestand nie auffallen, sie würde nur zu einer unvollständigen Auskunft führen.</p></div>
+<div class="buehne" id="folie-6"><section id="suche" style="background:#1B2A41;color:#FAFAF7;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1;color:#FAFAF7">Vier Wege zu einer Fundstelle</h2>
+<p style="font-size:26px;line-height:1.45;color:#BCCBDD;width:1560px">Rechtsfragen werden auf zwei Arten gestellt — nach dem Sinn („Dürfen wir Bewerbungen vorsortieren?") und nach dem Wortlaut („Was sagt Artikel 6 Absatz 3?"). Ein einziger Suchweg verliert jeweils die andere Hälfte.</p>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:26px;border-radius:16px">
+<p style="font-size:24px;font-weight:600;color:#D98E4A">1 &middot; Bedeutung</p>
+<h3 style="font-size:25px;font-weight:600;color:#FAFAF7">Vektorsuche</h3>
+<p style="font-size:24px;line-height:1.4;color:#BCCBDD">Findet „Einstellung oder Auswahl natürlicher Personen", obwohl kein Wort übereinstimmt.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:26px;border-radius:16px">
+<p style="font-size:24px;font-weight:600;color:#D98E4A">2 &middot; Wortlaut</p>
+<h3 style="font-size:25px;font-weight:600;color:#FAFAF7">Stichwortsuche</h3>
+<p style="font-size:24px;line-height:1.4;color:#BCCBDD">BM25 über den Wortlaut. Eine Vektorsuche verwischt Artikelnummern &mdash; Zahlen sehen für sie fast gleich aus.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:26px;border-radius:16px">
+<p style="font-size:24px;font-weight:600;color:#D98E4A">3 &middot; Zusammenhang</p>
+<h3 style="font-size:25px;font-weight:600;color:#FAFAF7">Wortgewichte des Modells</h3>
+<p style="font-size:24px;line-height:1.4;color:#BCCBDD">Liegt zwischen Sinn und Wortlaut: gewichtet Wörter nach ihrer Rolle im Satz.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#2F6B5E;padding:26px;border-radius:16px">
+<p style="font-size:24px;font-weight:600;color:#C9E8DF">4 &middot; Genannte Stelle</p>
+<h3 style="font-size:25px;font-weight:600;color:#FAFAF7">Fundstellenweg</h3>
+<p style="font-size:24px;line-height:1.4;color:#D4EDE6">„Art. 6 Abs. 3" wird zu einer Kennung aufgelöst und direkt geholt. Ohne diesen Weg bekäme eine genaue Frage nur ungefähre Nähe.</p>
+</div>
+</div>
+<div style="display:flex;gap:18px;align-items:center;background:#0F1B2E;padding:24px 28px;border-radius:16px">
+<p style="font-size:24px;line-height:1.4;color:#BCCBDD;flex:1"><b style="color:#FAFAF7">Zusammenführung:</b> nicht die Punktzahlen werden addiert &mdash; die sind zwischen den Wegen nicht vergleichbar &mdash; sondern die Rangplätze. Ein Treffer, den mehrere Wege vorne haben, steigt auf.</p>
+<p style="font-size:24px;line-height:1.4;color:#BCCBDD;flex:1"><b style="color:#FAFAF7">Dann die Neubewertung:</b> ein Kreuzbewerter liest Frage und Fundstelle zusammen und ordnet die besten 30 neu. Genauer, aber zu langsam für den ganzen Bestand.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E82A0">bge-m3 auf dem Rechner (1024 Dimensionen) &middot; multilingual-e5-small auf dem Telefon (384, ONNX, 118 MB)</p>
+
+</section><p class="zaehler">6 / 14</p></div><div class="notiz"><p>Der vierte Weg ist der, den man leicht vergisst — und der am häufigsten gebraucht wird: ein Jurist nennt die Norm, nach der er fragt. Eine reine Bedeutungssuche antwortet darauf mit etwas Ähnlichem statt mit dem Gesuchten.</p></div>
+<div class="buehne" id="folie-7"><section id="einstufung" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:30px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Der Weg durch die Stufen</h2>
+<p style="font-size:28px;line-height:1.4;color:#4A5568;width:1500px">Geprüft wird in der Reihenfolge der Schwere. Die erste Stufe, die greift, bestimmt die Klasse.</p>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:18px;align-items:center">
+<div style="width:296px;display:flex;flex-direction:column;gap:4px;background:#8C2F23;padding:20px 26px;border-radius:12px"><p style="font-size:24px;color:#F3CFC9">Stufe 1</p><h3 style="font-size:30px;font-weight:600;color:#FAFAF7">Verboten</h3></div>
+<p style="flex:1;font-size:27px;line-height:1.4;color:#1B2A41"><b>8 Praktiken nach Artikel 5</b> — Social Scoring, Emotionserkennung am Arbeitsplatz, ungezieltes Sammeln von Gesichtsbildern. Die Ausnahmen für Medizin und Sicherheit sind mitgeprüft.</p>
+</div>
+<div style="display:flex;gap:18px;align-items:center">
+<div style="width:296px;display:flex;flex-direction:column;gap:4px;background:#C8742B;padding:20px 26px;border-radius:12px"><p style="font-size:24px;color:#4A2F08">Stufe 2 und 3</p><h3 style="font-size:30px;font-weight:600;color:#1B1203">Hohes Risiko</h3></div>
+<p style="flex:1;font-size:27px;line-height:1.4;color:#1B2A41"><b>Anhang I</b> — Sicherheitsbauteil eines Produkts. <b>Anhang III</b> — 8 Einsatzfelder. Erkannt über kennzeichnende Wörter und über Paare: ein Trägerwort und eine Handlung. „Beschäftigte" allein genügt nicht.</p>
+</div>
+<div style="display:flex;gap:18px;align-items:center">
+<div style="width:296px;display:flex;flex-direction:column;gap:4px;background:#2F6B5E;padding:20px 26px;border-radius:12px"><p style="font-size:24px;color:#C9E8DF">Gegenprüfung</p><h3 style="font-size:30px;font-weight:600;color:#FAFAF7">Artikel 6 Abs. 3</h3></div>
+<p style="flex:1;font-size:27px;line-height:1.4;color:#1B2A41"><b>Die Ausnahme</b> für eng umgrenzte Aufgaben — mit Gegenausnahme: wer Profiling betreibt, kommt nicht heraus. Sie wird nie von allein angenommen.</p>
+</div>
+<div style="display:flex;gap:18px;align-items:center">
+<div style="width:296px;display:flex;flex-direction:column;gap:4px;background:#1B2A41;padding:20px 26px;border-radius:12px"><p style="font-size:24px;color:#8FA3BF">Stufe 4 bis 6</p><h3 style="font-size:30px;font-weight:600;color:#FAFAF7">Transparenz, GPAI</h3></div>
+<p style="flex:1;font-size:27px;line-height:1.4;color:#1B2A41"><b>4 Offenlegungsfälle nach Artikel 50</b>, Modelle mit allgemeinem Verwendungszweck, Schwelle von 10<sup>25</sup> Rechenoperationen. Alles übrige: minimal — mit der KI-Kompetenz aus Artikel 4.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Die Stufen stehen als Entscheidungsbäume in daten/regeln/ — 2.130 Zeilen YAML, lesbar ohne Programmierkenntnis</p>
+
+</section><p class="zaehler">7 / 14</p></div><div class="notiz"><p>Wichtig an dieser Folie: die Stufen liegen nicht im Programmtext, sondern in Regeldateien. Wer den Rechtstext anders liest als wir, ändert die Regeldatei und nicht das Programm. Welche Wörter einen Bereich kennzeichnen, ist eine Rechtsfrage, keine Programmierfrage.</p></div>
+<div class="buehne" id="folie-8"><section id="pflichten" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:34px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">57 Pflichten — gefiltert, nicht aufgelistet</h2>
+<p style="font-size:28px;line-height:1.4;color:#4A5568;width:1540px">Jede Pflicht trägt: was zu tun ist, in Alltagssprache · die Fundstelle · ab wann sie gilt · womit man die Erfüllung belegt · was bei Verstoß droht.</p>
+<div style="display:flex;gap:26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:14px">
+<h3 style="font-size:28px;font-weight:600">Drei Filter, nicht einer</h3>
+<p style="font-size:25px;line-height:1.4;color:#4A5568"><b>Klasse</b> — ein Chatbot bekommt keine Hochrisikopflichten.<br><b>Rolle</b> — wer einkauft, bekommt Betreiberpflichten.<br><b>Merkmale</b> — Artikel 26 Absatz 10 verlangt Biometrie <i>und</i> Strafverfolgung.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:14px">
+<h3 style="font-size:28px;font-weight:600">Was offen bleibt, wird genannt</h3>
+<p style="font-size:25px;line-height:1.4;color:#4A5568">Schweigt die Beschreibung zu einem Merkmal, verschwindet die Pflicht nicht — sie erscheint mit Vorbehalt. Weggelassen wird nur, was ausgeschlossen ist.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1B2A41;padding:30px;border-radius:14px">
+<h3 style="font-size:28px;font-weight:600;color:#D98E4A">Jede Zahl nachgesehen</h3>
+<p style="font-size:25px;line-height:1.4;color:#BCCBDD">303 Belegstellen in den Regeln, jede einzelne im Bestand vorhanden — bei jedem Prüflauf nachgesehen, nicht einmal beim Schreiben.</p>
+</div>
+</div>
+<div style="display:flex;gap:26px">
+<div style="flex:1;display:flex;flex-direction:row;gap:20px;align-items:center;background:#FFFFFF;padding:26px 30px;border:1px solid #DDDED6;border-radius:14px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:50px;color:#1B2A41">26</p><p style="font-size:25px;line-height:1.35;color:#4A5568">Datenschutzabschnitte — 14 gelten immer, 12 nur unter einer Bedingung</p></div>
+<div style="flex:1;display:flex;flex-direction:row;gap:20px;align-items:center;background:#FFFFFF;padding:26px 30px;border:1px solid #DDDED6;border-radius:14px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:50px;color:#2F6B5E">44</p><p style="font-size:25px;line-height:1.35;color:#4A5568">Anwendungsfälle mit Begründung — sie geben der Antwort den Weiterbildungseffekt</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Pflichtenmatrix: daten/regeln/kivo_pflichten.yaml · Datenschutzpfad: dsgvo_pruefpfad.yaml</p>
+
+</section><p class="zaehler">8 / 14</p></div><div class="notiz"><p>Der dritte Filter war ein echter Mangel: vorher bekam jedes Hochrisikosystem die gesamte Hochrisikoliste, und der Nutzer musste selbst aussortieren — genau die Arbeit, die ihm abgenommen werden soll. Die Richtung des Filters ist vorsichtig: weggelassen wird nur, was die Beschreibung ausschließt.</p></div>
+<div class="buehne" id="folie-9"><section id="sicherheit" style="background:#1B2A41;color:#FAFAF7;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:34px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1;color:#FAFAF7">Sicherheitsarchitektur</h2>
+<div style="display:flex;gap:22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Untergeschobene Anweisungen</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Die Beschreibung des Nutzers steht zwischen zwei je Anfrage gewürfelten Marken. Wer eine Abschnittsgrenze nachbauen will, müsste sie erraten.</p>
+<p style="font-size:24px;line-height:1.35;color:#8FA3BF">Erprobt mit 10 Angriffen, je zweifach geprüft.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Erfundene Fundstellen</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Jeder Artikel in der Antwort muss in den Belegen stehen. Was nicht belegt ist, wird gemeldet.</p>
+<p style="font-size:24px;line-height:1.35;color:#8FA3BF">So fiel auf, dass Artikel 72 im Pflichttext stand, aber nicht in den Fundstellen.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Der Bestand als Angriffsweg</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Als pickle hätte eine veränderte Kopie beim Laden fremden Code ausgeführt. Jetzt JSON: falsche Treffer sind möglich, fremder Code nicht.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#2F6B5E;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#FAFAF7">Im Betrieb</h3>
+<p style="font-size:25px;line-height:1.38;color:#D4EDE6">Der Container läuft ohne Verwalterrechte und kann seinen Quelltext nicht ändern. Schlüssel nie im Protokoll. 30 Anfragen je Minute. Keine Verbindung nach außen.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#BCCBDD;background:#0F1B2E;padding:26px 34px;border-radius:14px"><b style="color:#FAFAF7">Die Prüfwerkzeuge brechen ab, sie warnen nicht.</b> ruff, ruff format, mypy, bandit und pip-audit: keine Beanstandung. Ein roter Lauf bedeutet wieder etwas.</p>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E82A0">Schwachstellenmeldungen: SECURITY.md · Entscheidungen und ihre Gründe: docs/sicherheit.md</p>
+
+</section><p class="zaehler">9 / 14</p></div><div class="notiz"><p>Der dritte Punkt ist der, der am leichtesten übersehen wird. Im Quelltext stand als Begründung „eigene Datei, kein Fremdinhalt" — das stimmte nicht: die Datei wird mit ausgeliefert, und wer eine Kopie des Repositories ändert, erreicht damit jeden, der sie lädt.</p></div>
+<div class="buehne" id="folie-10"><section id="orte" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:30px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Drei Orte, dieselbe Auskunft</h2>
+<p style="font-size:28px;line-height:1.45;color:#4A5568;width:1560px">Rechtsbestand, Regelwerk und Suche liegen überall mit. Keine Anfrage verlässt das Gerät &mdash; es sei denn, der Betreiber hinterlegt bewusst einen Schlüssel für Claude oder GPT zum Formulieren.</p>
+<div style="display:flex;gap:22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:28px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:29px;font-weight:600">Auf dem Rechner</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A5568">Python. Weboberfläche im Browser, Schnittstelle für eigene Abläufe, fünf Befehle auf der Kommandozeile.</p>
+<p style="font-size:24px;line-height:1.4;color:#1B2A41"><b>Formulieren:</b> Claude, GPT oder Ollama &mdash; oder ganz ohne Modell, dann kommt die Auskunft knapper, aber inhaltlich gleich aus dem Regelwerk.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:28px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:29px;font-weight:600">Als Container</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A5568">Ein Befehl, und der Dienst läuft &mdash; mit Rechtsbestand und Suchmodell im Abbild, als Nutzer ohne Verwalterrechte.</p>
+<p style="font-size:24px;line-height:1.4;color:#1B2A41"><b>Geprüft ohne Netz:</b> der Behälter wird mit abgeschaltetem Netz gestartet und muss trotzdem antworten.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#1B2A41;padding:28px;border-radius:16px">
+<h3 style="font-size:29px;font-weight:600;color:#D98E4A">Auf dem Telefon</h3>
+<p style="font-size:24px;line-height:1.45;color:#D4DEEB">Android, Kotlin, 4.730 Zeilen. Datenbank und Suche stecken in der App: Volltextsuche und Vektorsuche rechnen auf dem Gerät.</p>
+<p style="font-size:24px;line-height:1.4;color:#FAFAF7"><b>Eine Berechtigung:</b> INTERNET &mdash; und die nur, wenn der Nutzer selbst ein Sprachmodell zum Formulieren hinterlegt.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Das Containerabbild wiegt 8 GB mit Suchmodell, 412 MB ohne &middot; Die App bringt 8,4 MB Recht und 118 MB Modell mit</p>
+
+</section><p class="zaehler">10 / 14</p></div><div class="notiz"><p>„Lokal betreibbar" heißt hier wörtlich: im Container wird mit abgeschaltetem Netz geprüft, dass der Dienst antwortet — und zusätzlich, dass das Netz wirklich fehlt. Ohne diese Gegenprobe wäre die erste Prüfung wertlos.</p></div>
+<div class="buehne" id="folie-11"><section id="anleitung-pc" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:26px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:60px;font-weight:400;line-height:1.1">Betriebsanleitung: Rechner und Container</h2>
+<div style="display:flex;gap:26px;align-items:start">
+<div style="width:820px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#C8742B;width:52px">1</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Holen und einrichten</h3><p style="font-size:24px;line-height:1.4;color:#4A5568">Repository klonen, dann <b>pip install -e ".[suche]"</b>. Der Rechtsbestand liegt schon dabei &mdash; es wird nichts nachgeladen.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#C8742B;width:52px">2</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Einmal den Suchbestand bauen</h3><p style="font-size:24px;line-height:1.4;color:#4A5568"><b>python scripts/bestand_bauen.py</b> &mdash; rechnet die Einbettungen, etwa eine Stunde. Bricht der Lauf ab, macht der nächste dort weiter, wo er stehen geblieben ist.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#C8742B;width:52px">3</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Starten</h3><p style="font-size:24px;line-height:1.4;color:#4A5568"><b>scripts/start.sh</b> (oder <b>start.ps1</b> unter Windows), dann im Browser <b>127.0.0.1:8000</b>. Als Container: <b>docker compose up</b>.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#2F6B5E;width:52px">4</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Nachsehen, womit gerechnet wird</h3><p style="font-size:24px;line-height:1.4;color:#4A5568"><b>/gesundheit</b> nennt Zustand, Zahl der Rechtsstellen, Suchmodell, Datenstand &mdash; und warnt, wenn der Suchbestand fehlt und mit Ersatz gearbeitet wird.</p></div></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#1B2A41;padding:28px;border-radius:16px">
+<h3 style="font-size:26px;font-weight:600;color:#D98E4A">Für eigene Abläufe</h3>
+<p style="font-size:24px;line-height:1.45;color:#BCCBDD;font-family:'IBM Plex Sans', Arial, sans-serif">helfer <b style="color:#FAFAF7">pruefen</b> &bdquo;...&ldquo;<br>helfer <b style="color:#FAFAF7">fragen</b> &bdquo;...&ldquo; --beschreibung &bdquo;...&ldquo;<br>helfer <b style="color:#FAFAF7">suchen</b> &bdquo;Art. 6 Abs. 3&ldquo;<br>helfer <b style="color:#FAFAF7">stand</b><br>helfer <b style="color:#FAFAF7">dienst</b></p>
+<p style="font-size:24px;line-height:1.4;color:#8FA3BF">Mit <b>--json</b> wird die Ausgabe weiterverarbeitbar &mdash; etwa für eine nächtliche Prüfung aller Systeme eines Unternehmens.</p>
+<p style="font-size:24px;line-height:1.4;color:#8FA3BF">Schlüssel kommen aus der Umgebung, nicht aus einer Datei im Repository. Die Vorlage steht in .env.example.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Ausführlich in docs/betriebsanleitung.md &middot; Architektur in docs/architektur.md</p>
+
+</section><p class="zaehler">11 / 14</p></div><div class="notiz"><p>Schritt 2 ist der einzige, der Zeit braucht, und der einzige, den man vergessen kann. Darum sagt der Dienst von selbst, wenn er mit dem Ersatzverfahren läuft: dann vergleicht er nur Wörter statt Bedeutung, und die Fundstellen sind deutlich schlechter.</p></div>
+<div class="buehne" id="folie-12"><section id="anleitung-telefon" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:60px;font-weight:400;line-height:1.1">Betriebsanleitung: Android</h2>
+<div style="display:flex;gap:26px;align-items:start">
+<div style="width:900px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#C8742B;width:52px">1</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Herunterladen</h3><p style="font-size:24px;line-height:1.42;color:#4A5568">Die Installationsdatei hängt bei jeder Veröffentlichung im Repository &mdash; gebaut von der Bauanlage, nicht von Hand.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#C8742B;width:52px">2</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Installieren</h3><p style="font-size:24px;line-height:1.42;color:#4A5568">Antippen, Installation aus unbekannter Quelle einmal zulassen, fertig. Es muss nichts eingerichtet und nichts angemeldet werden.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#2F6B5E;width:52px">3</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Benutzen &mdash; auch im Flugzeug</h3><p style="font-size:24px;line-height:1.42;color:#4A5568">System beschreiben oder den Fragebogen ausfüllen. Einstufung, Pflichten und Fundstellen rechnet das Telefon selbst. Ohne Netz, ohne Konto.</p></div></div>
+<div style="display:flex;gap:16px;align-items:start"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;color:#4A5568;width:52px">4</p><div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:26px;font-weight:600">Wer eine schönere Formulierung will</h3><p style="font-size:24px;line-height:1.42;color:#4A5568">kann in den Einstellungen einen eigenen Schlüssel für Claude oder GPT hinterlegen. Er liegt verschlüsselt im Gerät. Ohne Schlüssel bleibt alles auf dem Telefon.</p></div></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:26px;border:1px solid #DDDED6;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#1B2A41">1</p><p style="font-size:24px;line-height:1.35;color:#4A5568">einzige Berechtigung: INTERNET &mdash; kein Zugriff auf Kontakte, Standort, Dateien oder Kamera</p></div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:26px;border:1px solid #DDDED6;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#1B2A41">65</p><p style="font-size:24px;line-height:1.35;color:#4A5568">Einheitenprüfungen der App, alle grün</p></div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#1B2A41;padding:26px;border-radius:16px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:46px;color:#D98E4A">3</p><p style="font-size:24px;line-height:1.35;color:#BCCBDD">Suchwege im Telefon: Volltext, Vektoren und der Fundstellenweg</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Die Oberfläche ist auf einem Gerät noch nicht erprobt &mdash; Suchlogik und Datenbank sind es</p>
+
+</section><p class="zaehler">12 / 14</p></div><div class="notiz"><p>Der letzte Satz unten ist wichtig und steht mit Absicht da: die Oberfläche der App wurde im Bauraum nicht auf einem echten Gerät bedient. Was geprüft ist, sind Suchlogik, Datenbank und die 65 Einheitenprüfungen. Das soll nicht als mehr verkauft werden, als es ist.</p></div>
+<div class="buehne" id="folie-13"><section id="geprueft" style="background:#1B2A41;color:#FAFAF7;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1;color:#FAFAF7">Was nachgeprüft ist</h2>
+<div style="display:flex;gap:28px;align-items:start">
+<table style="width:1000px;font-family:'IBM Plex Sans', Arial, sans-serif;font-size:25px;color:#FAFAF7">
+<tr style="background:#0F1B2E"><th style="width:52%;text-align:left;color:#D98E4A;font-size:24px">Was geprüft wird</th><th style="width:20%;text-align:right;color:#D98E4A;font-size:24px">Prüfungen</th><th style="width:28%;text-align:right;color:#D98E4A;font-size:24px">Befund</th></tr>
+<tr><td>Einstufung und Pflichten</td><td style="text-align:right">33</td><td style="text-align:right">alle grün</td></tr>
+<tr style="background:#24375A"><td>Rechtsbestand und Zerleger</td><td style="text-align:right">18</td><td style="text-align:right">alle grün</td></tr>
+<tr><td>Vier Suchwege, Ablegen und Laden</td><td style="text-align:right">22</td><td style="text-align:right">alle grün</td></tr>
+<tr style="background:#24375A"><td>Antwortsicherheit, Angriffsreihe</td><td style="text-align:right">36</td><td style="text-align:right">alle grün</td></tr>
+<tr><td>Schnittstelle und Weboberfläche</td><td style="text-align:right">23</td><td style="text-align:right">alle grün</td></tr>
+<tr style="background:#24375A"><td>Kommandozeile</td><td style="text-align:right">16</td><td style="text-align:right">alle grün</td></tr>
+<tr><td>Container ohne Netz</td><td style="text-align:right">10</td><td style="text-align:right">alle grün</td></tr>
+<tr style="background:#0F1B2E"><td style="font-weight:600">Zusammen</td><td style="text-align:right;font-weight:600">158</td><td style="text-align:right;font-weight:600">alle grün</td></tr>
+</table>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#2F6B5E;padding:26px;border-radius:16px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:54px;color:#FAFAF7">44 / 44</p>
+<p style="font-size:24px;line-height:1.38;color:#D4EDE6">Anwendungsfälle treffen ihre hinterlegte Einstufung. Beim ersten Durchgang waren es 23 von 44.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#24375A;padding:26px;border-radius:16px">
+<h3 style="font-size:25px;font-weight:600;color:#D98E4A">Jeder behobene Fehler bleibt geprüft</h3>
+<p style="font-size:24px;line-height:1.38;color:#BCCBDD">„gericht" traf „gerichtet" &mdash; eine Kamera am Förderband wurde zur Rechtspflege. „assistent" machte einen Notbremsassistenten zum Gesprächssystem. „Maschine" allein galt als Einbau. Jeder dieser Fälle hat heute eine eigene Prüfung mit dem Fehler im Namen.</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E82A0">1.792 Zeilen Prüfungen &middot; Bei jedem Vorschlag auf GitHub: Python 3.11, 3.12 und 3.13</p>
+
+</section><p class="zaehler">13 / 14</p></div><div class="notiz"><p>Die Zahl 23 von 44 ist absichtlich genannt. Die Fallsammlung ist aus dem Verordnungstext erarbeitet und mit Fundstellen begründet — sie war von Anfang an der Maßstab, und beim ersten Durchgang lag der Prüfer bei der Hälfte falsch. Was dann folgte, waren 14 echte Befunde, und jeder hat heute seine eigene Rückfallprüfung.</p></div>
+<div class="buehne" id="folie-14"><section id="grenzen" style="background:#FAFAF7;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:30px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1">Was er nicht ist</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600">Keine Rechtsberatung</h3>
+<p style="font-size:25px;line-height:1.45;color:#4A5568">Er sagt, welche Vorschrift einschlägig ist und was dort steht. Ob sie auf Ihren Fall zutrifft, entscheidet ein Mensch mit Zulassung. Jede Auskunft sagt das mit.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600">Ein Datenstand, kein Abonnement</h3>
+<p style="font-size:25px;line-height:1.45;color:#4A5568">Erfasst ist der Wortlaut zum <b>31.05.2026</b>. Delegierte Rechtsakte, harmonisierte Normen und Leitlinien der Kommission, die danach ergangen sind, stehen nicht drin. Der Stand steht in jeder Antwort.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:30px;border:1px solid #DDDED6;border-radius:16px">
+<h3 style="font-size:28px;font-weight:600">Fristen unter Vorbehalt</h3>
+<p style="font-size:25px;line-height:1.45;color:#4A5568">Die Daten aus Artikel 113 werden genannt, aber mit Vorbehalt: an den Geltungszeitpunkten wurde politisch gearbeitet. Wer eine Frist plant, prüft sie nach.</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#1B2A41;padding:30px 32px;border-radius:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<h3 style="font-size:28px;font-weight:600;color:#D98E4A">Zu prüfen bleibt</h3>
+<p style="font-size:24px;line-height:1.42;color:#BCCBDD">Der amtliche DSGVO-Volltext aus dem Amtsblatt war nicht erreichbar &mdash; verwendet ist eine zweite, gute Quelle; das steht in docs/datenquellen.md. Die Oberfläche der Android-App ist auf einem Gerät noch nicht bedient worden.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<h3 style="font-size:28px;font-weight:600;color:#D98E4A">Wer einen Rechtsfehler findet</h3>
+<p style="font-size:24px;line-height:1.42;color:#BCCBDD">bekommt eine eigene Meldevorlage im Repository: Fundstelle, erwartete und erhaltene Einstufung. Ein falsch eingeordneter Fall ist der wichtigste Fehler, den es hier gibt.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#8A8F7E">Apache-2.0 &middot; Haftungsfragen in docs/haftung.md &middot; Jeder darf ihn nutzen, ändern und weitergeben</p>
+
+</section><p class="zaehler">14 / 14</p></div><div class="notiz"><p>Diese Folie gehört dazu, nicht als Kleingedrucktes. Ein Werkzeug, das seine Grenzen nicht nennt, wird für mehr genommen, als es ist — und dann haftet jemand dafür. Die Meldevorlage für Rechtsfehler ist bewusst die erste im Repository.</p></div>
+</main>
+<script>
+  (function () {
+    var buehnen = Array.prototype.slice.call(document.querySelectorAll('.buehne'));
+    if (!buehnen.length) return;
+
+    // Jede Folie ist 1920 auf 1080 Punkte entworfen und wird hier auf die
+    // Breite ihrer Bühne heruntergerechnet.
+    function massstabSetzen() {
+      var breite = buehnen[0].clientWidth;
+      document.documentElement.style.setProperty('--massstab', breite / 1920);
+      document.documentElement.classList.add('skaliert');
+    }
+    massstabSetzen();
+    window.addEventListener('resize', massstabSetzen);
+    if ('ResizeObserver' in window) new ResizeObserver(massstabSetzen).observe(buehnen[0]);
+
+    // Beim Drucken wieder Originalgröße, danach zurück.
+    if (window.matchMedia) {
+      var druck = window.matchMedia('print');
+      var umschalten = function (e) {
+        if (e.matches) document.documentElement.style.setProperty('--massstab', 1);
+        else massstabSetzen();
+      };
+      if (druck.addEventListener) druck.addEventListener('change', umschalten);
+    }
+
+    // Blättern heißt hier: zur nächsten Folie rollen. Kein eigener
+    // Anzeigezustand, damit die Seite ohne JavaScript vollständig lesbar
+    // bleibt — sie ist dann eine lange Folge von Folien.
+    var stand = 0;
+    function zeigen(n) {
+      stand = Math.max(0, Math.min(buehnen.length - 1, n));
+      buehnen[stand].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault(); zeigen(stand + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); zeigen(stand - 1);
+      } else if (e.key === 'Home') { e.preventDefault(); zeigen(0); }
+      else if (e.key === 'End') { e.preventDefault(); zeigen(buehnen.length - 1); }
+    });
+    if ('IntersectionObserver' in window) {
+      var wache = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) {
+          if (e.isIntersecting) stand = buehnen.indexOf(e.target);
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      buehnen.forEach(function (b) { wache.observe(b); });
+    }
+
+    var schalter = document.getElementById('notizschalter');
+    schalter.addEventListener('click', function () {
+      var aus = document.body.classList.toggle('ohne-notizen');
+      schalter.textContent = aus ? 'Sprechernotizen einblenden' : 'Sprechernotizen ausblenden';
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<section id="sicherheit" data-transition="fade" style="background:#1B2A41;color:#FAFAF7;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:34px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:62px;font-weight:400;line-height:1.1;color:#FAFAF7">Sicherheitsarchitektur</h2>
+<div style="display:flex;gap:22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Untergeschobene Anweisungen</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Die Beschreibung des Nutzers steht zwischen zwei je Anfrage gewürfelten Marken. Wer eine Abschnittsgrenze nachbauen will, müsste sie erraten.</p>
+<p style="font-size:24px;line-height:1.35;color:#8FA3BF">Erprobt mit 10 Angriffen, je zweifach geprüft.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Erfundene Fundstellen</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Jeder Artikel in der Antwort muss in den Belegen stehen. Was nicht belegt ist, wird gemeldet.</p>
+<p style="font-size:24px;line-height:1.35;color:#8FA3BF">So fiel auf, dass Artikel 72 im Pflichttext stand, aber nicht in den Fundstellen.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#24375A;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#D98E4A">Der Bestand als Angriffsweg</h3>
+<p style="font-size:25px;line-height:1.38;color:#BCCBDD">Als pickle hätte eine veränderte Kopie beim Laden fremden Code ausgeführt. Jetzt JSON: falsche Treffer sind möglich, fremder Code nicht.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#2F6B5E;padding:30px;border-radius:14px">
+<h3 style="font-size:27px;font-weight:600;color:#FAFAF7">Im Betrieb</h3>
+<p style="font-size:25px;line-height:1.38;color:#D4EDE6">Der Container läuft ohne Verwalterrechte und kann seinen Quelltext nicht ändern. Schlüssel nie im Protokoll. 30 Anfragen je Minute. Keine Verbindung nach außen.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#BCCBDD;background:#0F1B2E;padding:26px 34px;border-radius:14px"><b style="color:#FAFAF7">Die Prüfwerkzeuge brechen ab, sie warnen nicht.</b> ruff, ruff format, mypy, bandit und pip-audit: keine Beanstandung. Ein roter Lauf bedeutet wieder etwas.</p>
+<p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E82A0">Schwachstellenmeldungen: SECURITY.md · Entscheidungen und ihre Gründe: docs/sicherheit.md</p>
+<aside>Der dritte Punkt ist der, der am leichtesten übersehen wird. Im Quelltext stand als Begründung „eigene Datei, kein Fremdinhalt" — das stimmte nicht: die Datei wird mit ausgeliefert, und wer eine Kopie des Repositories ändert, erreicht damit jeden, der sie lädt.</aside>
+</section>
