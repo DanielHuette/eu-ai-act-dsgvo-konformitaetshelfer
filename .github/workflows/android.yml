@@ -103,10 +103,17 @@ jobs:
       - name: Kotlin-Dateien vorprüfen
         run: python android/pruefung/kotlin_pruefen.py
 
+      # gradle/actions/setup-gradle kennt kein build-root-directory mehr; die
+      # Angabe wurde stillschweigend verworfen, und der Lauf meldete das nur
+      # als Hinweis am Rand. Gebraucht wird sie auch nicht: die beiden
+      # Gradle-Aufrufe weiter unten setzen working-directory: android selbst.
+      # Stattdessen die Prüfung der Wrapper-Dateien — sie vergleicht
+      # gradle-wrapper.jar gegen die bekannten Prüfsummen und erkennt eine
+      # untergeschobene Fassung, die sonst beim Bauen Code ausführen würde.
       - name: Gradle einrichten
         uses: gradle/actions/setup-gradle@v4
         with:
-          build-root-directory: android
+          validate-wrappers: true
 
       - name: Einheitenprüfungen laufen lassen
         working-directory: android
