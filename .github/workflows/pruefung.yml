@@ -126,7 +126,15 @@ jobs:
       - name: pytest — Prüfungen ohne Modelle
         run: |
           set +e
-          pytest -m "not langsam and not netz" --color=yes
+          pytest -m "not langsam and not netz and not container" --color=yes
+
+      # Der Containerlauf baut ein Abbild und startet es ohne Netz. Das dauert
+      # ein paar Minuten und steht darum hinter den schnellen Prüfungen: wer
+      # einen Fehler im Programmtext gemacht hat, soll das nach einer Minute
+      # erfahren und nicht nach sechs. Gebaut wird mit MIT_SUCHMODELL=0 — ohne
+      # das Einbettungsmodell ist das Abbild 400 Megabyte statt 8 Gigabyte.
+      - name: pytest — Container ohne Netz
+        run: pytest -m container --color=yes
           ergebnis=$?
           set -e
           if [ "$ergebnis" -eq 5 ]; then

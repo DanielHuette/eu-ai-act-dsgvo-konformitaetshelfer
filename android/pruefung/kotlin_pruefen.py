@@ -172,13 +172,17 @@ def eigene_namen(dateien: list[Path]) -> dict[str, set[str]]:
         for name in muster.findall(quelle):
             namen.add(name)
         # Erweiterungen wie "fun ColumnScope.Fragebogen" erklären Fragebogen.
-        for name in re.findall(r"^\s*(?:@\w+\s+)*fun\s+[\w.]+\.([A-Za-z_]\w*)\s*\(",
-                               quelle, re.MULTILINE):
+        for name in re.findall(
+            r"^\s*(?:@\w+\s+)*fun\s+[\w.]+\.([A-Za-z_]\w*)\s*\(", quelle, re.MULTILINE
+        ):
             namen.add(name)
         # Geschachtelte Namen, die von außen eingeführt werden können.
-        for name in re.findall(r"^\s{4}(?:data |sealed |enum |value )*"
-                               r"(?:class|object|interface)\s+([A-Za-z_]\w*)",
-                               quelle, re.MULTILINE):
+        for name in re.findall(
+            r"^\s{4}(?:data |sealed |enum |value )*"
+            r"(?:class|object|interface)\s+([A-Za-z_]\w*)",
+            quelle,
+            re.MULTILINE,
+        ):
             namen.add(name)
     return nach_paket
 
@@ -206,11 +210,9 @@ def haupt() -> int:
         paket = treffer.group(1)
         teile = datei.parent.as_posix().split("/")
         if "kotlin" in teile:
-            erwartet = ".".join(teile[teile.index("kotlin") + 1:])
+            erwartet = ".".join(teile[teile.index("kotlin") + 1 :])
             if erwartet and paket != erwartet:
-                beanstandet.append(
-                    f"{kurz}: Paket '{paket}', Ordner sagt '{erwartet}'"
-                )
+                beanstandet.append(f"{kurz}: Paket '{paket}', Ordner sagt '{erwartet}'")
 
         # Klammern, Texte, Kommentare
         try:
@@ -234,15 +236,19 @@ def haupt() -> int:
                     )
                 continue
             if zeile.startswith(EIGENES_PAKET + "."):
-                rest = zeile[len(EIGENES_PAKET) + 1:]
+                rest = zeile[len(EIGENES_PAKET) + 1 :]
                 stuecke = rest.split(".")
                 name = stuecke[-1]
-                fremdes_paket = EIGENES_PAKET + ("." + ".".join(stuecke[:-1])
-                                                 if len(stuecke) > 1 else "")
+                fremdes_paket = EIGENES_PAKET + (
+                    "." + ".".join(stuecke[:-1]) if len(stuecke) > 1 else ""
+                )
                 if name not in bekannt.get(fremdes_paket, set()):
                     # Auch ein Name aus einer Begleitklasse ist zulässig.
-                    tiefer = EIGENES_PAKET + "." + ".".join(stuecke[:-2]) \
-                        if len(stuecke) > 2 else fremdes_paket
+                    tiefer = (
+                        EIGENES_PAKET + "." + ".".join(stuecke[:-2])
+                        if len(stuecke) > 2
+                        else fremdes_paket
+                    )
                     if stuecke[-2:-1] and stuecke[-2] in bekannt.get(tiefer, set()):
                         continue
                     beanstandet.append(
