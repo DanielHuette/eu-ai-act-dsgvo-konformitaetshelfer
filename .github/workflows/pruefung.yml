@@ -114,9 +114,15 @@ jobs:
       - name: bandit — auf unsichere Muster prüfen
         run: bandit -c pyproject.toml -r src scripts android
 
+      # pip-audit ohne --strict: der Schalter macht jedes Paket, das sich
+      # nicht gegen PyPI prüfen lässt, zum Fehler — und dazu gehört dieses
+      # Projekt selbst, weil es editierbar installiert ist und gar nicht auf
+      # PyPI liegt. Eine gefundene Schwachstelle lässt den Lauf auch ohne den
+      # Schalter abbrechen; nur das Überspringen tut es nicht mehr.
+      # --skip-editable nimmt das eigene Paket ausdrücklich heraus, damit in
+      # der Ausgabe steht, warum es fehlt.
       - name: pip-audit — Pakete auf bekannte Schwachstellen prüfen
-        run: pip-audit --strict
-        continue-on-error: false
+        run: pip-audit --skip-editable
 
       # Der Rückgabewert 5 bedeutet "keine Prüfungen gefunden". Das ist zum
       # Stand 03.10.2026 der Normalfall, weil tests/ leer ist, und soll den

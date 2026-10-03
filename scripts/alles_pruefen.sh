@@ -31,6 +31,24 @@ schritt "ruff — Programmtext auf Regeln"  python3 -m ruff check .
 schritt "ruff format — Formatierung"      python3 -m ruff format --check .
 schritt "mypy — Typen"                    python3 -m mypy src
 schritt "bandit — unsichere Muster"       python3 -m bandit -c pyproject.toml -r src scripts android -q
+# pip-audit prüft, was in der Umgebung liegt. Auf der Bauanlage ist das genau
+# dieses Projekt samt Abhängigkeiten; auf einem Entwicklungsrechner liegt
+# daneben alles Mögliche, und dessen Schwachstellen sagen über dieses Projekt
+# nichts. Darum werden hier die Abhängigkeiten geprüft, die pyproject.toml
+# nennt — dieselbe Aussage, unabhängig vom Rechner.
+pruefliste=$(mktemp)
+python3 - "$pruefliste" <<'PY'
+import sys, tomllib
+with open("pyproject.toml", "rb") as datei:
+    satz = tomllib.load(datei)["project"]
+zeilen = list(satz.get("dependencies", []))
+for weitere in satz.get("optional-dependencies", {}).values():
+    zeilen += list(weitere)
+with open(sys.argv[1], "w", encoding="utf-8") as ziel:
+    ziel.write("\n".join(sorted(set(zeilen))) + "\n")
+PY
+schritt "pip-audit — Schwachstellen"      python3 -m pip_audit -r "$pruefliste"
+rm -f "$pruefliste"
 schritt "pytest — Prüfungen"              python3 -m pytest -m "not langsam and not netz and not container" -q
 
 if [[ $mit_allem -eq 1 ]]; then
