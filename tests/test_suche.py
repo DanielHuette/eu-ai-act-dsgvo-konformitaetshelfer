@@ -249,3 +249,46 @@ def test_ungebauter_bestand_wird_nicht_abgelegt(korpus, tmp_path):
     leer = Suchbestand(korpus[:10], Streuwerk())
     with pytest.raises(RuntimeError, match="nicht gebaut"):
         leer.ablegen(tmp_path / "bestand")
+
+
+# ------------------------------------------- Mischung aus Recht und Beispiel
+
+
+def test_anwendungsfaelle_verdraengen_den_rechtstext_nicht(kleiner_bestand, korpus):
+    """Höchstens ein Drittel der Belege darf aus Anwendungsfällen bestehen.
+
+    Die Fälle sind in derselben Alltagssprache geschrieben wie die Fragen und
+    treffen die Bedeutungssuche darum besser als der Gesetzestext, der von
+    Rechtsbegriffen lebt. Nachgemessen: sie machen 1,6 Prozent des Bestandes
+    aus und stellten vorher 38 Prozent der Belege — bei einer Lagefrage sogar
+    sechs von acht. Der Nutzer soll aber die Fundstelle im Gesetz bekommen;
+    der Fall ordnet sie ein.
+    """
+    from helfer.modell import Einheitsart
+
+    mit_faellen = [e for e in korpus if e.art is Einheitsart.FALLBEISPIEL]
+    if not mit_faellen:
+        pytest.skip("Keine Anwendungsfälle im Korpus")
+
+    bestand = Suchbestand(
+        [e for e in korpus if e.art is Einheitsart.FALLBEISPIEL][:20]
+        + [e for e in korpus if e.kennung.startswith(("KI-VO/art-6", "KI-VO/anh-III"))],
+        Streuwerk(),
+    )
+    bestand.bauen()
+    for anzahl in (3, 6, 9):
+        treffer = bestand.suchen("Bewerbungen vorsortieren", anzahl=anzahl, mit_neubewertung=False)
+        faelle = sum(1 for t in treffer if t.einheit.art is Einheitsart.FALLBEISPIEL)
+        assert faelle <= max(1, anzahl // 3), "%d von %d Belegen sind Anwendungsfälle" % (
+            faelle,
+            len(treffer),
+        )
+
+
+def test_begrenzung_liefert_trotzdem_die_volle_anzahl(kleiner_bestand):
+    """Übersprungene Fälle dürfen die Antwort nicht kürzer machen."""
+    for anzahl in (3, 5, 8):
+        treffer = kleiner_bestand.suchen(
+            "Hochrisiko Pflichten", anzahl=anzahl, mit_neubewertung=False
+        )
+        assert len(treffer) == min(anzahl, len(kleiner_bestand.einheiten))

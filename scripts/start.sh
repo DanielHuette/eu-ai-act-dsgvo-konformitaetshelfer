@@ -83,7 +83,7 @@ fi
 EINHEITEN=$(wc -l < daten/aufbereitet/korpus.jsonl | tr -d ' ')
 gut "Rechtstexte da: $EINHEITEN Rechtsstellen"
 
-if [[ -f daten/aufbereitet/suchbestand.bestand.pkl ]]; then
+if [[ -f daten/aufbereitet/suchbestand.bestand.json.gz ]]; then
   gut "Suchbestand da — der Dienst muss beim Start nicht rechnen"
 else
   warnen "Der Suchbestand fehlt. Der Dienst baut ihn beim Start selbst;

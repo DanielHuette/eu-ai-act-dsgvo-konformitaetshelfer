@@ -175,7 +175,7 @@ def _einbetter_waehlen() -> tuple[Any, str]:
             "und findet deutlich schlechter. Richtig ist, den Bestand einmal "
             "zu bauen — python -m scripts.bestand_bauen — und ihn als "
             f"{BESTANDSPFAD.name}.vektoren.npy und "
-            f"{BESTANDSPFAD.name}.bestand.pkl abzulegen. Wer stattdessen "
+            f"{BESTANDSPFAD.name}.bestand.json.gz abzulegen. Wer stattdessen "
             "hier und jetzt warten will: HELFER_BESTAND_BAUEN=1 setzen."
         )
     return waehlen(gewuenscht), ""
@@ -213,9 +213,20 @@ def zustand_laden(mit_sprachmodell: bool = True) -> Zustand:
     # Der abgelegte Bestand ist der Normalfall. Fehlt er, wird er im Speicher
     # gebaut — das dauert mit dem Ersatzmodell unter einer Sekunde und hält den
     # Dienst arbeitsfähig, statt ihn mit einer Fehlermeldung stehen zu lassen.
-    pkl = BESTANDSPFAD.with_suffix(".bestand.pkl")
+    # Der Beipack liegt als gepacktes JSON (.bestand.json.gz). Frühere
+    # Fassungen legten ihn als pickle ab; eine solche Datei wird nicht mehr
+    # gelesen, und Suchbestand.laden sagt das mit einer eigenen Meldung.
+    beipack = BESTANDSPFAD.with_suffix(".bestand.json.gz")
     npy = BESTANDSPFAD.with_suffix(".vektoren.npy")
-    if pkl.exists() and npy.exists():
+
+    # Wer ausdrücklich das Ersatzverfahren verlangt (HELFER_EINBETTUNG=ersatz),
+    # bekommt es auch dann, wenn ein abgelegter Bestand danebenliegt. Sonst
+    # zöge ein Prüflauf, der schnell sein soll, das volle Einbettungsmodell
+    # nach — und wartete Minuten auf etwas, das er gar nicht wollte.
+    gewuenscht = os.environ.get("HELFER_EINBETTUNG", "").strip().lower()
+    ersatz_gewuenscht = gewuenscht in {"ersatz", "streuwerk", Streuwerk.name}
+
+    if beipack.exists() and npy.exists() and not ersatz_gewuenscht:
         try:
             z.bestand = Suchbestand.laden(BESTANDSPFAD, z.einheiten)
             z.bestand_aus_datei = True

@@ -470,7 +470,9 @@ def befehl_stand(args: argparse.Namespace, f: Farben) -> int:
 
     _ueberschrift(f, "Suchbestand")
     print(
-        _umbrechen(f"Dateien: {BESTANDSPFAD.name}.vektoren.npy und {BESTANDSPFAD.name}.bestand.pkl")
+        _umbrechen(
+            f"Dateien: {BESTANDSPFAD.name}.vektoren.npy und {BESTANDSPFAD.name}.bestand.json.gz"
+        )
     )
     print(_umbrechen(f"Ordner: {BESTANDSPFAD.parent}"))
     print(

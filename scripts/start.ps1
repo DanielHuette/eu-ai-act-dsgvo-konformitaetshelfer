@@ -94,7 +94,7 @@ if (-not (Test-Path $Korpus)) {
 $Zeilen = (Get-Content $Korpus -ReadCount 0).Count
 Gut "Rechtstexte da: $Zeilen Rechtsstellen"
 
-if (Test-Path (Join-Path $Wurzel 'daten\aufbereitet\suchbestand.bestand.pkl')) {
+if (Test-Path (Join-Path $Wurzel 'daten\aufbereitet\suchbestand.bestand.json.gz')) {
     Gut "Suchbestand da - der Dienst muss beim Start nicht rechnen"
 } else {
     Warnen "Der Suchbestand fehlt. Der Dienst baut ihn beim Start selbst; ohne das grosse Modell bedeutet das schlechtere Fundstellen.`n     Besser vorher:  python -m scripts.bestand_bauen"

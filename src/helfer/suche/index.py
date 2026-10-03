@@ -41,7 +41,7 @@ from pathlib import Path
 
 import numpy as np
 
-from helfer.modell import Belegstelle, Einheit, Rechtsakt
+from helfer.modell import Belegstelle, Einheit, Einheitsart, Rechtsakt
 from helfer.suche.einbettung import Einbetter, waehlen
 
 protokoll = logging.getLogger(__name__)
@@ -637,7 +637,45 @@ class Suchbestand:
 
         if mit_neubewertung and len(treffer) > 1:
             treffer = neu_bewerten(frage, treffer)
-        return treffer[:anzahl]
+        return self._faelle_begrenzen(treffer, anzahl)
+
+    @staticmethod
+    def _faelle_begrenzen(treffer: list[Treffer], anzahl: int) -> list[Treffer]:
+        """Lässt höchstens ein Drittel Anwendungsfälle unter den Belegen zu.
+
+        Die Anwendungsfälle sind in derselben Alltagssprache geschrieben wie
+        die Fragen — und treffen die Bedeutungssuche darum deutlich besser als
+        der Gesetzestext, der von Rechtsbegriffen lebt. Nachgemessen: sie
+        machen 1,6 Prozent des Bestandes aus und stellten 38 Prozent der
+        Belege, bei einer Lagefrage wie "Dürfen wir Bewerbungen vorsortieren?"
+        sogar sechs von acht.
+
+        Das ist die falsche Gewichtung: der Nutzer soll die Fundstelle im
+        Gesetz bekommen, der Fall ist die Beigabe, die ihm das Gelesene
+        einordnet. Darum die Obergrenze — und zugleich keine Null, denn genau
+        diese Beigabe macht den Unterschied zwischen einer Auskunft und einem
+        Normabdruck.
+        """
+        hoechstens = max(1, anzahl // 3)
+        genommen: list[Treffer] = []
+        faelle = 0
+        nachrueckend: list[Treffer] = []
+        for stelle in treffer:
+            ist_fall = stelle.einheit.art is Einheitsart.FALLBEISPIEL
+            if ist_fall and faelle >= hoechstens:
+                continue
+            if ist_fall:
+                faelle += 1
+            genommen.append(stelle)
+            if len(genommen) == anzahl:
+                break
+        else:
+            # Zu wenige zusammengekommen, weil Fälle übersprungen wurden:
+            # mit den besten übersprungenen auffüllen, statt kürzer zu antworten.
+            vorhanden = {id(t) for t in genommen}
+            nachrueckend = [t for t in treffer if id(t) not in vorhanden]
+            genommen.extend(nachrueckend[: anzahl - len(genommen)])
+        return genommen[:anzahl]
 
     # ------------------------------------------------------------- ablegen
 

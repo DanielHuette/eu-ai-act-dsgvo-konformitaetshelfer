@@ -150,7 +150,7 @@ python scripts/bestand_bauen.py
 Der Lauf schreibt sein Protokoll nach `daten/aufbereitet/_bestand_lauf.log` und
 prüft sich am Ende selbst mit einer Frage, deren Antwort bekannt ist. Danach
 liegen neben `daten/aufbereitet/suchbestand` die Dateien `.vektoren.npy`,
-`.bestand.pkl` und `.bestand.json`.
+`.bestand.json.gz` und `.bestand.json`.
 
 Ein kleines Modell zum Ausprobieren, falls 2,3 Gigabyte zu viel sind:
 

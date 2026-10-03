@@ -252,7 +252,7 @@ Pflichten, der Datenschutzpfad, die offenen Fragen und der Stand des
 Regelwerks.
 
 **Suchbestand** (drei Dateien neben `daten/aufbereitet/suchbestand`):
-`.vektoren.npy` die Zahlenreihen, `.bestand.pkl` die Wortgewichte und die
+`.vektoren.npy` die Zahlenreihen, `.bestand.json.gz` die Wortgewichte und die
 Zähldaten der Stichwortsuche, `.bestand.json` ein lesbarer Kopf mit Modellname,
 Dimensionszahl, Einheitenzahl und Baudatum. Beim Laden wird geprüft, dass
 Modell und Einheitenzahl zum Korpus passen; weicht etwas ab, bricht es ab,

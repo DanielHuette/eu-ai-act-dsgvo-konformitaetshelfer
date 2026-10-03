@@ -42,7 +42,7 @@ Nur die jeweils neueste. Es gibt keine Pflege älterer Fassungen.
 |---|---|
 | Ein Weg, über den die Beschreibung des Nutzers unbemerkt das Gerät verlässt | Die Beschreibung geht an Claude oder GPT, wenn ein Schlüssel eingetragen ist. Das ist beschrieben und gewollt. |
 | Ein Weg, über den ein eingetragener Schlüssel ausgelesen werden kann | Dass der Schlüssel im Schlüsselspeicher des Geräts liegt, ist die Absicht |
-| Programmausführung über eine untergeschobene Datei oder Eingabe | Dass `.bestand.pkl` beim Lesen Programmcode ausführt, ist bekannt und in [docs/sicherheit.md](docs/sicherheit.md) beschrieben — ein Suchbestand aus unbekannter Quelle wird nicht verwendet |
+| Programmausführung über eine untergeschobene Datei oder Eingabe | Der Suchbestand liegt als gepacktes JSON (`.bestand.json.gz`); eine veränderte Datei kann falsche Treffer verursachen, aber keinen Code starten. Eine Datei im alten `pickle`-Format wird abgewiesen, nicht gelesen |
 | Eine Abhängigkeit, die Berechtigungen oder Telemetrie einschleppt | Eine Abhängigkeit mit bekannter Schwachstelle ohne Weg zum Missbrauch hier: bitte als gewöhnlichen Fehlerbericht |
 | Ein Weg, der die deterministische Einstufung durch das Sprachmodell ersetzbar macht | Dass eine formulierte Antwort schlecht formuliert ist |
 
