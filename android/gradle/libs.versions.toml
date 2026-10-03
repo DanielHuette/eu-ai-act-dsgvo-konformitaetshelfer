@@ -15,7 +15,7 @@ onnx = "1.28.0"
 schluesselspeicher = "1.1.0"
 serialisierung = "1.9.0"
 okhttp = "4.12.0"
-nebenlaeufig = "1.10.2"
+nebenlaeufig = "1.11.0"
 junit = "4.13.2"
 
 [libraries]
