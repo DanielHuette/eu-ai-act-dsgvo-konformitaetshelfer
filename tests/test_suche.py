@@ -238,3 +238,14 @@ def test_alter_pickle_bestand_wird_abgelehnt(kleiner_bestand, tmp_path):
 def test_fehlender_bestand_sagt_das_deutlich(tmp_path, korpus):
     with pytest.raises(FileNotFoundError):
         Suchbestand.laden(tmp_path / "gibtesnicht", korpus[:10], Streuwerk())
+
+
+def test_ungebauter_bestand_wird_nicht_abgelegt(korpus, tmp_path):
+    """Ein Bestand ohne Vektoren ist kein Bestand.
+
+    Würde er abgelegt, fiele das erst beim Laden auf — und dann als
+    Längenfehler, der nichts über die Ursache sagt.
+    """
+    leer = Suchbestand(korpus[:10], Streuwerk())
+    with pytest.raises(RuntimeError, match="nicht gebaut"):
+        leer.ablegen(tmp_path / "bestand")

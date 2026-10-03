@@ -56,6 +56,14 @@ entwicklung = [
   "mypy>=1.11",
   "bandit>=1.7",
   "pip-audit>=2.7",
+  # Typangaben fremder Pakete. Ohne sie bricht mypy im Prüfstand ab, während
+  # es auf einem Rechner, auf dem sie zufällig schon liegen, durchläuft - der
+  # unangenehmste Fall: der Prüfstand meldet etwas, das niemand nachvollziehen
+  # kann.
+  "types-PyYAML>=6.0",
+  "types-requests>=2.32",
+  # Zum Nachmessen der Präsentation (scripts/praesentation_bauen.py --messen).
+  "playwright>=1.47",
 ]
 
 [project.scripts]
