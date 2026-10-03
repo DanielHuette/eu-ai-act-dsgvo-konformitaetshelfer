@@ -1,0 +1,163 @@
+gebiet: Medizin, Fertigung und Produkte
+hinweis: >
+  Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Ob eine Einstufung
+  im Einzelfall trägt, hängt von Umständen ab, die hier nicht alle stehen
+  können. Wo es darauf ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: medizinprodukt-software
+    titel: Software, die Röntgenbilder vorbefundet
+    lage: >
+      Ein Medizintechnikunternehmen entwickelt eine Software, die
+      Röntgenbilder des Brustraums auf Auffälligkeiten durchsucht und dem
+      Radiologen markierte Bereiche mit einer Dringlichkeitsangabe vorlegt.
+      Die Software wird als Medizinprodukt in Verkehr gebracht und braucht
+      dafür die Prüfung durch eine unabhängige Stelle.
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    begruendung: >
+      Nach Artikel 6 Absatz 1 ist ein KI-System hochriskant, wenn es
+      Sicherheitsbauteil eines Produkts nach Anhang I ist oder selbst ein
+      solches Produkt darstellt und für dieses Produkt eine
+      Konformitätsbewertung durch eine dritte Stelle verlangt wird. Die
+      Medizinprodukte-Vorschriften stehen in Anhang I, und die Prüfung durch
+      eine unabhängige Stelle ist hier erforderlich. Die Einstufung läuft
+      damit nicht über Anhang III, sondern über das Produktsicherheitsrecht —
+      ein eigener Weg mit eigener Geltungsfrist, die nach Artikel 113 später
+      beginnt als die für Anhang III.
+    rechtsgrundlage: [KI-VO/art-6/abs-1, KI-VO/anh-I, KI-VO/art-16, KI-VO/art-9, KI-VO/art-10, KI-VO/art-11, KI-VO/art-14, KI-VO/art-15, KI-VO/art-43, KI-VO/art-113]
+    pflichten:
+      - Ein Risikomanagementsystem über den gesamten Lebenszyklus einrichten und pflegen.
+      - Die Trainings-, Validierungs- und Testdaten auf Eignung, Vollständigkeit und Verzerrungen prüfen und das belegen.
+      - Die technische Dokumentation erstellen und aktuell halten.
+      - Die menschliche Aufsicht schon in der Gestaltung vorsehen: Der Radiologe muss Markierungen übergehen können.
+      - Genauigkeit, Robustheit und Cybersicherheit festlegen, messen und angeben.
+      - Die Konformitätsbewertung mit der Medizinprodukteprüfung zusammenführen, statt zwei getrennte Verfahren zu fahren.
+    lernhinweis: >
+      Es gibt zwei voneinander unabhängige Wege in das hohe Risiko: über
+      Anhang III nach dem Einsatzbereich und über Anhang I nach dem Produkt,
+      in dem die KI steckt. Wer nur Anhang III liest, findet Medizinprodukte,
+      Maschinen oder Fahrzeuge dort nicht und schließt fälschlich auf geringes
+      Risiko. Für Hersteller ist die gute Nachricht, dass die KI-Verordnung
+      auf die bestehenden Produktprüfungen aufsattelt: Die Anforderungen
+      gehören in das vorhandene Verfahren, nicht daneben.
+    stolperstein: >
+      Das Unternehmen führt die Anforderungen der KI-Verordnung als zweites,
+      getrenntes Verfahren neben der Medizinprodukteprüfung — doppelte Arbeit
+      und widersprüchliche Unterlagen sind die Folge.
+    verwandte_faelle: [fahrerassistenz-notbremsung, qualitaetspruefung-fertigung, versicherungstarif-krankenversicherung]
+
+  - kennung: qualitaetspruefung-fertigung
+    titel: Kamerabasierte Qualitätsprüfung in der Fertigung
+    lage: >
+      Ein Zulieferer prüft gestanzte Blechteile mit einer Kamera und einem
+      KI-System auf Risse und Maßabweichungen. Erkannte Teile werden
+      ausgeworfen, der Rest läuft weiter. Geprüft werden Teile, nicht
+      Menschen; die Kamera ist auf das Band gerichtet.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Das System bewertet Werkstücke, nicht Menschen, und fällt in keinen
+      Bereich von Anhang III. Ein hohes Risiko über Anhang I käme nur in
+      Betracht, wenn das System Sicherheitsbauteil einer Maschine wäre und
+      deren Konformitätsbewertung eine dritte Stelle verlangte — das ist bei
+      einer reinen Qualitätsprüfung hinter dem Prozess nicht der Fall. Es
+      bleibt bei der Pflicht zur KI-Kompetenz nach Artikel 4. Anders läge es,
+      wenn die Prüfung zugleich die Leistung der Bediener bewertete; dann
+      griffe Anhang III Nummer 4.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/art-6/abs-1, KI-VO/art-4]
+    pflichten:
+      - Für die KI-Kompetenz der Beschäftigten an der Anlage sorgen.
+      - Sicherstellen, dass die Prüfergebnisse nicht Bedienern zugeordnet und zur Leistungsbewertung verwendet werden.
+      - Die Erkennungsgüte überwachen, weil durchgelassene Fehler ein Produktproblem werden.
+      - Die Einstufung erneut prüfen, falls das System in die Maschinensteuerung eingreift.
+    lernhinweis: >
+      Die KI-Verordnung ordnet nach Betroffenen, nicht nach Technik. Dieselbe
+      Bilderkennung ist bei Blechteilen unkritisch und bei Gesichtern
+      hochriskant oder sogar verboten. Die erste Frage bei jedem eigenen Fall
+      lautet deshalb nicht, wie gut oder neu das Modell ist, sondern: Wird
+      hier über Menschen etwas ausgesagt? Lautet die Antwort nein, wird die
+      Prüfung kurz.
+    stolperstein: >
+      Die Auswurfquote wird je Schicht und Bediener ausgewertet, um
+      Nachlässigkeiten zu finden. Damit bewertet dasselbe System das Verhalten
+      von Beschäftigten und fällt unter Anhang III Nummer 4.
+    verwandte_faelle: [wartungsvorhersage-maschinenpark, leistungsbewertung-vertrieb, medizinprodukt-software]
+
+  - kennung: fahrerassistenz-notbremsung
+    titel: Notbremsassistent für Nutzfahrzeuge
+    lage: >
+      Ein Zulieferer entwickelt einen Notbremsassistenten. Ein KI-System
+      erkennt aus Kamera- und Radardaten Hindernisse und löst selbsttätig eine
+      Vollbremsung aus. Das Teil wird als Fahrzeugbauteil in Verkehr
+      gebracht und unterliegt der Fahrzeugtypgenehmigung.
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    begruendung: >
+      Das KI-System ist Sicherheitsbauteil eines Fahrzeugs. Die
+      Fahrzeugvorschriften gehören zu den in Anhang I genannten
+      Rechtsvorschriften, und Artikel 6 Absatz 1 stuft solche Systeme als
+      hochriskant ein, wenn für das Produkt eine Prüfung durch eine dritte
+      Stelle verlangt wird. Für diesen Weg über Anhang I beginnt die Geltung
+      nach Artikel 113 später als für Anhang III; der genaue Stand der
+      Fristen ist vor einer Entscheidung mit Rechtsfolgen bei der zuständigen
+      Behörde zu prüfen.
+    rechtsgrundlage: [KI-VO/art-6/abs-1, KI-VO/anh-I, KI-VO/art-9, KI-VO/art-15, KI-VO/art-16, KI-VO/art-43, KI-VO/art-113]
+    pflichten:
+      - Risikomanagement über den Lebenszyklus einrichten, einschließlich der Fälle, in denen das System falsch auslöst.
+      - Genauigkeit und Robustheit auch bei schlechter Sicht, Nässe und Verschmutzung festlegen und messen.
+      - Cybersicherheit vorsehen, weil ein manipuliertes Bremssystem unmittelbar Menschen gefährdet.
+      - Die Anforderungen in das Typgenehmigungsverfahren einarbeiten.
+      - Vorfälle im Feld erfassen und auswerten.
+    lernhinweis: >
+      Nicht jede Software im Fahrzeug fällt über Anhang I ins hohe Risiko —
+      entscheidend ist, ob sie Sicherheitsbauteil ist und ob die
+      Produktvorschrift eine Prüfung durch Dritte verlangt. Ein
+      Infotainmentsystem erfüllt das nicht, ein Bremseingriff schon. Für
+      eigene Fälle ist die nützliche Frage: Was passiert, wenn diese Funktion
+      ausfällt oder falsch auslöst? Wer dann eine körperliche Gefahr
+      beschreiben muss, steht mit hoher Wahrscheinlichkeit vor einem
+      Sicherheitsbauteil.
+    stolperstein: >
+      Das Unternehmen behandelt die KI-Verordnung als Thema für später, weil
+      die Frist für Anhang I später greift. Die Anforderungen an Daten und
+      Dokumentation lassen sich aber nicht nachträglich auf ein fertiges
+      Modell aufsetzen — sie bestimmen, wie entwickelt wird.
+    verwandte_faelle: [medizinprodukt-software, wartungsvorhersage-maschinenpark, qualitaetspruefung-fertigung]
+
+  - kennung: wartungsvorhersage-maschinenpark
+    titel: Wartungsvorhersage für den eigenen Maschinenpark
+    lage: >
+      Ein Papierhersteller wertet die Schwingungs- und Temperaturdaten seiner
+      Pumpen und Walzen mit einem KI-System aus. Es sagt vorher, welches
+      Lager in den nächsten Wochen auffällig werden dürfte, und erzeugt
+      daraus Wartungsaufträge für die Instandhaltung.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Das System bewertet Maschinenzustände, keine Menschen, und fällt in
+      keinen Bereich von Anhang III. Es ist auch kein Sicherheitsbauteil eines
+      Produkts, das in Verkehr gebracht wird, sondern ein innerbetriebliches
+      Werkzeug. Es bleibt bei der Pflicht zur KI-Kompetenz nach Artikel 4.
+      Anders wäre es, wenn das System in die Sicherheitsabschaltung einer
+      Anlage eingriffe oder die Anlage zur kritischen Versorgung mit Wasser,
+      Gas, Wärme oder Strom gehörte — dann käme Anhang III Nummer 2 in Betracht.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/anh-III/nr-2, KI-VO/art-4]
+    pflichten:
+      - Für die KI-Kompetenz der Instandhaltung sorgen.
+      - Festlegen, wer Wartungsaufträge freigibt, damit die Vorhersage nicht ungeprüft Produktion stoppt.
+      - Die Einstufung erneut prüfen, falls das System in Sicherheitsfunktionen eingreift.
+      - Die Vorhersagegüte beobachten und nicht auf Dauer ungeprüft vertrauen.
+    lernhinweis: >
+      Der große Bereich der Anlagen- und Prozessdaten liegt meist außerhalb
+      der KI-Verordnung, weil es dort nicht um Menschen geht. Zwei Grenzen
+      sollte man dennoch kennen: der Eingriff in Sicherheitsfunktionen und
+      die kritische Infrastruktur nach Anhang III Nummer 2. Für
+      Industriebetriebe ist das eine wichtige Entlastung — der Großteil der
+      Vorhaben in Produktion und Instandhaltung ist frei von den schweren
+      Pflichten, was die Kraft frei macht für die wenigen Fälle, in denen es
+      wirklich um Menschen geht.
+    stolperstein: >
+      Das System wird später um eine Bewertung erweitert, welche
+      Instandhaltungsteams Störungen am schnellsten beheben. Damit bewertet es
+      Beschäftigtenleistung und fällt unter Anhang III Nummer 4.
+    verwandte_faelle: [qualitaetspruefung-fertigung, leistungsbewertung-vertrieb, fahrerassistenz-notbremsung]

@@ -1,0 +1,654 @@
+# Einstufungsregeln der KI-Verordnung (EU) 2024/1689
+#
+# Diese Datei ist der Entscheidungsbaum, nach dem der Helfer einstuft. Sie ist
+# bewusst Daten und nicht Programmtext: so ist nachlesbar und prüfbar, warum
+# eine Einstufung herauskommt, und eine Änderung des Rechts ändert eine
+# Textdatei statt einer Programmzeile.
+#
+# WICHTIG — die Einstufung macht NICHT das Sprachmodell. Sie entsteht aus
+# diesen Regeln. Das Sprachmodell formuliert nur und darf das Ergebnis nicht
+# verändern. Grund: eine erfundene Einstufung kostet Geld und Vertrauen.
+#
+# Aufbau einer Regel:
+#   kennung        eindeutiger Name, erscheint in der Begründung
+#   klasse         welche Schublade die Regel zieht
+#   rechtsgrundlage  Kennungen im Korpus - werden beim Bauen geprüft
+#   fundstelle     wie in der Antwort zitiert wird
+#   wenn           Bedingungen; alle müssen zutreffen (und-Verknüpfung)
+#   oder_wenn      Alternativen; eine genügt
+#   stichworte     Wörter in der Beschreibung, die die Regel anstoßen
+#   frage          was der Helfer fragt, wenn die Angabe fehlt
+#   begruendung    Satz, der in der Antwort erscheint
+#   sicherheit     sicher | wahrscheinlich | zu_pruefen
+
+stand: 2026-05-31
+rechtsakt: KI-VO
+hinweis_zum_stand: >
+  Der Regelsatz folgt dem Verordnungstext in der Fassung des Amtsblatts vom
+  12. Juli 2024. Änderungen durch delegierte Rechtsakte, Leitlinien der
+  Kommission oder ein Änderungsvorhaben nach dem genannten Stand sind hier
+  nicht enthalten. Der Helfer sagt diesen Vorbehalt in jeder Auskunft mit.
+
+# ---------------------------------------------------------------------------
+# Stufe 1 — verbotene Praktiken, Artikel 5. Prüfung geht immer zuerst hierhin.
+# ---------------------------------------------------------------------------
+verbote:
+  - kennung: v5-1a-unterschwellig
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-a", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe a KI-VO
+    titel: Unterschwellige Beeinflussung oder manipulative Techniken
+    wenn:
+      - feld: beeinflusst_verhalten_unterschwellig
+        ist: true
+    stichworte: [unterschwellig, subliminal, manipulativ, täuschend, dark pattern,
+                 verhaltensbeeinflussung, nudging verdeckt]
+    frage: >
+      Beeinflusst das System das Verhalten von Menschen mit Techniken, die sie
+      nicht bemerken können, oder mit Täuschung — so dass sie Entscheidungen
+      treffen, die sie sonst nicht getroffen hätten und die ihnen erheblich
+      schaden können?
+    begruendung: >
+      Techniken, die unterschwellig wirken oder täuschen und das Verhalten so
+      verzerren, dass erheblicher Schaden entstehen kann, sind verboten.
+    sicherheit: zu_pruefen
+
+  - kennung: v5-1b-schwaeche
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-b", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe b KI-VO
+    titel: Ausnutzen einer Schwäche
+    wenn:
+      - feld: nutzt_schwaeche_aus
+        ist: true
+    stichworte: [kinder gezielt, minderjährige beeinflussen, behinderung ausnutzen,
+                 vulnerable gruppe, soziale lage ausnutzen, armut gezielt]
+    frage: >
+      Richtet sich das System gezielt an Menschen, die wegen ihres Alters, einer
+      Behinderung oder ihrer sozialen oder wirtschaftlichen Lage besonders
+      angreifbar sind, und nutzt es diese Lage aus?
+    begruendung: >
+      Das Ausnutzen von Alter, Behinderung oder sozialer und wirtschaftlicher
+      Lage zur Verhaltensverzerrung mit erheblichem Schadenspotenzial ist verboten.
+    sicherheit: zu_pruefen
+
+  - kennung: v5-1c-sozialbewertung
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-c", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe c KI-VO
+    titel: Soziale Bewertung von Menschen
+    wenn:
+      - feld: soziale_bewertung
+        ist: true
+    stichworte: [social scoring, sozialpunkte, bürgerbewertung, vertrauenswürdigkeit
+                 bewerten, verhaltensscore person, reputationsscore]
+    frage: >
+      Bewertet oder stuft das System Menschen nach ihrem Sozialverhalten oder
+      nach persönlichen Eigenschaften ein, und wird diese Bewertung in einem
+      anderen Zusammenhang verwendet als dem, in dem die Daten entstanden sind
+      — oder führt sie zu einer Benachteiligung, die nicht verhältnismäßig ist?
+    begruendung: >
+      Soziale Bewertung mit Benachteiligung in fremden Zusammenhängen oder ohne
+      Verhältnismäßigkeit ist verboten.
+    sicherheit: zu_pruefen
+
+  - kennung: v5-1d-straftatvorhersage
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-d", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe d KI-VO
+    titel: Vorhersage von Straftaten allein aus Profiling
+    wenn:
+      - feld: straftatvorhersage_person
+        ist: true
+    stichworte: [predictive policing person, straftat vorhersagen, rückfallrisiko
+                 profiling, kriminalitätsprognose person]
+    frage: >
+      Schätzt das System das Risiko ein, dass eine bestimmte Person eine Straftat
+      begeht, und stützt sich dabei allein auf Profiling oder auf
+      Persönlichkeitsmerkmale?
+    begruendung: >
+      Die Risikobewertung einzelner Menschen auf Straftaten allein aus Profiling
+      oder Persönlichkeitsmerkmalen ist verboten. Erlaubt bleibt die
+      Unterstützung einer menschlichen Bewertung, die auf objektiven,
+      überprüfbaren und unmittelbar mit einer Straftat verbundenen Tatsachen beruht.
+    sicherheit: zu_pruefen
+
+  - kennung: v5-1e-gesichtsdatenbank
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-e", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe e KI-VO
+    titel: Ungezieltes Auslesen von Gesichtsbildern
+    wenn:
+      - feld: gesichtsbilder_ungezielt_gesammelt
+        ist: true
+    stichworte: [gesichter scrapen, gesichtsdatenbank aufbauen, bilder aus internet
+                 sammeln gesicht, videoüberwachung gesichter sammeln]
+    frage: >
+      Baut das System eine Gesichtserkennungsdatenbank auf, indem es
+      Gesichtsbilder ungezielt aus dem Internet oder aus Videoüberwachung
+      ausliest?
+    begruendung: >
+      Der Aufbau von Gesichtserkennungsdatenbanken durch ungezieltes Auslesen
+      von Gesichtsbildern aus dem Internet oder aus Videoüberwachung ist verboten.
+    sicherheit: sicher
+
+  - kennung: v5-1f-emotion-arbeit-bildung
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-f", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe f KI-VO
+    titel: Emotionserkennung am Arbeitsplatz und in der Bildung
+    wenn:
+      - feld: emotionserkennung
+        ist: true
+      - feld: bereich_arbeit_oder_bildung
+        ist: true
+    stichworte: [emotionserkennung mitarbeiter, stimmung beschäftigte, emotion
+                 schüler, aufmerksamkeit prüfung messen, bewerbergefühl]
+    frage: >
+      Erkennt oder erschließt das System Emotionen von Menschen am Arbeitsplatz
+      oder in einer Bildungseinrichtung?
+    begruendung: >
+      Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen ist
+      verboten. Ausnahme nur aus medizinischen Gründen oder aus Gründen der
+      Sicherheit.
+    ausnahme: >
+      Erlaubt bleibt der Einsatz aus medizinischen Gründen oder aus
+      Sicherheitsgründen, etwa Müdigkeitserkennung bei Piloten.
+    sicherheit: wahrscheinlich
+
+  - kennung: v5-1g-biometrische-kategorisierung
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-g", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe g KI-VO
+    titel: Biometrische Kategorisierung nach geschützten Merkmalen
+    wenn:
+      - feld: biometrie
+        ist: true
+      - feld: leitet_geschuetzte_merkmale_ab
+        ist: true
+    stichworte: [ethnie erkennen, hautfarbe klassifizieren, religion ableiten,
+                 sexuelle orientierung erkennen, politische meinung ableiten,
+                 gewerkschaft erkennen]
+    frage: >
+      Ordnet das System Menschen anhand biometrischer Daten Kategorien zu, um
+      ihre Rasse, politische Meinung, Gewerkschaftszugehörigkeit, religiöse oder
+      philosophische Überzeugung, ihr Sexualleben oder ihre sexuelle Orientierung
+      abzuleiten?
+    begruendung: >
+      Biometrische Kategorisierung zur Ableitung dieser geschützten Merkmale ist
+      verboten.
+    ausnahme: >
+      Nicht erfasst ist die Kennzeichnung oder Filterung rechtmäßig erworbener
+      biometrischer Datensätze, etwa das Sortieren von Bildern.
+    sicherheit: wahrscheinlich
+
+  - kennung: v5-1h-echtzeit-fernidentifizierung
+    klasse: verboten
+    rechtsgrundlage: ["KI-VO/art-5/abs-1-h", "KI-VO/art-5"]
+    fundstelle: Artikel 5 Absatz 1 Buchstabe h KI-VO
+    titel: Biometrische Echtzeit-Fernidentifizierung im öffentlichen Raum
+    wenn:
+      - feld: biometrische_echtzeit_fernidentifizierung
+        ist: true
+      - feld: oeffentlich_zugaenglicher_raum
+        ist: true
+      - feld: zweck_strafverfolgung
+        ist: true
+    stichworte: [gesichtserkennung öffentlicher raum, echtzeit identifizierung
+                 kamera, biometrische überwachung polizei]
+    frage: >
+      Identifiziert das System Menschen biometrisch in Echtzeit in öffentlich
+      zugänglichen Räumen, und zwar zu Zwecken der Strafverfolgung?
+    begruendung: >
+      Biometrische Echtzeit-Fernidentifizierung in öffentlich zugänglichen Räumen
+      zu Strafverfolgungszwecken ist verboten, von engen Ausnahmen abgesehen.
+    ausnahme: >
+      Enge Ausnahmen bestehen für die gezielte Suche nach Opfern bestimmter
+      Straftaten, die Abwehr einer konkreten und gegenwärtigen Gefahr für Leben
+      oder körperliche Unversehrtheit sowie die Lokalisierung Verdächtiger
+      bestimmter schwerer Straftaten — jeweils mit vorheriger richterlicher
+      oder behördlicher Genehmigung und einer Grundrechte-Folgenabschätzung.
+    sicherheit: wahrscheinlich
+
+# ---------------------------------------------------------------------------
+# Stufe 2 — hohes Risiko über das Produktsicherheitsrecht, Artikel 6 Absatz 1
+# ---------------------------------------------------------------------------
+hochrisiko_anhang_i:
+  kennung: h6-1-produktsicherheit
+  klasse: hochrisiko_anhang_i
+  rechtsgrundlage: ["KI-VO/art-6/abs-1", "KI-VO/anh-I"]
+  fundstelle: Artikel 6 Absatz 1 KI-VO in Verbindung mit Anhang I
+  gilt_ab: 2027-08-02
+  wenn:
+    - feld: eingebaut_in_produkt
+      ist: true
+    - feld: produkt_unter_anhang_i
+      ist: true
+    - feld: konformitaetsbewertung_durch_dritte
+      ist: true
+  # Die reine Produktgattung genügt nicht: ein Maschinenbauer, der nur seine
+  # Handbücher übersetzt, baut nichts in die Maschine ein. Darum stehen hier
+  # Wortgruppen, die Gattung und Einbau zusammen verlangen. Allein treffen nur
+  # die Gattungen, die als Software selbst das Produkt sind.
+  stichworte: [medizinprodukt, in verkehr gebrachtes medizinprodukt,
+               sicherheitsbauteil maschine, steuerung der maschine,
+               maschine eingebaut, bauteil der maschine, aufzugssteuerung,
+               spielzeug eingebaut, druckgerät steuerung, funkanlage eingebaut,
+               fahrzeugbauteil, fahrzeugtypgenehmigung, bauteil fahrzeug,
+               fahrzeug eingebaut, notbremsassistent, fahrerassistenz,
+               luftfahrzeug, eisenbahnsteuerung, seilbahnsteuerung,
+               persönliche schutzausrüstung, gasverbrauchseinrichtung]
+  frage: >
+    Ist das KI-System ein Sicherheitsbauteil eines Produkts oder selbst ein
+    Produkt, das unter eine der in Anhang I genannten
+    Harmonisierungsrechtsvorschriften fällt — etwa Maschinen, Medizinprodukte,
+    Spielzeug, Aufzüge, Fahrzeuge — und muss dieses Produkt von einer dritten
+    Stelle geprüft werden?
+  begruendung: >
+    Ein KI-System, das Sicherheitsbauteil eines Produkts nach Anhang I ist oder
+    selbst ein solches Produkt darstellt, gilt als Hochrisiko-KI-System, wenn
+    für das Produkt eine Konformitätsbewertung durch Dritte verlangt wird.
+
+# ---------------------------------------------------------------------------
+# Stufe 3 — hohes Risiko über den Einsatzbereich, Artikel 6 Absatz 2, Anhang III
+# ---------------------------------------------------------------------------
+hochrisiko_anhang_iii:
+  # Sagt die Beschreibung ausdrücklich, dass das Ergebnis niemanden betrifft
+  # oder unverbindlich bleibt, so fehlt es am Einsatz "für" einen der Bereiche
+  # des Anhangs III. Dann wird der Bereich nicht gezogen. Das ist bewusst eng
+  # gehalten: es zählt nur die ausdrückliche Aussage, nicht ihr Fehlen.
+  entlastung: [unverbindlich, spielt keine rolle, spielen bei beurteilung,
+               keine rolle bei, nicht an die vorgesetzten, nicht gemeldet,
+               geprueft werden teile, geprüft werden teile, nicht menschen,
+               keine personen, nicht ueber menschen, nicht über menschen,
+               nur sachen]
+  gilt_ab: 2026-08-02
+  rechtsgrundlage_allgemein: ["KI-VO/art-6/abs-2", "KI-VO/anh-III"]
+  bereiche:
+    - kennung: a3-1-biometrie
+      starke_woerter: [biometrie, biometrisch, gesichtserkennung, fingerabdruck, iriserkennung, emotionserkennung, gesichtsbild]
+      nummer: "1"
+      titel: Biometrie
+      rechtsgrundlage: ["KI-VO/anh-III/nr-1", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 1 KI-VO
+      umfasst:
+        - biometrische Fernidentifizierung, soweit nicht verboten
+        - biometrische Kategorisierung nach sensiblen Merkmalen
+        - Emotionserkennung
+      stichworte: [biometrie, fingerabdruck, gesichtserkennung, iriserkennung,
+                   stimmerkennung person, emotionserkennung, biometrische
+                   kategorisierung]
+      frage: Erkennt oder kategorisiert das System Menschen anhand körperlicher Merkmale?
+
+    - kennung: a3-2-kritische-infrastruktur
+      starke_woerter: [stromnetz, wasserversorgung, gasnetz, fernwaerme, verkehrssteuerung, ampelsteuerung, netzleitstelle, kraftwerk]
+      nummer: "2"
+      titel: Kritische Infrastruktur
+      rechtsgrundlage: ["KI-VO/anh-III/nr-2", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 2 KI-VO
+      umfasst:
+        - Sicherheitsbauteile im Betrieb kritischer digitaler Infrastruktur
+        - Straßenverkehr
+        - Versorgung mit Wasser, Gas, Wärme, Strom
+      stichworte: [stromnetz, wasserversorgung, gasnetz, fernwärme,
+                   verkehrssteuerung, ampelsteuerung, kritische infrastruktur,
+                   netzleitstelle]
+      frage: Steuert oder sichert das System kritische Infrastruktur?
+
+    - kennung: a3-3-bildung
+      starke_woerter: [klausur, zeugnis, schulplatz, studienplatz, zulassung,
+        pruefungsaufsicht, lernstand, bildungseinrichtung, benotung, note, abschlusspruefung,
+        abschlussprüfung, taeuschungsversuch, täuschungsversuch, pruefungsamt, prüfungsamt,
+        schulamt, schulaufsicht, notenverteilung, lehrkraft, lernplattform]
+      nummer: "3"
+      titel: Allgemeine und berufliche Bildung
+      rechtsgrundlage: ["KI-VO/anh-III/nr-3", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 3 KI-VO
+      umfasst:
+        - Zugang, Zulassung, Zuweisung zu Bildungseinrichtungen
+        - Bewertung von Lernergebnissen
+        - Einstufung des angemessenen Bildungsniveaus
+        - Überwachung und Erkennung unerlaubten Verhaltens bei Prüfungen
+      stichworte: [zulassung studium, prüfung bewerten, note automatisch,
+                   lernstand einstufen, prüfungsaufsicht, täuschung erkennen
+                   prüfung, schulplatz zuweisen]
+      frage: Entscheidet oder bewertet das System im Bildungsbereich?
+
+    - kennung: a3-4-beschaeftigung
+      # Anhang III Nummer 4 Buchstabe b greift nicht, weil in einem Text das
+      # Wort "Beschäftigte" vorkommt, sondern wenn über Beschäftigte
+      # entschieden, ihre Leistung bewertet oder ihnen aufgrund ihres
+      # Verhaltens Arbeit zugewiesen wird. Darum zwei Listen: ein Trägerwort
+      # und ein Handlungswort müssen zusammenkommen.
+      kombination:
+        traeger: [beschaeftigte, beschäftigte, mitarbeiter, angestellte, personal,
+                  belegschaft, arbeitnehmer, kollege, bewerber, azubi,
+                  auszubildende, vertriebsinnendienst]
+        handlung: [bewertet, bewertung, kennzahl, einordnet, einordnen,
+                   eingeordnet, rangfolge, gruppen ein, beurteilung, befoerderung,
+                   beförderung, verguetung, vergütung, jahresgespraech,
+                   jahresgespräch, zuweist, zuweisen, zugewiesen, schicht,
+                   ueberwacht, überwacht, ueberwachung, überwachung, aufzeichnet,
+                   aufzeichnungen, meldet der leitung, abweicht vom, kuendigung,
+                   kündigung, leistung, auffaellig, auffällig, aktivitaet,
+                   aktivität, pausenzeiten]
+      starke_woerter: [bewerbung, bewerber, lebenslauf, recruiting, einstellung,
+        befoerderung, kuendigung, leistungsbewertung, mitarbeiterueberwachung,
+        personalauswahl, stellenanzeige, arbeitszeugnis, probezeit, personalakte,
+        personalabteilung, arbeitsverhaeltnis, arbeitsverhältnis, stellenabbau, betriebsrat,
+        einstellungsverfahren]
+      nummer: "4"
+      titel: Beschäftigung und Personalmanagement
+      rechtsgrundlage: ["KI-VO/anh-III/nr-4", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 4 KI-VO
+      umfasst:
+        - Einstellung und Auswahl, auch gezielte Stellenanzeigen und Vorauswahl
+        - Entscheidungen über Beförderung, Kündigung, Vertragsbedingungen
+        - Aufgabenzuweisung anhand von Verhalten oder Persönlichkeitsmerkmalen
+        - Überwachung und Bewertung von Leistung und Verhalten
+      stichworte: [bewerbung filtern, lebenslauf sortieren, bewerberauswahl,
+                   beförderung, kündigung, leistungsbewertung mitarbeiter,
+                   mitarbeiterüberwachung, schichtplanung verhalten, recruiting]
+      frage: >
+        Wirkt das System bei Einstellung, Beförderung, Kündigung,
+        Aufgabenzuweisung oder Leistungsbewertung von Beschäftigten mit — auch
+        bei Selbstständigen?
+
+    - kennung: a3-5-grundlegende-dienste
+      starke_woerter: [kreditwuerdigkeit, bonitaet, kreditvergabe, scoring,
+        versicherungstarif, sozialleistung, wohngeld, buergergeld, notruf, triage,
+        rettungsleitstelle, kreditantrag, risikopruefung, kredit, ratenkredit,
+        kreditwuerdigkeitspruefung, rueckzahlungswahrscheinlichkeit,
+        rückzahlungswahrscheinlichkeit, krankenversicher, lebensversicher, risikozuschlag,
+        gesundheitsfragebogen, unterstuetzungsleistung, unterstützungsleistung,
+        bewilligungsvoraussetzung, beihilfe, sozialhilfe, bescheid, leistungsbescheid,
+        krankenversicherung, lebensversicherung]
+      nummer: "5"
+      titel: Zugang zu grundlegenden privaten und öffentlichen Diensten
+      rechtsgrundlage: ["KI-VO/anh-III/nr-5", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 5 KI-VO
+      umfasst:
+        - Anspruch auf öffentliche Unterstützungsleistungen und Dienste
+        - Kreditwürdigkeitsprüfung und Bonitätsbewertung
+        - Risikobewertung und Preisbildung bei Lebens- und Krankenversicherung
+        - Einsatzkräftedisposition und Triage in Notfällen
+      stichworte: [kreditwürdigkeit, bonität, scoring kredit, kreditvergabe, versicherungstarif, risikoprüfung versicherung, sozialleistung, wohngeld, notruf, triage, rettungsleitstelle, versicherung antrag, versicherung schadenmeldung, versicherung posteingang]
+      frage: >
+        Entscheidet das System über den Zugang zu Sozialleistungen, über
+        Kreditwürdigkeit, über Versicherungstarife bei Leben oder Gesundheit
+        oder über die Einsatzreihenfolge in Notfällen?
+      ausnahme: >
+        Die Aufdeckung von Finanzbetrug ist ausgenommen, ebenso
+        Kreditwürdigkeitsprüfungen zum Zweck der Betrugsaufdeckung.
+
+    - kennung: a3-6-strafverfolgung
+      starke_woerter: [strafverfolgung, polizei, luegendetektor, beweiswuerdigung, taeterprofil, ermittlungsverfahren, fahndung]
+      nummer: "6"
+      titel: Strafverfolgung
+      rechtsgrundlage: ["KI-VO/anh-III/nr-6", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 6 KI-VO
+      umfasst:
+        - Risikobewertung von Personen als Opfer oder Täter
+        - Lügendetektoren und ähnliche Werkzeuge
+        - Bewertung der Verlässlichkeit von Beweismitteln
+        - Profiling im Rahmen der Aufdeckung und Verfolgung von Straftaten
+      stichworte: [polizei, strafverfolgung, lügendetektor, beweiswürdigung,
+                   ermittlung, täterprofil, opferrisiko]
+      frage: Wird das System von Strafverfolgungsbehörden eingesetzt?
+
+    - kennung: a3-7-migration
+      starke_woerter: [asyl, visum, aufenthaltstitel, grenzkontrolle, migration, einreise, abschiebung]
+      nummer: "7"
+      titel: Migration, Asyl und Grenzkontrolle
+      rechtsgrundlage: ["KI-VO/anh-III/nr-7", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 7 KI-VO
+      umfasst:
+        - Lügendetektoren im Migrationsverfahren
+        - Risikobewertung einreisender Personen
+        - Prüfung von Anträgen auf Asyl, Visum, Aufenthaltstitel
+        - Aufspüren und Erkennen von Personen im Migrationszusammenhang
+      stichworte: [asyl, visum, aufenthaltstitel, grenzkontrolle, migration,
+                   einreise prüfen]
+      frage: Wirkt das System in Migrations-, Asyl- oder Grenzverfahren mit?
+
+    - kennung: a3-8-rechtspflege
+      starke_woerter: [rechtsprechung, wahlbeeinflussung, wahlkampf, abstimmungsverhalten,
+        richter, gerichtsverfahren, gerichtsentscheidung, gerichtlich, justiz,
+        urteilsvorschlag, urteilsfindung, schiedsverfahren]
+      nummer: "8"
+      titel: Rechtspflege und demokratische Prozesse
+      rechtsgrundlage: ["KI-VO/anh-III/nr-8", "KI-VO/art-6/abs-2"]
+      fundstelle: Anhang III Nummer 8 KI-VO
+      umfasst:
+        - Unterstützung von Gerichten bei Auslegung von Recht und Tatsachen
+        - Beeinflussung des Ergebnisses von Wahlen oder Abstimmungen
+      stichworte: [gerichtsverfahren, urteilsvorschlag, rechtsprechung unterstützen, wahlbeeinflussung, wahlkampf zielgruppe, abstimmungsverhalten]
+      frage: >
+        Unterstützt das System ein Gericht bei der Rechtsfindung oder beeinflusst
+        es das Ergebnis von Wahlen, Abstimmungen oder das Wahlverhalten?
+      ausnahme: >
+        Reine Hilfstätigkeiten der Verwaltung ohne Einfluss auf die Rechtsfindung
+        sind ausgenommen, etwa Anonymisierung oder Schriftgutverwaltung.
+
+# ---------------------------------------------------------------------------
+# Stufe 4 — Ausnahme von Anhang III, Artikel 6 Absatz 3
+# ---------------------------------------------------------------------------
+hochrisiko_ausnahme:
+  kennung: h6-3-ausnahme
+  klasse: hochrisiko_ausnahme
+  rechtsgrundlage: ["KI-VO/art-6/abs-3"]
+  fundstelle: Artikel 6 Absatz 3 KI-VO
+  voraussetzung: >
+    Die Ausnahme greift nur, wenn das System kein erhebliches Risiko für
+    Gesundheit, Sicherheit oder Grundrechte birgt und das Ergebnis der
+    Entscheidungsfindung nicht wesentlich beeinflusst.
+  einer_der_faelle:
+    - kennung: ausn-a-enge-aufgabe
+      text: Das System führt eine eng umgrenzte verfahrenstechnische Aufgabe aus.
+      beispiel: Ein Modell, das unstrukturierte Eingaben in ein festes Format bringt.
+    - kennung: ausn-b-verbesserung
+      text: Das System verbessert das Ergebnis einer zuvor von einem Menschen
+            ausgeführten Tätigkeit.
+      beispiel: Eine Sprachglättung eines bereits geschriebenen Bescheids.
+    - kennung: ausn-c-muster-erkennen
+      text: Das System erkennt Entscheidungsmuster oder Abweichungen davon und
+            soll die vorangegangene menschliche Bewertung nicht ersetzen oder
+            beeinflussen, ohne dass ein Mensch sie überprüft.
+      beispiel: Eine Prüfung, ob Lehrkräfte von ihrem üblichen Notenmuster abweichen.
+    - kennung: ausn-d-vorbereitung
+      text: Das System führt eine vorbereitende Aufgabe für eine Bewertung aus.
+      beispiel: Dateien sortieren, Akten verschlagworten, Übersetzen von Unterlagen.
+  gegenausnahme:
+    kennung: h6-3-profiling
+    text: >
+      Führt das System ein Profiling natürlicher Personen durch, gilt es immer
+      als Hochrisiko-KI-System — die Ausnahme greift dann nicht.
+    rechtsgrundlage: ["KI-VO/art-6/abs-3"]
+  folgepflicht:
+    kennung: h6-4-dokumentation-registrierung
+    rechtsgrundlage: ["KI-VO/art-6/abs-4", "KI-VO/art-49/abs-2"]
+    fundstelle: Artikel 6 Absatz 4 und Artikel 49 Absatz 2 KI-VO
+    text: >
+      Wer sich auf die Ausnahme beruft, muss die Bewertung dokumentieren, bevor
+      das System in Verkehr gebracht oder in Betrieb genommen wird, sich in der
+      EU-Datenbank registrieren und die Bewertung den Behörden auf Verlangen
+      vorlegen.
+
+# ---------------------------------------------------------------------------
+# Stufe 5 — Transparenzpflichten, Artikel 50
+# ---------------------------------------------------------------------------
+transparenz:
+  gilt_ab: 2026-08-02
+  faelle:
+    - kennung: t50-1-interaktion
+      klasse: transparenz
+      rolle: anbieter
+      rechtsgrundlage: ["KI-VO/art-50/abs-1"]
+      fundstelle: Artikel 50 Absatz 1 KI-VO
+      wenn:
+        - feld: interagiert_mit_menschen
+          ist: true
+      stichworte: [chatbot, assistent, sprachassistent, dialog, kundenservice bot]
+      pflicht: >
+        Menschen müssen erfahren, dass sie mit einem KI-System sprechen — es sei
+        denn, das ist aus den Umständen offensichtlich.
+    - kennung: t50-2-synthetische-inhalte
+      klasse: transparenz
+      rolle: anbieter
+      rechtsgrundlage: ["KI-VO/art-50/abs-2"]
+      fundstelle: Artikel 50 Absatz 2 KI-VO
+      wenn:
+        - feld: erzeugt_inhalte
+          ist: true
+      stichworte: [bild erzeugen, text erzeugen, video erzeugen, audio erzeugen,
+                   synthetische inhalte, generativ]
+      pflicht: >
+        Erzeugte Inhalte müssen in maschinenlesbarer Form als künstlich erzeugt
+        oder bearbeitet gekennzeichnet sein, etwa durch Wasserzeichen oder
+        Metadaten.
+    - kennung: t50-3-emotion-biometrie
+      klasse: transparenz
+      rolle: betreiber
+      rechtsgrundlage: ["KI-VO/art-50/abs-3"]
+      fundstelle: Artikel 50 Absatz 3 KI-VO
+      wenn:
+        - feld: emotionserkennung
+          ist: true
+      stichworte: [emotionserkennung, biometrische kategorisierung]
+      pflicht: >
+        Betroffene Personen müssen über den Einsatz informiert werden; die
+        Datenschutzvorschriften gelten zusätzlich.
+    - kennung: t50-4-deepfake
+      klasse: transparenz
+      rolle: betreiber
+      rechtsgrundlage: ["KI-VO/art-50/abs-4"]
+      fundstelle: Artikel 50 Absatz 4 KI-VO
+      wenn:
+        - feld: erzeugt_deepfakes
+          ist: true
+      stichworte: [deepfake, gesicht tauschen, stimme klonen, person imitieren]
+      pflicht: >
+        Deepfakes müssen offengelegt werden. Bei Texten zu Angelegenheiten von
+        öffentlichem Interesse gilt die Offenlegungspflicht ebenfalls, wenn der
+        Text nicht von einem Menschen geprüft wurde.
+
+# ---------------------------------------------------------------------------
+# Stufe 6 — KI-Modelle mit allgemeinem Verwendungszweck, Artikel 51 bis 55
+# ---------------------------------------------------------------------------
+gpai:
+  gilt_ab: 2025-08-02
+  kennung: g51-basismodell
+  klasse: gpai
+  rechtsgrundlage: ["KI-VO/art-51", "KI-VO/art-53"]
+  fundstelle: Artikel 51 und 53 KI-VO
+  wenn:
+    - feld: ist_basismodell
+      ist: true
+  stichworte: [basismodell, foundation model, sprachmodell trainieren,
+               allgemeiner verwendungszweck, eigenes modell trainiert]
+  frage: >
+    Trainieren oder veröffentlichen Sie selbst ein KI-Modell mit allgemeinem
+    Verwendungszweck — also ein Modell, das sich für viele verschiedene Aufgaben
+    einsetzen lässt?
+  systemisches_risiko:
+    kennung: g51-systemisch
+    klasse: gpai_systemisch
+    rechtsgrundlage: ["KI-VO/art-51/abs-2", "KI-VO/art-55"]
+    fundstelle: Artikel 51 Absatz 2 und Artikel 55 KI-VO
+    schwelle_flop: 1.0e25
+    vermutung: >
+      Übersteigt der kumulierte Rechenaufwand des Trainings 10^25
+      Gleitkommaoperationen, wird systemisches Risiko vermutet. Die Vermutung
+      ist widerlegbar; die Kommission kann ein Modell auch ohne Erreichen der
+      Schwelle benennen.
+  altmodelle:
+    gilt_ab: 2027-08-02
+    text: >
+      Modelle, die vor dem 2. August 2025 in Verkehr gebracht wurden, müssen die
+      Pflichten bis zum 2. August 2027 erfüllen.
+
+# ---------------------------------------------------------------------------
+# Stufe 7 — alles übrige
+# ---------------------------------------------------------------------------
+minimal:
+  kennung: m-minimal
+  klasse: minimal
+  rechtsgrundlage: ["KI-VO/art-4"]
+  fundstelle: Artikel 4 KI-VO
+  begruendung: >
+    Das System fällt in keine der besonderen Klassen. Es bleibt die Pflicht zur
+    KI-Kompetenz nach Artikel 4: Anbieter und Betreiber müssen dafür sorgen,
+    dass die Menschen, die das System betreiben oder nutzen, dafür ausreichend
+    geschult sind. Freiwillige Verhaltenskodizes nach Artikel 95 sind möglich.
+
+# ---------------------------------------------------------------------------
+# Wer als Anbieter gilt, obwohl er zunächst Betreiber war — Artikel 25
+# ---------------------------------------------------------------------------
+rollenwechsel:
+  kennung: r25-wird-anbieter
+  rechtsgrundlage: ["KI-VO/art-25/abs-1"]
+  fundstelle: Artikel 25 Absatz 1 KI-VO
+  wer_betreiber_ist_wird_anbieter_wenn:
+    - Er bringt sein eigenes Zeichen oder seinen Namen auf einem
+      Hochrisiko-KI-System an.
+    - Er ändert den Zweck eines Systems so, dass es zum Hochrisiko-KI-System wird.
+    - Er nimmt eine wesentliche Änderung an einem Hochrisiko-KI-System vor und es
+      bleibt ein Hochrisiko-KI-System.
+  folge: >
+    Mit dem Rollenwechsel treffen ihn die vollen Anbieterpflichten. Der
+    ursprüngliche Anbieter ist dann nicht mehr Anbieter dieses Systems, muss aber
+    mitwirken und Unterlagen bereitstellen.
+
+# ---------------------------------------------------------------------------
+# Fristen, Artikel 113 — mit Vorbehalt
+# ---------------------------------------------------------------------------
+fristen:
+  rechtsgrundlage: ["KI-VO/art-113"]
+  fundstelle: Artikel 113 KI-VO
+  vorbehalt: >
+    Die Fristen stehen so im Amtsblatt vom 12. Juli 2024. Zum Datenstand dieses
+    Regelsatzes wurden Änderungen einzelner Fristen politisch erörtert. Vor einer
+    Entscheidung mit Geld- oder Rechtsfolgen ist der geltende Stand bei der
+    zuständigen Behörde zu prüfen.
+  stufen:
+    - datum: 2024-08-01
+      was: Die Verordnung tritt in Kraft.
+    - datum: 2025-02-02
+      was: >
+        Kapitel I und II gelten — die allgemeinen Bestimmungen, die verbotenen
+        Praktiken nach Artikel 5 und die KI-Kompetenz nach Artikel 4.
+    - datum: 2025-08-02
+      was: >
+        Pflichten für KI-Modelle mit allgemeinem Verwendungszweck, die
+        Governance-Struktur, die notifizierenden Behörden und die Sanktionen
+        gelten.
+    - datum: 2026-08-02
+      was: >
+        Die Verordnung gilt im Übrigen, insbesondere für Hochrisiko-KI-Systeme
+        nach Anhang III und die Transparenzpflichten nach Artikel 50.
+    - datum: 2027-08-02
+      was: >
+        Hochrisiko-KI-Systeme nach Artikel 6 Absatz 1 in Produkten nach Anhang I
+        sowie KI-Modelle, die vor dem 2. August 2025 in Verkehr gebracht wurden.
+
+# ---------------------------------------------------------------------------
+# Sanktionen, Artikel 99
+# ---------------------------------------------------------------------------
+sanktionen:
+  rechtsgrundlage: ["KI-VO/art-99"]
+  fundstelle: Artikel 99 KI-VO
+  stufen:
+    - verstoss: Verbotene Praktik nach Artikel 5
+      betrag: bis 35 Millionen Euro oder 7 Prozent des weltweiten Jahresumsatzes
+      maßgeblich: der höhere Betrag
+    - verstoss: >
+        Verstoß gegen Pflichten für Anbieter, Einführer, Händler, Betreiber,
+        notifizierte Stellen oder gegen Artikel 50
+      betrag: bis 15 Millionen Euro oder 3 Prozent des weltweiten Jahresumsatzes
+      maßgeblich: der höhere Betrag
+    - verstoss: Falsche, unvollständige oder irreführende Auskunft an Behörden
+      betrag: bis 7,5 Millionen Euro oder 1 Prozent des weltweiten Jahresumsatzes
+      maßgeblich: der höhere Betrag
+  klein_und_mittel: >
+    Bei kleinen und mittleren Unternehmen einschließlich Start-ups gilt jeweils
+    der niedrigere der beiden Beträge als Obergrenze.

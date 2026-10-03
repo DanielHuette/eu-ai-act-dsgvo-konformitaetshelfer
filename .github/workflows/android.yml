@@ -1,0 +1,188 @@
+# Baut das Android-Paket des Konformitätshelfers.
+#
+# Warum hier und nicht auf dem eigenen Rechner: der Bau braucht das
+# Android-SDK, Java 21 und beim Bauen der Datenbank das Einbettungsmodell -
+# zusammen einige Gigabyte. Hier läuft das einmal und liefert eine Datei, die
+# sich installieren lässt.
+#
+# -----------------------------------------------------------------------------
+# WIE MAN DIE APP INSTALLIERT - EIN KLICK, DREI SCHRITTE
+# -----------------------------------------------------------------------------
+# 1. Paket herunterladen. Bei einer Veröffentlichung hängt es unter
+#    "Releases" als konformitaetshelfer-<Fassung>.apk. Bei einem Lauf ohne
+#    Veröffentlichung steht es unter "Actions" beim Lauf als Artefakt
+#    "konformitaetshelfer-apk" (dort als ZIP, nach dem Entpacken liegt die
+#    APK-Datei darin).
+# 2. Auf dem Telefon öffnen. Android fragt dann nach der Erlaubnis,
+#    Apps aus unbekannter Quelle zu installieren: der Hinweis führt in die
+#    Einstellungen, dort den Schalter für die Browser- oder Dateien-App
+#    umlegen, zurückgehen und auf "Installieren" tippen.
+# 3. Fertig. Die App braucht kein Netz und keine Anmeldung. Die einzige
+#    Berechtigung ist der Netzzugang, und der wird nur gebraucht, wenn man in
+#    den Einstellungen einen eigenen Schlüssel für Claude oder GPT einträgt.
+#
+# Das Paket ist NICHT unterschrieben. Es ist dasselbe Paket für alle; wer es
+# unterschrieben haben will, braucht einen eigenen Schlüssel - der gehört
+# nicht in ein öffentliches Verzeichnis.
+#
+# Warum das Paket so groß ist (rund 150 MB): es enthält den vollständigen
+# Rechtsbestand und das Einbettungsmodell. Beides liegt mit auf dem Gerät,
+# damit die Beschreibung eines KI-Systems das Telefon nicht verlässt.
+
+name: Android-Paket bauen
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Quelltext holen
+        uses: actions/checkout@v4
+
+      - name: Java 21 einrichten
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Android-SDK einrichten
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "platforms;android-36 build-tools;36.0.0 platform-tools"
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Das Modell ist rund 450 MB im Rohzustand. Zwischengelagert spart der
+      # nächste Lauf diesen Teil.
+      - name: Modellspeicher zwischenlagern
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: einbettungsmodell-multilingual-e5-small-v1
+
+      - name: Python-Pakete für den Datenbankbau
+        run: |
+          python -m pip install --upgrade pip
+          # torch als CPU-Fassung: die Fassung mit Grafikkarte ist 2 GB groß
+          # und bringt hier nichts, weil der Läufer keine hat.
+          pip install --index-url https://download.pytorch.org/whl/cpu torch
+          pip install "sentence-transformers>=3.0" "transformers>=4.40" \
+                      onnx onnxruntime pyyaml numpy
+
+      # Hier entsteht android/app/src/main/assets: recht.db, einbetter.onnx
+      # und tokenizer.json. Das Skript prüft sich selbst und bricht ab, wenn
+      # eine Tabelle leer bleibt oder die Beispielsuche nichts findet.
+      - name: Datenbank und Einbetter bauen
+        run: python scripts/export_android.py --stapel 32
+
+      - name: Befund des Datenbankbaus zeigen
+        run: cat daten/aufbereitet/android_export_befund.json
+
+      - name: Beigaben kontrollieren
+        run: |
+          ls -l android/app/src/main/assets/
+          # Ohne diese drei Dateien ist das Paket nicht brauchbar. Lieber hier
+          # abbrechen als eine App ausliefern, die nichts findet.
+          test -s android/app/src/main/assets/recht.db
+          test -s android/app/src/main/assets/einbetter.onnx
+          test -s android/app/src/main/assets/tokenizer.json
+
+      - name: Kotlin-Dateien vorprüfen
+        run: python android/pruefung/kotlin_pruefen.py
+
+      - name: Gradle einrichten
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          build-root-directory: android
+
+      - name: Einheitenprüfungen laufen lassen
+        working-directory: android
+        run: ./gradlew test --console=plain
+
+      - name: Prüfberichte sichern
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pruefberichte
+          path: android/app/build/reports/tests/
+          retention-days: 14
+
+      - name: Paket bauen
+        working-directory: android
+        run: ./gradlew assembleRelease --console=plain
+
+      # Der Dateiname des Bauwerkzeugs heißt app-release-unsigned.apk. Für
+      # jemanden, der die Datei auf dem Telefon vor sich hat, sagt das nichts.
+      - name: Paket benennen
+        id: benennen
+        run: |
+          FASSUNG="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_REF_TYPE}" != "tag" ]; then
+            FASSUNG="$(date +%Y%m%d)-${GITHUB_SHA::7}"
+          fi
+          mkdir -p ausgabe
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk \
+             "ausgabe/konformitaetshelfer-${FASSUNG}.apk"
+          echo "fassung=${FASSUNG}" >> "$GITHUB_OUTPUT"
+          ls -lh ausgabe/
+
+      - name: Paket als Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: konformitaetshelfer-apk
+          path: ausgabe/*.apk
+          retention-days: 90
+          compression-level: 0   # Die Beigaben sind schon unkomprimiert.
+
+      - name: Befund mit hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: datenbankbefund
+          path: daten/aufbereitet/android_export_befund.json
+          retention-days: 90
+
+      - name: An die Veröffentlichung hängen
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ausgabe/*.apk
+          fail_on_unmatched_files: true
+          body: |
+            # EU-KI-Verordnung und Datenschutz - Konformitätshelfer ${{ steps.benennen.outputs.fassung }}
+
+            Einstufung nach der KI-Verordnung, Pflichtenliste mit Artikelverweis
+            und Belegstellen im Wortlaut - alles auf dem Gerät, ohne Netz.
+
+            ## Installieren
+            1. Die Datei `konformitaetshelfer-*.apk` unten herunterladen, auf dem
+               Telefon.
+            2. Antippen. Android fragt nach der Erlaubnis für Apps aus unbekannter
+               Quelle - dem Hinweis folgen, den Schalter umlegen, zurück und
+               "Installieren" tippen.
+            3. Fertig. Kein Konto, keine Anmeldung, kein Netz nötig.
+
+            Das Paket ist nicht unterschrieben. Die einzige Berechtigung ist der
+            Netzzugang; gebraucht wird er nur, wenn Sie in den Einstellungen einen
+            eigenen Schlüssel für Claude oder GPT eintragen, um die Auskunft
+            zusätzlich ausformulieren zu lassen. Die Einstufung selbst kommt immer
+            aus dem Regelwerk auf dem Gerät.
+
+            **Keine Rechtsberatung.** Das Werkzeug ordnet ein KI-System anhand des
+            Verordnungstextes ein und nennt die Fundstellen. Es ersetzt keine
+            Prüfung durch einen Rechtsanwalt oder die zuständige Behörde. Einzelne
+            Geltungstermine der Verordnung wurden zum Datenstand politisch
+            erörtert; vor einer Entscheidung mit Geld- oder Rechtsfolgen ist der
+            geltende Stand bei der zuständigen Behörde zu prüfen.

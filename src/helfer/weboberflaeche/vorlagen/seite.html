@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Konformitätshelfer — KI-Verordnung und Datenschutz</title>
+<meta name="description" content="Belegte Auskunft zur Verordnung (EU) 2024/1689 und zur Datenschutz-Grundverordnung. Keine Rechtsberatung.">
+<meta name="robots" content="noindex">
+<!-- Nichts von außen: keine Schriften, keine Skripte, keine Symbole aus dem
+     Netz. Der Dienst muss in einem Haus ohne Internetzugang laufen, und eine
+     Rechtsauskunft darf nicht verraten, wonach jemand gefragt hat. -->
+<link rel="stylesheet" href="/gestaltung/stil.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header class="kopf">
+  <div class="kopf-innen">
+    <h1>Konformitätshelfer</h1>
+    <p class="untertitel">
+      Verordnung (EU) 2024/1689 über künstliche Intelligenz und
+      Datenschutz-Grundverordnung — mit Fundstelle zu jeder Aussage
+    </p>
+    <dl class="stand">
+      <dt>Stand der Rechtstexte</dt>
+      <dd>{{ stand_korpus.strftime('%d.%m.%Y') if stand_korpus else 'unbekannt' }}</dd>
+      <dt>Stand des Regelsatzes</dt>
+      <dd>{{ stand_regeln.strftime('%d.%m.%Y') if stand_regeln else 'unbekannt' }}</dd>
+      <dt>Rechtsstellen im Bestand</dt>
+      <dd>{{ einheiten_text }}</dd>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+{% if warnungen %}
+<section class="hinweiskasten warnung" role="status">
+  <h2>Der Dienst läuft eingeschränkt</h2>
+  <ul>
+    {% for warnung in warnungen %}<li>{{ warnung }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<form id="pruefform" novalidate>
+
+  <section class="feldgruppe">
+    <label class="gross" for="beschreibung">Beschreiben Sie Ihr KI-System</label>
+    <p class="erlaeuterung">
+      In eigenen Worten: Was soll das System tun, wer setzt es ein, wer ist von
+      den Ergebnissen betroffen? Je genauer, desto belastbarer die Auskunft.
+    </p>
+    <textarea id="beschreibung" name="beschreibung" rows="7" maxlength="20000"
+      placeholder="Beispiel: Wir sind ein Maschinenbauunternehmen und nutzen ein zugekauftes Sprachmodell, um eingehende Bewerbungen vorzusortieren und eine Rangfolge der Bewerber zu erstellen. Die Personalabteilung sieht nur die besten dreißig an."></textarea>
+    <p class="zeichenzahl"><span id="zeichenzahl">0</span> von 20.000 Zeichen</p>
+  </section>
+
+  <section class="feldgruppe">
+    <label for="frage">Ihre Frage <span class="freiwillig">(freiwillig)</span></label>
+    <p class="erlaeuterung">
+      Ohne Frage wird geprüft, welche Pflichten für das beschriebene System gelten.
+    </p>
+    <input type="text" id="frage" name="frage" maxlength="2000"
+      placeholder="Zum Beispiel: Brauchen wir eine Datenschutz-Folgenabschätzung?">
+  </section>
+
+  <details class="fragebogen">
+    <summary>Genaue Angaben machen <span class="freiwillig">({{ fragebogen|length }} Fragen, alle freiwillig)</span></summary>
+    <p class="erlaeuterung">{{ fragebogen_hinweis }}</p>
+
+    {% for punkt in fragebogen %}
+    <div class="punkt" data-kennung="{{ punkt.kennung }}" data-art="{{ punkt.art }}">
+      <p class="punktfrage" id="frage-{{ punkt.kennung }}">{{ punkt.frage }}</p>
+      {% if punkt.hilfe %}<p class="punkthilfe">{{ punkt.hilfe }}</p>{% endif %}
+
+      {% if punkt.art == 'ja_nein' %}
+      <div class="wahl" role="radiogroup" aria-labelledby="frage-{{ punkt.kennung }}">
+        <label><input type="radio" name="{{ punkt.kennung }}" value="true"> Ja</label>
+        <label><input type="radio" name="{{ punkt.kennung }}" value="false"> Nein</label>
+        <label><input type="radio" name="{{ punkt.kennung }}" value="" checked> Weiß ich nicht</label>
+      </div>
+
+      {% elif punkt.art == 'auswahl' %}
+      <div class="wahl senkrecht" role="group" aria-labelledby="frage-{{ punkt.kennung }}">
+        {% for option in punkt.optionen %}
+        <label class="option">
+          <input type="checkbox" name="rollen" value="{{ option.kennung }}">
+          <span><strong>{{ option.kennung|capitalize }}</strong> — {{ option.klartext }}</span>
+        </label>
+        {% endfor %}
+      </div>
+
+      {% elif punkt.art == 'zahl' %}
+      <input type="text" inputmode="decimal" name="{{ punkt.kennung }}"
+             aria-labelledby="frage-{{ punkt.kennung }}" placeholder="Zahl, zum Beispiel 400 oder 1e25">
+
+      {% else %}
+      <input type="text" name="{{ punkt.kennung }}" maxlength="500"
+             aria-labelledby="frage-{{ punkt.kennung }}">
+      {% endif %}
+
+      {% if punkt.wofuer %}<p class="punktwofuer">Wird gebraucht für: {{ punkt.wofuer }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </details>
+
+  <div class="knopfzeile">
+    <button type="submit" id="pruefknopf">Prüfen</button>
+    <span id="laufhinweis" class="laufhinweis" role="status" aria-live="polite"></span>
+  </div>
+</form>
+
+<section id="fehlerbereich" class="hinweiskasten fehler" hidden role="alert">
+  <h2>Das hat nicht geklappt</h2>
+  <p id="fehlertext"></p>
+  <p id="fehlerhinweis" class="erlaeuterung"></p>
+</section>
+
+<!-- Ergebnis. Leer und ausgeblendet, bis geprüft wurde: eine Seite, die
+     Platzhalter zeigt, sieht aus wie ein Ergebnis und ist keines. -->
+<section id="ergebnis" hidden>
+
+  <article id="karte" class="risikokarte">
+    <p class="kartenmarke" id="kartenmarke"></p>
+    <h2 id="kartentitel"></h2>
+    <p id="kartentext"></p>
+    <p id="kartenrollen" class="kartenrollen"></p>
+  </article>
+
+  <section class="block">
+    <h2>Warum diese Einstufung</h2>
+    <div id="begruendung"></div>
+  </section>
+
+  <section class="block" id="pflichtblock">
+    <h2>Was zu tun ist</h2>
+    <p class="erlaeuterung">Zum Abhaken. Die Haken bleiben nur in diesem Fenster —
+      es wird nichts gespeichert und nichts übertragen.</p>
+    <div id="pflichten"></div>
+  </section>
+
+  <section class="block" id="datenschutzblock" hidden>
+    <h2>Zusätzlich nach dem Datenschutzrecht</h2>
+    <div id="datenschutz"></div>
+  </section>
+
+  <section class="block" id="auskunftblock">
+    <h2>Die Auskunft im Zusammenhang</h2>
+    <p id="auskunftquelle" class="erlaeuterung"></p>
+    <pre id="auskunft" class="auskunft"></pre>
+  </section>
+
+  <section class="block" id="lernblock" hidden>
+    <h2>Worauf es ankommt</h2>
+    <p id="lernhinweis" class="lernhinweis"></p>
+    <p id="beispielfaelle" class="erlaeuterung"></p>
+  </section>
+
+  <section class="block" id="belegblock">
+    <h2>Fundstellen im Wortlaut</h2>
+    <p class="erlaeuterung">Jede Stelle zum Aufklappen, im Wortlaut des
+      Gesetzestextes. Bitte selbst nachlesen, bevor etwas entschieden wird.</p>
+    <div id="belege"></div>
+  </section>
+
+  <section class="block" id="fragenblock" hidden>
+    <h2>Offene Fragen</h2>
+    <p class="erlaeuterung">Solange diese Punkte offen sind, ist die Einstufung
+      vorläufig. Die Antworten gehören oben in die genauen Angaben.</p>
+    <ul id="offenefragen"></ul>
+  </section>
+
+  <section class="block" id="fristblock">
+    <h2>Ab wann es gilt</h2>
+    <div id="fristen"></div>
+  </section>
+
+</section>
+
+</main>
+
+<footer class="fuss">
+  <h2>Keine Rechtsberatung</h2>
+  <p>
+    Dieses Werkzeug gibt Auskunft über den Inhalt von Rechtstexten und nennt zu
+    jeder Aussage die Fundstelle. Es ist <strong>keine Rechtsberatung</strong>,
+    ersetzt keine anwaltliche Prüfung und keine Abstimmung mit der
+    Aufsichtsbehörde. Vor einer Entscheidung mit Geld- oder Rechtsfolgen sind
+    die genannten Stellen selbst zu lesen.
+  </p>
+  <p class="fussstand">
+    Rechtstexte Stand {{ stand_korpus.strftime('%d.%m.%Y') if stand_korpus else 'unbekannt' }} ·
+    Regelsatz Stand {{ stand_regeln.strftime('%d.%m.%Y') if stand_regeln else 'unbekannt' }} ·
+    Suche mit {{ einbettungsmodell }} · Formulierung durch {{ sprachmodell }}
+  </p>
+  {% if standhinweis %}<p class="fussstand">{{ standhinweis }}</p>{% endif %}
+  {% if fristenvorbehalt %}
+  <p class="vorbehalt"><strong>Vorbehalt zu den Fristen:</strong> {{ fristenvorbehalt }}</p>
+  {% endif %}
+</footer>
+
+<script src="/gestaltung/helfer.js"></script>
+</body>
+</html>

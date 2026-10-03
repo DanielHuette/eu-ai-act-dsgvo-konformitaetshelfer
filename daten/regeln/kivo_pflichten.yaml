@@ -1,0 +1,1076 @@
+# Pflichtenmatrix der KI-Verordnung (Verordnung (EU) 2024/1689)
+# Jede Pflicht ist aus dem Text der Rechtseinheiten erarbeitet, die unter
+# "rechtsgrundlage" als Kennung des Korpus stehen.
+stand: 2026-05-31
+rechtsakt: KI-VO
+hinweis_zum_stand: "Erfasst ist der Wortlaut der Verordnung selbst; delegierte Rechtsakte, Durchführungsrechtsakte, harmonisierte Normen, Praxisleitfäden und Leitlinien der Kommission, die nach dem 31.05.2026 ergangen sind, sind hier nicht berücksichtigt."
+
+erlaeuterung_der_felder:
+  rollen: "anbieter = wer ein KI-System entwickelt und unter eigenem Namen bereitstellt. betreiber = wer ein KI-System in eigener Verantwortung einsetzt (im Verordnungstext auch 'Deployer'). einfuehrer = wer ein System aus einem Nicht-EU-Land erstmals in die Europäische Union bringt. haendler = wer ein System weiterverkauft, ohne Anbieter oder Einführer zu sein. produkthersteller = wer ein Produkt herstellt, in dem das KI-System als Sicherheitsbauteil steckt. bevollmaechtigter = die in der Europäischen Union sitzende Person, die ein Anbieter aus einem Drittland schriftlich benennt."
+  klassen: "verboten = Praktiken nach Artikel 5. hochrisiko_anhang_i = Systeme, die Sicherheitsbauteil eines Produkts nach Anhang I sind. hochrisiko_anhang_iii = Systeme aus den Einsatzfeldern des Anhangs III. hochrisiko_ausnahme = ein System aus Anhang III, das der Anbieter nach Artikel 6 Absatz 3 als nicht hochriskant einstuft. transparenz = Systeme mit Offenlegungspflicht nach Artikel 50. gpai = KI-Modelle mit allgemeinem Verwendungszweck. gpai_systemisch = solche Modelle mit systemischem Risiko. minimal = alles übrige."
+  gilt_ab: "Datum, ab dem die Vorschrift nach Artikel 113 anzuwenden ist."
+
+geltungsbeginn_nach_artikel_113:
+  rechtsgrundlage:
+    - KI-VO/art-113
+    - KI-VO/art-113/abs-1-a
+    - KI-VO/art-113/abs-1-b
+    - KI-VO/art-113/abs-1-c
+  fundstellen_text: "Artikel 113 KI-VO"
+  was_zu_tun_ist: "Die Verordnung gilt im Grundsatz ab dem 2. August 2026. Früher gelten die Kapitel I und II (darunter die KI-Kompetenz nach Artikel 4 und die Verbote nach Artikel 5) ab dem 2. Februar 2025 sowie die Regeln für KI-Modelle mit allgemeinem Verwendungszweck und die Sanktionsvorschriften ab dem 2. August 2025. Später, nämlich ab dem 2. August 2027, gelten Artikel 6 Absatz 1 und die daran hängenden Pflichten; das betrifft Systeme, die Sicherheitsbauteil eines Produkts nach Anhang I sind."
+  hinweis: "Bei den einzelnen Pflichten unten steht im Feld gilt_ab das Datum für Systeme aus Anhang III. Für Systeme, die als Sicherheitsbauteil eines Produkts nach Anhang I hochriskant sind, verschiebt Artikel 113 Absatz 1 Buchstabe c den Beginn auf den 2. August 2027."
+
+pflichten:
+
+  # ---------------------------------------------------------------
+  # Fuer alle
+  # ---------------------------------------------------------------
+  - kennung: p-alle-ki-kompetenz
+    titel: "Personal im Umgang mit KI schulen"
+    was_zu_tun_ist: "Zu tun ist: Allen Mitarbeitern und allen Personen, die in Ihrem Auftrag mit dem KI-System arbeiten, ein ausreichendes Verständnis dafür verschaffen, was das System kann, wo seine Grenzen liegen und welche Risiken es mitbringt. Was ausreichend ist, richtet sich nach Vorbildung, Erfahrung und dem Einsatzzweck. Planen Sie Schulungen ein und halten Sie fest, wer wann geschult wurde."
+    rechtsgrundlage:
+      - KI-VO/art-4
+      - KI-VO/art-4/abs-1
+    fundstellen_text: "Artikel 4 KI-VO"
+    rollen: [anbieter, betreiber]
+    klassen: [verboten, hochrisiko_anhang_i, hochrisiko_anhang_iii, hochrisiko_ausnahme, transparenz, gpai, gpai_systemisch, minimal]
+    schwere: pflicht
+    gilt_ab: 2025-02-02
+    nachweis: "Schulungsplan, Teilnehmerlisten mit Datum und die Unterlagen, die geschult wurden."
+    bei_verstoss: "Artikel 4 ist in Artikel 99 Absatz 4 nicht eigens aufgeführt. Es greifen die Sanktionen, die die Mitgliedstaaten nach Artikel 99 Absatz 1 festlegen; diese müssen wirksam, verhältnismässig und abschreckend sein."
+
+  # ---------------------------------------------------------------
+  # Verbote
+  # ---------------------------------------------------------------
+  - kennung: p-verbot-praktiken-nicht-betreiben
+    titel: "Verbotene Praktiken weder anbieten noch einsetzen"
+    was_zu_tun_ist: "Zu tun ist: Prüfen, ob Ihr System unter eines der Verbote fällt, und es in diesem Fall nicht in Verkehr bringen, nicht in Betrieb nehmen und nicht verwenden. Verboten sind unter anderem: unterschwellige oder täuschende Beeinflussung, die erheblichen Schaden anrichtet; das Ausnutzen von Alter, Behinderung oder einer sozialen oder wirtschaftlichen Notlage; soziale Bewertung von Menschen (Social Scoring); die Vorhersage von Straftaten allein aus Persönlichkeitsmerkmalen; das ungezielte Absammeln von Gesichtsbildern aus dem Internet oder aus Überwachungsaufnahmen zum Aufbau von Gesichtserkennungsdatenbanken; Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen (ausser aus medizinischen oder Sicherheitsgründen); biometrische Kategorisierung, um Rasse, politische Einstellung, Gewerkschaftszugehörigkeit, Religion, Weltanschauung, Sexualleben oder sexülle Ausrichtung abzuleiten; sowie biometrische Echtzeit-Fernidentifizierung in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken ausserhalb der engen Ausnahmen des Artikels 5."
+    rechtsgrundlage:
+      - KI-VO/art-5
+      - KI-VO/art-5/abs-1
+      - KI-VO/art-5/abs-1-a
+      - KI-VO/art-5/abs-1-b
+      - KI-VO/art-5/abs-1-c
+      - KI-VO/art-5/abs-1-d
+      - KI-VO/art-5/abs-1-e
+      - KI-VO/art-5/abs-1-f
+      - KI-VO/art-5/abs-1-g
+      - KI-VO/art-5/abs-1-h
+    fundstellen_text: "Artikel 5 KI-VO"
+    rollen: [anbieter, betreiber, einfuehrer, haendler, produkthersteller, bevollmaechtigter]
+    klassen: [verboten]
+    schwere: pflicht
+    gilt_ab: 2025-02-02
+    nachweis: "Eine dokumentierte Prüfung je System, in der die Zweckbestimmung den Verbotstatbeständen des Artikels 5 gegenübergestellt wird, samt Begründung des Ergebnisses."
+    bei_verstoss: "Artikel 99 Absatz 3: Geldbussen von bis zu 35 000 000 Euro oder, bei Unternehmen, bis zu 7 Prozent des gesamten weltweiten Jahresumsatzes des vorangegangenen Geschäftsjahres, je nachdem welcher Betrag höher ist. Für kleine und mittlere Unternehmen einschliesslich Start-ups gilt nach Artikel 99 Absatz 6 der jeweils niedrigere Betrag."
+
+  - kennung: p-verbot-echtzeit-biometrie-genehmigung
+    titel: "Biometrische Echtzeit-Fernidentifizierung nur mit vorheriger Genehmigung"
+    nur_wenn_alle: [biometrie, zweck_strafverfolgung]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Soll ein solches System in einem der engen Ausnahmefälle zu Strafverfolgungszwecken eingesetzt werden, vorher die Genehmigung einer Justizbehörde oder einer unabhängigen Verwaltungsbehörde einholen. In begründeten Eilfällen darf begonnen werden, die Genehmigung ist dann unverzüglich, spätestens binnen 24 Stunden zu beantragen. Wird sie abgelehnt, ist der Einsatz sofort zu beenden und alle Daten, Ergebnisse und Ausgaben sind zu löschen. Vor dem Einsatz muss ausserdem die Grundrechte-Folgenabschätzung nach Artikel 27 abgeschlossen und das System nach Artikel 49 registriert sein. Jede Verwendung ist der Marktüberwachungsbehörde und der nationalen Datenschutzbehörde mitzuteilen."
+    rechtsgrundlage:
+      - KI-VO/art-5/abs-2
+      - KI-VO/art-5/abs-3
+      - KI-VO/art-5/abs-4
+
+    auch_genannt:
+      - KI-VO/art-27
+      - KI-VO/art-49
+    fundstellen_text: "Artikel 5 Absätze 2 bis 4 KI-VO"
+    rollen: [betreiber]
+    klassen: [verboten, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2025-02-02
+    nachweis: "Genehmigungsantrag und Genehmigung, die abgeschlossene Grundrechte-Folgenabschätzung, der Registrierungseintrag und die Mitteilung an die beiden Behörden."
+    bei_verstoss: "Verstösse gegen Artikel 5 sind nach Artikel 99 Absatz 3 mit Geldbussen bis zu 35 000 000 Euro oder bis zu 7 Prozent des weltweiten Jahresumsatzes bedroht, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  # Anbieter von Hochrisiko-KI-Systemen: Anforderungen (Abschnitt 2)
+  # ---------------------------------------------------------------
+  - kennung: p-anb-hr-anforderungen-einhalten
+    titel: "Alle Anforderungen an Hochrisikosysteme erfüllen"
+    was_zu_tun_ist: "Zu tun ist: Sicherstellen, dass das System die Anforderungen der Artikel 9 bis 15 erfüllt, bevor es auf den Markt kommt oder in Betrieb geht. Dabei zählt die Zweckbestimmung, also wofür Sie das System ausdrücklich vorgesehen haben, und der allgemein anerkannte Stand der Technik. Steckt das System in einem Produkt, das schon anderen Unionsvorschriften unterliegt, dürfen Sie Ihre Tests, Berichte und Unterlagen in die dort vorgeschriebenen Dokumente einbauen, statt alles doppelt zu führen."
+    rechtsgrundlage:
+      - KI-VO/art-8
+      - KI-VO/art-16
+      - KI-VO/art-16/abs-1-a
+
+    auch_genannt:
+      - KI-VO/art-9
+    fundstellen_text: "Artikel 8 und Artikel 16 Buchstabe a KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die technische Dokumentation nach Artikel 11, aus der hervorgeht, wie jede einzelne Anforderung erfüllt ist."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: Geldbussen bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-risikomanagement
+    titel: "Risikomanagementsystem einrichten und laufend fortführen"
+    was_zu_tun_ist: "Zu tun ist: Ein Risikomanagementsystem einrichten, anwenden, dokumentieren und über die ganze Lebensdauer des Systems aufrechterhalten. Es ist kein einmaliger Bericht, sondern ein wiederkehrender Durchlauf: bekannte und vernünftigerweise vorhersehbare Risiken für Gesundheit, Sicherheit und Grundrechte ermitteln und analysieren, Risiken bei bestimmungsgemässem Gebrauch und bei vorhersehbarem Fehlgebrauch abschätzen, Erkenntnisse aus der Marktbeobachtung auswerten und gezielte Gegenmassnahmen ergreifen. Verbleibende Restrisiken müssen vertretbar sein. Testen Sie vorab festgelegte Messwerte und Schwellen, in jedem Fall vor dem Inverkehrbringen. Prüfen Sie ausdrücklich, ob das System Personen unter 18 Jahren oder andere schutzbedürftige Gruppen nachteilig treffen kann."
+    rechtsgrundlage:
+      - KI-VO/art-9
+      - KI-VO/art-9/abs-1
+      - KI-VO/art-9/abs-2
+      - KI-VO/art-9/abs-5
+      - KI-VO/art-9/abs-6
+      - KI-VO/art-9/abs-8
+      - KI-VO/art-9/abs-9
+    fundstellen_text: "Artikel 9 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Schriftliche Risikoanalyse je Version mit Risikoliste, Bewertung, beschlossenen Massnahmen, Restrisikobewertung und Testprotokollen samt den vorab festgelegten Messwerten und Schwellen."
+    bei_verstoss: "Die Pflicht hängt über Artikel 16 Buchstabe a an den Anbieterpflichten; Artikel 99 Absatz 4 Buchstabe a sieht Geldbussen bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes vor, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-daten-governance
+    titel: "Trainings-, Validierungs- und Testdaten prüfen und steuern"
+    was_zu_tun_ist: "Zu tun ist: Wenn Ihr System mit Daten trainiert wird, müssen die Trainings-, Validierungs- und Testdatensätze für den Zweck passen, hinreichend repräsentativ und so weit wie möglich fehlerfrei und vollständig sein. Festzuhalten sind die Entwurfsentscheidungen, woher die Daten kommen, bei personenbezogenen Daten der ursprüngliche Erhebungszweck, wie die Daten aufbereitet wurden (Annotation, Bereinigung, Anreicherung), welche Annahmen dahinterstehen, eine Untersuchung auf Verzerrungen (im Text 'Bias', also systematische Schieflagen der Daten, die zu Benachteiligung führen können), die Massnahmen dagegen und welche Datenlücken noch offen sind. Berücksichtigen Sie die geografischen, kontextüllen und verhaltensbezogenen Besonderheiten des geplanten Einsatzortes. Wird das System nicht trainiert, gelten diese Vorgaben nur für die Testdaten."
+    rechtsgrundlage:
+      - KI-VO/art-10
+      - KI-VO/art-10/abs-1
+      - KI-VO/art-10/abs-2
+      - KI-VO/art-10/abs-3
+      - KI-VO/art-10/abs-4
+      - KI-VO/art-10/abs-6
+    fundstellen_text: "Artikel 10 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Datenblätter je Datensatz mit Herkunft, Erhebungszweck, Aufbereitungsschritten, Repräsentativitätsnachweis, Verzerrungsuntersuchung und den ergriffenen Gegenmassnahmen."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a sieht bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes vor, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-besondere-daten-fuer-bias
+    titel: "Besondere Datenkategorien nur zur Verzerrungskorrektur und nur unter Bedingungen"
+    nur_wenn: [besondere_datenkategorien]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht betrifft Sie nur, wenn Sie zur Erkennung und Korrektur von
+      Verzerrungen besondere Datenkategorien im Sinne des Artikels 9 Absatz 1 DSGVO
+      verarbeiten - etwa Gesundheitsdaten, Angaben zur Herkunft, zur Religion oder
+      zur sexuellen Orientierung. Tun Sie das nicht, entfaellt sie.
+    was_zu_tun_ist: "Zu tun ist: Brauchen Sie besonders geschützte personenbezogene Daten (etwa zu Herkunft, Religion, Gesundheit oder sexüller Orientierung), um Verzerrungen zu erkennen und zu korrigieren, dürfen Sie sie nur ausnahmsweise verarbeiten und nur, wenn alle folgenden Bedingungen erfüllt sind: es geht nicht mit anderen Daten, auch nicht mit synthetischen oder anonymisierten; die Daten sind technisch gegen Weiterverwendung gesperrt und nach dem Stand der Technik gesichert, einschliesslich Pseudonymisierung; der Zugriff ist streng kontrolliert und dokumentiert; die Daten werden nicht an Dritte gegeben; sie werden gelöscht, sobald die Verzerrung korrigiert ist oder die Speicherfrist endet, je nachdem was zuerst eintritt; und im Verzeichnis der Verarbeitungstätigkeiten steht, warum es ohne diese Daten nicht ging. Die Vorgaben des Datenschutzrechts gelten daneben weiter."
+    rechtsgrundlage:
+      - KI-VO/art-10/abs-5
+      - KI-VO/art-10/abs-5-a
+      - KI-VO/art-10/abs-5-b
+      - KI-VO/art-10/abs-5-c
+      - KI-VO/art-10/abs-5-d
+      - KI-VO/art-10/abs-5-e
+      - KI-VO/art-10/abs-5-f
+    fundstellen_text: "Artikel 10 Absatz 5 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Begründung der unbedingten Erforderlichkeit, Zugriffsprotokolle, Löschnachweis und der entsprechende Eintrag im Verzeichnis der Verarbeitungstätigkeiten."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst (Artikel 99 Absatz 4 Buchstabe a). Daneben bleibt die Datenschutz-Grundverordnung mit ihrem eigenen Bussgeldrahmen anwendbar."
+
+  - kennung: p-anb-hr-technische-dokumentation
+    titel: "Technische Dokumentation erstellen und aktuell halten"
+    was_zu_tun_ist: "Zu tun ist: Vor dem Inverkehrbringen oder der Inbetriebnahme eine technische Dokumentation erstellen und sie danach aktuell halten. Sie muss mindestens die Angaben aus Anhang IV enthalten und so geschrieben sein, dass Behörden und notifizierte Stellen daraus klar und verständlich erkennen können, wie die Anforderungen erfüllt werden. Dazu gehören Beschreibung und Entwicklungsweg des Systems, die Entwurfsentscheidungen samt Gründen, die Systemarchitektur, die verwendeten Rechenressourcen und die Datenblätter zu den Trainingsdaten. Kleine und mittlere Unternehmen einschliesslich Start-ups dürfen das vereinfachte Formular der Kommission verwenden; notifizierte Stellen müssen es akzeptieren. Steckt das System in einem Produkt nach Anhang I Abschnitt A, wird eine einzige gemeinsame Dokumentation erstellt."
+    rechtsgrundlage:
+      - KI-VO/art-11
+      - KI-VO/art-11/abs-1
+      - KI-VO/art-11/abs-2
+      - KI-VO/anh-IV
+      - KI-VO/anh-IV/nr-1
+      - KI-VO/anh-IV/nr-2
+    fundstellen_text: "Artikel 11 KI-VO mit Anhang IV"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die Dokumentation selbst, mit Versionsstand und Änderungsnachweis, geordnet nach den Nummern des Anhangs IV."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-protokollierung-einbauen
+    titel: "Automatische Protokollierung in das System einbauen"
+    was_zu_tun_ist: "Zu tun ist: Das System technisch so bauen, dass es Ereignisse über seine gesamte Lebensdauer selbsttätig aufzeichnet (Protokollierung). Die Aufzeichnungen müssen so weit reichen, dass sich der Betrieb nachvollziehen lässt: Situationen erkennen, in denen das System ein Risiko birgt oder wesentlich verändert wird, die Marktbeobachtung stützen und die Überwachung durch den Betreiber ermöglichen. Bei Systemen zur biometrischen Fernidentifizierung nach Anhang III Nummer 1 Buchstabe a müssen zusätzlich mindestens aufgezeichnet werden: Beginn und Ende jeder Nutzung mit Datum und Uhrzeit, die abgeglichene Referenzdatenbank, die Eingabedaten, die zu einer Übereinstimmung geführt haben, und wer die Ergebnisse geprüft hat."
+    rechtsgrundlage:
+      - KI-VO/art-12
+      - KI-VO/art-12/abs-1
+      - KI-VO/art-12/abs-2
+      - KI-VO/art-12/abs-3
+    fundstellen_text: "Artikel 12 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Beschreibung der Protokollierungsfunktion in der technischen Dokumentation und Beispielprotokolle, die den vorgeschriebenen Inhalt zeigen."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-transparenz-betriebsanleitung
+    titel: "Betriebsanleitung mit den vorgeschriebenen Angaben beilegen"
+    was_zu_tun_ist: "Zu tun ist: Das System so bauen, dass der Betreiber die Ausgaben richtig deuten und verwenden kann, und ihm eine Betriebsanleitung in einem geeigneten digitalen Format mitgeben, präzise, vollständig, richtig, eindeutig, barrierefrei zugänglich und verständlich. Hineingehören mindestens: Name und Kontakt des Anbieters und gegebenenfalls des Bevollmächtigten; Zweckbestimmung, Fähigkeiten und Leistungsgrenzen; das Mass an Genauigkeit, Robustheit und Cybersicherheit mit den zugehörigen Messgrössen; bekannte und vorhersehbare Umstände, die zu Risiken führen können; Hinweise zur Deutung der Ausgaben; die Leistung bei bestimmten Personengruppen; die Anforderungen an die Eingabedaten; vorab festgelegte Änderungen am System; die Massnahmen zur menschlichen Aufsicht; die benötigten Rechen- und Hardwareressourcen, die erwartete Lebensdauer und die Wartungsmassnahmen samt Häufigkeit; und wie der Betreiber die Protokolle erfassen, speichern und auswerten kann."
+    rechtsgrundlage:
+      - KI-VO/art-13
+      - KI-VO/art-13/abs-1
+      - KI-VO/art-13/abs-2
+      - KI-VO/art-13/abs-3
+    fundstellen_text: "Artikel 13 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die ausgelieferte Betriebsanleitung, abgeglichen gegen die Liste des Artikels 13 Absatz 3."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-menschliche-aufsicht
+    titel: "Menschliche Aufsicht technisch ermöglichen"
+    was_zu_tun_ist: "Zu tun ist: Das System so bauen, dass Menschen es während des Betriebs wirksam beaufsichtigen können, notfalls über eine eigene Bedienoberfläche. Die Aufsichtsvorkehrungen werden vor dem Inverkehrbringen festgelegt und entweder eingebaut oder so beschrieben, dass der Betreiber sie umsetzen kann. Die aufsichtsführenden Personen müssen Fähigkeiten und Grenzen des Systems verstehen, Fehlfunktionen und unerwartetes Verhalten erkennen können, sich der Neigung zu übermässigem Vertrauen in die Ausgaben bewusst bleiben (Automatisierungsbias), die Ausgaben richtig deuten können, das System in einer bestimmten Lage nicht verwenden oder dessen Ausgabe übergehen, ausser Kraft setzen oder rückgängig machen können und mit einer Stopptaste oder einem gleichwertigen Verfahren eingreifen können, sodass das System sicher zum Stillstand kommt. Bei biometrischer Fernidentifizierung nach Anhang III Nummer 1 Buchstabe a muss das System ausserdem so gestaltet sein, dass keine Entscheidung allein auf dem Identifizierungsergebnis beruht, solange nicht zwei fachlich geeignete und befugte Personen es getrennt geprüft und bestätigt haben."
+    rechtsgrundlage:
+      - KI-VO/art-14
+      - KI-VO/art-14/abs-1
+      - KI-VO/art-14/abs-3
+      - KI-VO/art-14/abs-4
+      - KI-VO/art-14/abs-5
+    fundstellen_text: "Artikel 14 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Beschreibung der Aufsichtsvorkehrungen in technischer Dokumentation und Betriebsanleitung sowie Nachweis der Stopp- und Eingriffsmöglichkeit aus Tests."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-genauigkeit-robustheit-cybersicherheit
+    titel: "Genauigkeit, Robustheit und Cybersicherheit sicherstellen"
+    was_zu_tun_ist: "Zu tun ist: Das System so bauen, dass es ein angemessenes Mass an Genauigkeit, Robustheit (Widerstandsfähigkeit gegen Fehler und Störungen) und Cybersicherheit erreicht und das über die gesamte Lebensdauer hält. Die erreichten Genauigkeitswerte und die verwendeten Messgrössen gehören in die Betriebsanleitung. Gegen Fehler und Unstimmigkeiten helfen technische und organisatorische Massnahmen, etwa Redundanz oder Ausfallsicherungspläne. Lernt das System nach dem Inverkehrbringen weiter, ist dafür zu sorgen, dass verzerrte Ausgaben nicht in künftige Vorgänge zurückwirken (Rückkopplungsschleifen). Gegen Angriffe sind Vorkehrungen zu treffen, insbesondere gegen Manipulation der Trainingsdaten (data poisoning), Manipulation vortrainierter Bestandteile (model poisoning), irreführende Eingaben (adversarial examples) und Angriffe auf vertrauliche Daten."
+    rechtsgrundlage:
+      - KI-VO/art-15
+      - KI-VO/art-15/abs-1
+      - KI-VO/art-15/abs-3
+      - KI-VO/art-15/abs-4
+      - KI-VO/art-15/abs-5
+    fundstellen_text: "Artikel 15 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Testberichte mit Genauigkeits- und Robustheitswerten, die Angabe dieser Werte in der Betriebsanleitung und ein Bericht über die Sicherheitsprüfung samt Gegenmassnahmen."
+    bei_verstoss: "Über Artikel 16 Buchstabe a erfasst; Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  # ---------------------------------------------------------------
+  # Anbieter von Hochrisiko-KI-Systemen: Pflichten (Abschnitt 3)
+  # ---------------------------------------------------------------
+  - kennung: p-anb-hr-name-und-kontakt-angeben
+    titel: "Eigenen Namen und Kontaktanschrift am System angeben"
+    was_zu_tun_ist: "Zu tun ist: Namen, eingetragenen Handelsnamen oder eingetragene Handelsmarke und eine Kontaktanschrift am System selbst anbringen. Geht das nicht, auf der Verpackung oder in den beigefügten Unterlagen."
+    rechtsgrundlage:
+      - KI-VO/art-16/abs-1-b
+    fundstellen_text: "Artikel 16 Buchstabe b KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Foto oder Bildschirmaufnahme der Kennzeichnung am System, an der Verpackung oder in den Begleitunterlagen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-qualitaetsmanagement
+    titel: "Qualitätsmanagementsystem einrichten"
+    was_zu_tun_ist: "Zu tun ist: Ein Qualitätsmanagementsystem einrichten, das die Einhaltung der Verordnung sicherstellt, und es in schriftlichen Regeln, Verfahren und Anweisungen festhalten. Es muss mindestens umfassen: ein Konzept zur Einhaltung der Vorschriften samt Umgang mit Änderungen am System; Verfahren für Entwurf, Entwurfskontrolle und Entwurfsprüfung; Verfahren für Entwicklung, Qualitätskontrolle und Qualitätssicherung; Untersuchungs-, Test- und Validierungsverfahren mit Angabe, wie oft sie laufen; die anzuwendenden Normen und technischen Spezifikationen; Verfahren für das Datenmanagement; das Risikomanagementsystem nach Artikel 9; die Marktbeobachtung nach Artikel 72; das Verfahren zur Meldung schwerwiegender Vorfälle nach Artikel 73; die Kommunikation mit Behörden, notifizierten Stellen und Kunden; Verfahren zur Aufzeichnung aller Unterlagen; das Ressourcenmanagement einschliesslich Versorgungssicherheit; und einen Rechenschaftsrahmen, der festlegt, wer in der Leitung und im Personal für was verantwortlich ist. Der Umfang darf zur Grösse Ihrer Organisation passen, das Schutzniveau darf dabei nicht sinken."
+    rechtsgrundlage:
+      - KI-VO/art-17
+      - KI-VO/art-17/abs-1
+      - KI-VO/art-17/abs-2
+      - KI-VO/art-16/abs-1-c
+
+    auch_genannt:
+      - KI-VO/art-9
+      - KI-VO/art-72
+      - KI-VO/art-73
+    fundstellen_text: "Artikel 17 und Artikel 16 Buchstabe c KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Das schriftliche Regelwerk des Qualitätsmanagementsystems mit Verfahrensanweisungen, Zuständigkeitsmatrix und Nachweisen, dass die Verfahren gelebt werden."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-dokumentation-zehn-jahre-aufbewahren
+    titel: "Dokumentation zehn Jahre bereithalten"
+    was_zu_tun_ist: "Zu tun ist: Ab dem Inverkehrbringen oder der Inbetriebnahme zehn Jahre lang für die zuständigen nationalen Behörden bereithalten: die technische Dokumentation nach Artikel 11, die Unterlagen zum Qualitätsmanagementsystem, die Unterlagen zu von notifizierten Stellen genehmigten Änderungen, die Entscheidungen und sonstigen Dokumente notifizierter Stellen und die EU-Konformitätserklärung."
+    rechtsgrundlage:
+      - KI-VO/art-18
+      - KI-VO/art-18/abs-1
+      - KI-VO/art-18/abs-1-a
+      - KI-VO/art-18/abs-1-b
+      - KI-VO/art-18/abs-1-c
+      - KI-VO/art-18/abs-1-d
+      - KI-VO/art-18/abs-1-e
+      - KI-VO/art-16/abs-1-d
+
+    auch_genannt:
+      - KI-VO/art-11
+    fundstellen_text: "Artikel 18 und Artikel 16 Buchstabe d KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Ein Aktenverzeichnis mit Ablageort und Aufbewahrungsfrist je Unterlage und dem Datum des Inverkehrbringens als Fristbeginn."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-protokolle-aufbewahren
+    titel: "Automatisch erzeugte Protokolle aufbewahren"
+    was_zu_tun_ist: "Zu tun ist: Die vom System selbsttätig erzeugten Protokolle aufbewahren, soweit sie in Ihrer Kontrolle liegen. Die Frist richtet sich nach der Zweckbestimmung, beträgt aber mindestens sechs Monate, sofern nicht anderes Unionsrecht oder nationales Recht etwas anderes vorschreibt; das Datenschutzrecht ist dabei ausdrücklich genannt."
+    rechtsgrundlage:
+      - KI-VO/art-19
+      - KI-VO/art-19/abs-1
+      - KI-VO/art-16/abs-1-e
+    fundstellen_text: "Artikel 19 und Artikel 16 Buchstabe e KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Das Löschkonzept mit der festgelegten Aufbewahrungsfrist und Nachweise, dass die Protokolle für diesen Zeitraum tatsächlich vorliegen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-korrekturmassnahmen-und-information
+    titel: "Bei Nichtkonformität nachbessern und informieren"
+    was_zu_tun_ist: "Zu tun ist: Haben Sie Grund zu der Annahme, dass ein von Ihnen bereitgestelltes System der Verordnung nicht entspricht, unverzüglich die erforderlichen Korrekturmassnahmen ergreifen, also die Konformität herstellen oder das System zurücknehmen, deaktivieren oder zurückrufen. Informieren Sie darüber die Händler und, soweit vorhanden, Betreiber, Bevollmächtigten und Einführer. Birgt das System ein Risiko und wird Ihnen das bewusst, untersuchen Sie unverzüglich die Ursachen, gegebenenfalls gemeinsam mit dem meldenden Betreiber, und informieren die zuständigen Marktüberwachungsbehörden sowie gegebenenfalls die notifizierte Stelle, die die Bescheinigung ausgestellt hat, insbesondere über Art der Nichtkonformität und bereits ergriffene Massnahmen."
+    rechtsgrundlage:
+      - KI-VO/art-20
+      - KI-VO/art-20/abs-1
+      - KI-VO/art-20/abs-2
+      - KI-VO/art-16/abs-1-j
+    fundstellen_text: "Artikel 20 und Artikel 16 Buchstabe j KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Ein Vorfallsregister mit Datum der Kenntnis, Ursachenuntersuchung, ergriffenen Massnahmen und den Nachrichten an Händler, Betreiber und Behörden."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-zusammenarbeit-behoerden
+    titel: "Behörden auf begründete Anfrage Auskunft und Protokollzugang geben"
+    was_zu_tun_ist: "Zu tun ist: Auf begründete Anfrage einer zuständigen Behörde alle Informationen und Unterlagen vorlegen, die den Nachweis der Konformität erlauben, und zwar in einer Sprache, die die Behörde leicht versteht und die eine der von diesem Mitgliedstaat angegebenen Amtssprachen ist. Auf begründete Anfrage ausserdem Zugang zu den automatisch erzeugten Protokollen geben, soweit diese in Ihrer Kontrolle liegen. Die Behörde behandelt die Informationen vertraulich nach Artikel 78."
+    rechtsgrundlage:
+      - KI-VO/art-21
+      - KI-VO/art-21/abs-1
+      - KI-VO/art-21/abs-2
+      - KI-VO/art-16/abs-1-k
+
+    auch_genannt:
+      - KI-VO/art-78
+    fundstellen_text: "Artikel 21 und Artikel 16 Buchstabe k KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Ein Auskunftsregister mit Anfragen, Fristen, übermittelten Unterlagen und der verwendeten Sprache."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a. Werden auf ein Auskunftsersuchen falsche, unvollständige oder irreführende Informationen gegeben, greift Artikel 99 Absatz 5: bis zu 7 500 000 Euro oder bis zu 1 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-barrierefreiheit
+    titel: "Barrierefreiheitsanforderungen erfüllen"
+    was_zu_tun_ist: "Zu tun ist: Sicherstellen, dass das System die Barrierefreiheitsanforderungen erfüllt, die sich aus der Richtlinie (EU) 2016/2102 über den barrierefreien Zugang zu Websites und mobilen Anwendungen öffentlicher Stellen und aus der Richtlinie (EU) 2019/882 über die Barrierefreiheitsanforderungen für Produkte und Dienstleistungen ergeben."
+    rechtsgrundlage:
+      - KI-VO/art-16/abs-1-l
+    fundstellen_text: "Artikel 16 Buchstabe l KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Ein Barrierefreiheitsbericht mit Prüfergebnis je Anforderung der beiden Richtlinien."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Die genannten Richtlinien haben zusätzlich eigene Durchsetzungswege."
+
+  - kennung: p-anb-hr-bevollmaechtigter-drittland
+    titel: "Als Anbieter aus einem Drittland einen Bevollmächtigten in der Union benennen"
+    nur_wenn: [drittlandtransfer]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht trifft Sie nur, wenn Sie als Anbieter ausserhalb der
+      Europaeischen Union sitzen. Haben Sie Ihren Sitz in der Union, entfaellt sie.
+    was_zu_tun_ist: "Zu tun ist: Sitzen Sie ausserhalb der Europäischen Union, benennen Sie schriftlich einen in der Union niedergelassenen Bevollmächtigten, bevor Sie das System auf dem Unionsmarkt bereitstellen, und versetzen Sie ihn in die Lage, seinen Auftrag zu erfüllen. Der Auftrag muss ihn mindestens berechtigen: zu prüfen, ob EU-Konformitätserklärung und technische Dokumentation erstellt wurden und ein angemessenes Konformitätsbewertungsverfahren durchlaufen wurde; zehn Jahre lang Ihre Kontaktdaten, ein Exemplar der Erklärung, die technische Dokumentation und gegebenenfalls die Bescheinigung der notifizierten Stelle bereitzuhalten; Behörden auf begründete Anfrage Unterlagen und Protokollzugang zu geben; mit Behörden zusammenzuarbeiten; und die Registrierungspflichten zu erfüllen oder die Richtigkeit der Registerangaben sicherzustellen. Hält der Bevollmächtigte Sie für pflichtwidrig, beendet er den Auftrag und informiert Marktüberwachungsbehörde und notifizierte Stelle."
+    rechtsgrundlage:
+      - KI-VO/art-22
+      - KI-VO/art-22/abs-1
+      - KI-VO/art-22/abs-2
+      - KI-VO/art-22/abs-3
+      - KI-VO/art-22/abs-3-a
+      - KI-VO/art-22/abs-3-b
+      - KI-VO/art-22/abs-3-c
+      - KI-VO/art-22/abs-3-d
+      - KI-VO/art-22/abs-3-e
+      - KI-VO/art-22/abs-4
+    fundstellen_text: "Artikel 22 KI-VO"
+    rollen: [anbieter, bevollmaechtigter]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der schriftliche Auftrag mit den Mindestaufgaben, die Kopie für die Behörden und der Nachweis, dass die Unterlagen beim Bevollmächtigten liegen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe b nennt die Pflichten der Bevollmächtigten nach Artikel 22 ausdrücklich: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-anb-hr-konformitaetsbewertung
+    titel: "Konformitätsbewertungsverfahren vor dem Inverkehrbringen durchlaufen"
+    was_zu_tun_ist: "Zu tun ist: Vor dem Inverkehrbringen oder der Inbetriebnahme das passende Konformitätsbewertungsverfahren durchlaufen. Bei biometrischen Systemen nach Anhang III Nummer 1 können Sie, wenn Sie harmonisierte Normen oder gemeinsame Spezifikationen vollständig angewandt haben, zwischen der internen Kontrolle nach Anhang VI und der Bewertung durch eine notifizierte Stelle nach Anhang VII wählen; gibt es keine solchen Normen oder haben Sie sie nicht oder nur teilweise angewandt, müssen Sie den Weg über die notifizierte Stelle nach Anhang VII gehen. Bei den Systemen nach Anhang III Nummern 2 bis 8 genügt die interne Kontrolle nach Anhang VI ohne notifizierte Stelle. Fällt das System unter die Produktvorschriften des Anhangs I Abschnitt A, folgen Sie den dortigen Verfahren und beziehen die Anforderungen dieser Verordnung ein. Bei einer wesentlichen Änderung ist das Verfahren erneut zu durchlaufen; vorab festgelegte und dokumentierte Änderungen weiterlernender Systeme gelten nicht als wesentliche Änderung."
+    rechtsgrundlage:
+      - KI-VO/art-43
+      - KI-VO/art-43/abs-1
+      - KI-VO/art-43/abs-2
+      - KI-VO/art-43/abs-3
+      - KI-VO/art-43/abs-4
+      - KI-VO/art-16/abs-1-f
+    fundstellen_text: "Artikel 43 und Artikel 16 Buchstabe f KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Bericht über die interne Kontrolle oder die Bescheinigung der notifizierten Stelle, jeweils mit Datum vor dem Inverkehrbringen, und bei Änderungen der erneute Nachweis."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-eu-konformitaetserklaerung
+    titel: "EU-Konformitätserklärung ausstellen und zehn Jahre bereithalten"
+    was_zu_tun_ist: "Zu tun ist: Für jedes Hochrisikosystem eine schriftliche, maschinenlesbare, physisch oder elektronisch unterzeichnete EU-Konformitätserklärung ausstellen und sie zehn Jahre ab dem Inverkehrbringen oder der Inbetriebnahme für die Behörden bereithalten. Aus ihr muss hervorgehen, für welches System sie gilt, und sie muss feststellen, dass das System die Anforderungen erfüllt; der Inhalt steht in Anhang V. Sie ist in eine Sprache zu übersetzen, die die Behörden der Mitgliedstaaten, in denen das System auf den Markt kommt, leicht verstehen. Mit der Ausstellung übernehmen Sie die Verantwortung für die Einhaltung der Anforderungen und halten die Erklärung aktuell. Schreiben auch andere Unionsvorschriften eine Konformitätserklärung vor, stellen Sie eine einzige gemeinsame Erklärung aus."
+    rechtsgrundlage:
+      - KI-VO/art-47
+      - KI-VO/art-47/abs-1
+      - KI-VO/art-47/abs-2
+      - KI-VO/art-47/abs-3
+      - KI-VO/art-47/abs-4
+      - KI-VO/anh-V
+      - KI-VO/art-16/abs-1-g
+    fundstellen_text: "Artikel 47 KI-VO mit Anhang V, dazu Artikel 16 Buchstabe g"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die unterzeichnete Erklärung mit Datum, Systembezug und den Angaben des Anhangs V, dazu die Übersetzungen und der Ablageort für die Zehnjahresfrist."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-ce-kennzeichnung
+    titel: "CE-Kennzeichnung anbringen"
+    was_zu_tun_ist: "Zu tun ist: Die CE-Kennzeichnung gut sichtbar, leserlich und dauerhaft am System anbringen; lässt die Art des Systems das nicht zu, auf der Verpackung oder in den Begleitunterlagen. Bei digital bereitgestellten Systemen darf eine digitale CE-Kennzeichnung nur verwendet werden, wenn sie über die Zugriffsoberfläche, einen leicht zugänglichen maschinenlesbaren Code oder andere elektronische Mittel leicht erreichbar ist. War eine notifizierte Stelle beteiligt, kommt deren Identifizierungsnummer hinzu; diese muss auch in Werbematerial stehen, das auf die Erfüllung der CE-Anforderungen hinweist."
+    rechtsgrundlage:
+      - KI-VO/art-48
+      - KI-VO/art-48/abs-1
+      - KI-VO/art-48/abs-2
+      - KI-VO/art-48/abs-3
+      - KI-VO/art-48/abs-4
+      - KI-VO/art-16/abs-1-h
+    fundstellen_text: "Artikel 48 und Artikel 16 Buchstabe h KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Foto oder Bildschirmaufnahme der angebrachten Kennzeichnung samt Identifizierungsnummer der notifizierten Stelle, soweit eine beteiligt war."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Eine fehlende oder falsch angebrachte CE-Kennzeichnung kann zusätzlich als formale Nichtkonformität nach Artikel 83 behandelt werden."
+
+  - kennung: p-anb-hr-registrierung-eu-datenbank
+    titel: "System und sich selbst in der EU-Datenbank registrieren"
+    was_zu_tun_ist: "Zu tun ist: Vor dem Inverkehrbringen oder der Inbetriebnahme eines Systems aus Anhang III sich selbst und das System in der EU-Datenbank registrieren. Ausgenommen sind die Systeme nach Anhang III Nummer 2 (kritische Infrastruktur); diese werden auf nationaler Ebene registriert. Haben Sie ein System aus Anhang III nach Artikel 6 Absatz 3 als nicht hochriskant eingestuft, müssen Sie sich und dieses System ebenfalls registrieren. In den Bereichen Strafverfolgung, Migration, Asyl und Grenzkontrolle erfolgt die Registrierung in einem sicheren, nicht öffentlichen Teil der Datenbank mit eingeschränktem Datensatz."
+    rechtsgrundlage:
+      - KI-VO/art-49
+      - KI-VO/art-49/abs-1
+      - KI-VO/art-49/abs-2
+      - KI-VO/art-49/abs-4
+      - KI-VO/art-49/abs-5
+      - KI-VO/anh-VIII
+      - KI-VO/art-16/abs-1-i
+
+    auch_genannt:
+      - KI-VO/art-6/abs-3
+    fundstellen_text: "Artikel 49 KI-VO mit Anhang VIII, dazu Artikel 16 Buchstabe i"
+    rollen: [anbieter, bevollmaechtigter, produkthersteller]
+    klassen: [hochrisiko_anhang_iii, hochrisiko_ausnahme]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Registrierungsbeleg aus der EU-Datenbank mit Datum vor dem Inverkehrbringen und den Angaben nach Anhang VIII."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-anb-hr-beobachtung-nach-inverkehrbringen
+    titel: "Das System nach dem Inverkehrbringen weiter beobachten"
+    was_zu_tun_ist: "Zu tun ist: Ein System zur Beobachtung nach dem Inverkehrbringen einrichten und dokumentieren, das zur Art der KI-Technik und zu den Risiken des Systems passt. Damit sammeln und bewerten Sie laufend Erfahrungen aus dem tatsächlichen Einsatz; die Ergebnisse fliessen in das Risikomanagement nach Artikel 9 zurück. Die Beobachtung stützt sich auf einen Plan, der Teil der technischen Dokumentation ist."
+    rechtsgrundlage:
+      - KI-VO/art-72
+      - KI-VO/art-72/abs-1
+      - KI-VO/art-72/abs-2
+      - KI-VO/art-72/abs-3
+
+    auch_genannt:
+      - KI-VO/art-9
+    fundstellen_text: "Artikel 72 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Plan für die Beobachtung nach dem Inverkehrbringen als Teil der technischen Dokumentation und die gesammelten Auswertungen mit Datum."
+    bei_verstoss: "Artikel 72 ist in Artikel 99 Absatz 4 nicht eigens aufgeführt; es greifen die von den Mitgliedstaaten nach Artikel 99 Absatz 1 festgelegten Sanktionen. Da das Beobachtungssystem nach Artikel 17 Absatz 1 Buchstabe h Bestandteil des Qualitätsmanagementsystems ist, kann ein Mangel zugleich als Verstoss gegen Artikel 16 gewertet werden."
+
+  - kennung: p-anb-hr-schwerwiegende-vorfaelle-melden
+    titel: "Schwerwiegende Vorfälle den Behörden melden"
+    was_zu_tun_ist: "Zu tun ist: Einen schwerwiegenden Vorfall der Marktüberwachungsbehörde des Mitgliedstaats melden, in dem er sich ereignet hat. Gemeldet wird, sobald Sie den Zusammenhang zwischen System und Vorfall festgestellt haben oder er naheliegend wahrscheinlich ist, in jedem Fall spätestens 15 Tage nachdem Sie oder der Betreiber davon Kenntnis erlangt haben. Bei einem weitverbreiteten Verstoss oder einem Vorfall im Sinne des Artikels 3 Nummer 49 Buchstabe b gilt eine Frist von spätestens zwei Tagen. Ist ein Mensch gestorben, ist unverzüglich zu melden, spätestens zehn Tage nach Kenntniserlangung. Eine unvollständige Erstmeldung darf nachgereicht werden."
+    rechtsgrundlage:
+      - KI-VO/art-73
+      - KI-VO/art-73/abs-1
+      - KI-VO/art-73/abs-2
+      - KI-VO/art-73/abs-3
+      - KI-VO/art-73/abs-4
+      - KI-VO/art-73/abs-5
+    fundstellen_text: "Artikel 73 KI-VO"
+    rollen: [anbieter, produkthersteller]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Das Vorfallsregister mit Datum der Kenntniserlangung, Datum der Meldung, Empfängerbehörde und Nachreichungen, aus dem die Einhaltung der Fristen hervorgeht."
+    bei_verstoss: "Artikel 73 ist in Artikel 99 Absatz 4 nicht eigens aufgeführt; es greifen die von den Mitgliedstaaten nach Artikel 99 Absatz 1 festgelegten Sanktionen. Das Meldeverfahren ist nach Artikel 17 Absatz 1 Buchstabe i zugleich Bestandteil des Qualitätsmanagementsystems."
+
+  # ---------------------------------------------------------------
+  # Betreiber von Hochrisiko-KI-Systemen
+  # ---------------------------------------------------------------
+  - kennung: p-betr-hr-nutzung-nach-betriebsanleitung
+    titel: "Das System nur nach Betriebsanleitung verwenden"
+    was_zu_tun_ist: "Zu tun ist: Geeignete technische und organisatorische Massnahmen treffen, damit das System so eingesetzt wird, wie es die beigefügte Betriebsanleitung vorsieht. In der Praxis heisst das: die Anleitung auswerten, daraus verbindliche Arbeitsanweisungen machen und den Einsatz darauf begrenzen."
+    rechtsgrundlage:
+      - KI-VO/art-26
+      - KI-VO/art-26/abs-1
+      - KI-VO/art-26/abs-3
+    fundstellen_text: "Artikel 26 Absatz 1 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die Betriebsanleitung in der ausgelieferten Fassung und die daraus abgeleitete interne Arbeitsanweisung mit Freigabedatum."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e nennt die Betreiberpflichten nach Artikel 26 ausdrücklich: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-betr-hr-aufsicht-zuweisen
+    titel: "Menschliche Aufsicht namentlich zuweisen und unterstützen"
+    was_zu_tun_ist: "Zu tun ist: Die menschliche Aufsicht natürlichen Personen übertragen, die die erforderliche Kompetenz, Ausbildung und Befugnis haben, und ihnen die erforderliche Unterstützung geben. Es genügt nicht, eine Rolle zu benennen: die Personen müssen fachlich in der Lage und befugt sein, in den Betrieb einzugreifen. Wie Sie Ihre Ressourcen dafür organisieren, bleibt Ihnen überlassen."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-2
+      - KI-VO/art-26/abs-3
+    fundstellen_text: "Artikel 26 Absatz 2 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Namentliche Benennung der aufsichtsführenden Personen mit Befugnisnachweis und Schulungsbelegen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-eingabedaten-beherrschen
+    titel: "Für passende und repräsentative Eingabedaten sorgen"
+    was_zu_tun_ist: "Zu tun ist: Soweit die Eingabedaten in Ihrer Kontrolle liegen, dafür sorgen, dass sie zur Zweckbestimmung des Systems passen und ausreichend repräsentativ sind. Prüfen Sie also vor dem Einsatz, welche Daten Sie hineingeben, ob sie den Vorgaben der Betriebsanleitung entsprechen und ob sie die Fälle abdecken, auf die Sie das System anwenden wollen."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-4
+    fundstellen_text: "Artikel 26 Absatz 4 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Beschreibung der Datenquellen mit Abgleich gegen die Anforderungen an die Eingabedaten aus der Betriebsanleitung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-ueberwachung-und-meldung
+    titel: "Betrieb überwachen, bei Risiko aussetzen und melden"
+    was_zu_tun_ist: "Zu tun ist: Den Betrieb anhand der Betriebsanleitung überwachen und den Anbieter nach Artikel 72 informieren. Haben Sie Grund zu der Annahme, dass die Nutzung nach Anleitung dazu führt, dass das System ein Risiko birgt, informieren Sie unverzüglich Anbieter oder Händler und die zuständige Marktüberwachungsbehörde und setzen die Verwendung aus. Stellen Sie einen schwerwiegenden Vorfall fest, informieren Sie unverzüglich zuerst den Anbieter, dann Einführer oder Händler und die zuständigen Marktüberwachungsbehörden. Erreichen Sie den Anbieter nicht, gilt Artikel 73 entsprechend, Sie melden dann also selbst mit den dortigen Fristen."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-5
+      - KI-VO/art-73
+
+    auch_genannt:
+      - KI-VO/art-72
+    fundstellen_text: "Artikel 26 Absatz 5 KI-VO, dazu Artikel 73"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Überwachungsaufzeichnungen, das Vorfallsregister mit Kenntnis- und Meldedatum und der Beleg, dass die Verwendung ausgesetzt wurde."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-protokolle-sechs-monate
+    titel: "Protokolle mindestens sechs Monate aufbewahren"
+    was_zu_tun_ist: "Zu tun ist: Die vom System selbsttätig erzeugten Protokolle aufbewahren, soweit sie in Ihrer Kontrolle liegen. Die Frist muss zur Zweckbestimmung passen und beträgt mindestens sechs Monate, sofern nicht Unionsrecht oder nationales Recht etwas anderes bestimmt; das Datenschutzrecht ist ausdrücklich genannt. Legen Sie die Frist also schriftlich fest und stimmen Sie sie mit Ihrem Löschkonzept ab."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-6
+    fundstellen_text: "Artikel 26 Absatz 6 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Das Löschkonzept mit der festgelegten Frist und ein Stichprobennachweis, dass Protokolle aus den letzten sechs Monaten vorliegen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-information-beschaeftigte
+    titel: "Beschäftigte und ihre Vertretungen vor dem Einsatz informieren"
+    nur_wenn: [beschaeftigtendaten, bereich_arbeit_oder_bildung]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht greift, wenn Sie das System am Arbeitsplatz einsetzen und davon
+      Beschaeftigte betroffen sind. Richtet sich Ihr System nur an Kunden oder an
+      die Oeffentlichkeit, entfaellt sie.
+    was_zu_tun_ist: "Zu tun ist: Setzen Sie als Arbeitgeber ein Hochrisikosystem am Arbeitsplatz ein, informieren Sie vor der Inbetriebnahme oder Verwendung die Arbeitnehmervertreter und die betroffenen Beschäftigten darüber, dass sie der Verwendung dieses Systems unterliegen werden. Die Information erfolgt nach den Regeln und Gepflogenheiten, die auf Unionsebene und national für die Unterrichtung von Arbeitnehmern und ihren Vertretern gelten."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-7
+    fundstellen_text: "Artikel 26 Absatz 7 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Das Informationsschreiben mit Datum, der Nachweis der Unterrichtung der Arbeitnehmervertretung und gegebenenfalls das Protokoll der Beteiligung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Mitbestimmungsrechte nach nationalem Recht bleiben daneben bestehen."
+
+  - kennung: p-betr-hr-information-betroffener-personen
+    titel: "Betroffene Personen über den Einsatz informieren"
+    was_zu_tun_ist: "Zu tun ist: Setzen Sie ein System aus Anhang III ein, das Entscheidungen über Menschen trifft oder solche Entscheidungen unterstützt, informieren Sie die betroffenen Personen darüber, dass sie der Verwendung dieses Systems unterliegen. Die Transparenzpflichten aus Artikel 50 bleiben daneben bestehen. Bei Einsatz zu Strafverfolgungszwecken gilt stattdessen Artikel 13 der Richtlinie (EU) 2016/680."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-11
+
+    auch_genannt:
+      - KI-VO/art-50
+      - KI-VO/art-13
+    fundstellen_text: "Artikel 26 Absatz 11 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Text des Hinweises, der Ort seiner Bereitstellung und das Datum, ab dem er ausgegeben wird."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-zusammenarbeit-behoerden
+    titel: "Mit den Behörden zusammenarbeiten"
+    was_zu_tun_ist: "Zu tun ist: Bei allen Massnahmen mitwirken, die zuständige Behörden im Zusammenhang mit dem Hochrisikosystem zur Umsetzung der Verordnung ergreifen. Benennen Sie dafür eine Anlaufstelle im Haus und halten Sie die Unterlagen zum System greifbar."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-12
+    fundstellen_text: "Artikel 26 Absatz 12 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Benennung der Anlaufstelle und ein Register der Behördenkontakte mit Datum und Gegenstand."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Falsche, unvollständige oder irreführende Auskünfte auf ein Auskunftsersuchen fallen unter Artikel 99 Absatz 5 mit bis zu 7 500 000 Euro oder bis zu 1 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-betr-hr-registrierung-oeffentliche-stellen
+    titel: "Als Behörde oder Unionsstelle das System registrieren und ohne Registrierung nicht nutzen"
+    nur_wenn: [oeffentliche_stelle]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht trifft nur Behoerden, Einrichtungen des oeffentlichen Rechts und
+      Organe der Union sowie die in deren Auftrag handelnden Stellen. Private
+      Unternehmen sind davon nicht betroffen.
+    was_zu_tun_ist: "Zu tun ist: Sind Sie eine Behörde, ein Organ, eine Einrichtung oder sonstige Stelle der Union oder handeln Sie in deren Namen, registrieren Sie sich vor der Inbetriebnahme oder Verwendung eines Systems aus Anhang III in der EU-Datenbank, wählen das System aus und registrieren es dort. Ausgenommen sind die Systeme nach Anhang III Nummer 2. Stellen Unionsstellen fest, dass das geplante System nicht in der EU-Datenbank registriert ist, dürfen sie es nicht verwenden und informieren Anbieter oder Händler."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-8
+      - KI-VO/art-49/abs-3
+    fundstellen_text: "Artikel 26 Absatz 8 und Artikel 49 Absatz 3 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Registrierungsbeleg aus der EU-Datenbank mit Datum vor der ersten Verwendung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Für Organe, Einrichtungen und sonstige Stellen der Union richtet sich die Geldbusse nach Artikel 100."
+
+  - kennung: p-betr-hr-nachtraegliche-biometrie-genehmigung
+    titel: "Nachträgliche biometrische Fernidentifizierung nur mit Genehmigung und Dokumentation"
+    nur_wenn_alle: [biometrie, zweck_strafverfolgung]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Verwenden Sie ein System zur nachträglichen biometrischen Fernidentifizierung bei der gezielten Suche nach einer verdächtigen oder verurteilten Person, beantragen Sie die Genehmigung vorab oder unverzüglich, spätestens binnen 48 Stunden, bei einer Justizbehörde oder einer Verwaltungsbehörde mit bindender, gerichtlich nachprüfbarer Entscheidung. Ausgenommen ist die erstmalige Identifizierung eines möglichen Verdächtigen auf Grundlage objektiver und nachprüfbarer Tatsachen mit unmittelbarem Bezug zur Straftat. Wird die Genehmigung abgelehnt, ist die Verwendung sofort einzustellen und die zugehörigen personenbezogenen Daten zu löschen. Jede Verwendung ist in der Polizeiakte zu dokumentieren und auf Anfrage der Marktüberwachungsbehörde und der nationalen Datenschutzbehörde vorzulegen; zusätzlich sind diesen Behörden Jahresberichte vorzulegen. Keine Entscheidung mit nachteiliger Rechtsfolge darf allein auf der Ausgabe eines solchen Systems beruhen."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-10
+    fundstellen_text: "Artikel 26 Absatz 10 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Genehmigungsantrag und Entscheidung, der Eintrag in der Polizeiakte je Verwendung, der Löschnachweis bei Ablehnung und die Jahresberichte an die beiden Behörden."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Die Vorgaben des Datenschutzrechts zur Verarbeitung biometrischer Daten bleiben daneben anwendbar."
+
+  - kennung: p-betr-hr-grundrechte-folgenabschaetzung
+    titel: "Grundrechte-Folgenabschätzung vor der ersten Verwendung"
+    was_zu_tun_ist: "Zu tun ist: Vor der Inbetriebnahme abschätzen, welche Auswirkungen die Verwendung auf die Grundrechte haben kann. Diese Pflicht trifft nicht jeden Betreiber, sondern drei Gruppen: Einrichtungen des öffentlichen Rechts; private Einrichtungen, die öffentliche Dienste erbringen; und alle Betreiber von Systemen zur Kreditwürdigkeitsprüfung sowie zur Risikobewertung und Preisbildung bei Lebens- und Krankenversicherungen (Anhang III Nummer 5 Buchstaben b und c). Ausgenommen sind Systeme im Bereich kritische Infrastruktur (Anhang III Nummer 2). Die Abschätzung beschreibt die betroffenen Verfahren, Zeitraum und Häufigkeit der Verwendung, die betroffenen Personengruppen, die konkreten Schadensrisiken, die Umsetzung der menschlichen Aufsicht und die Massnahmen samt interner Unternehmensführung und Beschwerdewegen, falls ein Risiko eintritt. Die Pflicht gilt für die erste Verwendung; in ähnlichen Fällen dürfen Sie sich auf früher durchgeführte Abschätzungen stützen und müssen aktualisieren, wenn sich etwas ändert. Das Ergebnis ist der Marktüberwachungsbehörde mit dem Musterfragebogen des Büro für Künstliche Intelligenz mitzuteilen."
+    rechtsgrundlage:
+      - KI-VO/art-27
+      - KI-VO/art-27/abs-1
+      - KI-VO/art-27/abs-1-a
+      - KI-VO/art-27/abs-1-b
+      - KI-VO/art-27/abs-1-c
+      - KI-VO/art-27/abs-1-d
+      - KI-VO/art-27/abs-1-e
+      - KI-VO/art-27/abs-1-f
+      - KI-VO/art-27/abs-2
+      - KI-VO/art-27/abs-3
+      - KI-VO/anh-III/nr-5
+    fundstellen_text: "Artikel 27 KI-VO, dazu Anhang III Nummer 5"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die schriftliche Abschätzung mit allen sechs Bestandteilen, das Datum vor der ersten Verwendung, der ausgefüllte Musterfragebogen und die Mitteilung an die Marktüberwachungsbehörde."
+    bei_verstoss: "Artikel 27 ist in Artikel 99 Absatz 4 nicht eigens aufgeführt; es greifen die von den Mitgliedstaaten nach Artikel 99 Absatz 1 festgelegten Sanktionen."
+
+  - kennung: p-betr-hr-datenschutz-folgenabschaetzung-nutzen
+    titel: "Anbieterinformationen für die Datenschutz-Folgenabschätzung verwenden"
+    was_zu_tun_ist: "Zu tun ist: Müssen Sie eine Datenschutz-Folgenabschätzung durchführen, verwenden Sie dafür die Informationen, die der Anbieter nach Artikel 13 bereitgestellt hat, also vor allem die Betriebsanleitung. Eine bereits durchgeführte Datenschutz-Folgenabschätzung kann Teile der Grundrechte-Folgenabschätzung abdecken; diese ergänzt sie dann, ersetzt sie aber nicht."
+    rechtsgrundlage:
+      - KI-VO/art-26/abs-9
+      - KI-VO/art-27/abs-4
+
+    auch_genannt:
+      - KI-VO/art-13
+    fundstellen_text: "Artikel 26 Absatz 9 und Artikel 27 Absatz 4 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Die Datenschutz-Folgenabschätzung mit nachvollziehbaren Verweisen auf die Angaben der Betriebsanleitung und die Verzahnung mit der Grundrechte-Folgenabschätzung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe e für die Betreiberpflichten nach Artikel 26. Für die Datenschutz-Folgenabschätzung selbst gilt der Bussgeldrahmen des Artikels 83 der Datenschutz-Grundverordnung."
+
+  - kennung: p-betr-hr-erlaeuterung-auf-verlangen
+    titel: "Betroffenen die Entscheidung auf Verlangen erklären"
+    was_zu_tun_ist: "Zu tun ist: Hat eine Person von einer Entscheidung Nachteile, die Sie auf Grundlage der Ausgabe eines Systems aus Anhang III getroffen haben, und hat diese Entscheidung rechtliche Wirkung oder beeinträchtigt sie die Person in ähnlicher Weise erheblich hinsichtlich Gesundheit, Sicherheit oder Grundrechten, dann hat die Person Anspruch auf eine klare und aussagekräftige Erläuterung. Zu erklären sind die Rolle des KI-Systems im Entscheidungsprozess und die wichtigsten Elemente der getroffenen Entscheidung. Ausgenommen sind Systeme nach Anhang III Nummer 2. Richten Sie dafür einen Antwortweg ein und halten Sie eine verständliche Erläuterung bereit."
+    rechtsgrundlage:
+      - KI-VO/art-86
+      - KI-VO/art-86/abs-1
+      - KI-VO/art-86/abs-2
+      - KI-VO/art-86/abs-3
+    fundstellen_text: "Artikel 86 KI-VO"
+    rollen: [betreiber]
+    klassen: [hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Ein Register der Erläuterungsverlangen mit Eingangsdatum, Antwortdatum und der erteilten Erläuterung, dazu die Mustererläuterung je Anwendungsfall."
+    bei_verstoss: "Artikel 86 ist in Artikel 99 Absatz 4 nicht eigens aufgeführt; es greifen die von den Mitgliedstaaten nach Artikel 99 Absatz 1 festgelegten Sanktionen. Die Betroffenen können sich ausserdem nach Artikel 85 bei einer Marktüberwachungsbehörde beschweren."
+
+  # ---------------------------------------------------------------
+  # Einfuehrer, Haendler, Rollenwechsel
+  # ---------------------------------------------------------------
+  - kennung: p-einf-hr-pruefpflichten
+    titel: "Als Einführer vor dem Inverkehrbringen prüfen"
+    was_zu_tun_ist: "Zu tun ist: Vor dem Inverkehrbringen prüfen, ob der Anbieter das Konformitätsbewertungsverfahren durchgeführt und die technische Dokumentation nach Artikel 11 und Anhang IV erstellt hat, ob das System die CE-Kennzeichnung trägt und ihm EU-Konformitätserklärung und Betriebsanleitung beiliegen und ob ein Anbieter aus einem Drittland einen Bevollmächtigten benannt hat. Haben Sie Grund zu der Annahme, dass das System nicht konform oder gefälscht ist oder gefälschte Unterlagen beiliegen, bringen Sie es erst nach Herstellung der Konformität in Verkehr; birgt es ein Risiko, informieren Sie Anbieter, Bevollmächtigte und Marktüberwachungsbehörden. Geben Sie Ihren Namen und eine Kontaktanschrift auf der Verpackung oder in den Begleitunterlagen an, sorgen Sie für konformitätserhaltende Lagerung und Transport, halten Sie zehn Jahre lang ein Exemplar der Bescheinigung der notifizierten Stelle sowie gegebenenfalls Betriebsanleitung und EU-Konformitätserklärung bereit und arbeiten Sie mit den Behörden zusammen."
+    rechtsgrundlage:
+      - KI-VO/art-23
+      - KI-VO/art-23/abs-1
+      - KI-VO/art-23/abs-1-a
+      - KI-VO/art-23/abs-1-b
+      - KI-VO/art-23/abs-1-c
+      - KI-VO/art-23/abs-1-d
+      - KI-VO/art-23/abs-2
+      - KI-VO/art-23/abs-3
+      - KI-VO/art-23/abs-4
+      - KI-VO/art-23/abs-5
+      - KI-VO/art-23/abs-6
+      - KI-VO/art-23/abs-7
+
+    auch_genannt:
+      - KI-VO/art-11
+    fundstellen_text: "Artikel 23 KI-VO"
+    rollen: [einfuehrer]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Eine Eingangsprüfliste je Lieferung mit den vier Prüfpunkten, der Kennzeichnungsnachweis und das Aktenverzeichnis für die zehnjährige Aufbewahrung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe c nennt die Pflichten der Einführer nach Artikel 23 ausdrücklich: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-haen-hr-pruefpflichten
+    titel: "Als Händler vor der Bereitstellung prüfen"
+    was_zu_tun_ist: "Zu tun ist: Vor der Bereitstellung auf dem Markt prüfen, ob das System die CE-Kennzeichnung trägt, ob eine Kopie der EU-Konformitätserklärung und die Betriebsanleitung beiliegen und ob Anbieter und gegebenenfalls Einführer ihre Kennzeichnungs- und Angabepflichten erfüllt haben. Haben Sie Grund zu der Annahme, dass das System die Anforderungen nicht erfüllt, stellen Sie es erst nach Herstellung der Konformität bereit und informieren bei Risiko Anbieter oder Einführer. Sorgen Sie für konformitätserhaltende Lagerung und Transport. Erfahren Sie nach der Bereitstellung von einer Nichtkonformität, ergreifen Sie die erforderlichen Korrekturmassnahmen oder sorgen dafür, dass Anbieter, Einführer oder ein anderer Akteur sie ergreift; birgt das System ein Risiko, informieren Sie unverzüglich Anbieter oder Einführer und die zuständigen Behörden mit ausführlichen Angaben. Auf begründete Anfrage legen Sie Ihre Unterlagen vor und arbeiten mit den Behörden zusammen."
+    rechtsgrundlage:
+      - KI-VO/art-24
+      - KI-VO/art-24/abs-1
+      - KI-VO/art-24/abs-2
+      - KI-VO/art-24/abs-3
+      - KI-VO/art-24/abs-4
+      - KI-VO/art-24/abs-5
+      - KI-VO/art-24/abs-6
+    fundstellen_text: "Artikel 24 KI-VO"
+    rollen: [haendler]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Eine Prüfliste je Produkt vor der Bereitstellung und ein Register der Korrekturmassnahmen und Behördeninformationen."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe d nennt die Pflichten der Händler nach Artikel 24 ausdrücklich: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-rollenwechsel-zum-anbieter
+    titel: "Erkennen, wann man selbst zum Anbieter wird"
+    was_zu_tun_ist: "Zu tun ist: Prüfen, ob Sie durch Ihr eigenes Handeln zum Anbieter werden und damit alle Pflichten des Artikels 16 übernehmen. Das geschieht in drei Fällen: wenn Sie ein bereits bereitgestelltes Hochrisikosystem mit Ihrem Namen oder Ihrer Handelsmarke versehen; wenn Sie es wesentlich verändern und es weiterhin ein Hochrisikosystem bleibt; oder wenn Sie die Zweckbestimmung eines Systems, auch eines Systems mit allgemeinem Verwendungszweck, so verändern, dass es dadurch zum Hochrisikosystem wird. In diesen Fällen gilt der Erstanbieter nicht mehr als Anbieter dieses Systems; er muss eng mit Ihnen zusammenarbeiten und die erforderlichen Informationen und den technischen Zugang bereitstellen, es sei denn, er hat eindeutig festgelegt, dass sein System nicht in ein Hochrisikosystem umgewandelt werden darf. Vereinbaren Sie ausserdem schriftlich mit Dritten, die Instrumente, Dienste, Komponenten oder Verfahren für Ihr Hochrisikosystem liefern, welche Informationen, Fähigkeiten und Unterstützung sie beisteuern; für Komponenten unter freier und quelloffener Lizenz, die keine Modelle mit allgemeinem Verwendungszweck sind, gilt das nicht."
+    rechtsgrundlage:
+      - KI-VO/art-25
+      - KI-VO/art-25/abs-1
+      - KI-VO/art-25/abs-1-a
+      - KI-VO/art-25/abs-1-b
+      - KI-VO/art-25/abs-1-c
+      - KI-VO/art-25/abs-2
+      - KI-VO/art-25/abs-4
+      - KI-VO/art-16
+    fundstellen_text: "Artikel 25 KI-VO"
+    rollen: [haendler, einfuehrer, betreiber, anbieter]
+    klassen: [hochrisiko_anhang_i, hochrisiko_anhang_iii]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Eine dokumentierte Rollenprüfung je System und Änderung sowie die schriftlichen Vereinbarungen mit Zulieferern."
+    bei_verstoss: "Wer nach Artikel 25 als Anbieter gilt, haftet für die Anbieterpflichten des Artikels 16; Artikel 99 Absatz 4 Buchstabe a sieht bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes vor, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-produkthersteller-gilt-als-anbieter
+    titel: "Als Produkthersteller die Anbieterpflichten übernehmen"
+    nur_wenn: [eingebaut_in_produkt]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht trifft Sie nur, wenn Ihr KI-System als Sicherheitsbauteil in ein
+      Produkt eingebaut ist, das unter eine der Rechtsvorschriften des Anhangs I
+      faellt - etwa eine Maschine, ein Medizinprodukt oder ein Fahrzeug.
+    was_zu_tun_ist: "Zu tun ist: Ist das Hochrisikosystem ein Sicherheitsbauteil eines Produkts, das unter die Harmonisierungsrechtsvorschriften des Anhangs I Abschnitt A fällt, gelten Sie als Produkthersteller in zwei Fällen selbst als Anbieter und tragen die Pflichten des Artikels 16: wenn das System zusammen mit dem Produkt unter Ihrem Namen oder Ihrer Handelsmarke in Verkehr gebracht wird, oder wenn es unter Ihrem Namen oder Ihrer Handelsmarke in Betrieb genommen wird, nachdem das Produkt in Verkehr gebracht wurde."
+    rechtsgrundlage:
+      - KI-VO/art-25/abs-3
+      - KI-VO/art-25/abs-3-a
+      - KI-VO/art-25/abs-3-b
+      - KI-VO/anh-I
+      - KI-VO/art-16
+    fundstellen_text: "Artikel 25 Absatz 3 KI-VO mit Anhang I"
+    rollen: [produkthersteller]
+    klassen: [hochrisiko_anhang_i]
+    schwere: pflicht
+    gilt_ab: 2027-08-02
+    nachweis: "Die Zuordnung des Produkts zu einer Rechtsvorschrift des Anhangs I und der Nachweis, dass die Anbieterpflichten des Artikels 16 für das eingebaute System erfüllt sind."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe a: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  # Transparenzpflichten (Artikel 50)
+  # ---------------------------------------------------------------
+  - kennung: p-transp-anb-interaktion-offenlegen
+    titel: "Offenlegen, dass der Mensch mit einem KI-System spricht"
+    nur_wenn: [interagiert_mit_menschen]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Ist Ihr System für die direkte Interaktion mit Menschen gedacht, bauen Sie es so, dass die betreffenden Personen erfahren, dass sie mit einem KI-System zu tun haben. Das entfällt nur, wenn es aus Sicht einer angemessen informierten, aufmerksamen und verständigen Person nach den Umständen offensichtlich ist. Für gesetzlich zugelassene Systeme zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten gilt die Pflicht nicht, sofern Schutzvorkehrungen für die Rechte Dritter bestehen und das System nicht der Öffentlichkeit zur Anzeige einer Straftat offensteht."
+    rechtsgrundlage:
+      - KI-VO/art-50
+      - KI-VO/art-50/abs-1
+      - KI-VO/art-50/abs-5
+    fundstellen_text: "Artikel 50 Absatz 1 KI-VO"
+    rollen: [anbieter]
+    klassen: [transparenz]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Bildschirmaufnahme oder Tonmitschnitt des Hinweises zum Zeitpunkt der ersten Interaktion, dazu der Barrierefreiheitsnachweis."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe g nennt die Transparenzpflichten nach Artikel 50 ausdrücklich: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-transp-anb-synthetische-inhalte-kennzeichnen
+    titel: "Künstlich erzeugte Inhalte maschinenlesbar kennzeichnen"
+    nur_wenn: [erzeugt_inhalte, erzeugt_deepfakes]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Erzeugt Ihr System synthetische Audio-, Bild-, Video- oder Textinhalte, kennzeichnen Sie die Ausgaben in einem maschinenlesbaren Format und machen sie als künstlich erzeugt oder manipuliert erkennbar. Die technischen Lösungen müssen, soweit technisch möglich, wirksam, interoperabel, belastbar und zuverlässig sein; dabei dürfen Sie die Besonderheiten der Inhaltsart, die Umsetzungskosten und den Stand der Technik berücksichtigen. Die Pflicht entfällt, soweit das System nur eine unterstützende Funktion für die Standardbearbeitung erfüllt oder die Eingabedaten und ihre Bedeutung nicht wesentlich verändert, sowie bei gesetzlich zugelassener Verwendung zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten."
+    rechtsgrundlage:
+      - KI-VO/art-50/abs-2
+    fundstellen_text: "Artikel 50 Absatz 2 KI-VO"
+    rollen: [anbieter]
+    klassen: [transparenz, gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Beschreibung des Kennzeichnungsverfahrens und Beispielausgaben, aus denen die maschinenlesbare Markierung auslesbar ist."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe g: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: p-transp-betr-emotion-biometrie-informieren
+    titel: "Über Emotionserkennung und biometrische Kategorisierung informieren"
+    nur_wenn: [emotionserkennung, biometrie]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Betreiben Sie ein System zur Emotionserkennung oder zur biometrischen Kategorisierung, informieren Sie die betroffenen Personen über den Betrieb des Systems und verarbeiten die personenbezogenen Daten nach dem Datenschutzrecht. Die Pflicht entfällt bei gesetzlich zugelassener Verwendung zur Aufdeckung, Verhütung oder Ermittlung von Straftaten, sofern geeignete Schutzvorkehrungen für die Rechte Dritter bestehen. Beachten Sie, dass Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen nach Artikel 5 grundsätzlich verboten ist."
+    rechtsgrundlage:
+      - KI-VO/art-50/abs-3
+      - KI-VO/art-50/abs-5
+
+    auch_genannt:
+      - KI-VO/art-5
+    fundstellen_text: "Artikel 50 Absatz 3 KI-VO"
+    rollen: [betreiber]
+    klassen: [transparenz]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Der Informationstext, der Ort seiner Bereitstellung und die datenschutzrechtliche Dokumentation der Verarbeitung."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe g: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes. Daneben gilt das Datenschutzrecht mit dem Bussgeldrahmen des Artikels 83 der Datenschutz-Grundverordnung."
+
+  - kennung: p-transp-betr-deepfake-und-text-offenlegen
+    titel: "Deepfakes und veröffentlichte KI-Texte offenlegen"
+    nur_wenn: [erzeugt_deepfakes, erzeugt_inhalte]
+    bei_unbekannt: weglassen
+    was_zu_tun_ist: "Zu tun ist: Erzeugen oder verändern Sie mit einem KI-System Bild-, Ton- oder Videoinhalte, die ein Deepfake sind (eine täuschend echt wirkende Nachbildung realer Personen oder Ereignisse), legen Sie offen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. Ist der Inhalt Teil eines offensichtlich künstlerischen, kreativen, satirischen oder fiktionalen Werks, genügt ein Hinweis in geeigneter Weise, der den Genuss des Werks nicht beeinträchtigt. Veröffentlichen Sie KI-erzeugte oder veränderte Texte, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, legen Sie das ebenfalls offen; das entfällt, wenn die Inhalte eine menschliche Überprüfung oder redaktionelle Kontrolle durchlaufen haben und eine Person die redaktionelle Verantwortung trägt. Die Hinweise sind spätestens bei der ersten Interaktion klar und eindeutig und barrierefrei zu geben."
+    rechtsgrundlage:
+      - KI-VO/art-50/abs-4
+      - KI-VO/art-50/abs-5
+    fundstellen_text: "Artikel 50 Absatz 4 KI-VO"
+    rollen: [betreiber]
+    klassen: [transparenz]
+    schwere: pflicht
+    gilt_ab: 2026-08-02
+    nachweis: "Beispiele der veröffentlichten Inhalte mit sichtbarem Hinweis, dazu bei redaktioneller Kontrolle der Nachweis des Prüfwegs und der verantwortlichen Person."
+    bei_verstoss: "Artikel 99 Absatz 4 Buchstabe g: bis zu 15 000 000 Euro oder bis zu 3 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  # KI-Modelle mit allgemeinem Verwendungszweck
+  # ---------------------------------------------------------------
+  - kennung: p-gpai-technische-dokumentation
+    titel: "Technische Dokumentation des Modells erstellen und aktuell halten"
+    was_zu_tun_ist: "Zu tun ist: Die technische Dokumentation des Modells erstellen und fortschreiben, einschliesslich des Trainings- und Testverfahrens und der Bewertungsergebnisse, mit mindestens den Angaben aus Anhang XI, damit sie dem Büro für Künstliche Intelligenz und den zuständigen nationalen Behörden auf Anfrage vorgelegt werden kann. Diese Pflicht entfällt für Modelle unter einer freien und quelloffenen Lizenz, die Zugang, Nutzung, Änderung und Verbreitung erlaubt und deren Parameter einschliesslich Gewichte, Architektur- und Nutzungsinformationen öffentlich sind; bei systemischem Risiko gilt diese Ausnahme nicht."
+    rechtsgrundlage:
+      - KI-VO/art-53
+      - KI-VO/art-53/abs-1
+      - KI-VO/art-53/abs-1-a
+      - KI-VO/art-53/abs-2
+      - KI-VO/anh-XI
+      - KI-VO/anh-XI/nr-1
+      - KI-VO/anh-XI/nr-2
+    fundstellen_text: "Artikel 53 Absatz 1 Buchstabe a KI-VO mit Anhang XI"
+    rollen: [anbieter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Die Dokumentation selbst, geordnet nach den Nummern des Anhangs XI, mit Versionsstand und Aktualisierungsdatum."
+    bei_verstoss: "Artikel 101 Absatz 1: Die Kommission kann Geldbussen von bis zu 3 Prozent des gesamten weltweiten Jahresumsatzes des vorangegangenen Geschäftsjahres oder 15 000 000 Euro verhängen, je nachdem welcher Betrag höher ist, wenn der Anbieter vorsätzlich oder fahrlässig verstossen hat. Artikel 101 gilt nach Artikel 113 Absatz 1 Buchstabe b erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-information-nachgelagerte-anbieter
+    titel: "Nachgelagerte Anbieter mit Informationen versorgen"
+    was_zu_tun_ist: "Zu tun ist: Informationen und Unterlagen erstellen, aktuell halten und denjenigen Anbietern von KI-Systemen bereitstellen, die Ihr Modell in ihre Systeme einbauen wollen. Die Unterlagen müssen diese Anbieter in die Lage versetzen, Fähigkeiten und Grenzen des Modells gut zu verstehen und ihre eigenen Pflichten aus der Verordnung zu erfüllen, und mindestens die Angaben aus Anhang XII enthalten. Rechte des geistigen Eigentums und Geschäftsgeheimnisse bleiben geschützt. Diese Pflicht entfällt für Modelle unter einer freien und quelloffenen Lizenz nach Artikel 53 Absatz 2, nicht aber bei systemischem Risiko."
+    rechtsgrundlage:
+      - KI-VO/art-53/abs-1-b
+      - KI-VO/art-53/abs-1-i
+      - KI-VO/art-53/abs-2
+      - KI-VO/anh-XII
+      - KI-VO/anh-XII/nr-1
+      - KI-VO/anh-XII/nr-2
+
+    auch_genannt:
+      - KI-VO/art-53
+    fundstellen_text: "Artikel 53 Absatz 1 Buchstabe b KI-VO mit Anhang XII"
+    rollen: [anbieter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Das Informationspaket für nachgelagerte Anbieter, abgeglichen gegen Anhang XII, mit Datum der Bereitstellung und Empfängerliste."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist, bei vorsätzlichem oder fahrlässigem Verstoss. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-urheberrechtsstrategie
+    titel: "Strategie zur Einhaltung des Urheberrechts aufsetzen"
+    was_zu_tun_ist: "Zu tun ist: Eine Strategie zur Einhaltung des Urheberrechts der Union und damit zusammenhängender Rechte auf den Weg bringen. Sie muss insbesondere erfassen, wie Sie einen nach Artikel 4 Absatz 3 der Richtlinie (EU) 2019/790 erklärten Rechtsvorbehalt ermitteln und einhalten; das ist der Vorbehalt, mit dem Rechteinhaber die Nutzung ihrer Werke zum Text- und Datamining untersagen. Dafür sind auch modernste Technologien einzusetzen. Diese Pflicht gilt auch für Modelle unter freier und quelloffener Lizenz, weil die Ausnahme in Artikel 53 Absatz 2 nur die Buchstaben a und b betrifft."
+    rechtsgrundlage:
+      - KI-VO/art-53/abs-1-c
+
+    auch_genannt:
+      - KI-VO/art-4
+      - KI-VO/art-53/abs-2
+    fundstellen_text: "Artikel 53 Absatz 1 Buchstabe c KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Das schriftliche Strategiepapier, die eingesetzten Werkzeuge zur Erkennung von Rechtsvorbehalten und Protokolle der Prüfungen."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-trainingsinhalte-zusammenfassen
+    titel: "Zusammenfassung der Trainingsinhalte veröffentlichen"
+    was_zu_tun_ist: "Zu tun ist: Eine hinreichend detaillierte Zusammenfassung der für das Training verwendeten Inhalte erstellen und veröffentlichen, und zwar nach der Vorlage, die das Büro für Künstliche Intelligenz bereitstellt. Auch diese Pflicht gilt für Modelle unter freier und quelloffener Lizenz, weil die Ausnahme in Artikel 53 Absatz 2 nur die Buchstaben a und b betrifft."
+    rechtsgrundlage:
+      - KI-VO/art-53/abs-1-d
+
+    auch_genannt:
+      - KI-VO/art-53/abs-2
+    fundstellen_text: "Artikel 53 Absatz 1 Buchstabe d KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Die veröffentlichte Zusammenfassung mit Fundstelle, Datum und Verweis auf die verwendete Vorlage."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-zusammenarbeit-kommission
+    titel: "Mit Kommission und Behörden zusammenarbeiten"
+    was_zu_tun_ist: "Zu tun ist: Soweit erforderlich mit der Kommission und den zuständigen nationalen Behörden zusammenarbeiten, wenn diese ihre Zuständigkeiten und Befugnisse aus der Verordnung ausüben. Bis eine harmonisierte Norm veröffentlicht ist, dürfen Sie sich auf Praxisleitfäden nach Artikel 56 stützen, um die Einhaltung nachzuweisen; folgen Sie weder einem genehmigten Praxisleitfaden noch einer harmonisierten europäischen Norm, müssen Sie geeignete alternative Verfahren der Einhaltung aufzeigen, die die Kommission bewertet."
+    rechtsgrundlage:
+      - KI-VO/art-53/abs-3
+      - KI-VO/art-53/abs-4
+
+    auch_genannt:
+      - KI-VO/art-56
+    fundstellen_text: "Artikel 53 Absätze 3 und 4 KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Ein Register der Behördenkontakte und die Erklärung, welchem Praxisleitfaden oder welcher Norm Sie folgen, oder die Darlegung des alternativen Verfahrens."
+    bei_verstoss: "Artikel 101 Absatz 1 Buchstaben b bis d: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist, unter anderem wenn Dokumente oder Informationen nicht geliefert, falsche Angaben gemacht oder der Kommission der Modellzugang zur Bewertung verweigert wird. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-bevollmaechtigter-drittland
+    titel: "Als Modellanbieter aus einem Drittland einen Bevollmächtigten benennen"
+    nur_wenn: [drittlandtransfer]
+    bei_unbekannt: mit_vorbehalt
+    vorbehalt: >-
+      Diese Pflicht trifft Sie nur, wenn Sie als Modellanbieter ausserhalb der
+      Europaeischen Union sitzen.
+    was_zu_tun_ist: "Zu tun ist: Sitzen Sie ausserhalb der Europäischen Union, benennen Sie schriftlich einen in der Union niedergelassenen Bevollmächtigten, bevor Sie das Modell auf dem Unionsmarkt in Verkehr bringen, und versetzen Sie ihn in die Lage, seinen Auftrag zu erfüllen. Der Auftrag muss ihn mindestens berechtigen: zu prüfen, ob die technische Dokumentation nach Anhang XI erstellt wurde und alle Pflichten aus Artikel 53 und gegebenenfalls Artikel 55 erfüllt sind; eine Kopie dieser Dokumentation und Ihre Kontaktdaten zehn Jahre nach dem Inverkehrbringen für das Büro für Künstliche Intelligenz und die zuständigen nationalen Behörden bereitzuhalten; auf begründeten Antrag alle Nachweisunterlagen zu liefern; und mit Büro und Behörden zusammenzuarbeiten. Hält der Bevollmächtigte Sie für pflichtwidrig, beendet er den Auftrag und informiert das Büro unverzüglich. Die Pflicht entfällt für Modelle unter einer freien und quelloffenen Lizenz nach Artikel 54 Absatz 6, nicht aber bei systemischem Risiko."
+    rechtsgrundlage:
+      - KI-VO/art-54
+      - KI-VO/art-54/abs-1
+      - KI-VO/art-54/abs-2
+      - KI-VO/art-54/abs-3
+      - KI-VO/art-54/abs-3-a
+      - KI-VO/art-54/abs-3-b
+      - KI-VO/art-54/abs-3-c
+      - KI-VO/art-54/abs-3-d
+      - KI-VO/art-54/abs-5
+      - KI-VO/art-54/abs-6
+
+    auch_genannt:
+      - KI-VO/art-53
+      - KI-VO/art-55
+    fundstellen_text: "Artikel 54 KI-VO"
+    rollen: [anbieter, bevollmaechtigter]
+    klassen: [gpai, gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Der schriftliche Auftrag mit den vier Mindestaufgaben, die Kopie für das Büro für Künstliche Intelligenz und der Nachweis, dass die Dokumentation beim Bevollmächtigten liegt."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-sys-modellbewertung-und-angriffstests
+    titel: "Modell bewerten und Angriffstests durchführen"
+    was_zu_tun_ist: "Zu tun ist: Bei einem Modell mit systemischem Risiko zusätzlich zu den Pflichten aus Artikel 53 und 54 eine Modellbewertung mit standardisierten Protokollen und Instrumenten nach dem Stand der Technik durchführen. Dazu gehören Angriffstests am Modell (im Fachgebrauch Red Teaming), mit denen systemische Risiken ermittelt und gemindert werden; Durchführung und Ergebnis sind zu dokumentieren."
+    rechtsgrundlage:
+      - KI-VO/art-55
+      - KI-VO/art-55/abs-1
+      - KI-VO/art-55/abs-1-a
+
+    auch_genannt:
+      - KI-VO/art-53
+    fundstellen_text: "Artikel 55 Absatz 1 Buchstabe a KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Bewertungsbericht und Angriffstestbericht mit verwendeten Protokollen, Instrumenten, Befunden und abgeleiteten Massnahmen."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-sys-systemische-risiken-mindern
+    titel: "Systemische Risiken auf Unionsebene bewerten und mindern"
+    was_zu_tun_ist: "Zu tun ist: Mögliche systemische Risiken auf Unionsebene einschliesslich ihrer Ursachen bewerten und mindern, soweit sie sich aus der Entwicklung, dem Inverkehrbringen oder der Verwendung des Modells ergeben können. Halten Sie Bewertung, Ursachenanalyse und Minderungsmassnahmen schriftlich fest und führen Sie sie fort, wenn sich das Modell oder seine Nutzung ändert."
+    rechtsgrundlage:
+      - KI-VO/art-55/abs-1-b
+    fundstellen_text: "Artikel 55 Absatz 1 Buchstabe b KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Die Risikobewertung auf Unionsebene mit Ursachen, Minderungsmassnahmen und Fortschreibungsdatum."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-sys-vorfaelle-melden
+    titel: "Schwerwiegende Vorfälle erfassen und dem Büro melden"
+    was_zu_tun_ist: "Zu tun ist: Einschlägige Informationen über schwerwiegende Vorfälle und mögliche Abhilfemassnahmen erfassen und dokumentieren und das Büro für Künstliche Intelligenz sowie gegebenenfalls die zuständigen nationalen Behörden unverzüglich darüber unterrichten. Richten Sie dafür einen festen Meldeweg mit benannter Zuständigkeit ein."
+    rechtsgrundlage:
+      - KI-VO/art-55/abs-1-c
+    fundstellen_text: "Artikel 55 Absatz 1 Buchstabe c KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Das Vorfallsregister mit Kenntnisdatum, Meldedatum, Empfänger und dokumentierten Abhilfemassnahmen."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."
+
+  - kennung: p-gpai-sys-cybersicherheit
+    titel: "Modell und Infrastruktur angemessen absichern"
+    was_zu_tun_ist: "Zu tun ist: Ein angemessenes Mass an Cybersicherheit für das Modell und für die physische Infrastruktur des Modells gewährleisten. Das umfasst also nicht nur die Software, sondern auch die Rechenzentren, Zugänge und Speicherorte, an denen Modellgewichte liegen."
+    rechtsgrundlage:
+      - KI-VO/art-55/abs-1-d
+    fundstellen_text: "Artikel 55 Absatz 1 Buchstabe d KI-VO"
+    rollen: [anbieter]
+    klassen: [gpai_systemisch]
+    schwere: pflicht
+    gilt_ab: 2025-08-02
+    nachweis: "Sicherheitskonzept für Modell und Infrastruktur, Zugriffsregelung für die Modellgewichte und Berichte der Sicherheitsprüfungen."
+    bei_verstoss: "Artikel 101 Absatz 1: bis zu 3 Prozent des weltweiten Jahresumsatzes oder 15 000 000 Euro, je nachdem welcher Betrag höher ist. Artikel 101 gilt erst ab dem 2. August 2026."

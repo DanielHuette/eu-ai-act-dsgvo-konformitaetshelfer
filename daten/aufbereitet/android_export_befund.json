@@ -1,0 +1,44 @@
+{
+ "gebaut": "2026-10-03",
+ "dauer_sekunden": 146.0,
+ "modell": "intfloat/multilingual-e5-small",
+ "dimensionen": 384,
+ "korpus_pruefsumme": "ee77d5ad168f28d973bfcf9e54663fc3f68e3f3772dafa5b3f7c53634fde6718",
+ "dateien": {
+  "recht.db_mb": 8.4,
+  "einbetter.onnx_mb": 118.1,
+  "tokenizer.json_mb": 17.1
+ },
+ "zeilen": {
+  "einheit": 1972,
+  "vektor": 1972,
+  "pflicht": 57,
+  "risikoregel": 28,
+  "fall": 44,
+  "pruefabschnitt": 26,
+  "meta": 12
+ },
+ "proben": {
+  "fts:Hochrisiko": 425,
+  "fts:Bewerbungen": 5,
+  "fts:Einwilligung": 70,
+  "fts:beschaftigte (ohne Umlaut)": 13,
+  "rechtsgrundlagen_ohne_fundstelle": [],
+  "pflichten:hochrisiko_anhang_iii": 41,
+  "pflichten:transparenz": 5,
+  "pflichten:gpai": 12,
+  "pflichten:minimal": 1
+ },
+ "onnx": {
+  "ausgefuehrt": true,
+  "onnx_mb": 118.1,
+  "wortschatz_mb": 17.1,
+  "aehnlichkeit_8bit_zu_32bit": 0.9907,
+  "hinweis": "Die Einheiten im Bestand sind mit dem 32-Bit-Modell gerechnet, die App rechnet Fragen mit dem 8-Bit-Modell. Die gemessene Ähnlichkeit sagt, wie weit beide auseinanderliegen."
+ },
+ "fehler": [],
+ "pflichten": 57,
+ "regeln": 28,
+ "faelle": 44,
+ "pruefabschnitte": 26
+}

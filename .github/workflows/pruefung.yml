@@ -1,0 +1,207 @@
+# Prüft den Python-Teil des Konformitätshelfers.
+#
+# Der Lauf lädt KEINE Modelle herunter. Das ist Absicht und keine Sparsamkeit:
+# bge-m3 ist rund 2,3 Gigabyte groß, und ein Lauf, der bei jedem Vorschlag
+# Gigabyte zieht, dauert so lange, dass niemand auf ihn wartet. Prüfungen, die
+# ein Modell brauchen, tragen deshalb die Marke "langsam" und sind hier
+# ausgenommen. Wer eine solche Prüfung schreibt, markiert sie mit
+# @pytest.mark.langsam.
+#
+# Das Android-Paket wird von .github/workflows/android.yml gebaut, nicht hier.
+#
+# Geprüft wird auf Python 3.11, 3.12 und 3.13 — den Fassungen, die
+# pyproject.toml unter requires-python und in den Klassifizierungen nennt.
+
+name: Prüfung
+
+on:
+  push:
+    branches: ["**"]
+    paths-ignore:
+      - "android/**"
+      - "docs/**"
+      - "*.md"
+  pull_request:
+    paths-ignore:
+      - "android/**"
+      - "docs/**"
+      - "*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pruefung-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Riegel gegen ein versehentlich heruntergeladenes Modell: alles, was über
+  # die Modellbibliothek von Hugging Face gehen will, scheitert sofort statt
+  # minutenlang zu ziehen.
+  HF_HUB_OFFLINE: "1"
+  TRANSFORMERS_OFFLINE: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  pruefen:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Quelltext holen
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      # Nur der Grundbestand und die Werkzeuge. Die Zusätze "suche" und
+      # "modelle" bleiben draußen: sie zögen torch und die Modellbibliotheken
+      # nach, und die braucht hier niemand.
+      - name: Pakete einrichten
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[entwicklung]"
+
+      # ruff, ruff format, mypy und bandit brechen ab. Das war bis zum
+      # 03.10.2026 anders: sie liefen als Hinweis, weil 315 ruff-Punkte, 28
+      # mypy-Punkte und 8 bandit-Punkte offen waren und ein Lauf, der von
+      # Anfang an rot ist, nicht mehr gelesen wird. Diese Punkte sind
+      # aufgeräumt — nachgemessen am 03.10.2026: ruff 0, ruff format
+      # einheitlich, mypy 0 in 18 Dateien, bandit 0. Damit ist ein roter Lauf
+      # wieder ein Fehlersignal, und genau das soll er sein.
+      #
+      # Zwei ruff-Regeln sind in pyproject.toml begründet ausgenommen (UP031
+      # für Ausrichtungsangaben und Protokollaufrufe, N818 für die deutsche
+      # Benennung der Ausnahmeklassen). Die Begründung steht dort, nicht hier.
+      - name: ruff — Programmtext auf Regeln prüfen
+        run: ruff check --output-format=github .
+
+      - name: ruff — Formatierung prüfen
+        run: ruff format --check .
+
+      - name: mypy — Typen prüfen
+        run: mypy src
+
+      # bandit ohne Ausnahmen. Die fünf Regeln, die hier früher übersprungen
+      # wurden, sind im Quelltext behoben:
+      #   B301, B403  pickle beim Laden des Suchbestands — ersetzt durch
+      #               gepacktes JSON. Der Bestand wird mit dem Repository
+      #               ausgeliefert; als pickle hätte eine veränderte Kopie beim
+      #               Laden fremden Code ausgeführt.
+      #   B310        urlopen in scripts/holen_*.py — die Adresse geht jetzt
+      #               durch _nur_https() und wird abgewiesen, wenn sie kein
+      #               https ist.
+      #   B608        die SQL-Abfrage in scripts/export_android.py prüft den
+      #               Tabellennamen gegen ZULAESSIGE_TABELLEN, bevor er
+      #               eingesetzt wird.
+      #   B615        from_pretrained nennt jetzt MODELL_FASSUNG, die
+      #               Prüfsumme des Modellstands. Ohne sie erzeugte derselbe
+      #               Quelltext nach einer Änderung beim Anbieter eine andere
+      #               Datenbank.
+      # Wer eine Ausnahme braucht, begründet sie hier — und erst, wenn sich
+      # der Befund nicht beheben lässt.
+      - name: bandit — auf unsichere Muster prüfen
+        run: bandit -c pyproject.toml -r src scripts android
+
+      - name: pip-audit — Pakete auf bekannte Schwachstellen prüfen
+        run: pip-audit --strict
+        continue-on-error: false
+
+      # Der Rückgabewert 5 bedeutet "keine Prüfungen gefunden". Das ist zum
+      # Stand 03.10.2026 der Normalfall, weil tests/ leer ist, und soll den
+      # Lauf nicht rot machen. SOBALD DIE ERSTEN PRÜFUNGEN VORLIEGEN, IST
+      # DIESE AUSNAHME ZU ENTFERNEN — sonst verdeckt sie den Tag, an dem die
+      # Prüfungen versehentlich nicht mehr gefunden werden.
+      - name: pytest — Prüfungen ohne Modelle
+        run: |
+          set +e
+          pytest -m "not langsam and not netz" --color=yes
+          ergebnis=$?
+          set -e
+          if [ "$ergebnis" -eq 5 ]; then
+            echo "::warning title=Keine Prüfungen::pytest hat keine Prüfung gefunden (tests/ ist leer)."
+            exit 0
+          fi
+          exit "$ergebnis"
+
+      # Gegenprobe ohne Modell und ohne Netz: dass die Regeldateien lesbar sind
+      # und die Einstufung durchläuft. Die erwarteten Zahlen stehen hier
+      # ausgeschrieben, damit ein versehentliches Löschen in einer Regeldatei
+      # auffällt. Ändert sich das Regelwerk mit Absicht, ändern sich diese
+      # Zahlen mit.
+      - name: Regelwerk und Einstufung gegenprüfen
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          from helfer.einstufung.pruefer import Pruefer, beschreibung_aus_text, regelwerk
+
+          werk = regelwerk()
+          assert len(werk.pflichten) == 57, len(werk.pflichten)
+          assert len(werk.datenschutz) == 26, len(werk.datenschutz)
+          assert len(werk.fristen) == 5, len(werk.fristen)
+          assert werk.stand is not None, "Das Regelwerk hat keinen Stand"
+
+          text = ("Wir setzen eine zugekaufte Software ein, die Bewerbungen "
+                  "automatisch vorsortiert.")
+          einstufung = Pruefer().pruefen(beschreibung_aus_text(text))
+          klassen = [k.value for k in einstufung.klassen]
+          assert "hochrisiko_anhang_iii" in klassen, klassen
+          assert einstufung.pflichten, "keine Pflichten zu Anhang III"
+          print("Regelwerk vom", werk.stand, "-", len(werk.pflichten), "Pflichten,",
+                len(werk.datenschutz), "Datenschutzabschnitte")
+          print("Probe:", klassen, "-", len(einstufung.pflichten), "Pflichten")
+          PY
+
+      # Der Korpus liegt mit im Verzeichnis. Hier wird nur nachgesehen, dass er
+      # lesbar ist und dass jede Rechtsgrundlage, die eine Regel nennt, darin
+      # vorkommt. Eine Pflicht ohne Fundstelle im Bestand erscheint in der
+      # Auskunft ohne Belegstelle im Wortlaut.
+      - name: Rechtsgrundlagen gegen den Korpus prüfen
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import sys
+
+          import yaml
+
+          korpus = pathlib.Path("daten/aufbereitet/korpus.jsonl")
+          if not korpus.exists():
+              print("::warning title=Kein Korpus::daten/aufbereitet/korpus.jsonl fehlt")
+              sys.exit(0)
+
+          vorhanden = set()
+          with korpus.open(encoding="utf-8") as datei:
+              for zeile in datei:
+                  zeile = zeile.strip()
+                  if zeile:
+                      vorhanden.add(json.loads(zeile)["kennung"])
+          print(len(vorhanden), "Rechtseinheiten im Korpus")
+
+          fehlt = set()
+          for name in ("kivo_pflichten.yaml", "dsgvo_pruefpfad.yaml"):
+              daten = yaml.safe_load(
+                  pathlib.Path("daten/regeln", name).read_text(encoding="utf-8"))
+              saetze = daten.get("pflichten") or daten.get("abschnitte") or []
+              for satz in saetze:
+                  for kennung in satz.get("rechtsgrundlage", []):
+                      if kennung not in vorhanden:
+                          fehlt.add(kennung)
+
+          if fehlt:
+              for kennung in sorted(fehlt):
+                  print("::warning title=Rechtsgrundlage ohne Fundstelle::%s" % kennung)
+              print(len(fehlt), "Rechtsgrundlagen ohne Fundstelle im Korpus")
+          else:
+              print("Jede genannte Rechtsgrundlage ist im Korpus vorhanden")
+          PY

@@ -1,0 +1,66 @@
+name: Wunsch
+description: Etwas fehlt
+title: "[Wunsch] "
+labels: ["wunsch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ein paar Dinge fehlen bekanntermaßen und sind schon festgehalten — ein
+        Programm mit Kommandozeile, eine Weboberfläche, eine Container-Datei
+        und Prüfungen für den Python-Teil. Sie stehen in
+        docs/architektur.md unter „Was noch nicht da ist" und in CHANGELOG.md.
+        Ein Hinweis darauf, dass Sie eines davon brauchen, ist trotzdem
+        nützlich: er sagt, was zuerst kommen soll.
+
+  - type: textarea
+    id: lage
+    attributes:
+      label: Welche Lage soll das Werkzeug lösen?
+      description: >-
+        Was Sie vorhaben, nicht die vorgeschlagene Lösung. Daraus ergibt sich
+        oft ein einfacherer Weg als der gedachte.
+      placeholder: >-
+        Ich muss für 40 geplante KI-Vorhaben eine erste Einordnung machen und
+        kann nicht jedes von Hand eingeben.
+    validations:
+      required: true
+
+  - type: textarea
+    id: wunsch
+    attributes:
+      label: Was stellen Sie sich vor?
+    validations:
+      required: true
+
+  - type: textarea
+    id: behelf
+    attributes:
+      label: Wie behelfen Sie sich heute?
+
+  - type: dropdown
+    id: teil
+    attributes:
+      label: Welchen Teil betrifft es?
+      options:
+        - Einstufung oder Regelwerk
+        - Suche im Rechtstext
+        - Antwort und Formulierung
+        - Android-App
+        - Rechtsdaten und ihre Pflege
+        - Dokumentation
+        - Etwas Neues
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: grenzen
+    attributes:
+      label: Bitte bestätigen
+      options:
+        - label: >-
+            Mein Wunsch verlangt nicht, dass ein Sprachmodell die Einstufung
+            oder die Pflichten bestimmt. (Diese Trennung ist die
+            Grundentscheidung des Projekts, siehe docs/entscheidungen.md, E1 —
+            ein solcher Wunsch wird nicht umgesetzt.)
+          required: true

@@ -1,0 +1,238 @@
+gebiet: Fälle ohne hohes Risiko und die Ausnahme nach Artikel 6 Absatz 3
+hinweis: >
+  Dieses Gebiet zeigt, wo die Ausnahme nach Artikel 6 Absatz 3 greift und wo
+  nicht. Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Wo es auf
+  Umstände ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: rechtschreibhilfe-verwaltung
+    titel: Rechtschreib- und Stilhilfe für Bescheide einer Behörde
+    lage: >
+      Eine Behörde setzt eine KI-gestützte Schreibhilfe ein. Die
+      Sachbearbeiterin schreibt den Bescheid fertig, dann glättet das System
+      Satzbau und Rechtschreibung und schlägt verständlichere Formulierungen
+      vor. An Inhalt, Begründung und Entscheidung ändert es nichts; die
+      Sachbearbeiterin übernimmt oder verwirft jeden Vorschlag.
+    rolle: betreiber
+    einstufung: hochrisiko_ausnahme
+    begruendung: >
+      Der Bescheid betrifft Leistungen und damit einen Bereich, der nach
+      Anhang III Nummer 5 Buchstabe a erfasst sein kann. Hier greift jedoch
+      die Ausnahme nach Artikel 6 Absatz 3: Das System birgt kein erhebliches
+      Risiko für Gesundheit, Sicherheit oder Grundrechte und beeinflusst das
+      Ergebnis der Entscheidungsfindung nicht wesentlich. Erfüllt ist
+      Buchstabe b — es verbessert das Ergebnis einer zuvor abgeschlossenen
+      menschlichen Tätigkeit. Ein Profiling findet nicht statt. Nach
+      Artikel 6 Absatz 4 ist die Bewertung zu dokumentieren.
+    rechtsgrundlage: [KI-VO/art-6/abs-3, KI-VO/art-6/abs-3-b, KI-VO/art-6/abs-4, KI-VO/art-49/abs-2, KI-VO/anh-III/nr-5, KI-VO/art-4]
+    pflichten:
+      - Die Bewertung, dass die Ausnahme greift, vor der Inbetriebnahme schriftlich festhalten.
+      - Die Registrierungspflicht nach Artikel 49 Absatz 2 beachten, soweit sie den Anbieter trifft, und die Bewertung den Behörden auf Verlangen vorlegen.
+      - Durch die Arbeitsanweisung sicherstellen, dass das System erst nach dem fertigen Entwurf eingesetzt wird.
+      - Für die KI-Kompetenz der Sachbearbeitung sorgen.
+      - Die Bewertung erneut prüfen, falls das System später inhaltliche Textvorschläge macht.
+    lernhinweis: >
+      Die Ausnahme nach Artikel 6 Absatz 3 ist kein Freibrief, sondern eine
+      begründete und dokumentierte Entscheidung. Sie verlangt zwei Dinge
+      zugleich: kein erhebliches Risiko und keine wesentliche Beeinflussung
+      der Entscheidung — und zusätzlich einen der vier Fälle in den
+      Buchstaben a bis d. Entscheidend ist hier die Reihenfolge im Verfahren:
+      Dasselbe Werkzeug wäre nicht ausgenommen, wenn es den Bescheid
+      mitformulieren würde, statt den fertigen zu glätten. Wer die Ausnahme
+      nutzen will, gestaltet also den Arbeitsablauf so, dass sie trägt.
+    stolperstein: >
+      Die Behörde beruft sich auf die Ausnahme, ohne sie zu dokumentieren.
+      Artikel 6 Absatz 4 verlangt die Dokumentation vor der Inbetriebnahme —
+      eine nachgeschobene Begründung bei einer Prüfung ist zu spät.
+    verwandte_faelle: [uebersetzungshilfe-handbuch, antragspruefung-behoerde, notenmuster-abweichung]
+
+  - kennung: terminvorschlag-kalender
+    titel: Terminvorschläge für Besprechungen
+    lage: >
+      Ein Beratungsunternehmen setzt ein KI-System ein, das aus den Kalendern
+      der Beteiligten freie Zeitfenster für Besprechungen vorschlägt. Es
+      berücksichtigt Arbeitszeiten, Reisezeiten und die Dauer der
+      Besprechung. Wer eingeladen wird, legt der Einladende fest.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Das System ordnet Zeitfenster, nicht Menschen. Es wirkt nicht bei
+      Einstellung, Beförderung, Kündigung, Vertragsbedingungen,
+      Aufgabenzuweisung oder Leistungsbewertung mit und fällt daher nicht
+      unter Anhang III Nummer 4. Auch kein anderer Bereich von Anhang III
+      trifft zu. Es bleibt bei der Pflicht zur KI-Kompetenz nach Artikel 4.
+      Eine Ausnahmeprüfung nach Artikel 6 Absatz 3 ist nicht nötig, weil
+      Anhang III schon nicht eröffnet ist.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/anh-III/nr-4, KI-VO/art-4]
+    pflichten:
+      - Für die KI-Kompetenz der Beschäftigten sorgen.
+      - Die Kalenderdaten nicht für andere Zwecke auswerten, etwa für Anwesenheitskontrolle.
+    lernhinweis: >
+      Die Prüfung läuft in einer festen Reihenfolge, und man soll sie nicht
+      überspringen: Erst verbotene Praktik, dann Anhang I, dann Anhang III,
+      dann die Ausnahme, dann Transparenz. Wer bei Anhang III gar nicht
+      ankommt, braucht über Artikel 6 Absatz 3 nicht nachzudenken — die
+      Ausnahme ist nur für Systeme da, die sonst hochriskant wären. Diese
+      Unterscheidung spart in der Praxis viel Arbeit, weil die weitaus
+      meisten betrieblichen Werkzeuge schon an der Bereichsfrage ausscheiden.
+    stolperstein: >
+      Aus der Terminplanung wird eine Auswertung, wer wie viele Besprechungen
+      versäumt hat. Damit wechselt das System in die Verhaltensbeobachtung von
+      Beschäftigten und fällt unter Anhang III Nummer 4.
+    verwandte_faelle: [schichtplanung-verhalten, dokumentensortierung-posteingang, weiterbildungsempfehlung-beschaeftigte]
+
+  - kennung: dokumentensortierung-posteingang
+    titel: Sortierung des Posteingangs nach Zuständigkeit
+    lage: >
+      Eine Versicherung lässt den täglichen Posteingang von einem KI-System
+      lesen und nach Art des Schreibens sortieren: Schadenmeldung,
+      Vertragsänderung, Beschwerde, Rechnung. Das System legt jedes Schreiben
+      in den Ordner der zuständigen Abteilung. Es bewertet nicht, wie der Fall
+      ausgeht, und vergibt keine Dringlichkeit.
+    rolle: betreiber
+    einstufung: hochrisiko_ausnahme
+    begruendung: >
+      Weil die Versicherung auch Kranken- und Lebensversicherungen betreibt,
+      berührt die Vorsortierung einen Bereich, der nach Anhang III Nummer 5
+      Buchstabe c erfasst sein kann. Die Ausnahme nach Artikel 6 Absatz 3
+      greift aber: Die Einordnung nach Schreibensart ist eine eng gefasste
+      Verfahrensaufgabe nach Buchstabe a und zugleich eine vorbereitende
+      Aufgabe nach Buchstabe d; sie beeinflusst das Ergebnis der
+      Entscheidungsfindung nicht wesentlich, und ein Profiling findet nicht
+      statt. Nach Artikel 6 Absatz 4 ist die Bewertung zu dokumentieren.
+    rechtsgrundlage: [KI-VO/art-6/abs-3, KI-VO/art-6/abs-3-a, KI-VO/art-6/abs-3-d, KI-VO/art-6/abs-4, KI-VO/anh-III/nr-5, KI-VO/art-4]
+    pflichten:
+      - Die Bewertung, dass die Ausnahme greift, vor der Inbetriebnahme dokumentieren.
+      - Technisch und organisatorisch dafür sorgen, dass das System keine Dringlichkeit und keine Erfolgsaussicht vergibt.
+      - Falsch sortierte Schreiben auffangen, damit keine Fristen verloren gehen.
+      - Für die KI-Kompetenz der Posteingangsbearbeitung sorgen.
+    lernhinweis: >
+      Vorbereitend ist eine Aufgabe nur, wenn die eigentliche Bewertung
+      danach noch wirklich stattfindet. Sortieren nach Art des Schreibens ist
+      vorbereitend; Sortieren nach Erfolgsaussicht ist es nicht mehr, weil
+      damit die Richtung der Entscheidung schon gesetzt wird. An dieser
+      Grenze entscheidet sich bei vielen Dokumentenwerkzeugen die
+      Einstufung — und sie liegt oft nur eine Produktfunktion entfernt.
+    stolperstein: >
+      Der Anbieter liefert mit dem nächsten Stand eine Dringlichkeitsbewertung
+      mit, die als Komfortfunktion eingeschaltet wird. Damit fällt die
+      Grundlage der Ausnahme weg, ohne dass jemand die Bewertung erneuert.
+    verwandte_faelle: [antragspruefung-behoerde, rechtschreibhilfe-verwaltung, codevervollstaendigung-entwicklung]
+
+  - kennung: codevervollstaendigung-entwicklung
+    titel: Code-Vervollständigung in der Softwareentwicklung
+    lage: >
+      Ein Softwarehaus stellt seinen Entwicklern ein KI-System zur
+      Verfügung, das beim Programmieren den nächsten Abschnitt Programmtext
+      vorschlägt. Die Entwickler übernehmen, ändern oder verwerfen die
+      Vorschläge. Das System bewertet keine Menschen und erzeugt keine Ausgaben
+      für Kunden.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Das System fällt in keinen Bereich von Anhang III und berührt keine
+      verbotene Praktik. Die Kennzeichnungspflicht nach Artikel 50 Absatz 2
+      zielt auf synthetische Audio-, Bild-, Video- oder Textinhalte, die als
+      Inhalte in Umlauf kommen; erzeugter Programmtext in einem internen
+      Entwicklungswerkzeug ist davon nicht betroffen. Es bleibt bei der
+      Pflicht zur KI-Kompetenz nach Artikel 4.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/art-50/abs-2, KI-VO/art-4]
+    pflichten:
+      - Für die KI-Kompetenz der Entwickler sorgen.
+      - Regeln, welcher Programmtext und welche Zugangsdaten in das System eingegeben werden dürfen.
+      - Lizenzlage des vorgeschlagenen Programmtextes beachten.
+      - Die Einstufung des Ergebnisses prüfen, wenn mit dem System ein Hochrisiko-KI-System gebaut wird — dann gelten dort die Anbieterpflichten.
+    lernhinweis: >
+      Das Werkzeug und das damit gebaute Erzeugnis werden getrennt eingestuft.
+      Eine Code-Vervollständigung ist unkritisch, auch wenn damit ein
+      Hochrisiko-KI-System programmiert wird; die Pflichten hängen dann am
+      gebauten System, nicht am Werkzeug. Diese Trennung hilft bei vielen
+      Entwicklungs- und Bürowerkzeugen: Man muss sie nicht einstufen, sondern
+      das, was am Ende in Betrieb geht.
+    stolperstein: >
+      In die Eingaben wandern Kundendaten oder Zugangsschlüssel aus
+      Testdateien. Das ist kein Problem der Einstufung, aber ein
+      Datenschutz- und Geheimnisproblem — und der häufigste reale Schaden bei
+      diesen Werkzeugen.
+    verwandte_faelle: [dokumentensortierung-posteingang, feinabstimmung-fachmodell, auftragsverarbeitung-modellanbieter]
+
+  - kennung: notenmuster-abweichung
+    titel: Prüfung, ob Lehrkräfte von ihrem Notenmuster abweichen
+    lage: >
+      Ein Schulamt lässt ein KI-System die Notenverteilung der zurückliegenden
+      Jahre auswerten. Es meldet, wenn eine Lehrkraft in einem Kurs deutlich
+      anders bewertet als in ihren übrigen Kursen. Die Meldung geht an die
+      Schulaufsicht, die daraufhin das Gespräch mit der Lehrkraft sucht. Noten
+      einzelner Schüler ändert das System nicht und bewertet es nicht.
+    rolle: betreiber
+    einstufung: hochrisiko_ausnahme
+    begruendung: >
+      Der Bildungsbereich ist nach Anhang III Nummer 3 erfasst, deshalb ist
+      die Ausnahme zu prüfen. Sie greift nach Artikel 6 Absatz 3 Buchstabe c:
+      Das System erkennt Entscheidungsmuster und Abweichungen von früheren
+      Mustern und soll die abgeschlossene menschliche Bewertung nicht ohne
+      angemessene menschliche Überprüfung ersetzen oder beeinflussen. Die
+      Noten der Schüler bleiben unberührt. Zugleich zeigt der Fall die
+      Doppelseitigkeit: Gegenüber den Lehrkräften ist das System eine
+      Beobachtung und Bewertung von Arbeitsleistung und kann damit unter
+      Anhang III Nummer 4 fallen — für sie ist die Ausnahme nicht
+      selbstverständlich.
+    rechtsgrundlage: [KI-VO/art-6/abs-3, KI-VO/art-6/abs-3-c, KI-VO/art-6/abs-4, KI-VO/anh-III/nr-3, KI-VO/anh-III/nr-4, KI-VO/art-26/abs-7]
+    pflichten:
+      - Die Bewertung, dass die Ausnahme für den Bildungsteil greift, dokumentieren.
+      - Für die Lehrkräfte gesondert prüfen, ob es sich um eine Leistungsbeobachtung von Beschäftigten handelt, und die Pflichten daraus erfüllen.
+      - Personalvertretung und Lehrkräfte über den Einsatz informieren.
+      - Sicherstellen, dass eine Meldung nur Anlass für ein Gespräch ist und nicht selbst eine Bewertung der Lehrkraft.
+    lernhinweis: >
+      Ein System kann aus zwei Richtungen zugleich geprüft werden müssen,
+      weil es zwei Gruppen von Menschen berührt. Für die Schüler ist es eine
+      Musterprüfung und fällt unter die Ausnahme; für die Lehrkräfte ist es
+      Beobachtung von Arbeitsleistung. Wer bei einem eigenen Fall nur an die
+      offensichtlich Betroffenen denkt, verliert die zweite Gruppe aus dem
+      Blick — und die hat eigene Rechte, oft sogar weitergehende.
+    stolperstein: >
+      Das Schulamt prüft nur den Bildungsbereich und übersieht den
+      Beschäftigtenbezug ganz. Dass die Lehrkräfte vorab zu informieren sind,
+      fällt dann mit aus.
+    verwandte_faelle: [leistungsbewertung-vertrieb, pruefungsbewertung-freitext, antragspruefung-behoerde]
+  - kennung: lebenslauf-in-tabellenform
+    titel: Lebensläufe in ein einheitliches Datenfeldformat bringen
+    lage: >
+      Ein Softwarehaus bietet Personalabteilungen ein Werkzeug an, das
+      eingereichte Lebensläufe aus Textdateien einliest und die Angaben in
+      feste Felder überträgt: Name, Abschluss, frühere Arbeitgeber, Zeiträume.
+      Es bewertet nichts, ordnet nicht ein und sortiert nicht. Die
+      Personalabteilung liest die Bewerbungen danach selbst.
+    rolle: anbieter
+    einstufung: hochrisiko_ausnahme
+    begruendung: >
+      Der Einsatz liegt im Bereich Einstellung und Auswahl und damit in
+      Anhang III Nummer 4, deshalb ist die Ausnahme zu prüfen. Sie greift nach
+      Artikel 6 Absatz 3 Buchstabe a: Das Überführen unstrukturierter Angaben
+      in ein festes Format ist eine eng gefasste Verfahrensaufgabe. Das System
+      birgt kein erhebliches Risiko und beeinflusst das Ergebnis der
+      Entscheidungsfindung nicht wesentlich, weil es keine Aussage über die
+      Bewerber bildet; ein Profiling findet nicht statt. Als Anbieter muss das
+      Softwarehaus diese Bewertung nach Artikel 6 Absatz 4 dokumentieren,
+      bevor das System in Verkehr gebracht wird, und sich samt System nach
+      Artikel 49 Absatz 2 in der EU-Datenbank registrieren.
+    rechtsgrundlage: [KI-VO/art-6/abs-3, KI-VO/art-6/abs-3-a, KI-VO/art-6/abs-4, KI-VO/art-49/abs-2, KI-VO/anh-III/nr-4, KI-VO/art-4]
+    pflichten:
+      - Die Bewertung, dass die Ausnahme greift, dokumentieren, bevor das System in Verkehr gebracht wird.
+      - Sich und das System in der EU-Datenbank registrieren.
+      - Die Bewertung den zuständigen Behörden auf Verlangen vorlegen.
+      - In der Produktbeschreibung klarstellen, dass das Werkzeug nicht bewertet und nicht sortiert.
+      - Die Bewertung erneut anstellen, sobald eine Funktion zur Einordnung oder Rangfolge hinzukommt.
+    lernhinweis: >
+      Wer sich auf die Ausnahme beruft, hat gerade deshalb Pflichten: Die
+      Ausnahme nimmt das System aus den schweren Anforderungen heraus, nicht
+      aus der Verordnung. Nach Artikel 6 Absatz 4 ist die Bewertung vor dem
+      Inverkehrbringen zu dokumentieren, und nach Artikel 49 Absatz 2 kommt
+      die Registrierung hinzu. Der Gesetzgeber hat die Ausnahme damit
+      bewusst zu einer nachprüfbaren Entscheidung gemacht — niemand soll sie
+      stillschweigend für sich in Anspruch nehmen können.
+    stolperstein: >
+      Das Softwarehaus betrachtet das Werkzeug als reine Datenaufbereitung
+      ohne Bezug zur KI-Verordnung und dokumentiert und registriert nichts.
+      Weil der Einsatzbereich in Anhang III liegt, ist genau diese
+      Dokumentation aber verlangt.
+    verwandte_faelle: [bewerbungsfilter-sprachmodell, dokumentensortierung-posteingang, rechtschreibhilfe-verwaltung]

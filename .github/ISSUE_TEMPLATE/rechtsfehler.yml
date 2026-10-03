@@ -1,0 +1,151 @@
+name: Rechtsfehler
+description: Ein Artikelverweis, eine Frist, eine Einstufung oder ein Pflichttext ist falsch
+title: "[Recht] "
+labels: ["rechtsfehler", "vorrang"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Danke.** Ein falscher Verweis trifft jeden, der das Werkzeug benutzt,
+        nicht nur Sie. Diese Meldungen werden vor allen anderen bearbeitet.
+
+        Zwei Dinge gehören unbedingt dazu: die Eingabe, die zu der Auskunft
+        geführt hat, und die Fundstelle, auf die Sie sich stützen. Ohne die
+        Eingabe lässt sich der Fehler nicht nachstellen, weil die Einstufung von
+        der Beschreibung abhängt. Ohne die Fundstelle lässt sich daraus keine
+        Berichtigung machen.
+
+        Falls Sie gerade auf eine Sicherheitslücke gestoßen sind: die gehört
+        nicht hierher, sondern nach SECURITY.md.
+
+  - type: dropdown
+    id: art
+    attributes:
+      label: Was ist falsch?
+      options:
+        - Falscher Verweis — die Pflicht steht an einer anderen Stelle
+        - Falsche Frist — der Geltungsbeginn stimmt nicht
+        - Falscher Pflichtinhalt — die Pflicht verlangt etwas anderes
+        - Falsche Einstufung — die Risikoklasse stimmt nicht
+        - Fehlende Pflicht — eine Pflicht gilt, erscheint aber nicht
+        - Pflicht zu viel — eine Pflicht erscheint, die hier nicht gilt
+        - Fehler im Gesetzestext selbst — der mitgelieferte Wortlaut stimmt nicht
+        - Etwas anderes
+    validations:
+      required: true
+
+  - type: dropdown
+    id: rechtsakt
+    attributes:
+      label: Welcher Rechtsakt?
+      options:
+        - KI-Verordnung (EU) 2024/1689
+        - Datenschutz-Grundverordnung (EU) 2016/679
+        - Bundesdatenschutzgesetz
+        - Mehrere oder unklar
+    validations:
+      required: true
+
+  - type: textarea
+    id: eingabe
+    attributes:
+      label: Was haben Sie eingegeben?
+      description: >-
+        Die Beschreibung, die zu der falschen Auskunft geführt hat — möglichst
+        wörtlich. Lassen Sie weg, was Betriebsgeheimnis ist, aber behalten Sie
+        das, was die Einstufung auslöst.
+      placeholder: |
+        Wir sind eine Spedition mit 300 Mitarbeitern und wollen eine zugekaufte
+        Software einsetzen, die Bewerbungen automatisch vorsortiert.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: ausgabe
+    attributes:
+      label: Was sagt das Werkzeug?
+      description: Die Auskunft, soweit sie den Fehler betrifft. Als Text, nicht als Bild.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: richtig
+    attributes:
+      label: Was wäre richtig?
+      description: Die richtige Angabe, nicht nur dass die vorhandene falsch ist.
+      placeholder: >-
+        Die Pflicht zur menschlichen Aufsicht beim Betreiber steht in Artikel 26
+        Absatz 2, nicht in Artikel 14. Artikel 14 richtet sich an den Anbieter.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fundstelle
+    attributes:
+      label: Auf welche Fundstelle stützen Sie sich?
+      description: >-
+        Artikel, Absatz, Nummer, Buchstabe — oder Paragraf samt Gesetz. Und
+        woher: Amtsblatt, Bundesgesetzblatt, Entscheidung eines Gerichts mit
+        Aktenzeichen, Leitlinie mit Datum. Ein Blogbeitrag genügt nicht, weil
+        daraus keine Berichtigung werden kann.
+      placeholder: |
+        Artikel 26 Absatz 2 der Verordnung (EU) 2024/1689,
+        Amtsblatt L vom 12.07.2024, Fassung vom …
+    validations:
+      required: true
+
+  - type: input
+    id: datei
+    attributes:
+      label: Welche Datei ist betroffen?
+      description: Falls Sie es wissen. Sonst leer lassen.
+      placeholder: daten/regeln/kivo_pflichten.yaml
+
+  - type: dropdown
+    id: wo
+    attributes:
+      label: Wo ist Ihnen das aufgefallen?
+      options:
+        - Auf dem Rechner, ohne Sprachmodell
+        - Auf dem Rechner, mit Claude oder GPT
+        - Auf dem Rechner, mit einem Modell über Ollama
+        - In der Android-App
+        - Beim Lesen der Regeldateien
+        - In der Dokumentation
+    validations:
+      required: true
+
+  - type: input
+    id: stand
+    attributes:
+      label: Welchen Stand hat das Regelwerk bei Ihnen?
+      description: >-
+        Steht in jeder Auskunft, in der App unter dem Ergebnis, sonst im Feld
+        `stand` der Dateien unter daten/regeln.
+      placeholder: "2026-05-31"
+
+  - type: textarea
+    id: streit
+    attributes:
+      label: Ist die Rechtslage umstritten?
+      description: >-
+        Wenn ja, bitte sagen, wer es anders sieht. Eine strittige Frage wird
+        nicht einfach umgedreht — dann bekommt die Regel einen Hinweis auf den
+        Streitstand und eine niedrigere Sicherheit. Eine strittige Frage als
+        entschieden darzustellen wäre der größere Fehler.
+
+  - type: checkboxes
+    id: bestaetigung
+    attributes:
+      label: Zum Schluss
+      options:
+        - label: >-
+            Ich habe die Fundstelle selbst nachgelesen und sie nicht aus einer
+            Zusammenfassung oder von einem Sprachmodell übernommen.
+          required: true
+        - label: >-
+            Mir ist klar, dass dieses Werkzeug keine Rechtsberatung ist und dass
+            meine Meldung keine ist (siehe docs/haftung.md).
+          required: true

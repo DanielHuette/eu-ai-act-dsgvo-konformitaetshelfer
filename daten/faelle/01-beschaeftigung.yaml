@@ -1,0 +1,285 @@
+gebiet: Beschäftigung und Personalmanagement
+hinweis: >
+  Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Ob eine Einstufung
+  im Einzelfall trägt, hängt von Umständen ab, die hier nicht alle stehen
+  können. Wo es darauf ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: bewerbungsfilter-sprachmodell
+    titel: Vorauswahl von Bewerbungen mit einem Sprachmodell
+    lage: >
+      Ein Maschinenbauunternehmen mit 400 Beschäftigten erhält auf jede
+      ausgeschriebene Stelle 150 bis 300 Bewerbungen. Die Personalabteilung
+      lässt ein Sprachmodell — ein KI-System, das Texte liest und Texte
+      erzeugt — jede Bewerbung lesen und auf einer Skala von 1 bis 10
+      einordnen, wie gut sie zur Stellenbeschreibung passt. Wer unter 6 landet,
+      wird nicht weiter angesehen. Das Modell ist ein zugekaufter Dienst, der
+      über eine Programmierschnittstelle angesprochen wird.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe a der KI-Verordnung nennt ausdrücklich
+      KI-Systeme, die für die Einstellung oder Auswahl von Menschen bestimmt
+      sind, und zählt dabei das Sichten und Filtern von Bewerbungen und das
+      Bewerten von Bewerbern auf. Genau das tut das System. Die Ausnahme nach
+      Artikel 6 Absatz 3 greift nicht: Das System führt keine eng gefasste
+      Verfahrensaufgabe aus, sondern beeinflusst das Ergebnis der
+      Entscheidungsfindung wesentlich, weil eine Punktzahl unter 6 die
+      Bewerbung aus dem Verfahren nimmt.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-6/abs-3, KI-VO/art-26/abs-1, KI-VO/art-26/abs-2, KI-VO/art-26/abs-7, KI-VO/art-26/abs-11, KI-VO/art-4, DSGVO/art-22, BDSG/par-26]
+    pflichten:
+      - Das System nur so verwenden, wie es die Betriebsanleitung des Anbieters vorsieht, und die Anleitung vorher tatsächlich lesen.
+      - Die menschliche Aufsicht einer benannten Person übertragen, die fachlich dazu in der Lage ist und die Befugnis hat, dem Ergebnis zu widersprechen.
+      - Betriebsrat und betroffene Beschäftigte vor der Inbetriebnahme informieren, dass das System eingesetzt wird.
+      - Bewerber darüber informieren, dass über sie ein Hochrisiko-KI-System mitentscheidet.
+      - Prüfen, ob die Ablehnung am Ende von einem Menschen getragen wird; eine reine Durchwinke-Unterschrift genügt dafür nicht.
+      - Für die Mitarbeiter, die mit dem System arbeiten, ausreichende Schulung sicherstellen.
+      - Die Verarbeitung der Bewerberdaten auf eine Rechtsgrundlage stützen und die Bewerber nach Datenschutzrecht informieren.
+    lernhinweis: >
+      Wer ein KI-System nur einkauft und benutzt, ist Betreiber und nicht
+      Anbieter — aber Betreiber zu sein ist keine Entlastung, sondern ein
+      eigener Pflichtenkatalog. Entscheidend für die Einstufung ist nicht,
+      wie fortgeschritten die Technik ist, sondern wozu das System im
+      Verfahren dient. Eine Zahl, die darüber entscheidet, wer überhaupt
+      angesehen wird, ist eine Auswahlentscheidung, auch wenn am Ende formal
+      ein Mensch unterschreibt. Diese Frage — beeinflusst das Ergebnis die
+      Entscheidung wesentlich? — ist auf fast jeden eigenen Fall übertragbar.
+    stolperstein: >
+      Der häufigste Fehler ist die Annahme, der Einsatz sei unbedenklich, weil
+      "am Ende ja ein Mensch entscheidet". Wenn der Mensch nur die Vorauswahl
+      des Systems bestätigt und die ausgefilterten Bewerbungen nie zu sehen
+      bekommt, ist die menschliche Aufsicht nur auf dem Papier vorhanden.
+    verwandte_faelle: [leistungsbewertung-vertrieb, lebenslauf-in-tabellenform, stellenanzeige-zielgruppe]
+
+  - kennung: leistungsbewertung-vertrieb
+    titel: Automatische Leistungsbewertung im Vertriebsinnendienst
+    lage: >
+      Ein Großhändler wertet die Telefon- und Angebotsdaten seines
+      Vertriebsinnendienstes monatlich mit einem KI-System aus. Das System
+      erzeugt für jeden Beschäftigten eine Kennzahl aus Gesprächsdauer,
+      Abschlussquote und Antwortzeiten und ordnet die Beschäftigten in drei
+      Gruppen ein. Die Gruppeneinteilung geht an die Teamleitung und ist
+      Grundlage für die Jahresgespräche und die variable Vergütung.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe b nennt KI-Systeme für die Beobachtung und
+      Bewertung der Leistung und des Verhaltens von Beschäftigten und ebenso
+      Systeme für Entscheidungen, die die Bedingungen von Arbeitsverhältnissen
+      beeinflussen. Beides trifft zu, da die Einteilung in die variable
+      Vergütung einfließt. Die Ausnahme nach Artikel 6 Absatz 3 scheidet aus,
+      weil das System die Beschäftigten anhand persönlicher Merkmale einordnet
+      und damit ein Profiling vornimmt — bei einem Profiling gilt ein System
+      aus Anhang III nach dem letzten Satz von Artikel 6 Absatz 3 immer als
+      hochriskant.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-6/abs-3, KI-VO/art-26/abs-2, KI-VO/art-26/abs-7, KI-VO/art-26/abs-11, BDSG/par-26, DSGVO/art-22]
+    pflichten:
+      - Eine Person mit der menschlichen Aufsicht betrauen, die die Einteilung ändern darf und nicht nur weitergibt.
+      - Arbeitnehmervertretung und die bewerteten Beschäftigten vor dem Start informieren.
+      - Den bewerteten Beschäftigten sagen, dass ein Hochrisiko-KI-System an der Bewertung mitwirkt.
+      - Prüfen, ob für die Dauerüberwachung eine Rechtsgrundlage besteht und ob eine Vereinbarung mit dem Betriebsrat nötig ist.
+      - Beschäftigten einen Weg geben, der Bewertung zu widersprechen und ihren Standpunkt darzulegen.
+    lernhinweis: >
+      Profiling ist der Riegel vor der Ausnahme. Sobald ein System Menschen
+      anhand persönlicher Merkmale oder ihres Verhaltens einordnet, bewertet
+      oder vorhersagt, nützt es nichts mehr, auf die Ausnahme nach Artikel 6
+      Absatz 3 zu zeigen — die Verordnung schließt sie für diesen Fall
+      ausdrücklich aus. Wer prüfen will, ob die Ausnahme in Frage kommt, prüft
+      deshalb zuerst: Wird hier über einzelne Menschen eine Aussage gebildet?
+      Wenn ja, ist die Prüfung beendet.
+    stolperstein: >
+      Betriebe behandeln solche Kennzahlensysteme als bloße Auswertung schon
+      vorhandener Daten und übersehen, dass die Zusammenfassung zu einer
+      Personenkennzahl selbst der Schritt ist, der die Einstufung auslöst.
+    verwandte_faelle: [bewerbungsfilter-sprachmodell, mitarbeiterueberwachung-tastatur, notenmuster-abweichung]
+
+  - kennung: schichtplanung-verhalten
+    titel: Schichtplanung, die nach Zuverlässigkeit sortiert
+    lage: >
+      Ein Logistikzentrum plant seine Schichten mit einem KI-System. Bis vor
+      kurzem rechnete das System nur mit Qualifikationen, Arbeitszeitkonten und
+      gesetzlichen Ruhezeiten. Nun hat der Betrieb es erweitert: Es
+      berücksichtigt auch, wie oft jemand in der Vergangenheit kurzfristig
+      ausgefallen ist, und weist die Beschäftigten mit den wenigsten Ausfällen
+      bevorzugt den gut bezahlten Nachtschichten zu.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe b erfasst die Zuweisung von Aufgaben
+      aufgrund des individuellen Verhaltens oder persönlicher Merkmale. Vor
+      der Erweiterung rechnete das System nur mit festen Vorgaben und blieb
+      damit außerhalb dieses Falls; mit dem Ausfallverhalten als Kriterium
+      wird aus der Planung eine verhaltensbezogene Aufgabenzuweisung. Da die
+      Zuweisung auch die Verdienstmöglichkeit beeinflusst, berührt sie zudem
+      die Bedingungen des Arbeitsverhältnisses.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-26/abs-2, KI-VO/art-26/abs-7, KI-VO/art-26/abs-11, BDSG/par-26]
+    pflichten:
+      - Vor der Erweiterung prüfen, ob die neue Rechenregel die Einstufung ändert — und das Ergebnis dieser Prüfung festhalten.
+      - Arbeitnehmervertretung und Beschäftigte über den Einsatz informieren.
+      - Eine Person benennen, die Schichtzuweisungen des Systems überstimmen kann.
+      - Prüfen, ob Ausfalldaten für diesen Zweck überhaupt verwendet werden dürfen; Krankheitsdaten sind besonders geschützt.
+    lernhinweis: >
+      Ein System kann durch eine einzige neue Rechengröße die Risikoklasse
+      wechseln, ohne dass sich an der Oberfläche etwas ändert. Die Einstufung
+      hängt am Zweck und an den Kriterien, nicht am Namen des Werkzeugs. Darum
+      gehört zu jeder Änderung an einem eingesetzten System die Frage, ob sie
+      die Einstufung verschiebt — und wer die Frage nie stellt, merkt den
+      Wechsel nicht.
+    stolperstein: >
+      Die Erweiterung wird als kleine Verbesserung eines seit Jahren
+      unbedenklichen Planungswerkzeugs behandelt und läuft deshalb ohne jede
+      neue Prüfung mit.
+    verwandte_faelle: [leistungsbewertung-vertrieb, terminvorschlag-kalender, zugekauftes-modell-eigener-name]
+
+  - kennung: kuendigungsvorschlag-personalabteilung
+    titel: Vorschlagsliste für den Personalabbau
+    lage: >
+      Eine Handelskette muss in der Verwaltung Stellen abbauen. Die
+      Personalabteilung lässt ein KI-System die Personalakten auswerten und
+      eine nach Kriterien sortierte Liste erzeugen, welche Arbeitsverhältnisse
+      sich aus Sicht des Systems am ehesten beenden lassen. Die Liste geht in
+      die Verhandlung mit dem Betriebsrat.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe b nennt KI-Systeme für Entscheidungen, die
+      Kündigungen von Arbeitsvertragsverhältnissen beeinflussen. Dass das
+      System nicht selbst kündigt, ändert nichts: Die Verordnung setzt beim
+      Beeinflussen der Entscheidung an, und eine Vorschlagsliste, die zur
+      Verhandlungsgrundlage wird, beeinflusst sie. Die Ausnahme nach Artikel 6
+      Absatz 3 greift nicht, da das System einzelne Beschäftigte bewertet und
+      damit ein Profiling vornimmt.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-6/abs-3, KI-VO/art-26/abs-2, KI-VO/art-26/abs-7, KI-VO/art-26/abs-11, BDSG/par-26]
+    pflichten:
+      - Die menschliche Aufsicht so einrichten, dass die Liste geprüft und nicht nur übernommen wird.
+      - Arbeitnehmervertretung und betroffene Beschäftigte über den Einsatz informieren.
+      - Nachvollziehbar festhalten, nach welchen Kriterien sortiert wurde, und die Kriterien auf unzulässige Benachteiligung prüfen.
+      - Prüfen, ob die Auswertung der Personalakten zu diesem Zweck zulässig ist.
+    lernhinweis: >
+      "Das System entscheidet nicht, es schlägt nur vor" ist rechtlich kein
+      Unterschied, wenn der Vorschlag den Gang der Entscheidung prägt. Die
+      Verordnung erfasst die Mitwirkung an der Entscheidung, nicht nur die
+      Entscheidung selbst. Für eigene Fälle heißt das: Nicht fragen, ob das
+      System den letzten Schritt tut, sondern ob sein Ergebnis die Richtung
+      vorgibt, in die der letzte Schritt dann geht.
+    stolperstein: >
+      Sortierkriterien, die neutral aussehen, können mittelbar benachteiligen —
+      etwa wenn Teilzeit, Elternzeit oder Krankheitstage einfließen und damit
+      bestimmte Gruppen regelmäßig oben auf der Liste landen.
+    verwandte_faelle: [leistungsbewertung-vertrieb, bewerbungsfilter-sprachmodell, automatische-entscheidung-ohne-mensch]
+
+  - kennung: mitarbeiterueberwachung-tastatur
+    titel: Dauerhafte Auswertung der Rechnernutzung im Büro
+    lage: >
+      Ein Dienstleister installiert auf allen Bürorechnern eine Software, die
+      Tastaturaktivität, Programmwechsel und Pausenzeiten aufzeichnet. Ein
+      KI-System wertet die Aufzeichnungen aus und meldet der Leitung
+      wöchentlich, bei welchen Beschäftigten die Aktivität auffällig vom
+      Teamdurchschnitt abweicht.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe b erfasst KI-Systeme zur Beobachtung und
+      Bewertung von Leistung und Verhalten von Beschäftigten. Die laufende
+      Auswertung mit Meldung an die Leitung ist genau das. Unabhängig von der
+      KI-Verordnung ist die datenschutzrechtliche Zulässigkeit einer solchen
+      Dauerüberwachung eine eigene und sehr enge Frage; ob eine lückenlose
+      Aufzeichnung verhältnismäßig ist, hängt von Zweck und Ausgestaltung ab
+      und ist hier nicht entschieden.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-26/abs-2, KI-VO/art-26/abs-7, KI-VO/art-26/abs-11, BDSG/par-26, DSGVO/art-5, DSGVO/art-35]
+    pflichten:
+      - Vor allem anderen klären, ob die Überwachung in dieser Tiefe datenschutzrechtlich überhaupt zulässig ist.
+      - Eine Datenschutz-Folgenabschätzung prüfen — bei systematischer Überwachung von Beschäftigten liegt sie nahe.
+      - Arbeitnehmervertretung und Beschäftigte informieren; Mitbestimmungsrechte klären.
+      - Menschliche Aufsicht benennen und den Beschäftigten einen Weg zur Gegendarstellung geben.
+    lernhinweis: >
+      Zwei Regelwerke prüfen nebeneinander, und das strengere entscheidet über
+      die Praxis. Die KI-Verordnung sagt, welche Pflichten beim Einsatz
+      gelten; sie erlaubt den Einsatz nicht. Ein System kann alle Pflichten
+      der KI-Verordnung erfüllen und datenschutzrechtlich trotzdem unzulässig
+      sein. Die Reihenfolge der Prüfung ist daher: Darf ich überhaupt? Und
+      erst dann: Was muss ich dabei beachten?
+    stolperstein: >
+      Der Einsatz wird mit der Einwilligung der Beschäftigten begründet. Im
+      Arbeitsverhältnis ist eine Einwilligung wegen der Abhängigkeit nur unter
+      engen Bedingungen freiwillig — wer nicht zustimmen kann, ohne Nachteile
+      zu fürchten, willigt nicht freiwillig ein.
+    verwandte_faelle: [emotionserkennung-callcenter, leistungsbewertung-vertrieb, pruefungsaufsicht-kamera]
+
+  - kennung: weiterbildungsempfehlung-beschaeftigte
+    titel: Weiterbildungsvorschläge für Beschäftigte
+    lage: >
+      Ein Industriebetrieb bietet seinen Beschäftigten im Intranet eine
+      Lernplattform an. Ein KI-System schlägt jedem Beschäftigten Kurse vor,
+      ausgehend von seiner Tätigkeit und den bereits besuchten Kursen. Die
+      Vorschläge sind unverbindlich, werden nicht an die Vorgesetzten gemeldet
+      und spielen bei Beurteilung und Beförderung keine Rolle.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Die Empfehlung berührt keinen der Fälle in Anhang III Nummer 4: Sie
+      wirkt nicht bei Einstellung, Beförderung, Kündigung,
+      Vertragsbedingungen, Aufgabenzuweisung oder Leistungsbewertung mit, weil
+      sie den Beschäftigten allein angezeigt wird und keine Folgen im
+      Arbeitsverhältnis hat. Damit bleibt es bei der Pflicht zur
+      KI-Kompetenz nach Artikel 4. Die Einstufung kippt, sobald die
+      Vorschläge oder ihre Annahme in Beurteilungen einfließen oder der
+      Leitung gemeldet werden.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-4, BDSG/par-26]
+    pflichten:
+      - Dafür sorgen, dass die mit dem System arbeitenden Personen ausreichend geschult sind.
+      - Festhalten und einhalten, dass Vorschläge und deren Annahme nicht in Beurteilungen einfließen.
+      - Beschäftigte darüber informieren, welche Daten die Plattform verwendet.
+    lernhinweis: >
+      Dieselbe Technik an derselben Stelle im Betrieb kann in zwei
+      Risikoklassen fallen — es kommt darauf an, wer das Ergebnis zu sehen
+      bekommt und was damit geschieht. Der Weg zur unkritischen Einstufung
+      führt hier nicht über eine schwächere Technik, sondern über eine
+      bewusste Grenze im Verfahren: Die Empfehlung bleibt beim Beschäftigten.
+      Solche Grenzen sind der wirksamste und billigste Hebel, den ein Betrieb
+      hat — aber nur, wenn sie verbindlich sind und eingehalten werden.
+    stolperstein: >
+      Nach einem Jahr will die Personalentwicklung eine Auswertung, wer die
+      Vorschläge annimmt. Damit wandert das Ergebnis in die
+      Leistungsbetrachtung und der Fall ist ein anderer — die Grenze fällt
+      beiläufig, ohne dass jemand die Einstufung neu prüft.
+    verwandte_faelle: [leistungsbewertung-vertrieb, lernstandserhebung-schule, dokumentensortierung-posteingang]
+
+  - kennung: stellenanzeige-zielgruppe
+    titel: Stellenanzeigen, die das System gezielt ausspielt
+    lage: >
+      Ein Pflegedienst schaltet seine Stellenanzeigen über ein
+      Werbenetzwerk. Ein KI-System des Netzwerks entscheidet, welchen Nutzern
+      die Anzeige gezeigt wird, und optimiert dabei auf möglichst viele
+      Bewerbungen je ausgegebenem Euro. Der Pflegedienst gibt nur Budget und
+      Region vor und bekommt eine Auswertung der Einblendungen.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 4 Buchstabe a nennt neben dem Sichten von Bewerbungen
+      ausdrücklich das Schalten gezielter Stellenanzeigen. Wer Anzeigen über
+      ein optimierendes System ausspielen lässt, verwendet ein KI-System für
+      die Auswahl in diesem Sinne, weil die Vorauswahl schon darüber
+      entscheidet, wer von der Stelle überhaupt erfährt. Wer im Einzelfall
+      Anbieter und wer Betreiber ist, hängt davon ab, wie das Werbenetzwerk
+      das System bereitstellt; der Pflegedienst verwendet es jedenfalls in
+      eigener Verantwortung.
+    rechtsgrundlage: [KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-26/abs-1, KI-VO/art-26/abs-2, KI-VO/art-4]
+    pflichten:
+      - Beim Werbenetzwerk erfragen, nach welchen Merkmalen die Ausspielung optimiert wird, und die Antwort dokumentieren.
+      - Prüfen, ob die Ausspielung Gruppen systematisch ausschließt — etwa nach Alter oder Geschlecht.
+      - Die Auswertung der Einblendungen auf Schieflagen ansehen, statt nur die Zahl der Bewerbungen zu betrachten.
+      - Eine Person benennen, die den Einsatz beaufsichtigt und abschalten kann.
+    lernhinweis: >
+      Auswahl beginnt vor der ersten Bewerbung. Ein System, das nur bestimmt,
+      wer eine Anzeige sieht, trifft keine Entscheidung über eine Person — und
+      fällt doch unter die Auswahl, weil es den Bewerberkreis zuschneidet. Wer
+      seine eigenen Prozesse prüft, sollte deshalb am Anfang der Kette
+      anfangen und nicht erst dort, wo offensichtlich entschieden wird.
+      Optimierung auf Klickerfolg führt dabei oft von allein zu Schieflagen,
+      ohne dass jemand sie gewollt hat.
+    stolperstein: >
+      Der Betrieb hält sich für unbeteiligt, weil er nur Budget und Region
+      vorgibt und die Technik fremd ist. Verantwortlich für die Verwendung
+      bleibt dennoch er, und Auskünfte über die Optimierungskriterien muss er
+      beim Anbieter einholen, statt sie nicht zu haben.
+    verwandte_faelle: [bewerbungsfilter-sprachmodell, sozialbewertung-kunden, zugekauftes-modell-eigener-name]

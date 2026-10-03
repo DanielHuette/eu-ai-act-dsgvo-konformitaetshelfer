@@ -1,0 +1,400 @@
+# Pruefpfad nach Datenschutz-Grundverordnung (Verordnung (EU) 2016/679)
+# und Bundesdatenschutzgesetz, in der Reihenfolge, in der er abgegangen wird.
+stand: 2026-05-31
+rechtsakt: DSGVO
+hinweis_zum_stand: "Erfasst ist der Wortlaut der Datenschutz-Grundverordnung und des Bundesdatenschutzgesetzes; Beschlüsse der Aufsichtsbehörden, Leitlinien des Europäischen Datenschutzausschusses, Angemessenheitsbeschlüsse der Kommission und Rechtsprechung nach dem 31.05.2026 sind hier nicht berücksichtigt."
+
+hinweis_zum_bdsg: "Zitiert werden nur Paragrafen aus Teil 1 und Teil 2 des Bundesdatenschutzgesetzes, also die Durchführungsbestimmungen zur Datenschutz-Grundverordnung. Teil 3 des Gesetzes (Paragrafen 45 bis 84) gilt nach Paragraf 45 nur für Verarbeitungen durch Behörden zur Verhütung, Ermittlung, Aufdeckung, Verfolgung oder Ahndung von Straftaten und Ordnungswidrigkeiten und ist hier daher nicht herangezogen, auch wo er zu einzelnen Abschnitten inhaltlich parallele Vorschriften enthält."
+
+hinweis_zur_granularitaet: "Die Datenschutz-Grundverordnung und das Bundesdatenschutzgesetz liegen im Korpus je Artikel beziehungsweise je Paragraf vor, nicht nach Absätzen getrennt. Die Kennungen unter rechtsgrundlage verweisen daher stets auf die ganze Vorschrift; der genaue Absatz steht im Feld fundstellen_text."
+
+abschnitte:
+
+  # ---------------------------------------------------------------
+  - kennung: a-personenbezug
+    titel: "Personenbezug"
+    frage: "Verarbeitet das System Daten, die sich auf bestimmte oder bestimmbare Menschen beziehen lassen?"
+    rechtsgrundlage:
+      - DSGVO/art-4
+      - DSGVO/art-2
+      - DSGVO/art-11
+    fundstellen_text: "Artikel 4 Nummer 1 und Nummer 2 DSGVO, dazu Artikel 2 und Artikel 11 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Alle Datenfelder durchgehen und prüfen, ob eine natürliche Person darüber identifiziert werden kann, direkt oder indirekt. Indirekt heisst: auch über einen Namen, eine Kennnummer, Standortdaten, eine Online-Kennung oder besondere Merkmale, die die körperliche, physiologische, genetische, psychische, wirtschaftliche, kulturelle oder soziale Identität ausdrücken. Verarbeitung ist dabei jeder Vorgang mit solchen Daten, vom Erheben über Speichern und Abfragen bis zum Löschen, auch ohne Automatisierung. Fällt die Antwort nein, endet der Prüfpfad hier; dann aber bitte begründen, warum ein Personenbezug auch nicht indirekt hergestellt werden kann. Pseudonymisierte Daten bleiben personenbezogen, weil der Bezug mit Zusatzwissen wiederherstellbar ist. Fällt die Antwort ja, gehen Sie weiter zu Abschnitt b."
+    nachweis: "Eine Datenfeldliste je System mit Bewertung des Personenbezugs und einer schriftlichen Begründung bei verneintem Personenbezug."
+    bei_verstoss: "Wird ein Personenbezug zu Unrecht verneint, bleiben alle folgenden Pflichten gleichwohl anwendbar; Verstösse dagegen fallen je nach betroffener Vorschrift unter Artikel 83 Absatz 4 oder Absatz 5 DSGVO."
+
+  # ---------------------------------------------------------------
+  - kennung: b-rolle
+    titel: "Rolle: Verantwortlicher, Auftragsverarbeiter oder gemeinsam Verantwortliche"
+    frage: "Entscheiden Sie selbst über Zwecke und Mittel der Verarbeitung, handeln Sie nur auf Weisung eines anderen, oder legen Sie die Zwecke gemeinsam mit einem anderen fest?"
+    rechtsgrundlage:
+      - DSGVO/art-4
+      - DSGVO/art-26
+      - DSGVO/art-28
+      - DSGVO/art-24
+      - DSGVO/art-29
+    fundstellen_text: "Artikel 4 Nummern 7 und 8 DSGVO, dazu Artikel 24, 26, 28 und 29 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Die Rolle je Verarbeitung festlegen und schriftlich festhalten. Verantwortlicher ist, wer allein oder gemeinsam mit anderen über Zwecke und Mittel der Verarbeitung entscheidet; Auftragsverarbeiter ist, wer personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet. Legen zwei oder mehr Stellen die Zwecke und Mittel gemeinsam fest, sind sie gemeinsam Verantwortliche und müssen in einer transparenten Vereinbarung festlegen, wer welche Pflicht erfüllt, insbesondere bei den Rechten der betroffenen Personen und bei den Informationspflichten; das Wesentliche dieser Vereinbarung ist den betroffenen Personen zur Verfügung zu stellen. Beachten Sie: Betroffene können ihre Rechte unabhängig von der Aufteilung bei jedem einzelnen Verantwortlichen geltend machen. Wer auf Weisung verarbeitet, darf nur im Rahmen dieser Weisung handeln."
+    nachweis: "Eine Rollenzuordnung je Verarbeitung, die Vereinbarung nach Artikel 26 DSGVO bei gemeinsamer Verantwortung und der Nachweis, dass deren Wesentliches veröffentlicht ist."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: Geldbussen von bis zu 10 000 000 Euro oder, bei einem Unternehmen, bis zu 2 Prozent des gesamten weltweit erzielten Jahresumsatzes des vorangegangenen Geschäftsjahres, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: c-rechtsgrundlage
+    titel: "Rechtsgrundlage"
+    frage: "Auf welche der sechs Erlaubnistatbestände stützen Sie die Verarbeitung, und sind besondere Datenkategorien oder strafrechtliche Daten betroffen?"
+    rechtsgrundlage:
+      - DSGVO/art-6
+      - DSGVO/art-7
+      - DSGVO/art-9
+      - DSGVO/art-10
+      - BDSG/par-22
+      - BDSG/par-24
+
+    auch_genannt:
+      - DSGVO/art-6/abs-1
+      - DSGVO/art-9/abs-1
+    fundstellen_text: "Artikel 6, 7, 9 und 10 DSGVO, dazu Paragraf 22 und Paragraf 24 BDSG"
+    was_zu_tun_ist: "Zu tun ist: Je Verarbeitungszweck genau eine Rechtsgrundlage nach Artikel 6 Absatz 1 benennen und begründen. Zur Wahl stehen: Einwilligung; Erfüllung eines Vertrags mit der betroffenen Person oder vorvertragliche Massnahmen auf ihre Anfrage; Erfüllung einer rechtlichen Verpflichtung; Schutz lebenswichtiger Interessen; Wahrnehmung einer Aufgabe im öffentlichen Interesse oder in Ausübung öffentlicher Gewalt; und berechtigte Interessen, sofern nicht die Interessen oder Grundrechte der betroffenen Person überwiegen, was besonders bei Kindern gilt. Behörden können sich bei ihrer Aufgabenerfüllung nicht auf berechtigte Interessen stützen. Stützen Sie sich auf Einwilligung, müssen die Bedingungen des Artikels 7 erfüllt und nachweisbar sein. Gehen aus den Daten rassische oder ethnische Herkunft, politische Meinungen, religiöse oder weltanschauliche Überzeugungen oder Gewerkschaftszugehörigkeit hervor, oder handelt es sich um genetische Daten, um biometrische Daten zur eindeutigen Identifizierung, um Gesundheitsdaten oder um Daten zum Sexualleben oder zur sexüllen Orientierung, ist die Verarbeitung nach Artikel 9 Absatz 1 grundsätzlich untersagt und nur bei einer der Ausnahmen des Artikels 9 Absatz 2 erlaubt; dann ist diese Ausnahme ausdrücklich zu benennen. Daten über strafrechtliche Verurteilungen und Straftaten dürfen nach Artikel 10 nur unter behördlicher Aufsicht oder auf besonderer Rechtsgrundlage verarbeitet werden."
+    nachweis: "Eine Zweck-Rechtsgrundlagen-Zuordnung je Verarbeitung mit Begründung, bei berechtigten Interessen die dokumentierte Abwägung, bei Einwilligung der Einwilligungsnachweis und bei besonderen Kategorien die benannte Ausnahme des Artikels 9 Absatz 2."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: Geldbussen von bis zu 20 000 000 Euro oder, bei einem Unternehmen, bis zu 4 Prozent des gesamten weltweit erzielten Jahresumsatzes des vorangegangenen Geschäftsjahres, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: d1-grundsatz-rechtmaessigkeit
+    titel: "Grundsatz: Rechtmässigkeit, Verarbeitung nach Treu und Glauben, Transparenz"
+    frage: "Ist die Verarbeitung rechtmässig, fair und für die betroffene Person nachvollziehbar?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe a DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Sicherstellen, dass für jede Verarbeitung eine Rechtsgrundlage vorliegt, dass die Verarbeitung die betroffene Person nicht übervorteilt und dass sie für sie nachvollziehbar ist. Nachvollziehbar heisst: Die Person kann aus Ihren Informationen erkennen, wer ihre Daten zu welchem Zweck verarbeitet."
+    nachweis: "Die Zweck-Rechtsgrundlagen-Zuordnung aus Abschnitt c zusammen mit den Datenschutzhinweisen aus Abschnitt e."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: d2-grundsatz-zweckbindung
+    titel: "Grundsatz: Zweckbindung"
+    frage: "Sind die Zwecke vorab festgelegt, eindeutig und legitim, und bleibt jede Weiterverarbeitung mit ihnen vereinbar?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-89
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe b DSGVO, dazu Artikel 89 Absatz 1 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Die Zwecke vor der Erhebung schriftlich festlegen, eindeutig formulieren und nicht nachträglich ausweiten. Wollen Sie die Daten später für etwas anderes nutzen, prüfen Sie zuerst, ob der neue Zweck mit dem ursprünglichen vereinbar ist. Eine Weiterverarbeitung für im öffentlichen Interesse liegende Archivzwecke, für wissenschaftliche oder historische Forschungszwecke oder für statistische Zwecke gilt unter den Garantien des Artikels 89 Absatz 1 nicht als unvereinbar."
+    nachweis: "Die Zweckliste je Verarbeitung mit Festlegungsdatum und, bei Weiterverarbeitung, die dokumentierte Vereinbarkeitsprüfung."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: d3-grundsatz-datenminimierung
+    titel: "Grundsatz: Datenminimierung"
+    frage: "Sind die Daten dem Zweck angemessen und erheblich und auf das notwendige Mass beschränkt?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe c DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Je Datenfeld begründen, warum es für den Zweck nötig ist, und alles streichen, was nur vorsorglich mitgesammelt wird. Das gilt auch für Trainings- und Testdaten: Der Umfang eines Datensatzes ist kein Selbstzweck."
+    nachweis: "Die Datenfeldliste mit Erforderlichkeitsbegründung je Feld und dem Nachweis, welche Felder gestrichen wurden."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: d4-grundsatz-richtigkeit
+    titel: "Grundsatz: Richtigkeit"
+    frage: "Sind die Daten sachlich richtig und, soweit nötig, auf dem neuesten Stand?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-16
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe d DSGVO, dazu Artikel 16 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Angemessene Massnahmen treffen, damit unrichtige Daten unverzüglich gelöscht oder berichtigt werden. In der Praxis heisst das: ein Verfahren für Korrekturen einrichten, Pflegezyklen festlegen und bei Datenbeständen, die als Entscheidungsgrundlage dienen, die Aktualität regelmässig prüfen."
+    nachweis: "Das Korrekturverfahren mit Zuständigkeit und Fristen sowie ein Register der durchgeführten Berichtigungen."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: d5-grundsatz-speicherbegrenzung
+    titel: "Grundsatz: Speicherbegrenzung"
+    frage: "Wie lange bleiben die Daten identifizierbar gespeichert, und ist diese Frist festgelegt?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-89
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe e DSGVO, dazu Artikel 89 Absatz 1 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Die Daten nur so lange in einer Form speichern, die die Identifizierung der betroffenen Personen ermöglicht, wie es für die Zwecke erforderlich ist. Legen Sie je Datenkategorie eine Löschfrist fest und setzen Sie sie technisch um. Eine längere Speicherung ist möglich, wenn die Daten ausschliesslich für Archivzwecke im öffentlichen Interesse, für wissenschaftliche oder historische Forschung oder für Statistik verarbeitet werden und die Garantien des Artikels 89 Absatz 1 eingehalten sind."
+    nachweis: "Ein Löschkonzept mit Frist je Datenkategorie und Protokollen der durchgeführten Löschläufe."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: d6-grundsatz-integritaet-vertraulichkeit
+    titel: "Grundsatz: Integrität und Vertraulichkeit"
+    frage: "Sind die Daten gegen unbefugte Verarbeitung, Verlust, Zerstörung und Schädigung angemessen gesichert?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-32
+    fundstellen_text: "Artikel 5 Absatz 1 Buchstabe f DSGVO, dazu Artikel 32 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Durch geeignete technische und organisatorische Massnahmen eine angemessene Sicherheit gewährleisten, einschliesslich Schutz vor unbefugter oder unrechtmässiger Verarbeitung und vor unbeabsichtigtem Verlust, Zerstörung oder Schädigung. Die Einzelheiten stehen in Abschnitt k."
+    nachweis: "Das Sicherheitskonzept mit Massnahmenliste und Wirksamkeitsprüfung, siehe Abschnitt k."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO für den Grundsatz selbst (bis zu 20 000 000 Euro oder 4 Prozent); für Artikel 32 greift Artikel 83 Absatz 4 Buchstabe a mit bis zu 10 000 000 Euro oder 2 Prozent des weltweiten Jahresumsatzes."
+
+  - kennung: d7-grundsatz-rechenschaftspflicht
+    titel: "Grundsatz: Rechenschaftspflicht"
+    frage: "Können Sie die Einhaltung aller vorstehenden Grundsätze belegen?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-24
+    fundstellen_text: "Artikel 5 Absatz 2 DSGVO, dazu Artikel 24 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Der Verantwortliche ist nicht nur zur Einhaltung verpflichtet, er muss sie auch nachweisen können. Führen Sie deshalb die Unterlagen so, dass sich jede Entscheidung mit Datum und Begründung wiederfinden lässt: Zweckfestlegungen, Rechtsgrundlagen, Abwägungen, Löschfristen, Sicherheitsmassnahmen und Schulungen. Ein nachträglich erstelltes Papier belegt nichts."
+    nachweis: "Ein Datenschutzmanagement mit Dokumentenlenkung, Versionsständen und Freigabedaten, aus dem zu jedem Grundsatz der Belegweg hervorgeht."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe a DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: e-information-der-betroffenen
+    titel: "Information der betroffenen Personen"
+    frage: "Werden die betroffenen Personen vollständig und rechtzeitig informiert, und zwar auch dann, wenn die Daten nicht bei ihnen selbst erhoben wurden?"
+    rechtsgrundlage:
+      - DSGVO/art-12
+      - DSGVO/art-13
+      - DSGVO/art-14
+      - BDSG/par-32
+      - BDSG/par-33
+    fundstellen_text: "Artikel 12, 13 und 14 DSGVO, dazu Paragraf 32 und Paragraf 33 BDSG"
+    was_zu_tun_ist: "Zu tun ist: Bei Erhebung direkt von der Person diese zum Zeitpunkt der Erhebung informieren über: Name und Kontaktdaten des Verantwortlichen und gegebenenfalls seines Vertreters; Kontaktdaten des Datenschutzbeauftragten; die Zwecke und die Rechtsgrundlage; bei berechtigten Interessen welche das sind; Empfänger oder Empfängerkategorien; eine geplante Übermittlung in ein Drittland samt Angemessenheitsbeschluss oder Garantien; die Speicherdauer; die Betroffenenrechte; das Beschwerderecht bei der Aufsichtsbehörde; ob die Bereitstellung verpflichtend ist; und das Bestehen einer automatisierten Entscheidungsfindung samt Logik und Folgen. Wurden die Daten nicht bei der Person erhoben, informieren Sie nach Artikel 14 zusätzlich über die Herkunft der Daten, und zwar innerhalb der dort vorgesehenen Fristen. Die Information muss nach Artikel 12 in präziser, transparenter, verständlicher und leicht zugänglicher Form in klarer und einfacher Sprache erfolgen. Das Bundesdatenschutzgesetz sieht in Paragraf 32 und Paragraf 33 Ausnahmen vor; wer sich darauf stützt, muss sie je Fall begründen."
+    nachweis: "Die Datenschutzhinweise in der ausgelieferten Fassung, abgeglichen gegen die Kataloge der Artikel 13 und 14, mit Angabe, wo und wann sie bereitgestellt werden."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe b DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: f-betroffenenrechte
+    titel: "Betroffenenrechte"
+    frage: "Können Sie Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch tatsächlich und fristgerecht bedienen?"
+    rechtsgrundlage:
+      - DSGVO/art-12
+      - DSGVO/art-15
+      - DSGVO/art-16
+      - DSGVO/art-17
+      - DSGVO/art-18
+      - DSGVO/art-19
+      - DSGVO/art-20
+      - DSGVO/art-21
+      - BDSG/par-34
+      - BDSG/par-35
+      - BDSG/par-36
+    fundstellen_text: "Artikel 15 bis 21 DSGVO, dazu Artikel 12 DSGVO und Paragrafen 34 bis 36 BDSG"
+    was_zu_tun_ist: "Zu tun ist: Für jedes der Rechte einen Bearbeitungsweg mit benannter Zuständigkeit und Frist einrichten. Die Rechte sind: Auskunft über die verarbeiteten Daten samt Zwecken, Empfängern, Speicherdauer und Herkunft (Artikel 15); Berichtigung unrichtiger und Vervollständigung unvollständiger Daten (Artikel 16); Löschung, wenn die Daten für den Zweck nicht mehr nötig sind, die Einwilligung widerrufen wurde, ein Widerspruch durchgreift, die Verarbeitung unrechtmässig war oder eine Rechtspflicht zur Löschung besteht (Artikel 17); Einschränkung der Verarbeitung (Artikel 18); Mitteilung an Empfänger über Berichtigung, Löschung oder Einschränkung (Artikel 19); Datenübertragbarkeit in einem strukturierten, gängigen und maschinenlesbaren Format (Artikel 20); und Widerspruch gegen Verarbeitungen auf Grundlage öffentlichen Interesses oder berechtigter Interessen sowie jederzeit und ohne Begründung gegen Direktwerbung (Artikel 21). Hat der Verantwortliche Daten öffentlich gemacht und ist zur Löschung verpflichtet, muss er unter Berücksichtigung der verfügbaren Technologie und der Kosten angemessene Massnahmen treffen, um andere Verantwortliche über das Löschverlangen zu informieren. Die Ausnahmen der Paragrafen 34 bis 36 BDSG sind je Fall zu begründen."
+    nachweis: "Ein Antragsregister mit Eingangsdatum, Fristende, Bearbeiter und Ergebnis je Recht, dazu die Verfahrensbeschreibung und Antwortvorlagen."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe b DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist. Betroffene können zudem nach Artikel 82 DSGVO Schadenersatz verlangen."
+
+  - kennung: g-automatisierte-entscheidung
+    titel: "Automatisierte Entscheidung im Einzelfall einschliesslich Profiling"
+    frage: "Trifft das System eine Entscheidung ausschliesslich automatisiert, die rechtliche Wirkung entfaltet oder die Person in ähnlicher Weise erheblich beeinträchtigt?"
+    rechtsgrundlage:
+      - DSGVO/art-22
+      - DSGVO/art-4
+      - DSGVO/art-9
+      - BDSG/par-37
+      - BDSG/par-31
+      - BDSG/par-30
+
+    auch_genannt:
+      - DSGVO/art-9/abs-1
+      - DSGVO/art-9/abs-2-a
+    fundstellen_text: "Artikel 22 DSGVO, dazu Artikel 4 Nummer 4 und Artikel 9 DSGVO sowie Paragrafen 30, 31 und 37 BDSG"
+    was_zu_tun_ist: "Zu tun ist: Zuerst feststellen, ob die Entscheidung ausschliesslich automatisiert ergeht. Eine Freigabe durch einen Menschen, die faktisch nur abnickt, macht die Entscheidung nicht zu einer menschlichen. Liegt eine solche Entscheidung vor, ist sie grundsätzlich untersagt und nur in drei Fällen zulässig: wenn sie für Abschluss oder Erfüllung eines Vertrags mit der Person erforderlich ist; wenn sie durch Unionsrecht oder mitgliedstaatliches Recht mit angemessenen Schutzmassnahmen zugelassen ist; oder mit ausdrücklicher Einwilligung der Person. Im ersten und dritten Fall müssen Sie mindestens drei Rechte einräumen: das Eingreifen einer Person auf Ihrer Seite zu erwirken, den eigenen Standpunkt darzulegen und die Entscheidung anzufechten. Auf besondere Datenkategorien nach Artikel 9 Absatz 1 darf eine solche Entscheidung nur beruhen, wenn Artikel 9 Absatz 2 Buchstabe a oder g greift und angemessene Schutzmassnahmen getroffen sind. Profiling im Sinne der Verordnung ist jede automatisierte Verarbeitung, die persönliche Aspekte bewertet, etwa Arbeitsleistung, wirtschaftliche Lage, Gesundheit, Vorlieben, Zuverlässigkeit, Verhalten oder Aufenthaltsort. Für Scoring und Bonitätsauskünfte sowie für Verbraucherkredite enthält das Bundesdatenschutzgesetz in Paragraf 30 und Paragraf 31 eigene Vorgaben."
+    nachweis: "Eine dokumentierte Einstufung je Entscheidungsprozess, die Darlegung der Ausnahme nach Artikel 22 Absatz 2, die Beschreibung der eingeräumten Rechte und der Nachweis, dass die menschliche Prüfung inhaltlich erfolgt."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe b DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: h-auftragsverarbeitung
+    titel: "Auftragsverarbeitung mit Vertrag"
+    frage: "Setzen Sie Dienstleister ein, die in Ihrem Auftrag personenbezogene Daten verarbeiten, und liegt dafür der vorgeschriebene Vertrag vor?"
+    rechtsgrundlage:
+      - DSGVO/art-28
+      - DSGVO/art-29
+      - DSGVO/art-32
+    fundstellen_text: "Artikel 28 DSGVO, dazu Artikel 29 und Artikel 32 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Nur mit Auftragsverarbeitern arbeiten, die hinreichend Garantien für geeignete technische und organisatorische Massnahmen bieten, und mit jedem einen Vertrag oder ein anderes Rechtsinstrument abschliessen. Darin festzulegen sind: Gegenstand und Dauer der Verarbeitung, Art und Zweck, die Art der Daten, die Kategorien betroffener Personen und die Pflichten und Rechte des Verantwortlichen. Der Vertrag muss insbesondere vorsehen, dass der Auftragsverarbeiter nur auf dokumentierte Weisung verarbeitet, die zugriffsberechtigten Personen zur Vertraulichkeit verpflichtet sind, die Sicherheitsmassnahmen nach Artikel 32 getroffen werden, weitere Auftragsverarbeiter nur mit Ihrer vorherigen schriftlichen Genehmigung hinzugezogen werden, Sie bei den Betroffenenrechten unterstützt werden, die Daten am Ende gelöscht oder zurückgegeben werden und Nachweise sowie Überprüfungen möglich sind. Bei allgemeiner Genehmigung muss der Auftragsverarbeiter Sie über jede geplante Änderung bei Unterauftragnehmern informieren, damit Sie Einspruch erheben können. Prüfen Sie das auch bei Anbietern von KI-Diensten, die Ihre Eingabedaten verarbeiten."
+    nachweis: "Der abgeschlossene Vertrag je Dienstleister mit allen Pflichtinhalten, die Liste der genehmigten Unterauftragnehmer und die eingeholten Garantienachweise."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: i-verzeichnis-verarbeitungstaetigkeiten
+    titel: "Verzeichnis von Verarbeitungstätigkeiten"
+    frage: "Führen Sie ein vollständiges Verzeichnis Ihrer Verarbeitungstätigkeiten?"
+    rechtsgrundlage:
+      - DSGVO/art-30
+    fundstellen_text: "Artikel 30 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Ein schriftliches, auch elektronisches Verzeichnis aller Verarbeitungstätigkeiten in Ihrer Zuständigkeit führen. Als Verantwortlicher gehören hinein: Name und Kontaktdaten des Verantwortlichen, gegebenenfalls gemeinsam Verantwortlicher, des Vertreters und des Datenschutzbeauftragten; die Zwecke; die Kategorien betroffener Personen und der Daten; die Empfängerkategorien einschliesslich Empfänger in Drittländern; gegebenenfalls Übermittlungen in Drittländer mit Angabe des Landes und der Garantien; wenn möglich die Löschfristen; und wenn möglich eine allgemeine Beschreibung der Sicherheitsmassnahmen. Als Auftragsverarbeiter führen Sie ein Verzeichnis der im Auftrag durchgeführten Verarbeitungskategorien. Das Verzeichnis ist der Aufsichtsbehörde auf Anfrage vorzulegen. Von der Pflicht befreit sind Unternehmen und Einrichtungen mit weniger als 250 Mitarbeitern, aber nur dann, wenn die Verarbeitung kein Risiko für die Rechte und Freiheiten der betroffenen Personen birgt, nicht nur gelegentlich erfolgt und keine besonderen Datenkategorien oder strafrechtlichen Daten betrifft. In der Praxis greift diese Befreiung bei laufendem KI-Einsatz selten."
+    nachweis: "Das Verzeichnis selbst mit Stand und Fortschreibungsdatum, bei Berufung auf die Befreiung die dokumentierte Prüfung aller drei Bedingungen."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: j-datenschutz-durch-technikgestaltung
+    titel: "Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen"
+    frage: "Sind die Datenschutzgrundsätze schon in der Technik und in den Voreinstellungen verankert?"
+    rechtsgrundlage:
+      - DSGVO/art-25
+    fundstellen_text: "Artikel 25 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Bereits bei der Festlegung der Mittel für die Verarbeitung und dann auch im Betrieb geeignete technische und organisatorische Massnahmen treffen, die die Datenschutzgrundsätze wirksam umsetzen, etwa Pseudonymisierung zur Umsetzung der Datenminimierung. Die Voreinstellungen müssen so gesetzt sein, dass ohne Zutun der Person nur die für den jeweiligen Zweck erforderlichen Daten verarbeitet werden; das betrifft Menge, Verarbeitungsumfang, Speicherfrist und Zugänglichkeit. Insbesondere dürfen Daten durch Voreinstellung nicht ohne Eingreifen der Person einer unbestimmten Zahl von Menschen zugänglich werden. Entscheiden Sie das vor der Beschaffung, nicht nachträglich: Nachrüsten ist hier regelmässig teurer als richtig einkaufen."
+    nachweis: "Ein Architektur- und Einstellungsnachweis mit der Zuordnung je Grundsatz zur umsetzenden Massnahme, dazu die dokumentierten Voreinstellungen im Auslieferungszustand."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: k-sicherheit-der-verarbeitung
+    titel: "Sicherheit der Verarbeitung"
+    frage: "Gewährleisten Ihre Massnahmen ein dem Risiko angemessenes Schutzniveau, und prüfen Sie das regelmässig nach?"
+    rechtsgrundlage:
+      - DSGVO/art-32
+    fundstellen_text: "Artikel 32 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Unter Berücksichtigung des Stands der Technik, der Umsetzungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der Eintrittswahrscheinlichkeit und Schwere des Risikos ein angemessenes Schutzniveau herstellen. Ausdrücklich genannt sind: Pseudonymisierung und Verschlüsselung; die Fähigkeit, Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme dauerhaft sicherzustellen; die Fähigkeit, Verfügbarkeit und Zugang nach einem Zwischenfall rasch wiederherzustellen; und ein Verfahren zur regelmässigen Überprüfung, Bewertung und Evaluierung der Wirksamkeit dieser Massnahmen. Zu bewerten sind besonders die Risiken durch Vernichtung, Verlust, Veränderung, unbefugte Offenlegung und unbefugten Zugang. Sorgen Sie ausserdem dafür, dass unterstellte Personen mit Datenzugang nur auf Ihre Anweisung verarbeiten."
+    nachweis: "Das Sicherheitskonzept mit Risikobewertung, Massnahmenliste, Wiederherstellungsplan und den Berichten der regelmässigen Wirksamkeitsprüfung mit Datum."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: l-datenschutz-folgenabschaetzung
+    titel: "Datenschutz-Folgenabschätzung"
+    frage: "Hat die Verarbeitung voraussichtlich ein hohes Risiko für die Rechte und Freiheiten natürlicher Personen zur Folge?"
+    rechtsgrundlage:
+      - DSGVO/art-35
+      - DSGVO/art-9
+      - DSGVO/art-10
+    fundstellen_text: "Artikel 35 DSGVO, dazu Artikel 9 und Artikel 10 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Vorab abschätzen, welche Folgen die geplante Verarbeitung für den Schutz personenbezogener Daten hat, wenn sie voraussichtlich ein hohes Risiko für die Rechte und Freiheiten natürlicher Personen bedeutet; die Verwendung neuer Technologien ist dabei ausdrücklich als Anlass genannt. Erforderlich ist die Abschätzung insbesondere in drei Fällen: bei systematischer und umfassender Bewertung persönlicher Aspekte, die auf automatisierter Verarbeitung einschliesslich Profiling beruht und Grundlage von Entscheidungen mit Rechtswirkung oder ähnlich erheblicher Beeinträchtigung ist; bei umfangreicher Verarbeitung besonderer Datenkategorien oder strafrechtlicher Daten; und bei systematischer umfangreicher Überwachung öffentlich zugänglicher Bereiche. Ist ein Datenschutzbeauftragter benannt, holen Sie dessen Rat ein. Prüfen Sie zusätzlich die Liste Ihrer Aufsichtsbehörde, welche Verarbeitungen sie für abschätzungspflichtig hält. Mehrere ähnliche Vorgänge mit ähnlich hohen Risiken dürfen in einer Abschätzung zusammengefasst werden."
+    nachweis: "Die Abschätzung mit Beschreibung der Verarbeitung, Notwendigkeits- und Verhältnismässigkeitsprüfung, Risikobewertung und Abhilfemassnahmen, dazu der dokumentierte Rat des Datenschutzbeauftragten und das Datum vor Beginn der Verarbeitung."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: m-vorherige-konsultation
+    titel: "Vorherige Konsultation der Aufsichtsbehörde"
+    frage: "Bleibt nach der Datenschutz-Folgenabschätzung ein hohes Risiko bestehen, weil Sie es nicht eindämmen können?"
+    rechtsgrundlage:
+      - DSGVO/art-36
+      - DSGVO/art-35
+    fundstellen_text: "Artikel 36 DSGVO, dazu Artikel 35 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Ergibt die Datenschutz-Folgenabschätzung ein hohes Risiko und treffen Sie keine Massnahmen zu seiner Eindämmung, konsultieren Sie vor der Verarbeitung die Aufsichtsbehörde. Legen Sie dabei vor: gegebenenfalls die Zuständigkeitsverteilung zwischen Verantwortlichem, gemeinsam Verantwortlichen und Auftragsverarbeitern; Zwecke und Mittel der geplanten Verarbeitung; die vorgesehenen Schutzmassnahmen und Garantien; gegebenenfalls die Kontaktdaten des Datenschutzbeauftragten; die Datenschutz-Folgenabschätzung; und alles Weitere, was die Behörde anfordert. Die Behörde antwortet innerhalb von bis zu acht Wochen nach Erhalt des Ersuchens mit schriftlichen Empfehlungen; diese Frist kann wegen Komplexität um sechs Wochen verlängert werden, worüber die Behörde innerhalb eines Monats nach Eingang unterrichtet. Rechnen Sie diese Zeit in Ihren Zeitplan ein, statt den Start zu planen und die Konsultation nachzuschieben."
+    nachweis: "Das Konsultationsersuchen mit Datum und Anlagen, die Antwort der Aufsichtsbehörde und die Dokumentation, wie die Empfehlungen umgesetzt wurden."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: n-datenschutzbeauftragter
+    titel: "Datenschutzbeauftragter"
+    frage: "Müssen Sie einen Datenschutzbeauftragten benennen, und ist er mit den vorgeschriebenen Aufgaben und Rechten ausgestattet?"
+    rechtsgrundlage:
+      - DSGVO/art-37
+      - DSGVO/art-38
+      - DSGVO/art-39
+      - BDSG/par-38
+      - BDSG/par-5
+      - BDSG/par-6
+
+    auch_genannt:
+      - DSGVO/art-37/abs-1
+    fundstellen_text: "Artikel 37 bis 39 DSGVO, dazu Paragraf 38 BDSG und, für öffentliche Stellen des Bundes, Paragrafen 5 und 6 BDSG"
+    was_zu_tun_ist: "Zu tun ist: Zuerst prüfen, ob eine Benennungspflicht besteht. Nach Artikel 37 Absatz 1 ist sie in drei Fällen gegeben: die Verarbeitung erfolgt durch eine Behörde oder öffentliche Stelle, ausgenommen Gerichte im Rahmen ihrer justiziellen Tätigkeit; die Kerntätigkeit besteht in Verarbeitungen, die eine umfangreiche regelmässige und systematische Überwachung betroffener Personen erforderlich machen; oder die Kerntätigkeit besteht in der umfangreichen Verarbeitung besonderer Datenkategorien oder strafrechtlicher Daten. Für nichtöffentliche Stellen in Deutschland kommt die Schwelle des Paragrafen 38 BDSG hinzu: zu benennen ist, wer in der Regel mindestens 20 Personen ständig mit der automatisierten Verarbeitung personenbezogener Daten beschäftigt. Unabhängig von dieser Zahl ist zu benennen, wenn Verarbeitungen einer Datenschutz-Folgenabschätzung unterliegen oder wenn personenbezogene Daten geschäftsmässig zum Zweck der Übermittlung, der anonymisierten Übermittlung oder für Markt- oder Meinungsforschung verarbeitet werden. Die Benennung erfolgt nach beruflicher Qualifikation und Fachwissen; die Person kann Beschäftigter oder externer Dienstleister sein. Veröffentlichen Sie die Kontaktdaten und teilen Sie sie der Aufsichtsbehörde mit. Stellen Sie die Unabhängigkeit und die Einbindung nach Artikel 38 sicher und übertragen Sie die Aufgaben nach Artikel 39."
+    nachweis: "Die Prüfung der Benennungspflicht mit Zählung der betroffenen Personen, das Benennungsschreiben, der Qualifikationsnachweis, die Veröffentlichung der Kontaktdaten und die Meldung an die Aufsichtsbehörde."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist. Das Bundesdatenschutzgesetz enthält in Paragraf 43 eigene Bussgeldvorschriften."
+
+  # ---------------------------------------------------------------
+  - kennung: o-meldung-datenschutzverletzung
+    titel: "Meldung von Datenschutzverletzungen binnen 72 Stunden"
+    frage: "Ist eine Verletzung des Schutzes personenbezogener Daten eingetreten, und wann haben Sie davon Kenntnis erlangt?"
+    rechtsgrundlage:
+      - DSGVO/art-33
+      - DSGVO/art-4
+    fundstellen_text: "Artikel 33 DSGVO, dazu Artikel 4 Nummer 12 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Die Verletzung unverzüglich und möglichst binnen 72 Stunden, nachdem sie Ihnen bekannt wurde, der zuständigen Aufsichtsbehörde melden. Die Meldung entfällt nur, wenn die Verletzung voraussichtlich nicht zu einem Risiko für die Rechte und Freiheiten natürlicher Personen führt; diese Einschätzung ist zu dokumentieren. Dauert es länger als 72 Stunden, ist eine Begründung für die Verzögerung beizufügen. Die Meldung enthält mindestens: eine Beschreibung der Art der Verletzung mit, soweit möglich, Kategorien und ungefährer Zahl der betroffenen Personen und Datensätze; Name und Kontaktdaten des Datenschutzbeauftragten oder einer anderen Anlaufstelle; eine Beschreibung der wahrscheinlichen Folgen; und eine Beschreibung der ergriffenen oder vorgeschlagenen Abhilfe- und Abmilderungsmassnahmen. Liegen nicht alle Informationen gleichzeitig vor, dürfen Sie ohne unangemessene weitere Verzögerung schrittweise nachreichen. Unabhängig von der Meldung dokumentieren Sie jede Verletzung mit allen Fakten, Auswirkungen und Abhilfemassnahmen so, dass die Aufsichtsbehörde die Einhaltung prüfen kann. Erfährt ein Auftragsverarbeiter von einer Verletzung, meldet er sie unverzüglich dem Verantwortlichen; nehmen Sie das in den Vertrag aus Abschnitt h auf. Richten Sie den Meldeweg vorher ein: 72 Stunden sind keine Frist, in der sich Zuständigkeiten noch klären lassen."
+    nachweis: "Ein Verletzungsregister mit Kenntniszeitpunkt nach Datum und Uhrzeit, Meldezeitpunkt, Risikobewertung, Meldetext und, bei Verzögerung, der Begründung."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  - kennung: p-benachrichtigung-betroffener
+    titel: "Benachrichtigung der betroffenen Personen"
+    frage: "Hat die Verletzung voraussichtlich ein hohes Risiko für die persönlichen Rechte und Freiheiten natürlicher Personen zur Folge?"
+    rechtsgrundlage:
+      - DSGVO/art-34
+      - DSGVO/art-33
+    fundstellen_text: "Artikel 34 DSGVO, dazu Artikel 33 Absatz 3 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Bei hohem Risiko die betroffenen Personen unverzüglich benachrichtigen. Die Benachrichtigung beschreibt in klarer und einfacher Sprache die Art der Verletzung und enthält mindestens die Kontaktdaten der Anlaufstelle, die wahrscheinlichen Folgen und die ergriffenen oder vorgeschlagenen Massnahmen. Sie ist in drei Fällen nicht erforderlich: Sie hatten geeignete technische und organisatorische Sicherheitsvorkehrungen getroffen und auf die betroffenen Daten angewandt, durch die diese für Unbefugte unzugänglich sind, etwa Verschlüsselung; Sie haben durch nachfolgende Massnahmen sichergestellt, dass das hohe Risiko aller Wahrscheinlichkeit nach nicht mehr besteht; oder die Benachrichtigung wäre mit unverhältnismässigem Aufwand verbunden, dann tritt eine öffentliche Bekanntmachung oder eine ähnliche Massnahme an ihre Stelle."
+    nachweis: "Der Benachrichtigungstext mit Versanddatum und Empfängerkreis oder, bei Verzicht, die dokumentierte Begründung des herangezogenen Ausnahmefalls."
+    bei_verstoss: "Artikel 83 Absatz 4 Buchstabe a DSGVO: bis zu 10 000 000 Euro oder bis zu 2 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: q-drittlandsuebermittlung
+    titel: "Übermittlung in Drittländer"
+    frage: "Werden Daten in ein Land ausserhalb der Europäischen Union oder an eine internationale Organisation übermittelt, auch nur durch Zugriffsmöglichkeit?"
+    rechtsgrundlage:
+      - DSGVO/art-44
+      - DSGVO/art-45
+      - DSGVO/art-46
+      - DSGVO/art-47
+      - DSGVO/art-48
+      - DSGVO/art-49
+    fundstellen_text: "Artikel 44 bis 49 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Zuerst feststellen, ob überhaupt eine Übermittlung vorliegt; dazu zählt auch, wenn Beschäftigte oder Dienstleister aus einem Drittland auf die Daten zugreifen können. Dann die Grundlage bestimmen, in dieser Reihenfolge: liegt für das Land ein Angemessenheitsbeschluss der Kommission nach Artikel 45 vor, genügt dieser; liegt keiner vor, brauchen Sie geeignete Garantien nach Artikel 46, und es müssen den betroffenen Personen durchsetzbare Rechte und wirksame Rechtsbehelfe zur Verfügung stehen. Als Garantien ohne eigene Genehmigung der Aufsichtsbehörde nennt Artikel 46 unter anderem: ein rechtlich bindendes und durchsetzbares Dokument zwischen Behörden; verbindliche interne Datenschutzvorschriften nach Artikel 47; Standarddatenschutzklauseln der Kommission; von einer Aufsichtsbehörde angenommene und von der Kommission genehmigte Standarddatenschutzklauseln; genehmigte Verhaltensregeln mit rechtsverbindlichen Verpflichtungen im Drittland; und einen genehmigten Zertifizierungsmechanismus mit solchen Verpflichtungen. Liegt beides nicht vor, kommt nur eine der engen Ausnahmen des Artikels 49 in Betracht. Beachten Sie zudem Artikel 48: Ein Urteil oder eine Behördenentscheidung eines Drittlands ist allein keine zulässige Grundlage für eine Offenlegung. Alle übrigen Vorschriften der Verordnung gelten daneben weiter."
+    nachweis: "Eine Übermittlungsliste mit Empfänger, Land, Rechtsgrundlage und den abgeschlossenen Klauseln oder Garantien, dazu bei Artikel 46 die Prüfung, ob im Zielland durchsetzbare Rechte und Rechtsbehelfe bestehen."
+    bei_verstoss: "Artikel 83 Absatz 5 Buchstabe c DSGVO: bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes, je nachdem welcher Betrag höher ist."
+
+  # ---------------------------------------------------------------
+  - kennung: r-beschaeftigtendaten
+    titel: "Beschäftigtendaten"
+    frage: "Werden Daten von Beschäftigten oder Bewerbern verarbeitet?"
+    rechtsgrundlage:
+      - BDSG/par-26
+      - DSGVO/art-88
+      - DSGVO/art-9
+    fundstellen_text: "Paragraf 26 BDSG, dazu Artikel 88 und Artikel 9 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Daten von Beschäftigten dürfen für Zwecke des Beschäftigungsverhältnisses verarbeitet werden, soweit das erforderlich ist für die Entscheidung über die Begründung des Verhältnisses, für dessen Durchführung oder Beendigung oder zur Erfüllung von Rechten und Pflichten der Interessenvertretung der Beschäftigten aus Gesetz, Tarifvertrag, Betriebs- oder Dienstvereinbarung. Zur Aufdeckung von Straftaten ist die Verarbeitung nur zulässig, wenn zu dokumentierende tatsächliche Anhaltspunkte den Verdacht begründen, die Verarbeitung zur Aufdeckung erforderlich ist und das schutzwürdige Interesse der Beschäftigten nicht überwiegt, insbesondere Art und Ausmass nicht unverhältnismässig sind. Stützen Sie sich auf eine Einwilligung, berücksichtigen Sie bei der Freiwilligkeit ausdrücklich die Abhängigkeit im Beschäftigungsverhältnis und die Umstände der Erteilung. Prüfen Sie vor dem Einsatz von KI im Beschäftigungskontext ausserdem die Mitbestimmungsrechte nach nationalem Recht und die Informationspflicht gegenüber Beschäftigten und ihren Vertretungen aus der KI-Verordnung, siehe Abschnitt t."
+    nachweis: "Eine Erforderlichkeitsbegründung je Verarbeitungszweck im Beschäftigungsverhältnis, bei Verdachtsverarbeitungen die dokumentierten tatsächlichen Anhaltspunkte, bei Einwilligungen die Freiwilligkeitsprüfung und die einschlägigen Kollektivvereinbarungen."
+    bei_verstoss: "Je nach betroffener Vorschrift Artikel 83 Absatz 5 Buchstabe a oder d DSGVO mit bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes; Paragraf 26 BDSG ist eine Vorschrift im Rahmen des Kapitels IX der Verordnung. Das Bundesdatenschutzgesetz enthält in Paragraf 42 ausserdem Strafvorschriften."
+
+  # ---------------------------------------------------------------
+  - kennung: s-training-mit-personenbezogenen-daten
+    titel: "Training mit personenbezogenen Daten"
+    frage: "Werden personenbezogene Daten verwendet, um ein Modell zu trainieren, zu validieren oder zu testen?"
+    rechtsgrundlage:
+      - DSGVO/art-5
+      - DSGVO/art-6
+      - DSGVO/art-9
+      - DSGVO/art-13
+      - DSGVO/art-14
+      - DSGVO/art-15
+      - DSGVO/art-17
+      - DSGVO/art-21
+      - DSGVO/art-22
+      - DSGVO/art-25
+      - DSGVO/art-35
+      - DSGVO/art-89
+      - KI-VO/art-10
+      - KI-VO/art-10/abs-5
+      - KI-VO/art-59
+
+    auch_genannt:
+      - DSGVO/art-5/abs-1-b
+      - DSGVO/art-9/abs-2
+      - DSGVO/art-10
+    fundstellen_text: "Artikel 5, 6, 9, 13, 14, 15, 17, 21, 22, 25, 35 und 89 DSGVO, dazu Artikel 10 und Artikel 59 KI-VO"
+    was_zu_tun_ist: "Zu tun ist: Das Training ist eine Verarbeitung im Sinne des Artikels 4 Nummer 2 und braucht daher eine eigene Rechtsgrundlage nach Artikel 6. Nicht ausreichend ist, dass die Daten für einen anderen Zweck rechtmässig erhoben wurden: Prüfen Sie nach Artikel 5 Absatz 1 Buchstabe b, ob das Training mit dem ursprünglichen Erhebungszweck vereinbar ist, und halten Sie die Prüfung schriftlich fest. Sind besondere Datenkategorien betroffen, brauchen Sie zusätzlich eine Ausnahme nach Artikel 9 Absatz 2. Informieren Sie die betroffenen Personen nach Artikel 13 oder, wenn die Daten nicht bei ihnen erhoben wurden, nach Artikel 14 einschliesslich der Herkunft der Daten. Prüfen Sie nach Artikel 35, ob eine Datenschutz-Folgenabschätzung erforderlich ist; die Verwendung neuer Technologien ist dort ausdrücklich als Anlass genannt. Setzen Sie Datenminimierung und Pseudonymisierung nach Artikel 25 bereits bei der Zusammenstellung der Datensätze um. Erfolgt das Training zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken, gelten die Garantien des Artikels 89 Absatz 1, und Unionsrecht oder mitgliedstaatliches Recht kann dort Ausnahmen von den Rechten aus den Artikeln 15, 16, 18 und 21 vorsehen; eine solche Ausnahme muss Sie also benennen können, sie ergibt sich nicht aus dem Forschungszweck allein. Die KI-Verordnung tritt daneben: Artikel 10 verlangt Daten-Governance für Trainings-, Validierungs- und Testdatensätze, und Artikel 10 Absatz 5 erlaubt die Verarbeitung besonderer Datenkategorien ausnahmsweise zur Erkennung und Korrektur von Verzerrungen, aber nur unter sechs zusätzlichen Bedingungen und ausdrücklich zusätzlich zu den Vorgaben der Datenschutz-Grundverordnung. Für KI-Reallabore regelt Artikel 59 KI-VO eine eigene, eng begrenzte Weiterverarbeitung rechtmässig erhobener Daten im öffentlichen Interesse."
+    offene_frage_loeschung_aus_modellen: "Ausdrückliche Regelung fehlt. Artikel 17 DSGVO gibt ein Recht auf Löschung personenbezogener Daten, trifft aber keine Aussage darüber, wie mit einem bereits trainierten Modell zu verfahren ist, in dessen Parametern sich Trainingsdaten niedergeschlagen haben; der Verordnungstext enthält dazu keine Vorschrift. Die KI-Verordnung ordnet eine Löschung nur für den Sonderfall des Artikels 10 Absatz 5 Buchstabe e an, nämlich für die zur Verzerrungskorrektur verarbeiteten besonderen Datenkategorien, sobald die Verzerrung korrigiert ist oder die Speicherfrist endet. Eine Pflicht, ein Modell neu zu trainieren oder Modellgewichte anzupassen, lässt sich aus dem hier erfassten Normtext nicht belegen. Was gesichert aus dem Text folgt: Der Trainingsdatensatz selbst unterliegt Artikel 17 und der Speicherbegrenzung nach Artikel 5 Absatz 1 Buchstabe e, und ein Löschverlangen ist jedenfalls insoweit umzusetzen. Wie weit es darüber hinaus reicht, ist im Normtext nicht entschieden und hier daher nicht beantwortet."
+    nachweis: "Je Datensatz: benannte Rechtsgrundlage, dokumentierte Vereinbarkeitsprüfung des Zwecks, bei besonderen Kategorien die Ausnahme nach Artikel 9 Absatz 2, die erteilten Informationen nach Artikel 13 oder 14, die Datenschutz-Folgenabschätzung oder die Begründung ihres Entfallens, die Massnahmen zur Minimierung und Pseudonymisierung und die Löschfrist für den Datensatz."
+    bei_verstoss: "Für Grundsätze und Rechtsgrundlage Artikel 83 Absatz 5 Buchstabe a DSGVO und für die Betroffenenrechte Artikel 83 Absatz 5 Buchstabe b DSGVO, jeweils bis zu 20 000 000 Euro oder bis zu 4 Prozent des weltweiten Jahresumsatzes; für Datenschutz-Folgenabschätzung und Technikgestaltung Artikel 83 Absatz 4 Buchstabe a DSGVO mit bis zu 10 000 000 Euro oder bis zu 2 Prozent. Verstösse gegen Artikel 10 KI-VO werden über die Anbieterpflichten des Artikels 16 KI-VO von Artikel 99 Absatz 4 Buchstabe a KI-VO erfasst."
+
+  # ---------------------------------------------------------------
+  - kennung: t-zusammenspiel-mit-der-ki-verordnung
+    titel: "Zusammenspiel mit der KI-Verordnung"
+    frage: "Welche Pflichten erfüllen Sie doppelt, und wo verweist die KI-Verordnung ausdrücklich auf das Datenschutzrecht?"
+    rechtsgrundlage:
+      - KI-VO/art-2
+      - KI-VO/art-2/abs-7
+      - KI-VO/art-10/abs-5
+      - KI-VO/art-26/abs-9
+      - KI-VO/art-27
+      - KI-VO/art-27/abs-4
+      - KI-VO/art-50/abs-3
+      - KI-VO/art-59/abs-1
+      - KI-VO/art-26/abs-10
+      - KI-VO/art-5/abs-1
+      - DSGVO/art-35
+      - DSGVO/art-22
+      - DSGVO/art-13
+      - DSGVO/art-32
+
+    auch_genannt:
+      - DSGVO/art-10
+      - KI-VO/art-59
+      - DSGVO/art-26
+      - KI-VO/art-13
+      - DSGVO/art-27/abs-4
+      - DSGVO/art-50
+      - DSGVO/art-9
+      - DSGVO/art-59
+      - KI-VO/art-50
+      - DSGVO/art-22/abs-3
+      - KI-VO/art-86
+      - KI-VO/art-15
+      - DSGVO/art-12
+    fundstellen_text: "Artikel 2 Absatz 7, Artikel 10 Absatz 5, Artikel 26 Absätze 9 und 10, Artikel 27 Absatz 4, Artikel 50 Absatz 3 und Artikel 59 Absatz 1 KI-VO, dazu Artikel 13, 22, 32 und 35 DSGVO"
+    was_zu_tun_ist: "Zu tun ist: Beide Regelwerke nebeneinander erfüllen, nicht eines statt des anderen. Artikel 2 Absatz 7 KI-VO stellt klar: Das Unionsrecht zum Schutz personenbezogener Daten gilt für die Verarbeitung im Zusammenhang mit den Rechten und Pflichten der KI-Verordnung weiter, und die KI-Verordnung berührt die Datenschutz-Grundverordnung nicht, mit Ausnahme von Artikel 10 Absatz 5 und Artikel 59 KI-VO. Wo die KI-Verordnung ausdrücklich auf das Datenschutzrecht verweist: Artikel 10 Absatz 5 erlaubt Anbietern von Hochrisikosystemen die Verarbeitung besonderer Datenkategorien zur Verzerrungskorrektur zusätzlich zu den Vorgaben der Datenschutz-Grundverordnung und verlangt unter Buchstabe f einen entsprechenden Eintrag in den Aufzeichnungen über Verarbeitungstätigkeiten; Artikel 26 Absatz 9 verpflichtet Betreiber, die Anbieterinformationen aus Artikel 13 KI-VO für ihre Datenschutz-Folgenabschätzung nach Artikel 35 DSGVO zu verwenden; Artikel 27 Absatz 4 bestimmt, dass die Grundrechte-Folgenabschätzung eine bereits durchgeführte Datenschutz-Folgenabschätzung ergänzt, sie also nicht ersetzt und nicht von ihr ersetzt wird; Artikel 50 Absatz 3 verlangt bei Emotionserkennung und biometrischer Kategorisierung die Verarbeitung nach der Datenschutz-Grundverordnung; Artikel 26 Absatz 10 lässt für die Verarbeitung biometrischer Daten Artikel 9 DSGVO ausdrücklich unberührt; und Artikel 59 Absatz 1 regelt die Weiterverarbeitung rechtmässig erhobener Daten im KI-Reallabor. Doppelt auftretende Pflichten, die Sie sinnvoll zusammen bearbeiten: die Folgenabschätzungen aus Artikel 35 DSGVO und Artikel 27 KI-VO; die Transparenz gegenüber Betroffenen aus Artikel 13 und 14 DSGVO und aus Artikel 26 Absatz 11 und Artikel 50 KI-VO; die Erläuterung von Entscheidungen aus Artikel 22 Absatz 3 DSGVO und Artikel 86 KI-VO; die Sicherheitsmassnahmen aus Artikel 32 DSGVO und Artikel 15 KI-VO; und die Protokollierung aus Artikel 12, 19 und 26 Absatz 6 KI-VO, deren Aufbewahrungsfristen unter dem Vorbehalt des Datenschutzrechts stehen. Führen Sie diese Unterlagen in einem Vorgang, aber halten Sie die Fundstellen beider Rechtsakte getrennt auseinander, damit jede Behörde ihre Pflicht darin wiederfindet."
+    nachweis: "Eine Gegenüberstellung je System, die zu jeder Pflicht die Fundstelle in beiden Rechtsakten, das gemeinsam genutzte Dokument und die zuständige Behörde nennt."
+    bei_verstoss: "Die Sanktionen laufen getrennt: Verstösse gegen die Datenschutz-Grundverordnung nach Artikel 83 DSGVO mit bis zu 20 000 000 Euro oder 4 Prozent beziehungsweise bis zu 10 000 000 Euro oder 2 Prozent des weltweiten Jahresumsatzes, Verstösse gegen die KI-Verordnung nach Artikel 99 KI-VO mit bis zu 35 000 000 Euro oder 7 Prozent bei verbotenen Praktiken und bis zu 15 000 000 Euro oder 3 Prozent bei den in Artikel 99 Absatz 4 genannten Pflichten. Dieselbe Handlung kann beide Rahmen auslösen."

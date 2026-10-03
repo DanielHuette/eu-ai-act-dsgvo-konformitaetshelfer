@@ -1,0 +1,64 @@
+EU AI Act und DSGVO Konformitätshelfer
+Copyright 2026 Daniel Hütte
+
+Dieses Werk steht unter der Apache License, Version 2.0. Der Lizenztext liegt
+in der Datei LICENSE.
+
+Dieser Hinweis betrifft nur die Lizenzlage. Was das Werkzeug nicht ist und
+wofür niemand haftet, steht in docs/haftung.md.
+
+
+MITGELIEFERTE RECHTSTEXTE — NICHT VOM URHEBER DIESES WERKS
+
+Der Rechtsbestand in daten/roh, daten/aufbereitet/korpus.jsonl und in der
+App-Datenbank android/app/src/main/assets/recht.db enthält Gesetzestext, der
+nicht von den Urhebern dieses Werks stammt. Für ihn gilt die Apache License
+nicht, sondern die Rechtslage der jeweiligen Quelle:
+
+1. Verordnung (EU) 2024/1689 (KI-Verordnung) und Verordnung (EU) 2016/679
+   (Datenschutz-Grundverordnung) — amtlicher Text der Europäischen Union.
+   Für die Weiterverwendung von Dokumenten der Kommission gilt der Beschluss
+   2011/833/EU. Der verbindliche Text ist allein der im Amtsblatt der
+   Europäischen Union veröffentlichte; die hier mitgelieferte Fassung ist eine
+   maschinell zerlegte Kopie und keine amtliche Veröffentlichung.
+   Quelle: https://eur-lex.europa.eu
+
+2. Bundesdatenschutzgesetz — Gesetzestext der Bundesrepublik Deutschland.
+   Gesetze sind nach § 5 Absatz 1 des Urheberrechtsgesetzes amtliche Werke
+   ohne Urheberrechtsschutz. Die Darstellung auf gesetze-im-internet.de
+   stammt vom Bundesministerium der Justiz und von der juris GmbH.
+   Quelle: https://www.gesetze-im-internet.de/bdsg_2018/
+
+3. Ein Teil der deutschen Fassung der genannten Verordnungen wurde über
+   dsgvo-gesetz.de und artificialintelligenceact.eu bezogen, weil der
+   amtliche Volltext bei EUR-Lex zum Zeitpunkt der Beschaffung nicht
+   vollständig erreichbar war. Welcher Teil das betrifft, steht mit
+   Stückzahlen in docs/datenquellen.md. Der Normtext selbst ist der der
+   Verordnung; die redaktionelle Aufbereitung dieser Seiten liegt bei ihren
+   Betreibern.
+
+Wer diesen Datenbestand weiterverwendet, prüft die Rechtslage der Quellen
+selbst. Die Apache License dieses Werks erteilt daran keine Rechte.
+
+
+VERWENDETE FREMDE SOFTWARE UND MODELLE
+
+Die Programmbibliotheken sind in pyproject.toml und in
+android/gradle/libs.versions.toml mit Fassung aufgeführt; sie stehen unter
+ihren eigenen Lizenzen und werden hier nicht mitgeliefert.
+
+Drei Modelle werden verwendet, aber nicht in diesem Verzeichnis mitgeliefert
+— das Android-Paket enthält eines davon in umgewandelter Form:
+
+* BAAI/bge-m3 — Einbettungsmodell für die Suche auf dem Rechner.
+* intfloat/multilingual-e5-small — Einbettungsmodell für die Suche auf dem
+  Telefon. Es liegt im Android-Paket als
+  android/app/src/main/assets/einbetter.onnx mit dem zugehörigen Wortschatz in
+  tokenizer.json.
+* BAAI/bge-reranker-v2-m3 — Kreuzbewerter für die Neubewertung auf dem
+  Rechner. Optional; fehlt er, bleibt die Reihenfolge der Rangfusion.
+
+Die Lizenz dieser Modelle ist hier nicht wiedergegeben, weil sie sich beim
+Anbieter ändern kann. Wer das Android-Paket weitergibt, gibt damit das
+umgewandelte Modell mit und prüft dessen Lizenzbedingungen bei der Quelle:
+https://huggingface.co/intfloat/multilingual-e5-small

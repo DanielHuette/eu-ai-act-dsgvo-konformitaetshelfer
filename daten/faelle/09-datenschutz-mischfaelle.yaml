@@ -1,0 +1,174 @@
+gebiet: Mischfälle mit Datenschutzrecht
+hinweis: >
+  Hier treffen KI-Verordnung und Datenschutzrecht zusammen. Beide gelten
+  nebeneinander; die KI-Verordnung ersetzt keine datenschutzrechtliche
+  Grundlage. Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung.
+faelle:
+  - kennung: automatische-entscheidung-ohne-mensch
+    titel: Ablehnung eines Antrags ohne jedes menschliche Zutun
+    lage: >
+      Ein Mobilfunkanbieter prüft Anträge auf einen Vertrag mit Endgerät
+      vollautomatisch. Ein KI-System bewertet die Bonität und lehnt bei einem
+      Wert unter der Schwelle sofort ab; der Antragsteller erhält binnen
+      Sekunden eine Absage per E-Mail. Ein Mitarbeiter sieht den Fall nicht.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Nach der KI-Verordnung ist das ein Hochrisiko-Einsatz, weil Anhang III
+      Nummer 5 Buchstabe b die Kreditwürdigkeitsprüfung und Bonitätsbewertung
+      erfasst. Daneben steht eine zweite, eigenständige Hürde: Artikel 22 der
+      Datenschutz-Grundverordnung gibt der betroffenen Person das Recht, nicht
+      einer ausschließlich automatisierten Entscheidung unterworfen zu werden,
+      die ihr gegenüber rechtliche Wirkung entfaltet oder sie ähnlich
+      erheblich beeinträchtigt. Zulässig ist das nur in den dort genannten
+      Fällen — etwa wenn es für den Vertragsabschluss erforderlich ist oder
+      die Person ausdrücklich eingewilligt hat — und dann müssen mindestens
+      das Recht auf Eingreifen eines Menschen, auf Darlegung des eigenen
+      Standpunkts und auf Anfechtung gewährleistet sein.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-6/abs-2, KI-VO/art-26/abs-2, KI-VO/art-26/abs-11, KI-VO/art-27/abs-1, DSGVO/art-22, DSGVO/art-13, DSGVO/art-15]
+    pflichten:
+      - Prüfen, auf welchen der in Artikel 22 genannten Fälle die vollautomatische Entscheidung gestützt wird, und das festhalten.
+      - Ein Verfahren einrichten, mit dem der Antragsteller das Eingreifen eines Menschen erreichen kann.
+      - In der Absage auf dieses Recht hinweisen, nicht nur in der Datenschutzerklärung.
+      - Über die Logik der Entscheidung in verständlicher Form informieren.
+      - Die Pflichten als Betreiber des Hochrisiko-Systems zusätzlich erfüllen, einschließlich der Abschätzung der Auswirkungen auf die Grundrechte.
+    lernhinweis: >
+      Die beiden Regelwerke stellen verschiedene Fragen. Die KI-Verordnung
+      fragt, welche Pflichten beim Einsatz gelten. Das Datenschutzrecht fragt,
+      ob eine Entscheidung überhaupt vollautomatisch ergehen darf. Wer die
+      Pflichten der KI-Verordnung vollständig erfüllt, hat damit zu Artikel 22
+      noch nichts getan. Die menschliche Aufsicht der KI-Verordnung und das
+      Recht auf Eingreifen eines Menschen aus Artikel 22 sind zudem nicht
+      dasselbe: Die eine richtet sich an den Betrieb, das andere ist ein
+      Recht des Betroffenen, das er geltend machen kann.
+    stolperstein: >
+      Das Unternehmen hält die menschliche Aufsicht nach der KI-Verordnung für
+      die Erfüllung von Artikel 22. Eine Aufsicht, die der Betroffene nicht
+      anrufen kann, ersetzt sein Recht auf Eingreifen eines Menschen nicht.
+    verwandte_faelle: [bonitaet-ratenkredit, kuendigungsvorschlag-personalabteilung, antragspruefung-behoerde]
+
+  - kennung: training-mit-kundendaten
+    titel: Training des eigenen Modells mit Kundendaten
+    lage: >
+      Ein Softwarehaus betreibt ein Buchhaltungsprogramm für kleine Betriebe.
+      Es will die eingegebenen Buchungstexte seiner Kunden nutzen, um ein
+      eigenes KI-System zu trainieren, das künftig Buchungen automatisch
+      vorkontiert. Die Buchungstexte enthalten Namen von Lieferanten,
+      Mitarbeitern und Privatpersonen.
+    rolle: anbieter
+    einstufung: minimal
+    begruendung: >
+      Die Vorkontierung von Buchungen fällt in keinen Bereich von Anhang III,
+      deshalb bleibt es nach der KI-Verordnung bei der Pflicht zur
+      KI-Kompetenz nach Artikel 4. Die eigentliche Hürde liegt im
+      Datenschutzrecht: Das Training ist eine neue Verarbeitung zu einem
+      anderen Zweck als die Vertragserfüllung und braucht eine eigene
+      Grundlage. Zu klären ist außerdem, in welcher Rolle das Softwarehaus die
+      Kundendaten hält — verarbeitet es sie im Auftrag der Kunden, darf es sie
+      nicht ohne weiteres für eigene Zwecke verwenden.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/art-4, KI-VO/art-10, DSGVO/art-6, DSGVO/art-5, DSGVO/art-28, DSGVO/art-13]
+    pflichten:
+      - Vor dem Training klären, ob die Daten im Auftrag der Kunden verarbeitet werden; dann ist eine Nutzung für eigene Zwecke ohne Weisung unzulässig.
+      - Eine Rechtsgrundlage für den neuen Zweck bestimmen und die Zweckänderung bewerten.
+      - Personenbezug aus den Trainingsdaten entfernen, soweit er für den Zweck nicht gebraucht wird.
+      - Kunden und betroffene Personen über die Verarbeitung informieren.
+      - Prüfen, ob das trainierte Modell Eingaben wiedergeben kann, und dem entgegenwirken.
+    lernhinweis: >
+      Trainingsdaten sind der am häufigsten unterschätzte Teil eines
+      KI-Vorhabens. Die Frage ist nicht nur, ob die Daten vorhanden sind,
+      sondern zu welchem Zweck sie erhoben wurden und in welcher Rolle man sie
+      hält. Wer Daten im Auftrag seiner Kunden verarbeitet, hat sie nicht zur
+      eigenen Verfügung — und daran scheitern Trainingsvorhaben häufiger als
+      an der KI-Verordnung. Diese Prüfung gehört vor den ersten Trainingslauf,
+      weil ein mit unzulässigen Daten trainiertes Modell nachträglich kaum zu
+      heilen ist.
+    stolperstein: >
+      Das Softwarehaus beruft sich auf eine Klausel in den allgemeinen
+      Geschäftsbedingungen, die eine Nutzung zur Produktverbesserung erlaubt.
+      Ob das als Grundlage für das Training personenbezogener Daten trägt, ist
+      zweifelhaft und jedenfalls gesondert zu prüfen — erst recht, wenn die
+      Daten Dritte betreffen, die mit dem Softwarehaus nichts zu tun haben.
+    verwandte_faelle: [feinabstimmung-fachmodell, auftragsverarbeitung-modellanbieter, codevervollstaendigung-entwicklung]
+
+  - kennung: drittlandsuebermittlung-modellanbieter
+    titel: Modellanbieter in den Vereinigten Staaten
+    lage: >
+      Ein mittelständischer Hersteller lässt seine technischen Anfragen von
+      einem Sprachmodell beantworten, das ein Anbieter mit Sitz in den
+      Vereinigten Staaten über eine Programmierschnittstelle bereitstellt. Die
+      Anfragen der Kunden gehen dabei einschließlich Namen, Anlagennummern und
+      Kontaktdaten an die Server dieses Anbieters.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Die Beantwortung technischer Anfragen fällt in keinen Bereich von
+      Anhang III; es bleibt die Pflicht zur KI-Kompetenz nach Artikel 4, und
+      wenn Kunden direkt mit dem System sprechen, kommt die
+      Transparenzpflicht nach Artikel 50 Absatz 1 hinzu. Datenschutzrechtlich
+      liegt eine Übermittlung personenbezogener Daten in ein Drittland vor.
+      Sie ist nur auf einer der im Datenschutzrecht vorgesehenen Grundlagen
+      zulässig — etwa aufgrund eines Angemessenheitsbeschlusses für das
+      Zielland oder geeigneter Garantien — und der jeweils geltende Stand
+      dieser Grundlagen ist vor der Entscheidung zu prüfen.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/art-4, KI-VO/art-50/abs-1, DSGVO/art-44, DSGVO/art-45, DSGVO/art-46, DSGVO/art-28, DSGVO/art-13]
+    pflichten:
+      - Die Grundlage für die Übermittlung in das Drittland bestimmen und ihren aktuellen Stand prüfen, statt sich auf eine frühere Einschätzung zu verlassen.
+      - Mit dem Anbieter einen Vertrag über die Verarbeitung im Auftrag schließen.
+      - Festlegen, welche Angaben überhaupt übermittelt werden, und den Rest vorher entfernen.
+      - Klären und vertraglich festhalten, ob der Anbieter die Eingaben für eigenes Training verwendet.
+      - Kunden darüber informieren, dass ein KI-System antwortet und wohin ihre Angaben gehen.
+    lernhinweis: >
+      Bei zugekauften Modellen entsteht das Risiko meist nicht aus der
+      Einstufung, sondern aus dem Datenweg. Zwei Fragen entscheiden fast
+      jeden solchen Fall: Was verlässt das Haus, und was darf der Anbieter
+      damit tun? Beide lassen sich vertraglich und technisch klären, und
+      beide muss der Betreiber selbst klären — der Anbieter wird nicht von
+      allein mitteilen, dass er Eingaben weiterverwendet.
+    stolperstein: >
+      Die Übermittlungsgrundlage wird einmal geprüft und dann als dauerhaft
+      geklärt behandelt. Die Grundlagen für Drittlandsübermittlungen haben
+      sich in der Vergangenheit geändert; wer nicht nachprüft, arbeitet
+      irgendwann ohne tragende Grundlage.
+    verwandte_faelle: [auftragsverarbeitung-modellanbieter, training-mit-kundendaten, eigenes-basismodell-trainiert]
+
+  - kennung: auftragsverarbeitung-modellanbieter
+    titel: Vertrag mit dem Modellanbieter über die Verarbeitung im Auftrag
+    lage: >
+      Eine Steuerberatungsgesellschaft will ein Sprachmodell einsetzen, das
+      Mandantenschreiben zusammenfasst. Der Modellanbieter stellt einen
+      Standardvertrag über die Verarbeitung im Auftrag bereit. Darin behält er
+      sich vor, Eingaben zur Verbesserung seiner Dienste zu verwenden und
+      Unterauftragnehmer hinzuzuziehen, die in einer Liste auf seiner
+      Internetseite stehen.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Die Zusammenfassung von Schreiben fällt in keinen Bereich von Anhang III;
+      es bleibt die Pflicht zur KI-Kompetenz nach Artikel 4. Die
+      datenschutzrechtliche Frage ist die Rollenverteilung: Wer Daten im
+      Auftrag verarbeitet, darf sie nur nach Weisung des Verantwortlichen
+      verwenden. Ein Vorbehalt, Eingaben für eigene Zwecke zu nutzen, passt
+      dazu nicht — in diesem Umfang handelt der Anbieter für eigene Zwecke und
+      ist insoweit selbst verantwortlich. Für Steuerberater kommt die
+      berufsrechtliche Verschwiegenheitspflicht hinzu, die eigene Anforderungen
+      an die Einbeziehung Dritter stellt.
+    rechtsgrundlage: [KI-VO/anh-III, KI-VO/art-4, DSGVO/art-28, DSGVO/art-32, DSGVO/art-5, DSGVO/art-44]
+    pflichten:
+      - Den Vorbehalt zur Nutzung der Eingaben für eigene Zwecke abbedingen oder den Anbieter wechseln.
+      - Die Liste der Unterauftragnehmer prüfen und ein Widerspruchsrecht bei Änderungen vereinbaren.
+      - Prüfen, ob die berufsrechtliche Verschwiegenheitspflicht die Einbeziehung dieses Anbieters zulässt.
+      - Technische und organisatorische Maßnahmen im Vertrag konkret festschreiben, nicht nur allgemein benennen.
+      - Festlegen, welche Mandantendaten überhaupt in das System eingegeben werden dürfen, und das den Mitarbeitern verbindlich sagen.
+    lernhinweis: >
+      Ein Standardvertrag über die Verarbeitung im Auftrag ist kein Nachweis,
+      dass alles in Ordnung ist — er ist ein Angebot, das man liest. Die
+      entscheidende Stelle ist immer dieselbe: Darf der Anbieter die Eingaben
+      auch für sich verwenden? Steht dort ja, liegt insoweit keine
+      Verarbeitung nach Weisung vor, und der Vertrag trägt das Vorhaben nicht.
+      Bei Berufsgeheimnisträgern kommt eine weitere Schranke hinzu, die vom
+      Datenschutzrecht unabhängig ist.
+    stolperstein: >
+      Der Vertrag wird unterschrieben, weil er vorhanden und vom Anbieter
+      bereitgestellt ist. Niemand liest die Klausel zur Nutzung der Eingaben,
+      und gerade sie entscheidet darüber, ob der Einsatz zulässig ist.
+    verwandte_faelle: [drittlandsuebermittlung-modellanbieter, training-mit-kundendaten, codevervollstaendigung-entwicklung]

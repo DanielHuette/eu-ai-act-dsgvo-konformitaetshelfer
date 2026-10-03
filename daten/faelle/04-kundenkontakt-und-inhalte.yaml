@@ -1,0 +1,203 @@
+gebiet: Kundenkontakt und erzeugte Inhalte
+hinweis: >
+  Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Ob eine Einstufung
+  im Einzelfall trägt, hängt von Umständen ab, die hier nicht alle stehen
+  können. Wo es darauf ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: chatbot-kundendienst
+    titel: Chatbot auf der Internetseite des Kundendienstes
+    lage: >
+      Ein Versandhändler stellt auf seine Internetseite einen Chatbot — ein
+      KI-System, das mit Kunden schriftlich spricht. Er beantwortet Fragen zu
+      Lieferzeiten und Rücksendungen, sucht Bestellungen heraus und gibt
+      Gespräche an einen Mitarbeiter weiter, wenn er nicht weiterkommt. Der
+      Bot trägt einen Vornamen und schreibt in der ersten Person.
+    rolle: betreiber
+    einstufung: transparenz
+    begruendung: >
+      Der Chatbot fällt in keinen Bereich von Anhang III und ist damit kein
+      Hochrisiko-KI-System. Es greift aber Artikel 50 Absatz 1: Systeme, die
+      für die direkte Interaktion mit Menschen bestimmt sind, müssen so
+      gestaltet sein, dass die Menschen erfahren, dass sie mit einem
+      KI-System sprechen — es sei denn, das ist aus den Umständen
+      offensichtlich. Ein Bot mit menschlichem Vornamen, der in der ersten
+      Person schreibt, macht es gerade nicht offensichtlich.
+    rechtsgrundlage: [KI-VO/art-50/abs-1, KI-VO/art-4, KI-VO/anh-III]
+    pflichten:
+      - Zu Beginn jedes Gesprächs deutlich machen, dass hier ein KI-System antwortet, nicht ein Mitarbeiter.
+      - Den Hinweis dort platzieren, wo er gelesen wird, nicht nur in den Nutzungsbedingungen.
+      - Einen Weg zu einem Menschen anbieten und ihn auch benennen.
+      - Für die KI-Kompetenz der Beschäftigten sorgen, die den Bot betreuen.
+      - Die Einstufung neu prüfen, wenn der Bot Entscheidungen über Kunden treffen soll.
+    lernhinweis: >
+      Die Transparenzpflicht nach Artikel 50 ist eine eigene Schublade neben
+      der Risikoeinstufung. Ein System kann völlig unkritisch sein und
+      trotzdem eine Pflicht auslösen, nur weil Menschen mit ihm sprechen oder
+      es Inhalte erzeugt. Wer nur nach hohem Risiko sucht, übersieht diese
+      Pflichten regelmäßig — und sie treffen in der Praxis viel mehr
+      Unternehmen als die Hochrisiko-Regeln, weil fast jeder Betrieb
+      irgendwo einen Bot oder ein Textwerkzeug einsetzt.
+    stolperstein: >
+      Der Hinweis steht in den Nutzungsbedingungen oder verschwindet nach der
+      ersten Nachricht. Offensichtlich ist er dann nicht, und genau das
+      verlangt die Vorschrift.
+    verwandte_faelle: [stimmklon-telefonanlage, produktbilder-erzeugt, uebersetzungshilfe-handbuch]
+
+  - kennung: produktbilder-erzeugt
+    titel: Erzeugte Produktbilder im Onlineshop
+    lage: >
+      Ein Möbelhändler lässt seine Wohnzimmermöbel nicht mehr fotografieren,
+      sondern von einem KI-System in gestalteten Räumen darstellen. Die
+      Bilder zeigen das jeweilige Sofa in einer Wohnung, die es nicht gibt.
+      Der Händler verwendet dazu einen zugekauften Bilddienst und stellt die
+      Ergebnisse in seinen Shop.
+    rolle: betreiber
+    einstufung: transparenz
+    begruendung: >
+      Die Erzeugung von Bildern löst Transparenzpflichten aus. Nach Artikel 50
+      Absatz 2 muss der Anbieter des erzeugenden Systems dafür sorgen, dass
+      die Ausgaben maschinenlesbar als künstlich erzeugt gekennzeichnet sind —
+      diese Pflicht trifft den Bilddienst, nicht den Händler. Der Händler
+      muss nach Artikel 50 Absatz 4 offenlegen, wenn er Inhalte erzeugt oder
+      manipuliert, die ein Deepfake sind. Darstellungen erfundener Räume mit
+      echten Produkten sind in der Regel keine Deepfakes, weil sie keine
+      bestehenden Personen, Orte oder Ereignisse vortäuschen; sobald aber ein
+      echter Ort oder eine erkennbare Person gezeigt wird, kippt die
+      Beurteilung. Vom Wettbewerbsrecht ist das unabhängig.
+    rechtsgrundlage: [KI-VO/art-50/abs-2, KI-VO/art-50/abs-4, KI-VO/art-4]
+    pflichten:
+      - Beim Bilddienst nachfragen und sich bestätigen lassen, dass die Ausgaben maschinenlesbar gekennzeichnet werden.
+      - Die Kennzeichnung nicht beim Hochladen in den Shop entfernen — Zuschneiden und Umwandeln löscht sie oft.
+      - Dafür sorgen, dass die Darstellung das Produkt nicht anders aussehen lässt, als es ist.
+      - Prüfen, sobald echte Orte oder erkennbare Personen ins Bild kommen; dann gilt die Offenlegungspflicht für Deepfakes.
+    lernhinweis: >
+      Bei erzeugten Inhalten liegen die Pflichten auf zwei Schultern: Der
+      Anbieter des Werkzeugs kennzeichnet maschinenlesbar, der Betreiber legt
+      Deepfakes offen. Wer ein Werkzeug einkauft, erbt die Kennzeichnung nicht
+      automatisch — er muss prüfen, ob sie vorhanden ist, und darf sie bei der
+      Weiterverarbeitung nicht zerstören. Für eigene Fälle lohnt die Frage:
+      Wer ist in meiner Kette Anbieter, wer Betreiber, und welche der beiden
+      Pflichten trifft deshalb mich?
+    stolperstein: >
+      Die Kennzeichnung steckt in den Metadaten der Bilddatei und geht beim
+      Zuschneiden oder beim Umwandeln in ein anderes Format verloren. Der
+      Händler meint, geliefert zu haben, was der Dienst zugesagt hat, und
+      löscht sie im nächsten Arbeitsschritt selbst.
+    verwandte_faelle: [deepfake-werbung-schauspieler, stimmklon-telefonanlage, chatbot-kundendienst]
+
+  - kennung: stimmklon-telefonanlage
+    titel: Geklonte Stimme in der Telefonansage
+    lage: >
+      Ein Autohaus lässt seine Telefonansagen mit der geklonten Stimme seines
+      Serviceleiters erzeugen, damit Anrufer eine vertraute Stimme hören. Die
+      Ansagen nennen Öffnungszeiten und leiten weiter. Für neue Texte muss der
+      Serviceleiter nichts mehr einsprechen; das KI-System erzeugt sie aus
+      geschriebenem Text.
+    rolle: betreiber
+    einstufung: transparenz
+    begruendung: >
+      Die mit einer echten, erkennbaren Stimme erzeugte Ansage ist ein
+      Deepfake im Sinne der Verordnung, weil sie einen Tonbeitrag vortäuscht,
+      den die Person nicht gesprochen hat. Nach Artikel 50 Absatz 4 muss der
+      Betreiber offenlegen, dass der Inhalt künstlich erzeugt wurde. Daneben
+      gilt für den Anbieter des erzeugenden Systems die Kennzeichnungspflicht
+      nach Artikel 50 Absatz 2. Die Einwilligung des Serviceleiters ist für
+      die Persönlichkeitsrechte wichtig, ersetzt die Offenlegung gegenüber
+      den Anrufern aber nicht.
+    rechtsgrundlage: [KI-VO/art-50/abs-2, KI-VO/art-50/abs-4, KI-VO/art-4]
+    pflichten:
+      - In der Ansage offenlegen, dass die Stimme künstlich erzeugt ist.
+      - Die schriftliche Einwilligung des Serviceleiters in die Verwendung seiner Stimme einholen.
+      - Festlegen, wer Texte freigeben darf, und den Zugang zum Stimmmodell begrenzen.
+      - Regeln, was mit dem Stimmmodell geschieht, wenn der Serviceleiter das Unternehmen verlässt.
+    lernhinweis: >
+      Die Einwilligung der abgebildeten Person und die Offenlegung gegenüber
+      dem Publikum sind zwei verschiedene Dinge mit zwei verschiedenen
+      Adressaten. Wer die Einwilligung hat, darf die Stimme verwenden; wer sie
+      verwendet, muss dem Zuhörer trotzdem sagen, dass sie künstlich ist. Das
+      gilt überall, wo echte Menschen nachgebildet werden — und ein
+      Stimmmodell ist dabei ein Wert, der wie ein Zugangsschlüssel verwaltet
+      werden muss, nicht wie eine Audiodatei.
+    stolperstein: >
+      Das Unternehmen hält die Offenlegung für überflüssig, weil die Stimme
+      dem eigenen Mitarbeiter gehört und er zugestimmt hat. Die Pflicht
+      besteht gegenüber den Anrufern und hängt nicht von der Zustimmung der
+      Person ab.
+    verwandte_faelle: [deepfake-werbung-schauspieler, produktbilder-erzeugt, chatbot-kundendienst]
+
+  - kennung: deepfake-werbung-schauspieler
+    titel: Werbespot mit nachgebildetem Schauspieler
+    lage: >
+      Eine Brauerei dreht einen Werbespot und lässt für zwei Szenen das
+      Gesicht eines bekannten Schauspielers von einem KI-System auf einen
+      Statisten setzen. Der Schauspieler hat dem gegen Honorar zugestimmt.
+      Der Spot läuft im Fernsehen und in Videoportalen.
+    rolle: betreiber
+    einstufung: transparenz
+    begruendung: >
+      Ein Gesichtstausch bei einer echten, erkennbaren Person ist ein
+      Deepfake. Nach Artikel 50 Absatz 4 muss der Betreiber offenlegen, dass
+      der Inhalt künstlich erzeugt oder manipuliert wurde. Für offensichtlich
+      künstlerische, kreative, satirische oder fiktionale Werke beschränkt
+      sich die Pflicht darauf, das Vorhandensein solcher Inhalte in geeigneter
+      Weise offenzulegen, ohne den Genuss des Werks zu beeinträchtigen. Ein
+      Werbespot ist kein solches Werk im üblichen Verständnis; ob eine
+      erkennbar fiktionale Inszenierung darunter fällt, kommt auf die
+      Gestaltung an und ist hier nicht entschieden.
+    rechtsgrundlage: [KI-VO/art-50/abs-2, KI-VO/art-50/abs-4, KI-VO/art-4]
+    pflichten:
+      - Im Spot oder in unmittelbarer Nähe offenlegen, dass Bildinhalte künstlich erzeugt wurden.
+      - Die Einwilligung des Schauspielers schriftlich fassen und den Umfang der Verwendung darin begrenzen.
+      - Beim erzeugenden Dienst die maschinenlesbare Kennzeichnung sicherstellen.
+      - Festhalten, welche Szenen bearbeitet wurden, damit die Offenlegung belegbar ist.
+    lernhinweis: >
+      Die Ausnahme für künstlerische Werke lockert die Offenlegung, sie hebt
+      sie nicht auf: Verlangt bleibt, das Vorhandensein erzeugter Inhalte
+      geeignet offenzulegen. Wer sich darauf berufen will, muss also immer
+      noch etwas tun, nur zurückhaltender. In der Werbung ist der Verweis auf
+      Kunst ohnehin ein schwaches Argument, weil der Zweck der Inszenierung
+      der Verkauf ist.
+    stolperstein: >
+      Die Offenlegung wandert in den Abspann oder in die Videobeschreibung und
+      erreicht den Zuschauer nicht. Geeignet ist eine Offenlegung nur, wenn
+      sie dort erscheint, wo der Inhalt wahrgenommen wird.
+    verwandte_faelle: [stimmklon-telefonanlage, produktbilder-erzeugt, gesichter-aus-dem-netz]
+
+  - kennung: uebersetzungshilfe-handbuch
+    titel: Übersetzung technischer Handbücher
+    lage: >
+      Ein Maschinenbauer übersetzt seine Bedienungshandbücher mit einem
+      KI-System vom Deutschen ins Englische und Spanische. Die
+      Rohübersetzungen gehen an die Technische Redaktion, die sie fachlich
+      prüft und freigibt. Erst danach gehen sie mit der Maschine an den Kunden.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Die Übersetzung fällt in keinen Bereich von Anhang III und berührt keine
+      verbotene Praktik. Die Kennzeichnungspflicht für erzeugte Inhalte nach
+      Artikel 50 Absatz 2 greift hier nicht, weil sie nicht gilt, soweit
+      Systeme eine unterstützende Funktion für die Standardbearbeitung
+      ausführen oder die eingegebenen Daten und deren Bedeutung nicht
+      wesentlich verändern — eine Übersetzung soll den Sinn gerade erhalten.
+      Damit bleibt es bei der Pflicht zur KI-Kompetenz nach Artikel 4.
+      Produktsicherheitsrechtliche Anforderungen an die Richtigkeit der
+      Anleitung bestehen unabhängig davon weiter.
+    rechtsgrundlage: [KI-VO/art-50/abs-2, KI-VO/art-4, KI-VO/anh-III]
+    pflichten:
+      - Die fachliche Prüfung der Rohübersetzung verbindlich festschreiben, bevor ein Handbuch hinausgeht.
+      - Für die KI-Kompetenz der Technischen Redaktion sorgen.
+      - Sicherheitsrelevante Passagen besonders prüfen; eine falsch übersetzte Warnung ist ein Produktproblem.
+      - Festhalten, wer welche Fassung freigegeben hat.
+    lernhinweis: >
+      Artikel 50 Absatz 2 enthält eine Ausnahme, die viele Alltagswerkzeuge
+      trägt: Wer nur unterstützend bearbeitet oder den Inhalt nicht wesentlich
+      verändert, muss nicht kennzeichnen. Übersetzen, Zusammenfassen und
+      sprachliches Glätten fallen in der Regel darunter, freies Erzeugen neuer
+      Inhalte nicht. Die Trennlinie verläuft dort, wo aus dem Bearbeiten eines
+      vorhandenen Inhalts das Erfinden eines neuen wird — und diese Linie ist
+      bei eigenen Werkzeugen oft schnell überschritten.
+    stolperstein: >
+      Dasselbe Werkzeug wird im nächsten Schritt für Werbetexte eingesetzt, die
+      es frei formuliert. Dort ist die Ausnahme nicht mehr tragfähig, und die
+      Einstufung des Einsatzes muss neu beurteilt werden.
+    verwandte_faelle: [rechtschreibhilfe-verwaltung, chatbot-kundendienst, produktbilder-erzeugt]

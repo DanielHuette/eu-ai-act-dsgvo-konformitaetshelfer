@@ -1,0 +1,44 @@
+# Was nicht ins Abbild gehört. Jede Zeile hier spart Bauzeit und Platz —
+# und verhindert, dass etwas Privates mitwandert.
+
+# Rohquellen: aus ihnen ist die Datenbank gebaut, im Betrieb braucht sie
+# niemand mehr. Rund 8 Megabyte HTML und XML.
+daten/roh/
+
+# Zwischenstände, Protokolle, Befunde eines Baulaufs
+daten/aufbereitet/*.log
+daten/aufbereitet/_*
+daten/aufbereitet/*_befund.json
+
+# Die Android-App gehört in ein eigenes Abbild
+android/
+
+# Alles, was jemandes Rechner betrifft und nicht die Sache
+.git/
+.github/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.idea/
+.vscode/
+*.swp
+
+# NIE ins Abbild: Schlüssel. .env.example ist die Vorlage ohne Werte und
+# bleibt draußen, weil sie im Container nichts zu tun hat.
+.env
+.env.*
+*.pem
+*.key
+geheim*
+
+# Prüfungen und Schreibwerk werden im Betrieb nicht gebraucht
+tests/
+docs/
+scripts/
+*.md
+!README.md

@@ -1,0 +1,210 @@
+gebiet: Verbotene Praktiken
+hinweis: >
+  In diesem Gebiet lautet die Antwort nicht "mit Auflagen", sondern "so nicht".
+  Ein Verbot lässt sich nicht durch Dokumentation, Aufsicht oder Einwilligung
+  ausgleichen. Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung.
+faelle:
+  - kennung: emotionserkennung-callcenter
+    titel: Stimmungsmessung der Beschäftigten im Kundendienst
+    lage: >
+      Ein Kundendienstzentrum will die Belastung seiner Beschäftigten
+      beobachten. Ein KI-System hört die Telefongespräche mit und schließt aus
+      Stimmlage, Sprechgeschwindigkeit und Pausen auf die Gefühlslage des
+      Beschäftigten: ruhig, gereizt, erschöpft. Die Teamleitung erhält eine
+      Tagesübersicht und soll Beschäftigte mit auffälliger Stimmungslage
+      ansprechen. Der Betriebsrat hat zugestimmt, die Beschäftigten haben
+      eingewilligt.
+    rolle: betreiber
+    einstufung: verboten
+    begruendung: >
+      Nach Artikel 5 Absatz 1 Buchstabe f ist das Inverkehrbringen, die
+      Inbetriebnahme und die Verwendung von KI-Systemen zur Ableitung von
+      Emotionen einer Person am Arbeitsplatz untersagt. Ausgenommen ist allein
+      die Verwendung aus medizinischen Gründen oder aus Sicherheitsgründen —
+      etwa die Müdigkeitserkennung bei einem Piloten. Die Fürsorge für die
+      Belastung der Beschäftigten ist weder ein medizinischer Grund in diesem
+      Sinne noch ein Sicherheitsgrund. Zustimmung des Betriebsrats und
+      Einwilligung der Beschäftigten ändern daran nichts: Das Verbot steht
+      nicht zur Verfügung der Beteiligten.
+    rechtsgrundlage: [KI-VO/art-5/abs-1-f, KI-VO/art-5, KI-VO/art-99, BDSG/par-26]
+    pflichten:
+      - Das Vorhaben nicht umsetzen; ein laufender Einsatz ist einzustellen.
+      - Bereits erhobene Gefühlsdaten löschen.
+      - Wenn Belastung gemessen werden soll, auf Mittel ohne Emotionsableitung ausweichen, etwa anonyme Befragungen oder Auswertung der Arbeitsmenge.
+      - Beschaffungsunterlagen daraufhin prüfen, ob eingekaufte Systeme Emotionsmerkmale enthalten.
+    lernhinweis: >
+      Ein Verbot kennt keine Ausgleichsmaßnahmen. Bei hohem Risiko lautet die
+      Frage "Was muss ich dafür tun?", bei einem Verbot "Wie erreiche ich das
+      Ziel anders?". Einwilligung, Betriebsvereinbarung und gute Absicht
+      tragen nicht, denn die Verordnung verbietet hier die Praktik selbst.
+      Für Arbeitsplatz und Bildungseinrichtung ist die Emotionsableitung die
+      wichtigste dieser Grenzen, weil sie in vielen Produkten als
+      Zusatzfunktion mitgeliefert wird.
+    stolperstein: >
+      Die Funktion heißt im Angebot nicht Emotionserkennung, sondern
+      Belastungsanzeige, Gesprächsqualität oder Stimmungsbarometer. Wer nur
+      nach dem Wort sucht, findet das Verbotene nicht — es kommt darauf an,
+      ob aus Merkmalen eines Menschen auf seine Gefühlslage geschlossen wird.
+    verwandte_faelle: [pruefungsaufsicht-kamera, mitarbeiterueberwachung-tastatur, sozialbewertung-kunden]
+
+  - kennung: sozialbewertung-kunden
+    titel: Allgemeiner Vertrauenswert für Kunden
+    lage: >
+      Ein Onlinehändler legt für jeden Kunden einen Vertrauenswert an. Er
+      entsteht aus Zahlungsverhalten, Rücksendequote, Tonfall in den
+      Nachrichten an den Kundendienst und Bewertungen, die der Kunde
+      hinterlassen hat. Der Wert entscheidet nicht nur über Vorkasse, sondern
+      wird einer Tochtergesellschaft weitergegeben, die Mietwohnungen
+      vermittelt und Bewerber mit niedrigem Wert nicht an Vermieter weiterreicht.
+    rolle: betreiber
+    einstufung: verboten
+    begruendung: >
+      Artikel 5 Absatz 1 Buchstabe c verbietet die Bewertung oder Einstufung
+      von Menschen über einen bestimmten Zeitraum anhand ihres Sozialverhaltens
+      oder persönlicher Eigenschaften, wenn die Bewertung zu einer
+      Benachteiligung in einem Zusammenhang führt, der nichts mit dem
+      Entstehungszusammenhang der Daten zu tun hat, oder zu einer
+      Benachteiligung, die nicht verhältnismäßig ist. Beides liegt hier nahe:
+      Tonfall gegenüber dem Kundendienst und Rücksendequote aus dem
+      Onlinehandel bestimmen über den Zugang zu einer Wohnung.
+    rechtsgrundlage: [KI-VO/art-5/abs-1-c, KI-VO/art-5, KI-VO/art-99, DSGVO/art-22, DSGVO/art-5]
+    pflichten:
+      - Die Weitergabe des Werts an die Wohnungsvermittlung beenden.
+      - Die Zusammenfassung von Verhaltensmerkmalen zu einem allgemeinen Vertrauenswert aufgeben.
+      - Zahlungsausfallrisiko, wenn es gebraucht wird, zweckgebunden und getrennt bewerten statt als allgemeine Personenbewertung.
+      - Prüfen, welche Entscheidungen bereits auf dem Wert beruhen, und sie korrigieren.
+    lernhinweis: >
+      Der Kern des Verbots liegt nicht im Bewerten, sondern im Übertragen in
+      einen fremden Zusammenhang. Eine Risikobewertung für den eigenen,
+      sachlich zusammenhängenden Zweck ist nicht dasselbe wie ein allgemeiner
+      Wert über einen Menschen, der ihn überall begleitet. Die brauchbare
+      Frage für eigene Fälle ist deshalb: Woher kommen die Daten, und wo
+      wirken sie? Je weiter diese beiden Punkte auseinanderliegen, desto
+      näher ist man am Verbot.
+    stolperstein: >
+      Der Wert wird als Betrugsvorsorge gerechtfertigt. Die Ausnahme für
+      Betrugsaufdeckung aus Anhang III Nummer 5 ist aber eine Regel über die
+      Hochrisiko-Einstufung und hebt das Verbot der Sozialbewertung nach
+      Artikel 5 nicht auf.
+    verwandte_faelle: [betrugserkennung-zahlungen, bonitaet-ratenkredit, ausnutzung-schwaeche-schulden]
+
+  - kennung: gesichter-aus-dem-netz
+    titel: Aufbau einer Gesichtsdatenbank aus Bildern im Netz
+    lage: >
+      Ein Sicherheitsdienstleister will seine Zugangskontrolle verbessern. Er
+      lädt massenhaft öffentlich zugängliche Profilbilder aus sozialen
+      Netzwerken herunter und baut daraus mit einem KI-System eine
+      Gesichtsdatenbank auf, um später Besucher abgleichen zu können.
+      Zusätzlich speist er Aufnahmen aus den Überwachungskameras seiner
+      Objekte ein.
+    rolle: anbieter und betreiber
+    einstufung: verboten
+    begruendung: >
+      Artikel 5 Absatz 1 Buchstabe e verbietet das Inverkehrbringen, die
+      Inbetriebnahme für diesen Zweck und die Verwendung von KI-Systemen, die
+      Datenbanken zur Gesichtserkennung durch ungezieltes Auslesen von
+      Gesichtsbildern aus dem Internet oder aus Überwachungsaufnahmen
+      erstellen oder erweitern. Beide Quellen sind hier betroffen. Dass die
+      Bilder öffentlich zugänglich waren, ist unerheblich — das Verbot knüpft
+      am ungezielten Auslesen an, nicht an der Zugänglichkeit.
+    rechtsgrundlage: [KI-VO/art-5/abs-1-e, KI-VO/art-5, KI-VO/art-99, DSGVO/art-9, DSGVO/art-5]
+    pflichten:
+      - Den Aufbau einstellen und die so erstellte Datenbank löschen.
+      - Für die Zugangskontrolle auf Verfahren ausweichen, bei denen sich die Betroffenen bewusst erfassen lassen.
+      - Beachten, dass eine biometrische Zugangskontrolle auch dann noch hochriskant nach Anhang III Nummer 1 sein kann.
+      - Datenschutzrechtlich prüfen: Gesichtsbilder zur Identifizierung sind biometrische Daten einer besonders geschützten Kategorie.
+    lernhinweis: >
+      Öffentlich zugänglich heißt nicht frei verwendbar. Das Verbot richtet
+      sich gegen das ungezielte Sammeln — also gegen das Abgreifen ohne Bezug
+      zu einem bestimmten Zweck oder einer bestimmten Person. Wer biometrisch
+      arbeiten will, muss die Daten bei den Betroffenen selbst und für den
+      konkreten Zweck erheben. Und selbst dann ist man nicht fertig: Erlaubte
+      biometrische Systeme sind häufig hochriskant nach Anhang III Nummer 1.
+    stolperstein: >
+      Das Unternehmen meint, mit dem Kauf eines fertigen Datensatzes auf der
+      sicheren Seite zu sein. Das Verbot erfasst neben dem Erstellen auch das
+      Erweitern und die Verwendung solcher Systeme — und wer kauft, verwendet.
+    verwandte_faelle: [deepfake-werbung-schauspieler, emotionserkennung-callcenter, drittlandsuebermittlung-modellanbieter]
+
+  - kennung: ausnutzung-schwaeche-schulden
+    titel: Werbung, die auf finanzielle Notlagen zielt
+    lage: >
+      Ein Anbieter kurzfristiger Kleinkredite wirbt im Netz. Ein KI-System
+      erkennt an Suchverhalten und Nutzungsmustern, welche Nutzer sich
+      wahrscheinlich in einer akuten finanziellen Notlage befinden, und spielt
+      genau diesen Nutzern nachts wiederholt Anzeigen mit Dringlichkeitshinweisen
+      aus. Das System lernt dabei, welche Ansprache bei dieser Gruppe am
+      häufigsten zum Abschluss führt.
+    rolle: betreiber
+    einstufung: verboten
+    begruendung: >
+      Artikel 5 Absatz 1 Buchstabe b verbietet KI-Systeme, die eine
+      Schutzbedürftigkeit aufgrund des Alters, einer Behinderung oder einer
+      bestimmten sozialen oder wirtschaftlichen Situation mit dem Ziel oder
+      der Wirkung ausnutzen, das Verhalten dieser Personen wesentlich zu
+      verändern, wenn dadurch ein erheblicher Schaden entsteht oder
+      hinreichend wahrscheinlich entsteht. Die wirtschaftliche Notlage ist
+      eine solche Situation, das gezielte Ausspielen nutzt sie aus, und
+      weitere Verschuldung ist ein erheblicher Schaden. Dass die Nutzer
+      formal frei entscheiden, trägt nicht — das Verbot setzt gerade dort an,
+      wo die Entscheidungsfreiheit untergraben wird.
+    rechtsgrundlage: [KI-VO/art-5/abs-1-b, KI-VO/art-5/abs-1-a, KI-VO/art-5, KI-VO/art-99]
+    pflichten:
+      - Die Ausspielung nach Merkmalen einer Notlage beenden.
+      - Keine Zielgruppenbildung, die wirtschaftliche Bedrängnis, Alter oder Behinderung als Ansatz nimmt.
+      - Prüfen, ob die Gestaltung der Anzeigen zusätzlich unter das Verbot manipulativer oder täuschender Techniken nach Buchstabe a fällt.
+      - Werbeoptimierung darauf begrenzen, dass sie nicht selbständig auf Schutzbedürftigkeit zuläuft.
+    lernhinweis: >
+      Optimierende Systeme finden Schwächen von allein, auch wenn niemand das
+      vorgegeben hat. Wer ein System auf Abschlussquote optimiert, bekommt
+      als Ergebnis unter Umständen genau die Ansprache, die bedrängte Menschen
+      am wenigsten abwehren können. Deshalb genügt es nicht, keine verbotene
+      Absicht zu haben: Artikel 5 Absatz 1 Buchstabe b erfasst das Ziel und
+      die Wirkung. Wer solche Systeme einsetzt, muss prüfen, worauf sie
+      tatsächlich zulaufen.
+    stolperstein: >
+      Das Unternehmen hält sich für unbeteiligt, weil es die Zielgruppe nicht
+      beschrieben, sondern das System sie gefunden hat. Die Wirkung genügt
+      für das Verbot.
+    verwandte_faelle: [sozialbewertung-kunden, stellenanzeige-zielgruppe, emotionserkennung-callcenter]
+
+  - kennung: emotionserkennung-bewerbungsgespraech
+    titel: Gefühlsauswertung im Video-Bewerbungsgespräch
+    lage: >
+      Ein Unternehmen führt Erstgespräche als aufgezeichnetes Videointerview.
+      Ein KI-System wertet Mimik und Stimme aus und gibt Hinweise auf
+      Begeisterung, Unsicherheit und Belastbarkeit des Bewerbers, die neben der
+      fachlichen Einschätzung in die Auswahl einfließen.
+    rolle: betreiber
+    einstufung: verboten
+    begruendung: >
+      Artikel 5 Absatz 1 Buchstabe f verbietet die Ableitung von Emotionen am
+      Arbeitsplatz. Das Bewerbungsverfahren gehört zu diesem Bereich; die
+      Vorschrift schützt nicht erst die Beschäftigten, sondern den
+      Arbeitsplatzzusammenhang. Die Ausnahme für medizinische oder
+      Sicherheitsgründe liegt nicht vor. Damit ist nicht nur der Teil mit der
+      Gefühlsauswertung unzulässig — er ist verboten, während die Vorauswahl
+      als solche nach Anhang III Nummer 4 lediglich hochriskant wäre. Zu
+      beachten ist auch Artikel 50 Absatz 3, der für erlaubte
+      Emotionserkennungssysteme eine Informationspflicht vorsieht; er erlaubt
+      keinen Einsatz, der nach Artikel 5 verboten ist.
+    rechtsgrundlage: [KI-VO/art-5/abs-1-f, KI-VO/art-5, KI-VO/art-50/abs-3, KI-VO/anh-III/nr-4, KI-VO/art-99]
+    pflichten:
+      - Die Gefühlsauswertung abschalten; die Aufzeichnungen der ausgewerteten Merkmale löschen.
+      - Die verbleibende fachliche Vorauswahl als Hochrisiko-Einsatz behandeln und deren Pflichten erfüllen.
+      - Bewerber über den Einsatz des verbleibenden Systems informieren.
+      - Im Einkauf künftig ausschließen lassen, dass Auswertungen von Mimik und Stimme enthalten sind.
+    lernhinweis: >
+      Ein Vorhaben kann aus mehreren Teilen bestehen, die verschieden
+      einzustufen sind — und der verbotene Teil macht nicht das Ganze
+      verboten, sondern muss heraus. Danach bleibt der Rest zu prüfen, hier
+      als Hochrisiko-Einsatz. Diese Zerlegung ist der richtige Umgang mit
+      zusammengesetzten Systemen: Nicht das Produkt einstufen, sondern seine
+      Funktionen, und dann die unzulässige entfernen statt das Ganze zu
+      verteidigen.
+    stolperstein: >
+      Das Unternehmen verlässt sich darauf, dass Artikel 50 Absatz 3 eine
+      Informationspflicht für Emotionserkennung vorsieht, und schließt
+      daraus, der Einsatz sei mit Information zulässig. Diese Vorschrift
+      gilt nur für Einsätze, die nicht schon nach Artikel 5 verboten sind.
+    verwandte_faelle: [emotionserkennung-callcenter, bewerbungsfilter-sprachmodell, pruefungsaufsicht-kamera]

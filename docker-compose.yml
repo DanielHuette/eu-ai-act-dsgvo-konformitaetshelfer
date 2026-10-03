@@ -1,0 +1,117 @@
+# Der Konformitätshelfer als Verbund.
+#
+# Ein Dienst ist der Regelfall. Der zweite Eintrag — ein Sprachmodell auf
+# demselben Rechner — ist über ein Profil abgeschaltet und wird nur gestartet,
+# wenn man ihn ausdrücklich nennt:
+#
+#   docker compose up --build              nur der Helfer
+#   docker compose --profile ollama up     Helfer und eigenes Sprachmodell
+#
+# Die Absicherung ist kein Beiwerk: der Dienst nimmt Freitext von außen an.
+# Darum ein Dateisystem, in das nicht geschrieben werden kann, keine neuen
+# Rechte, ein Nutzer ohne Verwalterrechte und eine Speichergrenze.
+
+services:
+
+  helfer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # 1 = das gute Einbettungsmodell kommt mit ins Abbild (rund 5 GB,
+        #     läuft ohne Netz). 0 = kleines Abbild mit Ersatzmodell, nur
+        #     für Prüfläufe.
+        MIT_SUCHMODELL: "${MIT_SUCHMODELL:-1}"
+    image: konformitaetshelfer:1.0.0
+    container_name: konformitaetshelfer
+
+    # Nur dieser eine Zugang, und nur an den eigenen Rechner gebunden. Ohne
+    # das "127.0.0.1:" davor hängt der Dienst am ganzen Netz — das soll eine
+    # Entscheidung sein, nicht ein Versehen.
+    ports:
+      - "127.0.0.1:${HELFER_PORT:-8000}:8000"
+
+    environment:
+      HELFER_ADRESSE: "0.0.0.0"
+      HELFER_PORT: "8000"
+      HELFER_ANFRAGEN_JE_MINUTE: "${HELFER_ANFRAGEN_JE_MINUTE:-30}"
+      HELFER_HERKUNFT: "${HELFER_HERKUNFT:-http://localhost:8000,http://127.0.0.1:8000}"
+      HELFER_MODELL: "${HELFER_MODELL:-ohne}"
+      HELFER_NEUBEWERTUNG: "${HELFER_NEUBEWERTUNG:-0}"
+      # Schlüssel kommen aus .env und stehen nirgends in dieser Datei.
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OLLAMA_HOST: "${OLLAMA_HOST:-http://ollama:11434}"
+    env_file:
+      - path: .env
+        required: false
+
+    # Das Dateisystem ist nur lesbar. Der Dienst schreibt nichts: Korpus,
+    # Regeln und Suchbestand liegen im Abbild, und Ergebnisse gehen über das
+    # Netz hinaus, nicht auf die Platte. Was doch geschrieben werden muss —
+    # Zwischendateien von Python —, kommt in den Arbeitsspeicher.
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+      # Der Platz, an dem die Modellpakete ihre Sperrdateien ablegen wollen.
+      - /home/helfer/.cache:size=32m,mode=0700
+
+    security_opt:
+      # Kein Programm im Container kann sich mehr Rechte holen, als es hat.
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    # Speichergrenze. bge-m3 braucht beim Laden rund 2,5 Gigabyte; 4 Gigabyte
+    # lassen Luft für die Zahlenreihen des Bestands. Ohne Grenze kann eine
+    # einzige große Anfrage den ganzen Rechner in die Auslagerung treiben.
+    # Mit MIT_SUCHMODELL=0 reichen 1024m.
+    deploy:
+      resources:
+        limits:
+          memory: ${HELFER_SPEICHER:-4g}
+          cpus: "${HELFER_KERNE:-2.0}"
+
+    # Der Zustandsbericht steckt im Abbild (HEALTHCHECK). Hier nur die
+    # Startfrist: mit dem großen Modell braucht der erste Start Minuten.
+    healthcheck:
+      start_period: 240s
+
+    restart: unless-stopped
+
+    # Protokoll begrenzen, sonst füllt ein langer Lauf die Platte.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ------------------------------------------------------------- Ollama
+  #
+  # Ein Sprachmodell auf demselben Rechner, für den Betrieb ohne Schlüssel
+  # und ohne Netz. Abgeschaltet, bis man es nennt:
+  #     docker compose --profile ollama up
+  # Danach einmal das Modell holen:
+  #     docker compose exec ollama ollama pull qwen2.5:7b-instruct
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    container_name: konformitaetshelfer-ollama
+    # Kein Zugang nach außen: nur der Helfer im selben Verbund spricht damit.
+    expose:
+      - "11434"
+    volumes:
+      # Hier bleiben die geholten Modelle, damit sie nicht bei jedem Start
+      # neu geladen werden. Das ist der einzige Ort, an dem geschrieben wird.
+      - ollama-modelle:/root/.ollama
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          memory: ${OLLAMA_SPEICHER:-8g}
+    restart: unless-stopped
+
+volumes:
+  ollama-modelle:
+    name: konformitaetshelfer-ollama-modelle

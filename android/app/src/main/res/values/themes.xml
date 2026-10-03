@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Das Aussehen macht Compose. Hier steht nur, was das System vor dem
+         ersten Bild braucht, damit beim Start nicht kurz Weiß aufblitzt. -->
+    <style name="Theme.Konformitaetshelfer" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/grund</item>
+        <item name="android:statusBarColor">@color/grund</item>
+        <item name="android:navigationBarColor">@color/grund</item>
+    </style>
+</resources>

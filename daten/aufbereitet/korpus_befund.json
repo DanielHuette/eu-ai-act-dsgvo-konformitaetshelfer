@@ -1,0 +1,40 @@
+{
+ "quellen": {
+  "ki-vo-de.html": {
+   "einheiten": 1228,
+   "artikel": 113,
+   "absaetze": 870,
+   "anhang": 13,
+   "anhangspunkte": 52,
+   "erwaegungsgrund": 180
+  },
+  "kivo (Rückfall)": {
+   "ergänzt": 71
+  },
+  "dsgvo (Rückfall)": {
+   "ergänzt": 1021
+  },
+  "bdsg.html": {
+   "einheiten": 357
+  },
+  "faelle": {
+   "fallbeispiele": 44
+  }
+ },
+ "warnungen": [
+  "ki-vo-de.html: 27 doppelte Kennungen übergangen",
+  "amtlicher Volltext fehlt: dsgvo-de.html - es wird die artikelweise Fassung genutzt"
+ ],
+ "bestand": {
+  "BDSG/paragraf": 357,
+  "DSGVO/artikel": 848,
+  "DSGVO/erwaegungsgrund": 173,
+  "KI-VO/anhang": 65,
+  "KI-VO/artikel": 1054,
+  "KI-VO/erwaegungsgrund": 180,
+  "Leitlinie/fallbeispiel": 44
+ },
+ "einheiten": 2721,
+ "zeichen": 1966046,
+ "gebaut": "2026-10-03"
+}

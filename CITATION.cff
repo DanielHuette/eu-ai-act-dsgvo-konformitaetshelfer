@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Wenn Sie dieses Werkzeug verwenden, zitieren Sie es bitte so."
+title: "EU AI Act und DSGVO Konformitätshelfer"
+abstract: >-
+  Auskunftswerkzeug zur Verordnung (EU) 2024/1689 über künstliche Intelligenz
+  und zur Datenschutz-Grundverordnung. Mitarbeiter in Unternehmen beschreiben
+  ihr KI-Vorhaben in eigenen Worten und erhalten die Risikoklasse und die
+  Pflichten mit Artikelverweis, getrennt für Anbieter und Betreiber. Die
+  Einstufung entsteht deterministisch aus einem Entscheidungsbaum in
+  YAML-Dateien, nicht aus einem Sprachmodell; ein Sprachmodell formuliert
+  höchstens das feststehende Ergebnis aus. Die Suche im Rechtstext läuft über
+  vier Wege, die über ihre Rangplätze zusammengeführt werden. Die
+  Einbettungsmodelle laufen örtlich, sodass das Werkzeug ohne Schlüssel und
+  ohne Netz arbeitet. Keine Rechtsberatung.
+type: software
+version: 1.0.0
+date-released: "2026-10-03"
+license: Apache-2.0
+repository-code: "https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer"
+authors:
+  - family-names: "Hütte"
+    given-names: "Daniel"
+keywords:
+  - "KI-Verordnung"
+  - "EU AI Act"
+  - "Verordnung (EU) 2024/1689"
+  - "Datenschutz-Grundverordnung"
+  - "GDPR"
+  - "Bundesdatenschutzgesetz"
+  - "Konformität"
+  - "Hochrisiko-KI-System"
+  - "Rangplatz-Zusammenführung"
+  - "Reciprocal Rank Fusion"

@@ -1,0 +1,169 @@
+gebiet: Eigene Modelle und Rollenwechsel
+hinweis: >
+  Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Ob eine Einstufung
+  im Einzelfall trägt, hängt von Umständen ab, die hier nicht alle stehen
+  können. Wo es darauf ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: feinabstimmung-fachmodell
+    titel: Feinabstimmung eines zugekauften Sprachmodells auf eigene Fachtexte
+    lage: >
+      Ein Ingenieurbüro nimmt ein frei verfügbares Sprachmodell und stimmt es
+      mit 12000 eigenen Prüfberichten nach — es trainiert das Modell also mit
+      eigenen Texten weiter, damit es die Fachsprache des Hauses beherrscht.
+      Das nachgestimmte Modell läuft auf einem eigenen Server und hilft den
+      Ingenieuren beim Entwerfen neuer Berichte. Nach außen gibt das Büro
+      nichts davon.
+    rolle: betreiber
+    einstufung: minimal
+    begruendung: >
+      Die Feinabstimmung allein macht aus dem Büro keinen Anbieter eines
+      Modells mit allgemeinem Verwendungszweck: Es bringt nichts in Verkehr
+      und nimmt nichts unter eigenem Namen für andere in Betrieb, sondern
+      nutzt das Modell intern. Der Einsatz berührt keinen Bereich von
+      Anhang III und keine verbotene Praktik, deshalb bleibt es bei der
+      Pflicht zur KI-Kompetenz nach Artikel 4. Die Einstufung verschiebt sich,
+      sobald das Büro das Modell Dritten bereitstellt oder es für Aufgaben
+      aus Anhang III einsetzt.
+    rechtsgrundlage: [KI-VO/art-3/abs-1, KI-VO/art-51, KI-VO/art-53, KI-VO/art-4, KI-VO/anh-III]
+    pflichten:
+      - Für die KI-Kompetenz der Ingenieure sorgen, die mit dem Modell arbeiten.
+      - Prüfen, ob die Lizenz des Ausgangsmodells die Feinabstimmung und den Einsatz erlaubt.
+      - Klären, ob die Prüfberichte personenbezogene Daten oder fremde Betriebsgeheimnisse enthalten.
+      - Festhalten, welches Ausgangsmodell in welchem Stand verwendet wurde.
+      - Die Einstufung neu beurteilen, sobald das Modell nach außen gegeben wird.
+    lernhinweis: >
+      Interne Nutzung und Inverkehrbringen sind die Scheidelinie zwischen
+      Betreiber- und Anbieterpflichten. Wer ein Modell nur für sich
+      nachstimmt und selbst benutzt, bleibt Betreiber; wer es anderen
+      bereitstellt, wird Anbieter und übernimmt einen deutlich schwereren
+      Katalog. Diese Linie wird in Unternehmen oft unbemerkt überschritten,
+      etwa wenn ein internes Werkzeug zur Erleichterung an eine
+      Tochtergesellschaft oder an Kunden weitergegeben wird.
+    stolperstein: >
+      Die Trainingsdaten werden nicht geprüft. Prüfberichte enthalten oft
+      Namen von Mitarbeitern und Kunden, und ein Modell kann solche Angaben in
+      seinen Ausgaben wiedergeben.
+    verwandte_faelle: [eigenes-basismodell-trainiert, zugekauftes-modell-eigener-name, training-mit-kundendaten]
+
+  - kennung: eigenes-basismodell-trainiert
+    titel: Ein Unternehmen trainiert ein eigenes Basismodell und gibt es heraus
+    lage: >
+      Ein Softwarehaus trainiert ein eigenes Sprachmodell von Grund auf und
+      stellt es anderen Unternehmen über eine Programmierschnittstelle zur
+      Verfügung, damit sie es in ihre Produkte einbauen. Das Modell lässt sich
+      für viele verschiedene Aufgaben einsetzen: Texte schreiben,
+      zusammenfassen, einordnen, übersetzen.
+    rolle: anbieter
+    einstufung: gpai
+    begruendung: >
+      Ein Modell, das sich für viele verschiedene Aufgaben einsetzen lässt, ist
+      ein KI-Modell mit allgemeinem Verwendungszweck. Wer es unter eigenem
+      Namen bereitstellt, ist dessen Anbieter und schuldet die Pflichten nach
+      Artikel 53. Als systemisches Risiko gilt das Modell nach Artikel 51
+      Absatz 2 vermutlich dann, wenn die für das Training aufgewendete
+      Rechenmenge mehr als 10 hoch 25 Gleitkommaoperationen beträgt; die
+      Vermutung ist widerlegbar, und die Kommission kann ein Modell auch ohne
+      diese Schwelle benennen. Trifft das zu, kommen die Pflichten nach
+      Artikel 55 hinzu.
+    rechtsgrundlage: [KI-VO/art-51/abs-1, KI-VO/art-51/abs-2, KI-VO/art-53/abs-1, KI-VO/art-53/abs-2, KI-VO/art-55/abs-1, KI-VO/art-113]
+    pflichten:
+      - Technische Dokumentation des Modells samt Trainings- und Testverfahren und Bewertungsergebnissen erstellen und aktuell halten.
+      - Den Unternehmen, die das Modell einbauen, Informationen bereitstellen, mit denen sie ihre eigenen Pflichten erfüllen können.
+      - Eine Strategie zur Einhaltung des Urheberrechts aufsetzen, einschließlich der Beachtung erklärter Nutzungsvorbehalte.
+      - Eine Zusammenfassung der verwendeten Trainingsinhalte veröffentlichen.
+      - Die Rechenmenge des Trainings erfassen, um die Schwelle für systemisches Risiko beurteilen zu können.
+      - Bei systemischem Risiko Modellbewertung samt Angriffstests durchführen, Risiken mindern und schwerwiegende Vorfälle melden.
+    lernhinweis: >
+      Modelle und Systeme sind in der Verordnung zwei verschiedene Dinge mit
+      zwei verschiedenen Regelwerken. Ein Modell mit allgemeinem
+      Verwendungszweck wird nicht nach Anhang III eingestuft, sondern hat
+      eigene Pflichten in den Artikeln 53 bis 55. Wer ein solches Modell
+      bereitstellt, muss also nicht fragen, in welchem Bereich es eingesetzt
+      wird — die Pflichten treffen ihn unabhängig davon, und die Einsatzfrage
+      stellt sich erst bei dem, der daraus ein System baut.
+    stolperstein: >
+      Für quelloffen bereitgestellte Modelle entfallen zwei der Pflichten aus
+      Artikel 53 Absatz 1 — aber nur unter den dort genannten
+      Lizenzbedingungen und nicht bei systemischem Risiko. Wer sich auf
+      Quelloffenheit beruft, muss die Bedingungen genau einhalten.
+    verwandte_faelle: [feinabstimmung-fachmodell, zugekauftes-modell-eigener-name, drittlandsuebermittlung-modellanbieter]
+
+  - kennung: zugekauftes-modell-eigener-name
+    titel: Zugekauftes System unter eigenem Namen angeboten
+    lage: >
+      Ein Personaldienstleister kauft bei einem Softwarehaus ein fertiges
+      KI-System zur Bewerbervorauswahl ein. Er versieht die Oberfläche mit
+      seinem Logo, nennt sie nach sich und stellt sie seinen Kundenunternehmen
+      als eigenes Produkt zur Verfügung. Technisch verändert er nichts.
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Das System fällt als Bewerbervorauswahl unter Anhang III Nummer 4
+      Buchstabe a und ist damit hochriskant. Entscheidend ist hier die Rolle:
+      Nach Artikel 25 Absatz 1 Buchstabe a gilt als Anbieter, wer ein bereits
+      in Verkehr gebrachtes Hochrisiko-KI-System mit seinem Namen oder seiner
+      Handelsmarke versieht. Der Dienstleister wird damit Anbieter und
+      unterliegt den vollen Anbieterpflichten nach Artikel 16 — obwohl er
+      keine Zeile Programmtext geschrieben hat. Das ursprüngliche Softwarehaus
+      ist dann nicht mehr Anbieter dieses Systems, muss aber mitwirken und
+      Unterlagen bereitstellen.
+    rechtsgrundlage: [KI-VO/art-25/abs-1, KI-VO/art-25/abs-2, KI-VO/art-16, KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-43, KI-VO/art-49]
+    pflichten:
+      - Die Anbieterpflichten vollständig übernehmen: Risikomanagement, Datenqualität, technische Dokumentation, Protokollierung, Genauigkeit und Robustheit.
+      - Ein Qualitätsmanagementsystem einrichten.
+      - Das Konformitätsbewertungsverfahren durchführen und das System in der EU-Datenbank registrieren.
+      - Vom Softwarehaus vertraglich die Unterlagen und die Mitwirkung sichern, die für diese Pflichten gebraucht werden.
+      - Den Kundenunternehmen eine Betriebsanleitung nach Artikel 13 bereitstellen.
+    lernhinweis: >
+      Das eigene Logo auf einem fremden Hochrisiko-System ist der teuerste
+      Aufkleber im Geschäftsleben. Artikel 25 kennt drei Wege, auf denen ein
+      Betreiber zum Anbieter wird: den eigenen Namen anbringen, eine
+      wesentliche Änderung vornehmen oder den Zweck so ändern, dass das
+      System hochriskant wird. Wer ein fremdes System weitergeben will,
+      sollte vorher wissen, auf welcher Seite dieser Linie er stehen wird —
+      danach ist die Rolle vergeben und die Pflichten sind da.
+    stolperstein: >
+      Im Vertrag mit dem Softwarehaus fehlt die Pflicht zur Herausgabe der
+      technischen Dokumentation. Der Dienstleister schuldet sie dann als
+      Anbieter, kommt aber nicht an die Unterlagen.
+    verwandte_faelle: [bewerbungsfilter-sprachmodell, zweckaenderung-chatbot, feinabstimmung-fachmodell]
+
+  - kennung: zweckaenderung-chatbot
+    titel: Aus dem Auskunfts-Chatbot wird eine Vorauswahl
+    lage: >
+      Eine Zeitarbeitsfirma betreibt seit zwei Jahren auf ihrer Seite einen
+      Chatbot, der Interessenten Fragen zu offenen Stellen beantwortet. Nun
+      erweitert sie ihn: Der Bot stellt Bewerbern im Gespräch fachliche Fragen
+      und gibt der Personalabteilung am Ende eine Einschätzung, ob der Bewerber
+      geeignet erscheint.
+    rolle: anbieter und betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Mit der Erweiterung bewertet der Bot Bewerber und fällt damit unter
+      Anhang III Nummer 4 Buchstabe a. Zugleich greift Artikel 25 Absatz 1
+      Buchstabe c: Wer den Zweck eines nicht als hochriskant eingestuften
+      Systems so verändert, dass es zum Hochrisiko-KI-System wird, gilt als
+      Anbieter. Die Firma ist daher Anbieter des veränderten Systems und
+      zugleich dessen Betreiber. Die Transparenzpflicht nach Artikel 50
+      Absatz 1 bleibt daneben bestehen, weil der Bot direkt mit Menschen
+      spricht.
+    rechtsgrundlage: [KI-VO/art-25/abs-1, KI-VO/art-16, KI-VO/anh-III/nr-4, KI-VO/art-6/abs-2, KI-VO/art-50/abs-1, KI-VO/art-26/abs-11, KI-VO/art-49]
+    pflichten:
+      - Die Zweckänderung als Rollenwechsel behandeln und die Anbieterpflichten übernehmen.
+      - Das System vor dem Start der neuen Funktion dem Konformitätsbewertungsverfahren unterziehen und registrieren.
+      - Bewerbern sagen, dass sie mit einem KI-System sprechen und dass es an der Auswahl mitwirkt.
+      - Menschliche Aufsicht mit der Befugnis einrichten, die Einschätzung zu übergehen.
+      - Die Einschätzungen auf Benachteiligung prüfen, weil Gesprächsverhalten stark von Sprache und Herkunft abhängt.
+    lernhinweis: >
+      Eine Zweckänderung kann aus dem Benutzer eines Systems dessen Anbieter
+      machen — und zwar genau dann, wenn die Änderung das System ins hohe
+      Risiko hebt. Für die Praxis heißt das: Die gefährlichste Änderung ist
+      die kleine Erweiterung an einem lange laufenden, unverdächtigen System,
+      weil niemand sie als Neueinführung behandelt. Wer Änderungen an
+      eingesetzten KI-Systemen ohne erneute Einstufung freigibt, sammelt
+      genau diese Fälle an.
+    stolperstein: >
+      Die Erweiterung läuft als Verbesserung des bestehenden Bots durch die
+      normale Freigabe. Niemand prüft die Einstufung neu, und die
+      Anbieterpflichten entstehen, ohne dass sie jemand bemerkt.
+    verwandte_faelle: [zugekauftes-modell-eigener-name, schichtplanung-verhalten, chatbot-kundendienst]

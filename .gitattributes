@@ -1,0 +1,68 @@
+# Zeilenenden: im Verzeichnis einheitlich LF, beim Auschecken nach
+# Betriebssystem. Ohne diese Zeile erzeugt jeder Wechsel zwischen Windows und
+# Linux Unterschiede in Dateien, an denen niemand etwas geändert hat.
+* text=auto eol=lf
+
+# Dateien, die auf Windows ihre eigenen Zeilenenden brauchen
+*.bat text eol=crlf
+*.cmd text eol=crlf
+gradlew.bat text eol=crlf
+
+# Shell-Dateien brauchen LF, auch auf Windows. Ein Startskript mit CRLF
+# scheitert im Container an der Zeile mit #!/usr/bin/env bash.
+*.sh text eol=lf
+gradlew text eol=lf
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+
+# PowerShell wird auf Windows ausgeführt und mag dort CRLF
+*.ps1 text eol=crlf
+
+# Textdateien
+*.py text diff=python
+*.kt text
+*.kts text
+*.md text
+*.yaml text
+*.yml text
+*.toml text
+*.json text
+*.jsonl text
+*.cff text
+*.xml text
+*.pro text
+*.properties text
+*.html text
+
+# Der Rechtsbestand. Eine Zeile je Rechtseinheit, damit eine Änderung am
+# Gesetzestext als Unterschied einer einzelnen Zeile sichtbar wird.
+daten/aufbereitet/korpus.jsonl text
+
+# Binärdateien. Ohne diese Zeilen versucht die Versionsverwaltung, sie als
+# Text zu behandeln, und beschädigt sie beim Wechsel der Zeilenenden.
+*.onnx binary
+*.db binary
+*.npy binary
+*.pkl binary
+*.jar binary
+*.png binary
+*.jpg binary
+*.pdf binary
+*.apk binary
+*.so binary
+*.zip binary
+
+# Der Wortschatz des Einbettungsmodells ist formal JSON, praktisch aber eine
+# 17-MB-Zeile. Ein Unterschied darin ist nicht lesbar, also wird keiner gezeigt.
+android/app/src/main/assets/tokenizer.json -diff -text
+
+# Was in einem Quelltextarchiv nichts zu suchen hat
+.github/ export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+daten/roh/ export-ignore
+
+# Sprache für die Spracherkennung von GitHub: die Datenverzeichnisse sollen
+# die Statistik nicht bestimmen.
+daten/** linguist-documentation
+docs/** linguist-documentation

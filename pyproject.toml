@@ -1,0 +1,132 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "konformitaetshelfer"
+version = "1.0.0"
+description = "Konformitätshelfer für die KI-Verordnung (EU) 2024/1689 und die Datenschutz-Grundverordnung — belegte Auskunft statt Raten"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Daniel Hütte" }]
+keywords = ["eu-ai-act", "ki-verordnung", "dsgvo", "gdpr", "rag", "compliance"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Legal Industry",
+  "License :: OSI Approved :: Apache Software License",
+  "Natural Language :: German",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Text Processing :: Indexing",
+]
+
+dependencies = [
+  "pydantic>=2.7",
+  "pyyaml>=6.0",
+  "beautifulsoup4>=4.12",
+  "lxml>=5.2",
+  "numpy>=1.26",
+  "fastapi>=0.111",
+  "uvicorn[standard]>=0.30",
+  "jinja2>=3.1",
+  "httpx>=0.27",
+  "python-multipart>=0.0.9",
+  "slowapi>=0.1.9",
+]
+
+[project.optional-dependencies]
+# Alles, was für den vollen Suchbetrieb gebraucht wird (lokale Modelle).
+suche = [
+  "sentence-transformers>=3.0",
+  "FlagEmbedding>=1.2.10",
+  "torch>=2.2",
+  "onnxruntime>=1.18",
+]
+# Antwortformulierung über Anbieter-Schnittstellen.
+modelle = [
+  "anthropic>=0.34",
+  "openai>=1.40",
+]
+entwicklung = [
+  "pytest>=8.2",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.5",
+  "mypy>=1.11",
+  "bandit>=1.7",
+  "pip-audit>=2.7",
+]
+
+[project.scripts]
+konformitaetshelfer = "helfer.cli:main"
+
+[project.urls]
+Quellcode = "https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer"
+Fehlermeldungen = "https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+helfer = ["weboberflaeche/**/*", "py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4", "SIM", "ARG", "PTH", "RUF", "S"]
+# Jede Ausnahme hier ist eine Entscheidung, nicht ein übergangener Befund.
+ignore = [
+  # S101 — assert in Prüfläufen. Dort ist es das Mittel der Wahl.
+  "S101",
+  # RUF001/002/003 — "verwechselbare" Zeichen. Der ganze Text dieses Werkzeugs
+  # ist deutsch: Gedankenstriche, Anführungszeichen und Umlaute gehören dazu.
+  "RUF001", "RUF002", "RUF003",
+  # UP031 — %-Formatierung statt f-String. Der Quelltext wurde auf f-Strings
+  # umgestellt, wo das die Lesbarkeit nicht verschlechtert (204 Stellen). Es
+  # bleiben die Fälle mit Ausrichtungs- und Füllangaben wie "%-16s" oder
+  # "%02d": in einer gesetzten Tabelle oder einem Dateinamen sagt die
+  # %-Schreibweise unmittelbar, wie breit das Feld wird. Dazu die Aufrufe an
+  # das Protokoll, wo die verzögerte Formatierung gewollt ist: eine Zeile, die
+  # wegen ihrer Stufe nie ausgegeben wird, soll auch nicht formatiert werden.
+  "UP031",
+  # N818 — Ausnahmeklassen sollen auf "Error" enden. Dieses Werkzeug ist
+  # durchgehend deutsch benannt, von den Modulen bis zu den Feldern einer
+  # Antwort. "Eingabefehler" ist der deutsche Name dafür; "EingabeError" wäre
+  # ein Mischwort und würde die Benennung des ganzen Projekts brechen.
+  "N818",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "ARG"]
+"scripts/*" = ["S310", "S311"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+# Diese Pakete liefern keine Typangaben mit. Das ist ihre Sache, nicht unsere:
+# mypy soll den eigenen Quelltext prüfen und nicht an fremden Lücken hängen
+# bleiben. Die Aufrufe selbst sind typisiert — an jeder Grenze zu diesen
+# Paketen steht im Quelltext, was zurückkommen soll.
+module = ["FlagEmbedding.*", "anthropic.*", "openai.*", "sentence_transformers.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+  "langsam: braucht die lokalen Modelle und läuft deshalb nicht in der schnellen Runde",
+  "netz: braucht Netzzugang",
+  "container: braucht Docker; baut ein Abbild. Mit -m 'not container' auslassen",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "daten"]

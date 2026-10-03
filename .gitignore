@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Schlüssel und örtliche Einstellungen. Ein Schlüssel in einer Datei ist ein
+# Schlüssel, der einmal versehentlich mitwandert.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+schluessel.txt
+
+# Rohquellen aus dem Netz. Sie werden mit scripts/holen_*.py geholt und sind
+# zusammen über 7 MB groß; der daraus gebaute Korpus liegt dagegen mit im
+# Verzeichnis, damit das Werkzeug ohne Beschaffungslauf startklar ist.
+daten/roh/
+
+# Der Suchbestand für den Rechner. Er wird mit dem Einbettungsmodell gerechnet
+# und ist je nach Modell einige Dutzend Megabyte groß; gebaut wird er mit
+# scripts/bestand_bauen.py. Die Einbettungen verschiedener Modelle sind nicht
+# vergleichbar, ein mitgelieferter Bestand passte also nicht für jeden.
+daten/aufbereitet/suchbestand.*
+
+# Modellspeicher, falls jemand ihn ins Verzeichnis legt
+modelle/
+*.safetensors
+*.bin
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.cxx/
+*.apk
+*.aab
+*.jks
+*.keystore
+ausgabe/
+
+# Werkzeuge der Entwicklungsumgebung
+.idea/
+.vscode/
+*.iml
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Zwischenstände von Hand
+*.bak
+*.orig
+*.tmp
+~$*

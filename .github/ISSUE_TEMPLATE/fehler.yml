@@ -1,0 +1,96 @@
+name: Fehler im Programm
+description: Etwas stürzt ab oder tut nicht, was dasteht
+title: "[Fehler] "
+labels: ["fehler"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Für einen **falschen Artikelverweis, eine falsche Frist oder eine
+        falsche Einstufung** nehmen Sie bitte die Vorlage „Rechtsfehler" — die
+        wird vorrangig bearbeitet.
+
+        Für eine **Sicherheitslücke** nehmen Sie keine Vorlage, sondern den Weg
+        in SECURITY.md.
+
+  - type: dropdown
+    id: teil
+    attributes:
+      label: Welcher Teil?
+      options:
+        - Einstufung (daten/regeln, src/helfer/einstufung)
+        - Suche im Rechtstext (src/helfer/suche)
+        - Antwort und Sprachmodell (src/helfer/antwort)
+        - Korpusbau oder Beschaffung (src/helfer/korpus, scripts)
+        - Android-App
+        - Bau des Android-Pakets in GitHub Actions
+        - Weiß ich nicht
+    validations:
+      required: true
+
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Was haben Sie erwartet?
+    validations:
+      required: true
+
+  - type: textarea
+    id: geschehen
+    attributes:
+      label: Was ist stattdessen geschehen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: nachstellen
+    attributes:
+      label: Wie stellt man es nach?
+      description: Schritt für Schritt, mit den Befehlen, die Sie eingegeben haben.
+      placeholder: |
+        1. pip install -e ".[suche]"
+        2. python scripts/bestand_bauen.py
+        3. …
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: meldung
+    attributes:
+      label: Fehlermeldung
+      description: >-
+        Der vollständige Text, nicht nur die letzte Zeile. Als Text, nicht als
+        Bild — damit man darin suchen kann. Schlüssel und Betriebsgeheimnisse
+        vorher entfernen.
+      render: text
+
+  - type: input
+    id: fassung
+    attributes:
+      label: Welche Fassung?
+      description: Marke oder Commit. Bei der App die Fassung aus den Einstellungen.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: umgebung
+    attributes:
+      label: Umgebung
+      description: >-
+        Betriebssystem und Python-Fassung (`python -V`), oder bei der App das
+        Telefon und die Android-Fassung.
+      placeholder: "Windows 11, Python 3.12.4 — oder: Pixel 7a, Android 15"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: lage
+    attributes:
+      label: Was davon trifft zu?
+      options:
+        - label: Es lief vorher und jetzt nicht mehr
+        - label: Ich habe die Betriebsanleitung durchgesehen, besonders „Wenn etwas nicht geht"
+        - label: Ich arbeite ohne Schlüssel für ein Sprachmodell
+        - label: Der Suchbestand ist bei mir gebaut (`scripts/bestand_bauen.py` ist durchgelaufen)

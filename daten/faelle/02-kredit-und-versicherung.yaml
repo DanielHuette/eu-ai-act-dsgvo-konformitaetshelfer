@@ -1,0 +1,208 @@
+gebiet: Kredit, Versicherung und Sozialleistungen
+hinweis: >
+  Die Fälle sind Beispiele zum Lernen, keine Rechtsberatung. Ob eine Einstufung
+  im Einzelfall trägt, hängt von Umständen ab, die hier nicht alle stehen
+  können. Wo es darauf ankommt, ist es im Fall vermerkt.
+faelle:
+  - kennung: bonitaet-ratenkredit
+    titel: Bonitätsbewertung für einen Ratenkredit
+    lage: >
+      Eine Regionalbank prüft Anträge auf Ratenkredite bis 25000 Euro mit einem
+      KI-System. Es rechnet aus Kontoumsätzen, Beschäftigungsdauer und
+      Auskunftsdaten einen Wert aus, der die Rückzahlungswahrscheinlichkeit
+      schätzt. Unterhalb eines festgelegten Werts lehnt die Bank ab, oberhalb
+      bewilligt sie; nur im Mittelfeld sieht ein Sachbearbeiter den Antrag an.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 5 Buchstabe b nennt KI-Systeme für die
+      Kreditwürdigkeitsprüfung und Bonitätsbewertung natürlicher Personen.
+      Das System tut genau das. Eine Besonderheit kommt hinzu: Nach Artikel 27
+      müssen Betreiber von Systemen aus Anhang III Nummer 5 Buchstabe b vor
+      der Inbetriebnahme eine Abschätzung der Auswirkungen auf die Grundrechte
+      durchführen — diese Pflicht trifft hier also auch ein privates
+      Unternehmen, nicht nur Behörden.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-6/abs-2, KI-VO/art-26/abs-1, KI-VO/art-26/abs-2, KI-VO/art-26/abs-11, KI-VO/art-27/abs-1, DSGVO/art-22, DSGVO/art-35]
+    pflichten:
+      - Vor der Inbetriebnahme eine Abschätzung der Auswirkungen auf die Grundrechte erstellen und aufbewahren.
+      - Antragsteller darüber informieren, dass ein Hochrisiko-KI-System an der Entscheidung mitwirkt.
+      - Für die Fälle, in denen das System allein ablehnt, einen Weg zur Überprüfung durch einen Menschen einrichten.
+      - Antragstellern ermöglichen, ihren Standpunkt darzulegen und die Entscheidung anzufechten.
+      - Eine Datenschutz-Folgenabschätzung prüfen.
+      - Die Eingabedaten auf Richtigkeit und Eignung achten und das System laufend überwachen.
+    lernhinweis: >
+      Die Abschätzung der Auswirkungen auf die Grundrechte nach Artikel 27
+      trifft nicht nur Behörden. Sie gilt zusätzlich für zwei private Felder,
+      die der Gesetzgeber besonders im Blick hatte: Bonitätsbewertung sowie
+      Risikobewertung und Preisbildung bei Lebens- und Krankenversicherungen.
+      Wer in einem dieser beiden Felder arbeitet, muss diese Pflicht kennen —
+      sie wird häufig übersehen, weil sie in der allgemeinen
+      Betreiberübersicht nicht auffällt.
+    stolperstein: >
+      Die volle automatische Ablehnung unterhalb des Schwellenwerts ist
+      daneben eine automatisierte Einzelentscheidung im Sinne des
+      Datenschutzrechts und braucht dafür eine eigene Grundlage samt Recht auf
+      Eingreifen eines Menschen. Wer nur die KI-Verordnung prüft, übersieht
+      diese zweite Hürde.
+    verwandte_faelle: [betrugserkennung-zahlungen, versicherungstarif-krankenversicherung, automatische-entscheidung-ohne-mensch]
+
+  - kennung: betrugserkennung-zahlungen
+    titel: Betrugserkennung im Zahlungsverkehr
+    lage: >
+      Dieselbe Regionalbank lässt ein zweites KI-System alle Kartenzahlungen
+      in Echtzeit prüfen. Erkennt es ein Muster, das auf eine missbräuchlich
+      verwendete Karte hindeutet, hält es die Zahlung an und meldet sie der
+      Betrugsabteilung, die den Kunden anruft. Der Wert spielt bei der
+      Kreditvergabe keine Rolle und wird dort auch nicht gespeichert.
+    rolle: betreiber
+    einstufung: hochrisiko_ausnahme
+    begruendung: >
+      Anhang III Nummer 5 Buchstabe b nimmt KI-Systeme, die zur Aufdeckung von
+      Finanzbetrug verwendet werden, ausdrücklich von der Hochrisiko-Einstufung
+      aus. Diese Ausnahme steht im Gesetzestext selbst und ist nicht die
+      allgemeine Ausnahme nach Artikel 6 Absatz 3; sie gilt, solange der
+      Zweck wirklich die Betrugsaufdeckung ist. Entscheidend ist die saubere
+      Trennung: Sobald der Wert in die Bonitätsbewertung einfließt, ist der
+      Zweck nicht mehr nur Betrugsaufdeckung und die Ausnahme trägt nicht mehr.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-6/abs-2, KI-VO/art-4, DSGVO/art-22, DSGVO/art-5]
+    pflichten:
+      - Den Zweck Betrugsaufdeckung festschreiben und technisch dafür sorgen, dass der Wert nicht in die Kreditentscheidung gelangt.
+      - Dokumentieren, warum die Ausnahme in Anspruch genommen wird.
+      - Für die KI-Kompetenz der damit arbeitenden Beschäftigten sorgen.
+      - Für angehaltene Zahlungen eine schnelle Klärung durch Menschen bereithalten.
+      - Datenschutzrechtlich prüfen, ob das Anhalten einer Zahlung als automatisierte Einzelentscheidung zu behandeln ist.
+    lernhinweis: >
+      Es gibt zwei verschiedene Arten von Ausnahmen, und sie werden oft
+      verwechselt. Die eine steht im Anhang selbst und nimmt einen Zweck aus
+      dem Bereich heraus — so hier die Betrugsaufdeckung. Die andere ist
+      Artikel 6 Absatz 3 und greift nur, wenn das System die Entscheidung
+      nicht wesentlich beeinflusst. Die erste trägt weiter, verlangt aber
+      Zweckdisziplin: Sie fällt, sobald das Ergebnis für etwas anderes
+      genutzt wird. Zweckbindung ist hier keine Formalie, sondern der Grund,
+      aus dem die Ausnahme überhaupt besteht.
+    stolperstein: >
+      Der Betrugswert wird im Datenhaushalt abgelegt und wandert später als
+      praktisches Zusatzmerkmal in die Kreditprüfung. Damit entsteht
+      nachträglich ein Hochrisiko-Einsatz, den niemand beschlossen hat.
+    verwandte_faelle: [bonitaet-ratenkredit, qualitaetspruefung-fertigung, training-mit-kundendaten]
+
+  - kennung: versicherungstarif-krankenversicherung
+    titel: Risikobewertung und Beitrag in der privaten Krankenversicherung
+    lage: >
+      Ein privater Krankenversicherer bewertet Neuanträge mit einem KI-System.
+      Aus den Angaben im Gesundheitsfragebogen und dem Alter schätzt es die
+      erwarteten Leistungsausgaben und schlägt daraus einen Risikozuschlag
+      vor, den die Antragsbearbeitung übernimmt oder nach Rücksprache mit dem
+      medizinischen Dienst ändert.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 5 Buchstabe c nennt KI-Systeme für die Risikobewertung
+      und Preisbildung in Bezug auf natürliche Personen bei Lebens- und
+      Krankenversicherungen. Beides trifft zu. Wie bei der Bonitätsbewertung
+      gilt auch hier die Pflicht zur Abschätzung der Auswirkungen auf die
+      Grundrechte nach Artikel 27. Dass die Bearbeitung den Vorschlag ändern
+      kann, ändert die Einstufung nicht, weil das System die Preisbildung
+      wesentlich beeinflusst.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-6/abs-2, KI-VO/art-26/abs-2, KI-VO/art-26/abs-11, KI-VO/art-27/abs-1, DSGVO/art-9, DSGVO/art-22, DSGVO/art-35]
+    pflichten:
+      - Abschätzung der Auswirkungen auf die Grundrechte vor der Inbetriebnahme erstellen.
+      - Antragsteller über die Mitwirkung des Systems informieren.
+      - Menschliche Aufsicht mit echter Änderungsbefugnis einrichten, nicht nur ein Bestätigungsfeld.
+      - Für die Verarbeitung der Gesundheitsangaben die besonderen Anforderungen an Gesundheitsdaten beachten.
+      - Die Vorschläge regelmäßig auf unzulässige Benachteiligung prüfen.
+    lernhinweis: >
+      Nicht jede Versicherung fällt unter diesen Bereich: Der Anhang nennt
+      Lebens- und Krankenversicherung, nicht Versicherungen überhaupt. Eine
+      Kfz- oder Hausratversicherung ist von Anhang III Nummer 5 Buchstabe c
+      nicht erfasst. Der Grund liegt auf der Hand, wenn man den Zweck der
+      Vorschrift liest: Es geht um den Zugang zu grundlegenden Diensten.
+      Beim Lesen von Anhang III lohnt es sich deshalb, auf jedes
+      einschränkende Wort zu achten — die Bereiche sind enger gefasst, als
+      die Überschriften vermuten lassen.
+    stolperstein: >
+      Der Versicherer überträgt die Bewertung ungeprüft auf andere
+      Versicherungszweige und nimmt dort unnötige Pflichten auf sich — oder
+      er schließt umgekehrt aus der fehlenden Nennung der Kfz-Versicherung,
+      dass auch in der Krankenversicherung nichts gelte.
+    verwandte_faelle: [bonitaet-ratenkredit, kfz-tarif-telematik, medizinprodukt-software]
+
+  - kennung: kfz-tarif-telematik
+    titel: Telematiktarif in der Kfz-Versicherung
+    lage: >
+      Ein Versicherer bietet einen günstigeren Kfz-Tarif für Fahrer, die eine
+      App mitlaufen lassen. Ein KI-System bewertet Bremsverhalten,
+      Beschleunigung und Nachtfahrten und errechnet daraus einen Fahrwert, der
+      über den Rabatt im nächsten Jahr entscheidet.
+    rolle: anbieter und betreiber
+    einstufung: minimal
+    begruendung: >
+      Anhang III Nummer 5 Buchstabe c erfasst Risikobewertung und
+      Preisbildung bei Lebens- und Krankenversicherungen; die Kfz-Versicherung
+      ist dort nicht genannt, und auch kein anderer Bereich von Anhang III
+      trifft zu. Damit bleibt es bei der Pflicht zur KI-Kompetenz nach
+      Artikel 4. Die Bewertung von Fahrverhalten ist dennoch eine
+      datenschutzrechtlich heikle Verarbeitung mit Bewegungsdaten, und der
+      Rabatt kann eine automatisierte Einzelentscheidung sein — das ist eine
+      eigene Prüfung außerhalb der KI-Verordnung.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-4, DSGVO/art-22, DSGVO/art-5, DSGVO/art-35]
+    pflichten:
+      - Für die KI-Kompetenz der mit dem System arbeitenden Beschäftigten sorgen.
+      - Die datenschutzrechtliche Grundlage für die laufende Erhebung der Fahrdaten klären.
+      - Die Einstufung erneut prüfen, wenn der Fahrwert für andere Zwecke verwendet wird.
+      - Kunden verständlich erklären, welche Daten erhoben werden und wie sie den Rabatt beeinflussen.
+    lernhinweis: >
+      Nicht hochriskant heißt nicht unreguliert, und es heißt erst recht nicht
+      unbedenklich. Hier greift von der KI-Verordnung fast nichts, vom
+      Datenschutzrecht aber viel. Wer die Risikoklasse als einziges Maß nimmt,
+      kommt bei genau solchen Fällen zum falschen Ergebnis — die Einstufung
+      beantwortet nur die Frage, welche Pflichten aus der KI-Verordnung
+      folgen, nicht die Frage, ob das Vorhaben in Ordnung ist.
+    stolperstein: >
+      Aus "fällt nicht unter Anhang III" wird im Haus die Botschaft
+      "unkritisch, kann so laufen". Die Prüfung der Datenverarbeitung
+      unterbleibt dann ganz, obwohl sie hier die eigentliche Hürde ist.
+    verwandte_faelle: [versicherungstarif-krankenversicherung, sozialbewertung-kunden, wartungsvorhersage-maschinenpark]
+
+  - kennung: antragspruefung-behoerde
+    titel: Vorprüfung von Anträgen in einer Kommunalbehörde
+    lage: >
+      Eine Stadtverwaltung prüft Anträge auf eine kommunale
+      Unterstützungsleistung mit einem KI-System vor. Es liest die
+      eingereichten Unterlagen, vergleicht die Angaben mit den
+      Bewilligungsvoraussetzungen und kennzeichnet Anträge, bei denen die
+      Voraussetzungen aus seiner Sicht nicht erfüllt sind. Die
+      Sachbearbeitung arbeitet die gekennzeichneten Anträge zuerst ab und
+      lehnt sie meist ab.
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    begruendung: >
+      Anhang III Nummer 5 Buchstabe a erfasst KI-Systeme, die von Behörden
+      oder in deren Namen verwendet werden, um zu beurteilen, ob Menschen
+      Anspruch auf grundlegende öffentliche Unterstützungsleistungen haben
+      und ob solche Leistungen zu gewähren, einzuschränken, zu widerrufen
+      oder zurückzufordern sind. Die Kennzeichnung ist eine solche
+      Beurteilung. Dass sie formal nur vorsortiert, trägt nicht, weil die
+      Kennzeichnung die Ablehnung in der Praxis vorzeichnet. Als Behörde
+      trifft die Stadt zudem die Pflicht zur Abschätzung der Auswirkungen auf
+      die Grundrechte nach Artikel 27.
+    rechtsgrundlage: [KI-VO/anh-III/nr-5, KI-VO/art-6/abs-2, KI-VO/art-6/abs-3, KI-VO/art-26/abs-2, KI-VO/art-26/abs-11, KI-VO/art-27/abs-1, DSGVO/art-22]
+    pflichten:
+      - Abschätzung der Auswirkungen auf die Grundrechte vor der Inbetriebnahme durchführen.
+      - Antragsteller über die Mitwirkung des Systems informieren.
+      - Sicherstellen, dass gekennzeichnete Anträge inhaltlich vollständig geprüft werden und nicht nur schneller abgelehnt.
+      - Auswerten, wie oft die Sachbearbeitung der Kennzeichnung widerspricht — bleibt diese Zahl bei null, ist die Aufsicht nur formal.
+      - Ablehnungen so begründen, dass der Antragsteller sie anfechten kann.
+    lernhinweis: >
+      Eine Vorsortierung, der in der Praxis immer gefolgt wird, ist eine
+      Entscheidung. Ob die menschliche Aufsicht wirkt, lässt sich messen: Wie
+      oft weicht der Mensch vom Vorschlag ab? Diese Zahl ist der beste
+      Selbsttest, den ein Betreiber hat, und sie ist auf jeden eigenen Fall
+      anwendbar. Liegt sie dauerhaft bei null, ist nicht die Technik
+      besonders gut, sondern die Aufsicht nicht vorhanden.
+    stolperstein: >
+      Die Behörde verlässt sich darauf, dass die Ausnahme nach Artikel 6
+      Absatz 3 für eine vorbereitende Aufgabe greift. Vorbereitend ist eine
+      Aufgabe nur, wenn die Bewertung danach wirklich noch stattfindet — eine
+      Kennzeichnung, die die Ablehnung festlegt, ist keine Vorbereitung.
+    verwandte_faelle: [dokumentensortierung-posteingang, bonitaet-ratenkredit, notenmuster-abweichung]

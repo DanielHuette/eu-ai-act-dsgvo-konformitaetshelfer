@@ -1,0 +1,513 @@
+/* Gestaltung des Konformitätshelfers.
+ *
+ * Grundsätze, die jede Entscheidung hier erklären:
+ *
+ * - Ruhig und sachlich. Das Werkzeug sagt Leuten, dass sie bis zu fünfzehn
+ *   Millionen Euro Bußgeld riskieren. Dazu passt keine bunte Oberfläche.
+ * - Lesbar vor schön. Fließtext bei 68 Zeichen Zeilenlänge, 1,6-facher
+ *   Zeilenabstand, Schriftgröße nie unter 15 Pixel.
+ * - Keine Schrift von außen. Es gelten die Systemschriften — sie sind da,
+ *   laden nicht nach und verraten nichts.
+ * - Farbe ist nie der einzige Träger einer Aussage. Jede Risikoklasse hat
+ *   neben der Farbe ein Wort und ein Zeichen. Wer Farben nicht unterscheiden
+ *   kann, verliert nichts.
+ * - Hell und dunkel über prefers-color-scheme, nicht über einen Schalter:
+ *   das Gerät weiß besser, was gerade passt.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Grundfarben, hell */
+  --grund: #f7f7f5;
+  --flaeche: #ffffff;
+  --flaeche-tief: #f0f0ee;
+  --rand: #d6d6d0;
+  --rand-stark: #b4b4ac;
+  --text: #1c1c1a;
+  --text-leise: #5c5c56;
+  --betont: #1b4e7a;
+  --betont-flaeche: #e8f0f7;
+
+  /* Risikoklassen. Die Töne sind gedeckt gewählt, damit sie auf weißem
+   * Grund und auf dunklem Grund denselben Rang behalten. */
+  --verboten: #8c1d1d;
+  --verboten-flaeche: #fbeaea;
+  --hoch: #8a4b06;
+  --hoch-flaeche: #fdf0e0;
+  --transparenz: #1b4e7a;
+  --transparenz-flaeche: #e8f0f7;
+  --minimal: #1f5c33;
+  --minimal-flaeche: #e7f3ea;
+  --unklar: #4a4a46;
+  --unklar-flaeche: #eeeeec;
+
+  --abstand: 1rem;
+  --rundung: 6px;
+  --lesebreite: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grund: #16181a;
+    --flaeche: #1f2225;
+    --flaeche-tief: #262a2e;
+    --rand: #3a3f44;
+    --rand-stark: #555b61;
+    --text: #e8e8e4;
+    --text-leise: #a8aaa6;
+    --betont: #8cc0ea;
+    --betont-flaeche: #1d2b36;
+
+    --verboten: #f0a0a0;
+    --verboten-flaeche: #35201f;
+    --hoch: #f0bd7a;
+    --hoch-flaeche: #33271a;
+    --transparenz: #9ccbf0;
+    --transparenz-flaeche: #1d2b36;
+    --minimal: #93d2a6;
+    --minimal-flaeche: #1b2d21;
+    --unklar: #c0c2be;
+    --unklar-flaeche: #26292c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--grund);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: calc(var(--abstand) * 1.5) var(--abstand) 3rem;
+}
+
+p, li { max-width: var(--lesebreite); }
+
+h1, h2, h3 { line-height: 1.25; font-weight: 650; }
+h1 { font-size: 1.6rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+h3 { font-size: 1rem; margin: 0 0 0.25rem; }
+
+a { color: var(--betont); }
+
+/* ------------------------------------------------------------------ Kopf */
+
+.kopf {
+  background: var(--flaeche);
+  border-bottom: 1px solid var(--rand);
+}
+.kopf-innen {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: calc(var(--abstand) * 1.25) var(--abstand);
+}
+.untertitel { color: var(--text-leise); margin: 0 0 0.75rem; font-size: 0.95rem; }
+
+.stand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+.stand dt { color: var(--text-leise); }
+.stand dt::after { content: ":"; }
+.stand dd { margin: 0 0 0 0.35rem; font-variant-numeric: tabular-nums; }
+
+/* --------------------------------------------------------------- Formular */
+
+.feldgruppe { margin-bottom: calc(var(--abstand) * 1.25); }
+
+label { display: block; font-weight: 600; margin-bottom: 0.2rem; }
+label.gross { font-size: 1.1rem; }
+.freiwillig { font-weight: 400; color: var(--text-leise); font-size: 0.85rem; }
+
+.erlaeuterung {
+  color: var(--text-leise);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--flaeche);
+  border: 1px solid var(--rand-stark);
+  border-radius: var(--rundung);
+  padding: 0.6rem 0.7rem;
+}
+textarea { resize: vertical; min-height: 7rem; line-height: 1.5; }
+
+textarea:focus-visible, input:focus-visible, button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--betont);
+  outline-offset: 2px;
+}
+
+.zeichenzahl {
+  font-size: 0.8rem;
+  color: var(--text-leise);
+  margin: 0.25rem 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- Fragebogen */
+
+.fragebogen {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: var(--rundung);
+  padding: 0.75rem var(--abstand);
+  margin-bottom: calc(var(--abstand) * 1.25);
+}
+.fragebogen > summary {
+  cursor: pointer;
+  font-weight: 600;
+  /* Der Griff muss auch mit dem Finger treffbar sein. */
+  padding: 0.35rem 0;
+}
+.fragebogen[open] > summary { margin-bottom: 0.75rem; }
+
+.punkt {
+  border-top: 1px solid var(--rand);
+  padding: 0.85rem 0 0.5rem;
+}
+.punktfrage { font-weight: 600; margin: 0 0 0.2rem; }
+.punkthilfe, .punktwofuer {
+  color: var(--text-leise);
+  font-size: 0.85rem;
+  margin: 0 0 0.4rem;
+}
+.punktwofuer { font-style: italic; margin-top: 0.35rem; margin-bottom: 0; }
+
+.wahl { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; }
+.wahl.senkrecht { flex-direction: column; gap: 0.4rem; }
+.wahl label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-weight: 400;
+  margin: 0;
+  /* Zielfläche für den Finger: mindestens 44 Pixel hoch. */
+  min-height: 1.75rem;
+  cursor: pointer;
+}
+.wahl input { margin-top: 0.35rem; flex: 0 0 auto; }
+.wahl .option span { font-size: 0.9rem; }
+
+/* ----------------------------------------------------------------- Knöpfe */
+
+.knopfzeile {
+  display: flex;
+  align-items: center;
+  gap: var(--abstand);
+  flex-wrap: wrap;
+  margin-bottom: calc(var(--abstand) * 1.5);
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+  background: var(--betont);
+  border: 1px solid transparent;
+  border-radius: var(--rundung);
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  min-height: 2.75rem;
+}
+button:hover { filter: brightness(1.12); }
+button[disabled] { opacity: 0.6; cursor: progress; }
+
+@media (prefers-color-scheme: dark) {
+  button { color: #10161b; }
+}
+
+.laufhinweis { color: var(--text-leise); font-size: 0.9rem; }
+
+/* ------------------------------------------------------------- Hinweise */
+
+.hinweiskasten {
+  border: 1px solid var(--rand-stark);
+  border-left: 4px solid var(--rand-stark);
+  border-radius: var(--rundung);
+  background: var(--flaeche);
+  padding: 0.75rem var(--abstand);
+  margin-bottom: calc(var(--abstand) * 1.25);
+}
+.hinweiskasten h2 { font-size: 1rem; }
+.hinweiskasten ul { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+.hinweiskasten li { font-size: 0.9rem; }
+
+.warnung { border-left-color: var(--hoch); background: var(--hoch-flaeche); }
+.warnung h2 { color: var(--hoch); }
+.fehler { border-left-color: var(--verboten); background: var(--verboten-flaeche); }
+.fehler h2 { color: var(--verboten); }
+
+/* -------------------------------------------------------- Risikokarte */
+
+.risikokarte {
+  border: 1px solid var(--rand-stark);
+  border-left: 6px solid var(--unklar);
+  border-radius: var(--rundung);
+  background: var(--unklar-flaeche);
+  padding: var(--abstand) calc(var(--abstand) * 1.25);
+  margin-bottom: calc(var(--abstand) * 1.5);
+}
+.kartenmarke {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem;
+  color: var(--unklar);
+}
+.risikokarte h2 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+.risikokarte p { margin: 0 0 0.4rem; }
+.kartenrollen { font-size: 0.9rem; color: var(--text-leise); margin: 0; }
+
+/* Die vier Klassen. Die Farbe steht neben dem Wort in .kartenmarke, nie
+ * allein — darum ist die Karte auch ohne Farberkennung vollständig. */
+.risikokarte.k-verboten {
+  border-left-color: var(--verboten); background: var(--verboten-flaeche);
+}
+.risikokarte.k-verboten .kartenmarke,
+.risikokarte.k-verboten h2 { color: var(--verboten); }
+
+.risikokarte.k-hoch {
+  border-left-color: var(--hoch); background: var(--hoch-flaeche);
+}
+.risikokarte.k-hoch .kartenmarke,
+.risikokarte.k-hoch h2 { color: var(--hoch); }
+
+.risikokarte.k-transparenz {
+  border-left-color: var(--transparenz); background: var(--transparenz-flaeche);
+}
+.risikokarte.k-transparenz .kartenmarke,
+.risikokarte.k-transparenz h2 { color: var(--transparenz); }
+
+.risikokarte.k-minimal {
+  border-left-color: var(--minimal); background: var(--minimal-flaeche);
+}
+.risikokarte.k-minimal .kartenmarke,
+.risikokarte.k-minimal h2 { color: var(--minimal); }
+
+/* ------------------------------------------------------------- Blöcke */
+
+.block {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: var(--rundung);
+  padding: var(--abstand) calc(var(--abstand) * 1.25);
+  margin-bottom: var(--abstand);
+}
+
+.grund {
+  border-top: 1px solid var(--rand);
+  padding-top: 0.6rem;
+  margin-top: 0.6rem;
+}
+.grund:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+
+.sicherheit {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 0 0.35rem;
+  margin-left: 0.4rem;
+  vertical-align: 0.1em;
+}
+.s-sicher { color: var(--minimal); }
+.s-wahrscheinlich { color: var(--hoch); }
+.s-zu_pruefen { color: var(--unklar); }
+
+.fundstelle {
+  font-size: 0.85rem;
+  color: var(--text-leise);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------ Pflichten */
+
+.pflicht {
+  display: flex;
+  gap: 0.6rem;
+  border-top: 1px solid var(--rand);
+  padding: 0.7rem 0;
+}
+.pflicht:first-of-type { border-top: 0; }
+.pflicht input[type="checkbox"] {
+  margin-top: 0.4rem;
+  flex: 0 0 auto;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.pflicht-inhalt { flex: 1 1 auto; min-width: 0; }
+.pflicht-titel { font-weight: 600; margin: 0 0 0.15rem; }
+.pflicht-tun { margin: 0 0 0.3rem; }
+.pflicht-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-leise);
+}
+.pflicht input[type="checkbox"]:checked ~ .pflicht-inhalt .pflicht-titel {
+  text-decoration: line-through;
+  color: var(--text-leise);
+}
+.frist { font-variant-numeric: tabular-nums; }
+.frist.offen { color: var(--hoch); font-weight: 600; }
+.schwere-empfehlung::after {
+  content: " (Empfehlung, keine Pflicht)";
+  font-weight: 400;
+  color: var(--text-leise);
+}
+.schwere-hinweis::after {
+  content: " (Hinweis)";
+  font-weight: 400;
+  color: var(--text-leise);
+}
+
+/* -------------------------------------------------------------- Belege */
+
+.beleg {
+  border-top: 1px solid var(--rand);
+  padding: 0.5rem 0;
+}
+.beleg:first-of-type { border-top: 0; }
+.beleg > summary {
+  cursor: pointer;
+  padding: 0.3rem 0;
+  min-height: 1.75rem;
+}
+.beleg-kopf { font-weight: 600; }
+.beleg-titel { font-weight: 400; color: var(--text-leise); }
+.wortlaut {
+  background: var(--flaeche-tief);
+  border-left: 3px solid var(--rand-stark);
+  border-radius: 0 var(--rundung) var(--rundung) 0;
+  padding: 0.6rem 0.8rem;
+  margin: 0.4rem 0 0.3rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-size: 0.92rem;
+  max-width: none;
+}
+.wege { font-size: 0.78rem; color: var(--text-leise); margin: 0; }
+
+/* ------------------------------------------------------------ Auskunft */
+
+.auskunft {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--flaeche-tief);
+  border-radius: var(--rundung);
+  padding: 0.8rem;
+  margin: 0;
+  max-width: none;
+}
+
+.lernhinweis {
+  border-left: 4px solid var(--betont);
+  background: var(--betont-flaeche);
+  border-radius: 0 var(--rundung) var(--rundung) 0;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 0.5rem;
+}
+
+/* -------------------------------------------------------------- Fristen */
+
+.fristen { list-style: none; margin: 0; padding: 0; }
+.fristzeile {
+  display: flex;
+  gap: 0.75rem;
+  border-top: 1px solid var(--rand);
+  padding: 0.5rem 0;
+  font-size: 0.92rem;
+}
+.fristzeile:first-child { border-top: 0; }
+.fristdatum {
+  flex: 0 0 6.5rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.fristzeile.kommt .fristdatum { color: var(--hoch); }
+.fristzeile.kommt::after { content: ""; }
+.fristmarke {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.fristzeile.gilt .fristmarke { color: var(--minimal); }
+.fristzeile.kommt .fristmarke { color: var(--hoch); }
+
+/* ----------------------------------------------------------------- Fuß */
+
+.fuss {
+  background: var(--flaeche);
+  border-top: 2px solid var(--rand-stark);
+  padding: calc(var(--abstand) * 1.5) var(--abstand) 2.5rem;
+}
+.fuss > * { max-width: 54rem; margin-left: auto; margin-right: auto; }
+.fuss h2 { color: var(--verboten); }
+.fussstand, .vorbehalt {
+  font-size: 0.85rem;
+  color: var(--text-leise);
+}
+.vorbehalt {
+  border-left: 3px solid var(--hoch);
+  padding-left: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+/* ------------------------------------------------------------- Telefon */
+
+@media (max-width: 34rem) {
+  body { font-size: 15px; }
+  main { padding: var(--abstand) 0.75rem 2.5rem; }
+  .kopf-innen, .fuss { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .block, .risikokarte, .fragebogen, .hinweiskasten {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-radius: 0;
+    /* Volle Breite auf engem Gerät: ein Rahmen links und rechts kostet
+     * Zeilenlänge, die beim Lesen von Gesetzestext fehlt. */
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+  .stand { flex-direction: column; gap: 0; }
+  button { width: 100%; }
+  .fristzeile { flex-wrap: wrap; }
+  .fristdatum { flex-basis: 100%; }
+}
+
+@media print {
+  .kopf, form, .knopfzeile { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .block, .risikokarte { border: 1px solid #999; page-break-inside: avoid; }
+  details { display: block; }
+  details > summary { list-style: none; }
+}
