@@ -26,11 +26,19 @@ schluessel.txt
 # Verzeichnis, damit das Werkzeug ohne Beschaffungslauf startklar ist.
 daten/roh/
 
-# Der Suchbestand für den Rechner. Er wird mit dem Einbettungsmodell gerechnet
-# und ist je nach Modell einige Dutzend Megabyte groß; gebaut wird er mit
-# scripts/bestand_bauen.py. Die Einbettungen verschiedener Modelle sind nicht
-# vergleichbar, ein mitgelieferter Bestand passte also nicht für jeden.
-daten/aufbereitet/suchbestand.*
+# Der Suchbestand für den Rechner WIRD MITGELIEFERT — er ist der Grund, dass
+# das Werkzeug nach dem Klonen sofort gut sucht statt erst nach einer Stunde
+# Rechenzeit. 13 MB: die Vektoren als .npy, der Rest als gepacktes JSON.
+#
+# Dass die Einbettungen verschiedener Modelle nicht vergleichbar sind, spricht
+# nicht dagegen: der Bestand trägt den Modellnamen, und wer ihn mit einem
+# anderen Modell lädt, bekommt einen Abbruch mit Begründung statt stiller
+# Fehltreffer. Wer ein anderes Modell will, baut neu — scripts/bestand_bauen.py.
+#
+# Die Teilstücke des laufenden Baus gehören dagegen nicht hinein: sie sind
+# Baustelle, nicht Ergebnis.
+daten/aufbereitet/_bestand_teile/
+daten/aufbereitet/_bestand_lauf.log
 
 # Modellspeicher, falls jemand ihn ins Verzeichnis legt
 modelle/

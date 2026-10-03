@@ -110,7 +110,14 @@ jobs:
 
       - name: Einheitenprüfungen laufen lassen
         working-directory: android
-        run: ./gradlew test --console=plain
+        run: |
+          # Das Ausführungsrecht an gradlew geht verloren, wenn jemand von
+          # Windows aus einträgt: NTFS kennt kein x-Bit, und Git merkt sich
+          # dann keines. Im Repository steht es (git update-index --chmod=+x);
+          # hier wird es zur Sicherheit noch einmal gesetzt, damit der Bau
+          # nicht an einer Dateieigenschaft scheitert.
+          chmod +x ./gradlew
+          ./gradlew test --console=plain
 
       - name: Prüfberichte sichern
         if: always()
