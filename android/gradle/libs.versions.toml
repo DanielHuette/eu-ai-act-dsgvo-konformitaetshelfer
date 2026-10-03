@@ -3,7 +3,7 @@
 
 [versions]
 bauwerkzeug = "8.13.2"
-kotlin = "2.2.20"
+kotlin = "2.4.20"
 # Compose-Sammelfassung: legt ui, foundation und material3 zueinander passend
 # fest, damit keine Einzelfassung aus der Reihe fällt.
 compose-sammlung = "2026.06.01"
