@@ -26,7 +26,7 @@ prüfen. Ausführlich: [docs/haftung.md](docs/haftung.md).
 
 ## Wie genau ist es?
 
-**206 von 217 amtlichen Beispielen** der Europäischen Kommission
+**207 von 217 amtlichen Beispielen** der Europäischen Kommission
 werden richtig eingestuft. Im Schnitt **5.3 Schritte** je Fall.
 
 Die Beispiele stammen aus dem Entwurf der Leitlinien der Kommission vom
@@ -37,7 +37,7 @@ selben Wertung kommt, wenn jemand nur die Beschreibung kennt.
 Sieben der elf Abweichungen messen den Helfer nicht: ihre Beschreibungen nennen
 gar keinen Anwendungsbereich, und die Ausnahme des Artikels 6 Absatz 3 kommt
 ohne Bereich zu Recht nie an die Reihe. Rechnet man sie heraus, sind es
-**206 von 210**. Das Verfahren und jede einzelne Abweichung stehen in
+**207 von 210**. Das Verfahren und jede einzelne Abweichung stehen in
 [daten/pruefung/MESSUNG.md](daten/pruefung/MESSUNG.md).
 
 Was diese Zahl nicht hergibt: kein Jurist hat den Durchlauf gegengelesen.

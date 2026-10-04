@@ -120,13 +120,14 @@
  {
   "index": 92,
   "soll": "kein_hochrisiko",
-  "ist": "hochrisiko_anhang_iii",
-  "getroffen": false,
-  "schritte": 6,
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 2,
   "fundstellen": [
    "KI-VO/anh-III/nr-5-b"
   ],
-  "warum_abweichung": "Es fehlt die Frage, ob ausschliesslich Betriebs- oder Firmendaten verwendet werden; weil der Inhaber eine natuerliche Person ist, traegt Nummer 5 Buchstabe b."
+  "warum_abweichung": "",
+  "anmerkung": "Nachgemessen am 04.10.2026, nachdem die Vorfrage nach der Bewertung von Menschen den Satz aus Absatz 73 aufgenommen hat: ein Betrieb bleibt ein Betrieb, auch wenn er einem einzelnen Menschen gehoert."
  },
  {
   "index": 99,

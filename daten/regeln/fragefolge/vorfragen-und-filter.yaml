@@ -57,9 +57,9 @@ vorfragen:
         beleg: "(71)"
 
   - kennung: "natuerliche-personen"
-    frage: "Soll Ihr System nach Ihrer Zweckbestimmung auch Menschen bewerten - unmittelbar oder mittelbar - und nicht nur Firmen?"
-    wirkung: "Mehrere Anwendungsfälle des Anhangs III setzen voraus, dass das System Menschen bewertet. Soll das System ausschließlich Rechtspersonen oder Firmen bewerten, liegt es außen vor und ist in diesen Anwendungsfällen nicht hochriskant. Bewertet es auch Menschen, ist es erfasst, selbst wenn es zusätzlich Firmen bewertet."
-    beleg: "(74)"
+    frage: "Soll Ihr System nach Ihrer Zweckbestimmung auch Menschen bewerten - unmittelbar oder mittelbar - und nicht nur Firmen? Arbeitet es allein mit Betriebs- und Firmendaten, bewertet es keinen Menschen - auch dann nicht, wenn der Betrieb einem einzelnen Menschen gehoert und keine Rechtsperson ist."
+    wirkung: "Mehrere Anwendungsfälle des Anhangs III setzen voraus, dass das System Menschen bewertet. Soll das System ausschließlich Rechtspersonen oder Firmen bewerten, liegt es außen vor und ist in diesen Anwendungsfällen nicht hochriskant. Bewertet es auch Menschen, ist es erfasst, selbst wenn es zusätzlich Firmen bewertet. Ein Betrieb bleibt ein Betrieb, auch wenn er einem einzelnen Menschen gehört: wer allein Bilanzen, Umsätze und Zahlungsverhalten des Betriebs auswertet, bewertet damit keinen Menschen."
+    beleg: "(73), (74)"
     erfasst:
       - text: "Eine natürliche Person ist von einer Rechtsperson zu unterscheiden; der Begriff umfasst auch, aber nicht nur, Verbraucher."
         beleg: "(73)"

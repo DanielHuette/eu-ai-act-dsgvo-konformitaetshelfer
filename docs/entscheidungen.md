@@ -48,7 +48,7 @@ Dazu drei Dinge, die der Ratenweg nicht leisten konnte:
 * **Ein fremder Maßstab.** Vorher hatte ich sowohl die Regeln als auch die
   Prüffälle geschrieben; eine hohe Trefferquote hieß nur, dass das Werkzeug mit
   meiner Lesart übereinstimmt. Die 217 Beispiele der Leitlinien nennen die
-  Wertung der Kommission. Davon werden **206 richtig eingestuft**.
+  Wertung der Kommission. Davon werden **207 richtig eingestuft**.
 
 **Folgen.**
 * Gut: das Ergebnis ist nicht wahrscheinlich, sondern richtig, soweit die

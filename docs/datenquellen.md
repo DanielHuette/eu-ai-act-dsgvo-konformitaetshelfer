@@ -88,7 +88,7 @@ Begründung der Kommission im Wortlaut:
 ```
 
 Das ist der Maßstab: die Soll-Wertungen stammen von der Kommission, nicht von
-mir. **206 von 217 werden richtig eingestuft.** Das Messverfahren und jede
+mir. **207 von 217 werden richtig eingestuft.** Das Messverfahren und jede
 einzelne Abweichung stehen in
 [../daten/pruefung/MESSUNG.md](../daten/pruefung/MESSUNG.md).
 

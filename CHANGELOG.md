@@ -11,6 +11,23 @@ Auskunft bekommt, ist ein geänderter Artikelverweis wichtiger als jede
 Programmänderung. Jeder Eintrag zum Datenstand nennt das Datum, auf dem das
 Regelwerk danach steht.
 
+## 1.2.3 — 04.10.2026
+
+Eine Abweichung weniger: **207 von 217** statt 206.
+
+Fall 92 der amtlichen Beispiele — die Bonität des Inhabers eines Kleinbetriebs,
+der keine Rechtsperson ist — wurde als hochriskant eingestuft, obwohl die
+Kommission das Gegenteil sagt. Der Grund stand schon in der Begründung des
+Durchlaufs, aber nicht in der Frage: ein Betrieb bleibt ein Betrieb, auch wenn
+er einem einzelnen Menschen gehört. Wer allein Bilanzen, Umsätze und
+Zahlungsverhalten des Betriebs auswertet, bewertet damit keinen Menschen
+(Absatz 73 der Leitlinien). Die Vorfrage nach der Bewertung von Menschen sagt
+das jetzt, und der Nutzer kann es beantworten.
+
+Die Oberfläche im Netz ist neu gebaut: ein Prüfbogen statt einer Textseite,
+mit dem Gang der Prüfung an der Seite, der Fundstelle am Rand jeder Frage und
+einem Schalter für die drei Antworten.
+
 ## 1.2.2 — 04.10.2026
 
 Das Windows-Paket entstand nicht. Inno Setup ist auf den Maschinen von GitHub

@@ -59,7 +59,7 @@ def test_jedes_amtliche_beispiel_ist_genau_einmal_gemessen(pruefordner, durchgan
 
 
 def test_die_treffer_sind_gezaehlt_nicht_behauptet(durchgang, nachmessung, zahlen) -> None:
-    """206 von 217 — nachgezählt aus den Protokollen der Messung.
+    """207 von 217 — nachgezählt aus den Protokollen der Messung.
 
     Die Nachmessung berichtigt einzelne Fälle, die nach einer Änderung am
     Regelwerk neu gefahren wurden; sie gilt vor dem ersten Durchgang.

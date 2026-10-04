@@ -11,7 +11,7 @@ der wirklich gemacht wurde.
 
 | | |
 |---|---|
-| **Ergebnis** | 2.811 Rechtsstellen · 379 Fragen zu 31 Stellen des Gesetzes · 57 Pflichten · 44 Anwendungsfälle · 206 von 217 amtlichen Beispielen richtig eingestuft · Webseite, Programm für Windows, Mac und Linux, Container, Präsentation |
+| **Ergebnis** | 2.811 Rechtsstellen · 379 Fragen zu 31 Stellen des Gesetzes · 57 Pflichten · 44 Anwendungsfälle · 207 von 217 amtlichen Beispielen richtig eingestuft · Webseite, Programm für Windows, Mac und Linux, Container, Präsentation |
 | **Voraussetzung** | Python 3.11 oder neuer, Node (für den Abgleich der beiden Rechenwege), Netzzugang zu EUR-Lex und Hugging Face, Docker, rund 20 Gigabyte Platte |
 | **Nicht vorausgesetzt** | Rechtskenntnis des Assistenten — die Rechtsfragen stehen unten als Prüfkriterien |
 
@@ -652,7 +652,7 @@ und nimmt die Antworten entgegen.
 
 | Was | Ergebnis |
 |---|---|
-| amtliche Beispiele richtig eingestuft | **206 von 217** |
+| amtliche Beispiele richtig eingestuft | **207 von 217** |
 | Schritte je Fall im Schnitt | **5,3** |
 | Webseite und Programm rechnen gleich | **400 von 400** |
 | Belegstellen, die auf echten amtlichen Text zeigen | 303 von 303 |
@@ -661,7 +661,7 @@ und nimmt die Antworten entgegen.
 Elf Abweichungen bleiben, und sieben davon messen den Durchlauf nicht: ihre
 Beschreibungen nennen gar keinen Bereich des Anhangs III, und der Filter des
 Artikels 6 Absatz 3 kommt ohne Bereich zu Recht nie an die Reihe. Rechnet man
-sie heraus, sind es 206 von 210. Drei der übrigen vier liegen daran, dass der
+sie heraus, sind es 207 von 210. Alle drei übrigen liegen daran, dass der
 Beispieltext das entscheidende Merkmal nicht nennt — wer sein eigenes System
 einstuft, kennt es.
 
@@ -709,7 +709,7 @@ dürfen:**
   der Fall mit der offenen Antwort erfasst bleibt, ist nur halb etwas wert. Die
   andere Hälfte: mit einem erzwungenen Nein fällt er heraus. Ohne diese
   Gegenprobe prüft die erste Hälfte nichts.
-* **Die veröffentlichten Zahlen werden nachgezählt.** 206 von 217 wird aus den
+* **Die veröffentlichten Zahlen werden nachgezählt.** 207 von 217 wird aus den
   Messprotokollen gerechnet, der Rechtsbestand aus dem Korpus, und das README
   wird dagegen gelesen. Eine Zahl, die einmal gestimmt hat, stimmt nach der
   nächsten Änderung nicht mehr — und niemand sieht es ihr an.
