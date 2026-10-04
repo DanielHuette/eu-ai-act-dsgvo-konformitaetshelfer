@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "konformitaetshelfer"
-version = "1.2.0"
+version = "1.2.1"
 description = "Konformitätshelfer für die KI-Verordnung (EU) 2024/1689 und die Datenschutz-Grundverordnung — belegte Auskunft statt Raten"
 readme = "README.md"
 requires-python = ">=3.11"

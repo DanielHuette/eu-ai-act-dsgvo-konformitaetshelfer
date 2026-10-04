@@ -11,6 +11,18 @@ Auskunft bekommt, ist ein geänderter Artikelverweis wichtiger als jede
 Programmänderung. Jeder Eintrag zum Datenstand nennt das Datum, auf dem das
 Regelwerk danach steht.
 
+## 1.2.1 — 04.10.2026
+
+Zwei Fehler, die erst der Bau auf fremden Maschinen gezeigt hat.
+
+* Der Vergleich beider Wege klebte den Pfad zur Fragefolge roh in den
+  JavaScript-Treiber. Unter Windows enthält ein Pfad Rückstriche, und `\a` ist
+  in JavaScript ein Steuerzeichen — der Treiber suchte eine Datei, die es nicht
+  gibt, und das Windows-Paket wurde nie gebaut. Der Pfad geht jetzt als
+  JSON-Zeichenkette hinein.
+* Im Container lag der Ordner `web` nicht. Damit war die Startseite nicht
+  eingehängt und `/` antwortete mit 404. Er wird jetzt mitkopiert.
+
 ## 1.2.0 — 04.10.2026
 
 Diese Fassung hört auf zu raten. Die Einstufung kam bisher aus der Auswertung
