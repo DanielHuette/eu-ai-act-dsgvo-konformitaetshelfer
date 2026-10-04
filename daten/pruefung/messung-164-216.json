@@ -1,0 +1,473 @@
+[
+ {
+  "index": 164,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 165,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 39,
+  "fundstellen": []
+ },
+ {
+  "index": 166,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 29,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ]
+ },
+ {
+  "index": 167,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 168,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 169,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 23,
+  "fundstellen": []
+ },
+ {
+  "index": 170,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 25,
+  "fundstellen": [],
+  "warum_abweichung": "Folgefrage 'folge:KI-VO/anh-III/nr-3-a:6' (sortiert Bewerbungen nur vor und markiert Doppelte) schliesst den Punkt schon auf Punktebene aus. Damit ist kein Punkt erfasst, der Filter des Artikels 6 Absatz 3 wird nie gestellt und 'hochrisiko_ausnahme' kann nicht entstehen - die amtliche Wertung 'enge Verfahrensaufgabe' ist im Durchlauf als Punktausschluss doppelt abgebildet und laeuft dem Filter vor."
+ },
+ {
+  "index": 171,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 172,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 28,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-b"
+  ]
+ },
+ {
+  "index": 173,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 174,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 175,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": "Hauptfrage 'haupt:KI-VO/anh-III/nr-2' wurde mit Ja beantwortet, Strassenverkehr bejaht. Trotzdem kein Treffer: in daten/regeln/fragefolge/nr-2-infrastruktur.yaml hat keine Folgefrage des Schutzaufgaben-Punkts 'bei_ja: erfasst'. Der Bereich 2 kann ausser ueber die Kernenergiefrage ueberhaupt nie 'erfasst' werden."
+ },
+ {
+  "index": 176,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 177,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 178,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 179,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 180,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-d"
+  ]
+ },
+ {
+  "index": 181,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 182,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-b"
+  ]
+ },
+ {
+  "index": 183,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 31,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 184,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 185,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 186,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a",
+   "KI-VO/anh-III/nr-3-c"
+  ]
+ },
+ {
+  "index": 187,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 15,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 175: Bereich 2 hat keinen Weg zu 'erfasst'. Zusaetzlich teilen alle vier Punkte des Bereichs die Fundstelle 'KI-VO/anh-III/nr-2' und damit dieselben Fragekennungen, sodass die Schutzaufgaben-Hauptfrage nie eigenstaendig gestellt wird."
+ },
+ {
+  "index": 188,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 17,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 175: Trinkwasser bejaht, aber der Schutzaufgaben-Punkt des Bereichs 2 kann nicht 'erfasst' werden; 'folge:KI-VO/anh-III/nr-2:9' (nur Erkenntnisse ohne Eingriff) fuehrt zum Ausschluss."
+ },
+ {
+  "index": 189,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 190,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 191,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 192,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 7,
+  "fundstellen": [],
+  "warum_abweichung": "Anhang I kommt im Durchlauf nicht vor. daten/regeln/fragefolge/anhang-i-produkte.yaml hat keinen Schluessel 'punkte', sondern 'fragen' und 'produktgattungen', und wird von Durchlauf.laden deshalb nicht geladen. Es gibt keine Frage nach Spielzeug oder Sicherheitsbauteil."
+ },
+ {
+  "index": 193,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 15,
+  "fundstellen": []
+ },
+ {
+  "index": 194,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 195,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 196,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 20,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 175: Bereich 2 ohne Weg zu 'erfasst'; 'folge:KI-VO/anh-III/nr-2:12' (nur erkennen und melden) schliesst aus."
+ },
+ {
+  "index": 197,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 28,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-b"
+  ]
+ },
+ {
+  "index": 198,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 199,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 200,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 201,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 28,
+  "fundstellen": []
+ },
+ {
+  "index": 202,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 31,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ]
+ },
+ {
+  "index": 203,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 204,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 205,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 206,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 207,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 7,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 192: Anhang I ist im Durchlauf nicht abgebildet."
+ },
+ {
+  "index": 208,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-vorfragen"
+  ],
+  "warum_abweichung": "Folgefrage 'folge:KI-VO/anh-III/nr-7-vorfragen:9' (Verarbeitet Ihr System koerperbezogene Merkmale wie Gesicht, Fingerabdruecke oder Gangbild?) hat 'bei_ja: erfasst' und steht vor den Ausschluessen 10 und 11 (nur Pruefung des Reisepapiers, Lebenderkennung allein zum Abgleich mit dem eigenen Papier). punktbefund bricht bei der ersten entscheidenden Antwort ab, deshalb wird die reine Identitaetsbestaetigung am Grenzautomaten als Treffer gefuehrt. Zudem ist der Treffer die Fundstelle 'nr-7-vorfragen', also das Bereichstor selbst und kein Buchstabe des Anhangs III."
+ },
+ {
+  "index": 209,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-b"
+  ]
+ },
+ {
+  "index": 210,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 211,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 212,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 213,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 39,
+  "fundstellen": []
+ },
+ {
+  "index": 214,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": []
+ },
+ {
+  "index": 215,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 28,
+  "fundstellen": []
+ },
+ {
+  "index": 216,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 15,
+  "fundstellen": []
+ }
+]

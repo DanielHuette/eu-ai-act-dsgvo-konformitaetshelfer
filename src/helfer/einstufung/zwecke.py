@@ -69,6 +69,8 @@ from typing import Any
 import numpy as np
 import yaml
 
+from helfer import orte
+
 protokoll = logging.getLogger(__name__)
 
 #: Ab diesem Wert des Kreuzbewerters gilt eine Fundstelle als betroffen.
@@ -258,7 +260,7 @@ def _wortlaut_steht(zeile: Zweckzeile, beschreibung: str) -> bool:
 
 
 def katalogpfad() -> Path:
-    return Path(__file__).resolve().parents[3] / "daten" / "regeln" / "kivo_zweckkatalog.yaml"
+    return orte.regeln() / "kivo_zweckkatalog.yaml"
 
 
 @dataclass(frozen=True)

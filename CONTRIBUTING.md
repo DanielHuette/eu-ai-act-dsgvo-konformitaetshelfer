@@ -116,7 +116,6 @@ print('Stand:', w.stand, '| Pflichten:', len(w.pflichten),
    Regelwerk haben:
 
 ```bash
-python scripts/export_android.py
 ```
 
 7. **In [CHANGELOG.md](CHANGELOG.md) eintragen**, unter „Unveröffentlicht".
@@ -198,22 +197,6 @@ Einstufung), die Auflösung von Fundstellen, die Rangfusion und
 * **Keine Diagnoseanzeigen im fertigen Werkzeug.** Was das Werkzeug kann, muss
   am Ergebnis ablesbar sein. Betriebsmeldungen gehören ins Protokoll, nicht in
   die Auskunft.
-
-### Änderungen an der Android-App
-
-```bash
-python android/pruefung/kotlin_pruefen.py     # Vorprüfung ohne Android-Paket
-cd android && ./gradlew test                  # die 65 Prüfungen
-```
-
-Zwei Dinge sind dort aus Gründen festgelegt und werden nicht nebenbei geändert:
-
-* Die Fassung der ONNX-Laufzeit ist auf 1.28.0 festgelegt, weil spätere
-  Fassungen nach dem Prüfvermerk im Quelltext Berechtigungen anmelden und einen
-  Dienst für Telemetrie starten. Wer sie erhöhen will, prüft das nach und
-  schreibt das Ergebnis in `android/gradle/libs.versions.toml`.
-* Die Berechtigungen `ACCESS_NETWORK_STATE` und `READ_PHONE_STATE` sind im
-  Manifest ausdrücklich entfernt. Diese Zeilen bleiben stehen.
 
 ## Änderungsvorschläge einreichen
 

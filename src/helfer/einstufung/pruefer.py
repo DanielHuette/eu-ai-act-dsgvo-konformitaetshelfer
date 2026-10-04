@@ -39,6 +39,7 @@ from typing import Any, ClassVar
 
 import yaml
 
+from helfer import orte
 from helfer.einstufung.zwecke import Zweckfinder, Zwecktreffer
 from helfer.einstufung.zwecke import zweckfinder as gemeinsamer_zweckfinder
 from helfer.modell import (
@@ -53,8 +54,8 @@ from helfer.modell import (
 
 protokoll = logging.getLogger(__name__)
 
-WURZEL = Path(__file__).resolve().parents[3]
-REGELN = WURZEL / "daten" / "regeln"
+WURZEL = orte.wurzel()
+REGELN = orte.regeln()
 
 
 # --------------------------------------------------------------- Regeln laden

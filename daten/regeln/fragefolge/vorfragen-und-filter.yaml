@@ -1,0 +1,378 @@
+# Vorfragen und Filter - gilt für alle acht Bereiche des Anhangs III
+#
+# Diese Datei enthält die Fragen, die VOR jeder bereichsweisen Prüfung zu
+# stellen sind, und die Fragefolge für den Filter des Artikels 6 Absatz 3 der
+# KI-Verordnung, der ein System wieder aus dem hohen Risiko herausnimmt.
+#
+# Jede Angabe stammt aus dem amtlichen Text. Die Zahl in Klammern ist die
+# Absatznummer des Leitlinien-Entwurfs. Ohne Absatznummer steht hier keine
+# Zeile. Eigene Auslegung ist nicht enthalten.
+#
+# Bedeutung der Felder:
+#   kennung       eindeutiger Name, erscheint in der Begründung
+#   frage         wird dem Nutzer gestellt, mit Ja oder Nein zu beantworten
+#   wirkung       was die Antwort an der Einstufung ändert
+#   erfasst       was das Merkmal trifft
+#   nicht_erfasst was das Merkmal nicht trifft
+#   beleg         Absatznummer im Leitlinien-Entwurf
+#
+# Bedeutung der Wertung bei den Beispielen:
+#   hochrisiko      bleibt oder wird hochriskant
+#   kein_hochrisiko fällt schon nicht unter den Anwendungsfall
+#   ausnahme_greift fällt unter den Anwendungsfall, kommt aber durch den
+#                   Filter des Artikels 6 Absatz 3 wieder heraus, oder der
+#                   Filter wird nicht durch Profiling gesperrt
+
+quelle: "Entwurf der Leitlinien der Kommission vom 19.05.2026, allgemeine Grundsätze und Anhang III, Abschnitte 2.1 bis 2.7.4"
+hinweis_zum_stand: "Der Entwurf ist noch kein beschlossener Text und nicht bindend; eine verbindliche Auslegung der KI-Verordnung kann nur der Gerichtshof der Europäischen Union geben (6). Die Beispiele im Entwurf sind nicht abschließend und können sich ändern (3)."
+
+vorfragen:
+
+  - kennung: "ist-es-ein-ki-system"
+    frage: "Ist Ihr System eine maschinengestützte Anwendung, die aus Eingaben selbst ableitet, welche Ausgaben sie erzeugt - also Vorhersagen, Inhalte, Empfehlungen oder Entscheidungen - und nicht nur festgelegte Rechenschritte abarbeitet?"
+    wirkung: "Nur wenn das zutrifft, ist es überhaupt ein KI-System im Sinne des Artikels 3 Nummer 1 und kann eingestuft werden. Lautet die Antwort Nein, endet die Prüfung hier."
+    beleg: "(8)"
+    erfasst:
+      - text: "Ein maschinengestütztes System, das mit unterschiedlichem Grad an Eigenständigkeit arbeitet, nach dem Einsatz anpassungsfähig sein kann und für ausdrückliche oder stillschweigende Ziele aus den Eingaben ableitet, wie es Ausgaben erzeugt, die physische oder virtülle Umgebungen beeinflussen können."
+        beleg: "(8)"
+    nicht_erfasst:
+      - text: "Nicht jede Software und nicht jedes automatisierte Entscheidungssystem fallen darunter; nur Systeme, die diese Begriffsbestimmung erfüllen."
+        beleg: "(9)"
+
+  - kennung: "menschliche-beteiligung"
+    frage: "Wollen Sie das System allein deswegen als nicht hochriskant einstufen, weil am Ende immer ein Mensch mitwirkt oder prüft?"
+    wirkung: "Das genügt nicht. Menschliche Beteiligung kann den Zweck und das Gebiet, in dem das System verwendet werden soll, nicht ändern und hat deshalb keine Wirkung auf die Einstufung nach Artikel 6 Absatz 2. Ein Anbieter kann ein System nicht einfach dadurch zu geringem Risiko erklären, dass er menschliche Beteiligung vorschreibt."
+    beleg: "(70)"
+    erfasst:
+      - text: "Art und Grad der menschlichen Beteiligung beim Einsatz können nur dazu dienen, zu zeigen, dass die Aufgaben des Systems enge Verfahrensaufgaben oder vorbereitender Natur sind oder dass das System nur ein bereits fertiges menschliches Ergebnis verbessern soll."
+        beleg: "(71)"
+      - text: "Um zu klären, ob eine der vier Bedingungen des Filters erfüllt ist, muss der Anbieter betrachten, welche Aufgaben das System erfüllen soll; das hängt wieder an der Zweckbestimmung samt Zusammenhang und Einsatzbedingungen."
+        beleg: "(71)"
+    nicht_erfasst:
+      - text: "Menschliche Aufsicht ist keine Entlastung, sondern Voraussetzung: Sie ist Bedingung für die Einhaltung der Regeln für hochriskante KI-Systeme nach Artikel 14 und notwendige Anforderung an Systeme, die als hochriskant eingestuft sind."
+        beleg: "(70)"
+      - text: "Für die Frage, ob ein System nach Artikel 6 Absatz 2 hochriskant ist, zählt allein, ob die Zweckbestimmung einen der im Anhang III aufgeführten Anwendungsfälle umfasst."
+        beleg: "(70)"
+      - text: "Der Anbieter kann das System nicht ausnehmen und als geringes Risiko einordnen, indem er ihm eine Pflicht zur menschlichen Beteiligung hinzufügt."
+        beleg: "(71)"
+
+  - kennung: "natuerliche-personen"
+    frage: "Soll Ihr System nach Ihrer Zweckbestimmung auch Menschen bewerten - unmittelbar oder mittelbar - und nicht nur Firmen?"
+    wirkung: "Mehrere Anwendungsfälle des Anhangs III setzen voraus, dass das System Menschen bewertet. Soll das System ausschließlich Rechtspersonen oder Firmen bewerten, liegt es außen vor und ist in diesen Anwendungsfällen nicht hochriskant. Bewertet es auch Menschen, ist es erfasst, selbst wenn es zusätzlich Firmen bewertet."
+    beleg: "(74)"
+    erfasst:
+      - text: "Eine natürliche Person ist von einer Rechtsperson zu unterscheiden; der Begriff umfasst auch, aber nicht nur, Verbraucher."
+        beleg: "(73)"
+      - text: "Einzelunternehmer, freie Berufe und andere Selbstständige gelten als natürliche Personen, auch in Bezug auf ihre gewerbliche Tätigkeit."
+        beleg: "(73)"
+      - text: "Dazu gehören Menschen, die beruflich handeln, zum Beispiel Berater, Gestalter und Journalisten."
+        beleg: "(73)"
+      - text: "Es kommt nicht darauf an, ob die Anwendung auf Menschen der einzige Zweck des Systems ist oder nur einer von mehreren."
+        beleg: "(72)"
+      - text: "Ein System, das Menschen bewerten soll, ist erfasst, auch wenn es zugleich Rechtspersonen oder Firmen bewertet."
+        beleg: "(74)"
+    nicht_erfasst:
+      - text: "Systeme, die ausschließlich Rechtspersonen oder Firmen bewerten sollen, ohne Menschen bewerten zu wollen, liegen außen vor und sind deshalb keine hochriskanten KI-Systeme in diesen Anwendungsfällen."
+        beleg: "(74)"
+      - text: "Ein System zur Bonitätsbewertung des Inhabers eines Kleinbetriebs oder einer Firma, die keine Rechtsperson ist, bewertet keine natürliche Person, solange es nur Betriebs- oder Firmendaten verwendet."
+        beleg: "(73)"
+      - text: "Wird der Inhaber einer Rechtsperson zur Besicherung eines Firmenkredits auf Bonität geprüft, fällt er nicht unter Nummer 5 Buchstabe b, obwohl er als natürliche Person handelt, weil der Kredit vorrangig der Firma zugutekommt."
+        beleg: "(74)"
+
+  - kennung: "teil-eines-zusammengesetzten-produkts"
+    frage: "Ist Ihre KI-Funktion Teil eines Zusammenspiels mehrerer KI-Systeme, deren gemeinsame Zweckbestimmung oder gemeinsame Ausgaben eine Entscheidung über einen Einzelfall wesentlich beeinflussen?"
+    wirkung: "Dann wird das Zusammenspiel für die Einstufung als ein einziges KI-System behandelt und als Ganzes geprüft. Sind die Bestandteile so eingerichtet, dass sie für einen Anwendungsfall des Anhangs III verwendet werden sollen, ist das zusammengesetzte System nach Artikel 6 Absatz 2 hochriskant. Ausnahmen, die einzelne Bausteine für sich genommen hätten, gelten dann nicht."
+    beleg: "(75)"
+    erfasst:
+      - text: "Aufgeteilte Bauweisen werden als Ganzes bewertet, damit die Einstufungsregeln nicht durch die Gestaltung des Systems umgangen werden."
+        beleg: "(75)"
+      - text: "Ausnahmen für einzelne Bausteine gelten nicht, wenn Aufbau und Arbeitsweise des Gesamtsystems wesentliche Teile der Entscheidungen beeinflussen, die mit Unterstützung des Systems im hochriskanten Anwendungsfall getroffen werden."
+        beleg: "(75)"
+      - text: "Das gilt auch für verflochtene Anordnungen wie handelnde KI-Systeme, die sich durch verkettete Handlungen abstimmen und austauschen, solange diese verketteten Handlungen oder Bestandteile zusammen einem hochriskanten Zweck dienen."
+        beleg: "(75)"
+      - text: "Auch wenn ein System eine der vier Filterbedingungen erfüllt, zum Beispiel eine enge Verfahrensaufgabe, kann es den Filter nicht nutzen und bleibt hochriskant, wenn es Teil eines zusammengesetzten Systems ist, dessen gemeinsame Zweckbestimmung oder gemeinsame Ausgaben eine Einzelfallentscheidung in einem hochriskanten Anwendungsfall wesentlich beeinflussen, oder wenn es Teil verflochtener Systeme wie handelnder KI-Systeme ist."
+        beleg: "(90)"
+    nicht_erfasst:
+      - text: "Rein verfahrensmäßige oder vorbereitende Funktionen, die mit einem hochriskanten System verbunden sind, bleiben für die Ausnahme nach Artikel 6 Absatz 3 geeignet, wenn sie echt abtrennbar sind und keine Ausgaben gliedern oder zuliefern, die die Prüfung eines Einzelfalls wesentlich beeinflussen - etwa die Prüfung eines Antrags auf wesentliche öffentliche Leistungen."
+        beleg: "(76)"
+      - text: "KI-gestützte Funktionen und Bestandteile, die echt abtrennbar sind, unabhängig von diesem System in Betrieb genommen werden und nicht zu einem hochriskanten Zweck beitragen, liegen außen vor."
+        beleg: "(76)"
+
+  - kennung: "bestimmungsgemaesse-verwendung"
+    frage: "Umfasst die von Ihnen festgelegte Zweckbestimmung - also das, was in Gebrauchsanweisung, Werbe- und Verkaufsunterlagen, Aussagen und technischer Dokumentation steht - einen der Anwendungsfälle des Anhangs III?"
+    wirkung: "Die Formulierung soll bestimmungsgemäß verwendet werden entspricht der vom Anbieter festgelegten Zweckbestimmung. Umfasst die Zweckbestimmung keinen der Anwendungsfälle des Anhangs III, soll das System nicht für einen solchen Fall verwendet werden und kann nach Artikel 6 Absatz 2 nicht hochriskant sein."
+    beleg: "(77)"
+    erfasst:
+      - text: "Zur Zweckbestimmung gehören die Verwendung samt dem besonderen Zusammenhang und den Einsatzbedingungen, wie sie in Gebrauchsanweisung, Werbe- oder Verkaufsunterlagen, Aussagen und technischer Dokumentation angegeben sind."
+        beleg: "(10)"
+      - text: "Die Beschreibung soll die Funktionen des Systems nennen und darf keinen Zweifel über Umfang und vorgesehene Verwendung lassen; ist das System für verschiedene Zusammenhänge gedacht, sind diese zu beschreiben."
+        beleg: "(11)"
+      - text: "Stellen Gebrauchsanweisung, Verträge, Nutzungsbedingungen, Nutzungsregeln, Werbe- und Verkaufsunterlagen oder die technische Dokumentation das System als breit einsetzbar dar und begrenzen die Anwendung nicht durchgängig oder nehmen hochriskante Verwendungen nicht aus, gilt die Zweckbestimmung als auch hochriskante Anwendungsfälle umfassend - das System ist dann hochriskant."
+        beleg: "(12)"
+      - text: "Das gilt besonders, wenn solche Verwendungen angesichts der Funktionen und Fähigkeiten des Systems machbar und vernünftigerweise vorhersehbar sind."
+        beleg: "(12)"
+      - text: "Die bloße Behauptung, etwa in den Nutzungsbedingungen, hochriskante Verwendungen seien ausgeschlossen, genügt nicht, wenn die Gesamtdarstellung, die Beispiele oder die Produktaufstellung des Anbieters solche Verwendungen tatsächlich vorsehen oder bewerben; Nutzungsgrenzen müssen klar, konkret und über alle Unterlagen hinweg einheitlich beschrieben sein."
+        beleg: "(12)"
+      - text: "Das System muss nicht tatsächlich im Einsatz sein; der Anbieter muss die vorgesehene Verwendung bewerten, bevor er das System in der Europäischen Union in Verkehr bringt oder in Betrieb nimmt - in diesem Augenblick müssen die Anforderungen erfüllt sein."
+        beleg: "(78)"
+    nicht_erfasst:
+      - text: "Die vorgesehene Verwendung ist von der vernünftigerweise vorhersehbaren Fehlanwendung zu unterscheiden; eine Fehlanwendung liegt begriffsnotwendig außerhalb der Zweckbestimmung."
+        beleg: "(10)"
+      - text: "Bei Nummer 1 Buchstabe a und Nummer 5 Buchstabe d des Anhangs III gilt das Erfordernis soll bestimmungsgemäß verwendet werden nicht in gleicher Weise; dort sind Ausnahmen vorgesehen."
+        beleg: "(77)"
+
+  - kennung: "im-namen-von"
+    frage: "Soll Ihr System Aufgaben erledigen, die eine Behörde Ihnen übertragen hat oder bei denen eine Behörde Sie im Einzelfall um Unterstützung gebeten hat?"
+    wirkung: "Die Anwendungsfälle des Anhangs III, die den Einsatz durch Behörden betreffen, erfassen mit der Wendung im Namen von auch Dritte, also private Stellen, an die eine Behörde solche Tätigkeiten auslagert. Lautet die Antwort Ja, zählt das wie ein Einsatz durch die Behörde selbst."
+    beleg: "(79)"
+    erfasst:
+      - text: "Eine private Stelle handelt im Namen einer Behörde, wenn die Behörde ihr die Durchführung bestimmter Tätigkeiten oder Teile davon überträgt."
+        beleg: "(81)"
+      - text: "Sie handelt auch dann im Namen der Behörde, wenn die Behörde sie in bestimmten Fällen um Unterstützung solcher Tätigkeiten gebeten hat."
+        beleg: "(81)"
+      - text: "Die Wendung soll verhindern, dass die Einstufung umgangen wird, indem ein System nur an bestimmte Personen oder Stellen vermarktet wird, obwohl das Risiko für die Grundrechte dasselbe ist wie bei Beteiligung der Behörde, weil die Tätigkeit in deren Namen erfolgt."
+        beleg: "(80)"
+    nicht_erfasst:
+      - text: "Eine private Stelle handelt nicht im Namen einer Behörde, wenn sie im eigenen Namen handelt - freiwillig oder zur Erfüllung einer eigenen Rechtspflicht."
+        beleg: "(81)"
+      - text: "Eine Buchhaltungsfirma, die ein System zur Erkennung von Geldwäsche einsetzt, um ihre Pflichten aus dem Geldwäscherecht der Europäischen Union zu erfüllen, handelt im eigenen Namen und nicht im Namen der Strafverfolgungsbehörden; das System ist deshalb im Bereich Strafverfolgung nach Nummer 6 des Anhangs III nicht hochriskant."
+        beleg: "(81)"
+
+  - kennung: "soweit-zugelassen"
+    frage: "Soll Ihr System in einem Anwendungsfall der Nummern 1, 6 oder 7 des Anhangs III eingesetzt werden?"
+    wirkung: "Dort steht die Wendung soweit ihr Einsatz nach einschlägigem Unionsrecht oder nationalem Recht zugelassen ist. Dass ein System unter einen dieser Anwendungsfälle fällt, bedeutet nicht, dass es in diesen Fällen rechtmäßig eingesetzt werden darf. Die Einstufung beantwortet nur die Frage nach dem hohen Risiko, nicht die Frage nach der Zulässigkeit."
+    beleg: "(82)"
+    erfasst:
+      - text: "Ein solcher Einsatz darf nur im Einklang mit den Anforderungen aus der Charta der Grundrechte und aus dem einschlägigen abgeleiteten Unionsrecht und nationalen Recht erfolgen."
+        beleg: "(82)"
+      - text: "Neben den Verboten kann der Einsatz eines KI-Systems auch durch andere Vorschriften des Unionsrechts oder des nationalen Rechts eingeschränkt sein."
+        beleg: "(83)"
+      - text: "Nach Artikel 2 Absatz 9 gilt die KI-Verordnung unbeschadet der Regeln anderer Rechtsakte der Union zu Verbraucherschutz, Produktsicherheit und Datenschutz."
+        beleg: "(83)"
+    nicht_erfasst:
+      - text: "Dass ein System in diesen Leitlinien als Beispiel genannt wird, bedeutet nicht, dass sein Einsatz ohne Weiteres rechtmäßig ist; er muss weiterhin dem übrigen anwendbaren Recht entsprechen."
+        beleg: "(3)"
+
+filter:
+  einleitung: "Artikel 6 Absatz 3 erlaubt Anbietern von Systemen, die nach Anhang III aufgeführt sind, diese Systeme von der Einstufung als hochriskant auszunehmen, obwohl die Voraussetzungen nach der Zweckbestimmung erfüllt sind; dieser Filter sorgt für Verhältnismäßigkeit im Einzelfall (84). Nach Artikel 6 Absatz 3 darf ein Anbieter ein System ausnehmen, wenn eine der folgenden Bedingungen erfüllt ist: das System soll eine enge Verfahrensaufgabe erfüllen; es soll das Ergebnis einer zuvor abgeschlossenen menschlichen Tätigkeit verbessern; es soll Entscheidungsmuster oder Abweichungen von früheren Entscheidungsmustern erkennen und ist nicht dazu bestimmt, die zuvor abgeschlossene menschliche Beurteilung ohne ordentliche menschliche Nachprüfung zu ersetzen oder zu beeinflussen; oder es soll eine vorbereitende Aufgabe zu einer Beurteilung erfüllen, die für die im Anhang III aufgeführten Anwendungsfälle erheblich ist (86). Der Filter kann angewandt werden, wenn das System eine der Bedingungen der Buchstaben a bis d erfüllt; der Gedanke dahinter ist, dass ein System, das eine dieser Bedingungen erfüllt, das Ergebnis der Entscheidungsfindung üblicherweise nicht wesentlich beeinflusst und deshalb kein erhebliches Schadensrisiko begründet (85). Der Filter gilt nur für Systeme, die überhaupt nach Artikel 6 Absatz 2 hochriskant wären, nicht für Systeme, die nach Artikel 6 Absatz 1 hochriskant sind (87). Die vier Bedingungen sind abschließend, stehen aber als Alternativen nebeneinander: Erfüllt das System mindestens eine, darf angenommen werden, dass es kein erhebliches Risiko für Gesundheit, Sicherheit oder Grundrechte begründet, auch wenn Restrisiken bleiben; eine gesonderte Risikoprüfung daneben gibt es nicht (88). Die Entscheidung beruht auf einer Selbstbewertung des Anbieters, und weil Artikel 6 Absatz 3 eine Ausnahme von Regeln ist, die unter anderem die Grundrechte schützen, sind die Bedingungen eng auszulegen und im Licht des ersten Unterabsatzes zu verstehen, dass das System das Ergebnis der Entscheidung nicht wesentlich beeinflussen soll (88). Ein System nach Anhang III ist immer hochriskant, wenn es Profiling vornimmt (89). Und selbst wenn eine Bedingung erfüllt ist, kann das System den Filter nicht nutzen, wenn es Teil eines zusammengesetzten oder verflochtenen Systems ist, dessen gemeinsame Zweckbestimmung oder gemeinsame Ausgaben eine Einzelfallentscheidung in einem hochriskanten Anwendungsfall wesentlich beeinflussen (90)."
+  reihenfolge: "Erst prüfen, ob eine der vier Bedingungen zutrifft; dann die Gegenausnahme Profiling. Nimmt das System Profiling vor, bleibt es hochriskant, auch wenn eine Bedingung zutrifft (89)."
+  bedingungen:
+
+    - kennung: "enge-verfahrensaufgabe"
+      frage: "Beschränkt sich die Aufgabe des Systems darauf, Daten einzuordnen oder ihre Form, ihren Aufbau, ihre Darstellung oder ihre beschreibenden Angaben zu ändern, ohne den Inhalt zu bewerten?"
+      rechtsgrundlage: "Artikel 6 Absatz 3 Buchstabe a"
+      beleg: "(91)"
+      erfasst:
+        - text: "Ein System, das unstrukturierte Daten in strukturierte Daten umwandelt."
+          beleg: "(91)"
+        - text: "Ein System, das eingehende Dokumente in Kategorien einordnet."
+          beleg: "(91)"
+        - text: "Ein System, das Doppeleinträge erkennt."
+          beleg: "(91)"
+        - text: "Systeme, die Daten einordnen, das Format, den Aufbau oder die Darstellung von Daten ändern oder deren beschreibende Angaben ändern."
+          beleg: "(92)"
+        - text: "Ein System, das eingehende Bewerbungen für die Aufnahme an einer Schule oder Hochschule nach der angestrebten Klassenstufe oder Bildungsstufe sortiert und sie in vorab festgelegte Kategorien einordnet, ohne die Geeignetheit der Bewerber zu bewerten oder Aufnahmeentscheidungen zu treffen."
+          beleg: "(92)"
+        - text: "Ein System, das unvollständige Formulare erkennt und kennzeichnet, damit sie zur richtigen Ergänzung an den Antragsteller zurückgehen."
+          beleg: "(93)"
+      nicht_erfasst:
+        - text: "Nicht jedes System, das einordnet, erfüllt diese Bedingung."
+          beleg: "(93)"
+        - text: "Systeme, die ein Werturteil über Daten treffen, die für die Entscheidung erheblich sind - zum Beispiel Eingangsdaten als nützlich oder weniger nützlich für die menschliche Beurteilung einordnen - haben voraussichtlich eine breitere Wirkung auf den Beurteilungsvorgang und erfüllen die Bedingung nicht."
+          beleg: "(93)"
+        - text: "Systeme, die Eingangsdaten eine Bewertungszahl oder eine Rangfolge zuweisen, erfüllen die Bedingung nicht."
+          beleg: "(93)"
+        - text: "Eine Rangfolge, die Dokumente bewertet, aussortiert oder verbirgt, eine Kennzeichnung von Material als nützlich oder weniger nützlich sowie Vorschläge zu nächsten Schritten oder Einschätzungen der Glaubwürdigkeit nehmen das System aus dieser Bedingung heraus."
+          beleg: "(93)"
+
+    - kennung: "verbesserung-menschlicher-taetigkeit"
+      frage: "Setzt das System erst ein, nachdem ein Mensch seine Tätigkeit abgeschlossen hat, und verfeinert es dieses fertige Ergebnis, ohne es inhaltlich umzustoßen?"
+      rechtsgrundlage: "Artikel 6 Absatz 3 Buchstabe b"
+      beleg: "(94)"
+      erfasst:
+        - text: "Erstes von drei zugleich erforderlichen Merkmalen: Eine menschliche Tätigkeit ist abgeschlossen worden, zum Beispiel eine menschliche Beurteilung oder Entscheidung."
+          beleg: "(94)"
+        - text: "Zweites Merkmal: Der Abschluss der Tätigkeit hat zu einem Ergebnis geführt."
+          beleg: "(94)"
+        - text: "Drittes Merkmal: Das Ergebnis wird durch das System verbessert, zum Beispiel klarer gefasst, ohne das Ergebnis oder die Schlussfolgerung zu ändern."
+          beleg: "(94)"
+        - text: "Das System legt nur eine zusätzliche Schicht über eine menschliche Tätigkeit, mit entsprechend verringertem Risiko; als Beispiel nennt der Text ein System, das nachträglich einen zuvor verfassten Text verbessert."
+          beleg: "(95)"
+        - text: "Hilfsfunktionen zur Verbesserung: Systeme, die Fehler oder Widersprüche in abgeschlossener menschlicher Arbeit kennzeichnen und damit die Qualitätssicherung übernehmen."
+          beleg: "(96)"
+        - text: "Systeme, die Schlussfolgerungen den Beweisunterlagen zuordnen, um die Nachvollziehbarkeit einer Entscheidung zu stützen, ohne das menschliche Urteil zu ersetzen."
+          beleg: "(96)"
+        - text: "Systeme, die von Menschen geprüften Inhalt für die Zusammenarbeit zwischen Systemen oder für die Zugänglichkeit umwandeln und damit die menschliche Ausgabe umformen, aber nicht ersetzen."
+          beleg: "(96)"
+      nicht_erfasst:
+        - text: "Das System darf die menschliche Tätigkeit nicht ersetzen und nicht selbstständig ausführen."
+          beleg: "(95)"
+        - text: "Verbessern bedeutet, dass Änderungen möglich sind, diese aber die zuvor abgeschlossene menschliche Tätigkeit nicht umkehren und nicht zu einer vollständigen Überarbeitung oder Ersetzung führen dürfen."
+          beleg: "(96)"
+        - text: "Der Gesetzgeber hat bewusst verbessern und nicht überprüfen gewählt: Das System darf kein wesentlich anderes Ergebnis liefern als das zuvor menschlich erarbeitete, sondern dieses nur bestätigen oder verfeinern."
+          beleg: "(96)"
+        - text: "Eine Verbesserung durch das System darf die Rechte, den Schutz sowie die rechtliche oder wirtschaftliche Stellung der Personen nicht ändern, die von der Ausgabe oder von darauf gestützten Entscheidungen betroffen sein können."
+          beleg: "(96)"
+        - text: "Prüft ein System eine von einem Menschen getroffene Entscheidung, einen Plan oder eine Konstruktion und liefert eine wesentlich andere Lösung, ist das kein Verbessern im Sinne des Buchstabens b, weil es sich nicht auf Verfeinern oder Aufwerten beschränkt."
+          beleg: "(96)"
+
+    - kennung: "erkennung-von-entscheidungsmustern"
+      frage: "Soll das System ausschließlich im Nachhinein feststellen, ob eine abgeschlossene menschliche Beurteilung zu früheren Entscheidungsmustern passt oder davon abweicht, und das Ergebnis nur einer ordentlichen menschlichen Nachprüfung mitteilen?"
+      rechtsgrundlage: "Artikel 6 Absatz 3 Buchstabe c"
+      beleg: "(97)"
+      erfasst:
+        - text: "Als Beispiel nennt der Text ein System, das Unstimmigkeiten oder Auffälligkeiten im Bewertungsmuster einer Lehrkraft erkennt."
+          beleg: "(97)"
+        - text: "Entscheidungsmuster sind eng auszulegen: Muster oder Entwicklungen, die aus vergangenen Daten abgeleitet werden und vorhersagen oder untersuchen, wie Entscheidungen zu einem bestimmten Gegenstand im Laufe der Zeit getroffen werden."
+          beleg: "(98)"
+        - text: "Anders als die übrigen Bedingungen lässt Buchstabe c dem System eine inhaltlich größere Rolle: Es darf die menschliche Beurteilung mit früheren Entscheidungen vergleichen und dieser Vergleich darf eine menschliche Nachprüfung anstoßen, die die zuvor abgeschlossene Beurteilung beeinflusst oder ersetzt."
+          beleg: "(99)"
+        - text: "Erste Grenze: Die menschliche Beurteilung muss abgeschlossen sein, das heißt alle notwendigen Schritte des Beurteilungsvorgangs müssen getan sein."
+          beleg: "(100)"
+        - text: "Zweite Grenze: Das System darf nur einen nachträglichen Vergleich vornehmen, also feststellen, ob eine jetzige Entscheidung zu früheren Mustern oder Entscheidungen passt."
+          beleg: "(101)"
+        - text: "Dritte Grenze: Das System darf die zuvor abgeschlossene menschliche Beurteilung nicht ohne ordentliche menschliche Nachprüfung ersetzen oder beeinflussen. Ordentlich heißt, dass die Nachprüfung nach dem Lauf des Systems gehaltvoll und umfassend ist und zusammen mit dem Ergebnis des Systems die verschiedenen Punkte berücksichtigt, die bei der zuvor abgeschlossenen Beurteilung eine Rolle gespielt haben."
+          beleg: "(102)"
+        - text: "Damit eine ordentliche Nachprüfung möglich ist, darf das System nicht nur kennzeichnen, sondern muss auch Angaben zu den Abweichungen liefern; es soll lediglich unterrichten, zum Beispiel durch Auswertungswerkzeuge für Qualitätssicherung und Statistik."
+          beleg: "(102)"
+      nicht_erfasst:
+        - text: "Das System darf aus früheren Entscheidungen keine erheblichen Maßstäbe ableiten und auf dieser Grundlage keine neue Beurteilung vorschlagen."
+          beleg: "(101)"
+        - text: "Die Ausgabe darf auf Abweichungen von früher getroffenen Entscheidungen hinweisen, aber die Eingaben nicht ändern und die zugrunde liegende Begründung nicht umstellen."
+          beleg: "(102)"
+        - text: "Das System darf die menschliche Beurteilung nicht ersetzen."
+          beleg: "(102)"
+
+    - kennung: "vorbereitende-aufgabe"
+      frage: "Findet die Aufgabe des Systems vor dem eigentlichen Beurteilungsvorgang statt und liefert sie nur allgemeines Material oder Struktur dafür, keine Bewertung und keine Empfehlung zum Einzelfall?"
+      rechtsgrundlage: "Artikel 6 Absatz 3 Buchstabe d"
+      beleg: "(103)"
+      erfasst:
+        - text: "Vorbereitend meint Aufgaben, die vor dem eigentlichen Beurteilungsvorgang anfallen; darin unterscheidet sich Buchstabe d von Buchstabe a, dessen enge Verfahrensaufgabe auch während des Beurteilungsvorgangs anfallen kann, solange sie klar umschrieben und im Umfang begrenzt ist. Fällt eine enge Verfahrensaufgabe vor die Beurteilung und ist sie vorbereitender Natur, können beide Buchstaben zugleich zutreffen."
+          beleg: "(104)"
+        - text: "Die vorbereitende Natur muss so ausgeprägt sein, dass die mögliche Wirkung der Ausgabe für die nachfolgende Beurteilung ein sehr geringes Risiko darstellt."
+          beleg: "(105)"
+        - text: "Ein System beeinflusst das Ergebnis der Entscheidungsfindung nicht wesentlich, wenn es keine Wirkung auf den Inhalt und damit auf das Ergebnis der Entscheidung hat, gleich ob diese menschlich oder maschinell getroffen wird."
+          beleg: "(105)"
+        - text: "Als Beispiele nennt der Text Verzeichnen, Suchen, Verarbeiten und Verknüpfen: Solche Aufgaben geben den Eingaben für die spätere Beurteilung Struktur, liefern aber selbst keine Beurteilung, die zu einem Ergebnis führt."
+          beleg: "(106)"
+        - text: "Entscheidend ist die Rolle der Aufgabe im Entscheidungsvorgang und ihre Nähe zur endgültigen menschlichen Entscheidung; ist eine Aufgabe vorbereitend, kann Buchstabe d unabhängig vom Fachgebiet des Einsatzes greifen."
+          beleg: "(107)"
+        - text: "Soll die Ausgabe die Beurteilung eines menschlichen Bearbeiters unterstützen, ist die Aufgabe nur dann vorbereitend, wenn die Ausgabe eine allgemeine Eingabe oder ein allgemeiner Umstand ist, zum Beispiel ergänzende Angaben, die den Entscheidungsvorgang des Bearbeiters stützen."
+          beleg: "(108)"
+      nicht_erfasst:
+        - text: "Soll das System eine bestimmte Empfehlung oder eine Bewertung des Einzelfalls erzeugen, spielt es eine ausschlaggebende Rolle in der Beurteilung oder Entscheidung und erfüllt die Bedingung nicht."
+          beleg: "(108)"
+        - text: "Aufgaben, die während des Beurteilungsvorgangs anfallen, sind nicht vorbereitend; sie können allenfalls als enge Verfahrensaufgabe nach Buchstabe a in Betracht kommen."
+          beleg: "(104)"
+
+  gegenausnahme_profiling:
+    frage: "Verarbeitet das System personenbezogene Daten mit dem Ziel, persönliche Aspekte eines Menschen zu bewerten - also etwas vorherzusagen, einzuschätzen oder zu beurteilen?"
+    beleg: "(110)"
+    erlaeuterung: "Lautet die Antwort Ja, nimmt das System Profiling vor: Ein im Anhang III genanntes System ist immer als hochriskant einzustufen, wenn es Profiling vornimmt, der Filter ist dann gesperrt, auch wenn eine der vier Bedingungen zutrifft (89). Artikel 6 Absatz 3 lässt den Filter nicht zu, wenn ein KI-System Profiling natürlicher Personen vornimmt; Artikel 3 Nummer 52 verweist für den Begriff auf Artikel 4 Nummer 4 der Datenschutz-Grundverordnung (109). Profiling ist jede selbsttätige Form der Verarbeitung, die an personenbezogenen Daten vorgenommen wird mit dem Ziel, bestimmte persönliche Aspekte einer natürlichen Person zu bewerten; die Begriffsbestimmung hat drei Merkmale, die zugleich vorliegen müssen: erstens eine selbsttätige Form der Verarbeitung, zweitens Verarbeitung personenbezogener Daten, drittens das Ziel, persönliche Aspekte einer natürlichen Person zu bewerten (110). Nur wenn alle drei Merkmale erfüllt sind, entfallen die Ausnahmen des Artikels 6 Absatz 3; das Merkmal der selbsttätigen Verarbeitung ist bei KI-Systemen immer erfüllt, deshalb müssen Anbieter prüfen, ob die Eingabedaten personenbezogene Daten umfassen und ob das System persönliche Aspekte einer Person bewerten soll (111). Eine solche Bewertung erfolgt üblicherweise, um persönliche Aspekte zu untersuchen oder vorherzusagen, etwa Arbeitsleistung, wirtschaftliche Lage, Gesundheit, persönliche Vorlieben, Interessen, Zuverlässigkeit, Verhalten, Aufenthaltsort oder Bewegungen; Profiling bedeutet also, Angaben über eine Person oder Gruppe zu nutzen und deren Merkmale oder Verhaltensmuster zu bewerten, um sie einer Kategorie oder Gruppe zuzuordnen, insbesondere um etwa ihre Fähigkeit zur Erfüllung einer Aufgabe, ihre Interessen oder ihr wahrscheinliches Verhalten zu untersuchen, daraus zu folgern oder vorherzusagen (111). Werden personenbezogene Daten nicht dazu genutzt, persönliche Merkmale zu bewerten - wobei eine Bewertung immer eine Form von Vorhersage, Einschätzung oder Urteil enthalten muss -, liegt kein Profiling vor; eine einfache Einordnung von Personen nach persönlichen Merkmalen wie Alter, Geschlecht und Körpergröße führt nicht zwangsläufig zu Profiling, und ob eine Bewertung Vorhersagen oder Schlussfolgerungen enthält, hängt vom Zweck der Einordnung ab (112)."
+
+beispiele:
+
+  - lage: "Ein Anbieter entwickelt ein System, das die Bonität des Inhabers eines Kleinbetriebs oder einer Firma bestimmen soll, die keine Rechtsperson ist."
+    wertung: "kein_hochrisiko"
+    begruendung: "Ein solches System soll keine natürliche Person bewerten, wenn es nur Betriebs- oder Firmendaten verwendet."
+    beleg: "(73)"
+
+  - lage: "Ein Anbieter entwickelt ein System, das die Kreditwürdigkeit von Firmen anhand ihrer Daten, Bilanzen und Abschlüsse bewertet."
+    wertung: "kein_hochrisiko"
+    begruendung: "Solange das System nicht die persönlichen Finanzen natürlicher Personen bewerten soll, ist seine vorgesehene Verwendung keine Bewertung natürlicher Personen und das System deshalb nicht hochriskant."
+    beleg: "(74)"
+
+  - lage: "Der Inhaber einer Rechtsperson wird auf Kreditwürdigkeit geprüft, weil er einen Firmenkredit besichert."
+    wertung: "kein_hochrisiko"
+    begruendung: "Der Inhaber fällt nicht unter Nummer 5 Buchstabe b, obwohl er als natürliche Person handelt, weil der Kredit vorrangig der Firma und nicht der Einzelperson zugutekommt."
+    beleg: "(74)"
+
+  - lage: "Eine Buchhaltungsfirma setzt ein System ein, das Geldwäsche erkennt, um ihre Pflichten aus dem Geldwäscherecht der Europäischen Union zu erfüllen."
+    wertung: "kein_hochrisiko"
+    begruendung: "Die Firma handelt nicht im Namen der Strafverfolgungsbehörden, sondern im eigenen Namen; das System ist deshalb im Bereich Strafverfolgung nach Nummer 6 des Anhangs III nicht hochriskant."
+    beleg: "(81)"
+
+  - lage: "Ein System sortiert eingehende Bewerbungen für die Aufnahme an einer Schule oder Hochschule nach der angestrebten Klassenstufe oder Bildungsstufe und ordnet sie in vorab festgelegte Kategorien ein, etwa Grundschule, weiterführende Schule, Oberstufe oder bestimmte Klassenstufen, auf Grundlage der Angaben in der Bewerbung."
+    wertung: "ausnahme_greift"
+    begruendung: "Das System erfüllt eine enge Verfahrensaufgabe, weil es die Geeignetheit der Bewerber nicht bewertet und keine Aufnahmeentscheidungen trifft."
+    beleg: "(92)"
+
+  - lage: "Ein System im Bereich Migration, Grenzkontrolle und Grenzverwaltung durchsucht jede eingereichte Visumsakte, wandelt eingelesene Dokumente in Text zum Verzeichnen um, legt Bestandteile selbsttätig in feste, vorab bestimmte Ordner wie Ausweispapiere, Reiseverlauf, Nachweise und Übersetzungen ab und erkennt vollständig gleiche Doppelanlagen und kennzeichnet sie als Doppel."
+    wertung: "ausnahme_greift"
+    begruendung: "Solche engen Verfahrensaufgaben können den Filter nutzen, sofern das System keine Rangfolge bildet, die Dokumente bewertet, aussortiert oder verbirgt, kein Material als nützlich oder weniger nützlich kennzeichnet und keine nächsten Schritte oder Einschätzungen der Glaubwürdigkeit vorschlägt."
+    beleg: "(93)"
+
+  - lage: "Ein System erkennt unvollständige Formulare und kennzeichnet sie, damit sie zur richtigen Ergänzung an den Antragsteller zurückgehen."
+    wertung: "ausnahme_greift"
+    begruendung: "Das kann als enge Verfahrensaufgabe eingeordnet werden und den Filter nutzen."
+    beleg: "(93)"
+
+  - lage: "Ein System prüft eine von einem Menschen getroffene Entscheidung, einen Plan oder eine Konstruktion und liefert eine wesentlich andere Lösung."
+    wertung: "hochrisiko"
+    begruendung: "Das ist kein Verbessern eines zuvor abgeschlossenen menschlichen Ergebnisses im Sinne des Artikels 6 Absatz 3 Buchstabe b, weil es sich nicht auf Verfeinern oder Aufwerten des Ergebnisses beschränkt; die Bedingung trägt die Ausnahme nicht."
+    beleg: "(96)"
+
+  - lage: "Ein System kennzeichnet Fehler oder Widersprüche in abgeschlossener menschlicher Arbeit und übernimmt damit eine Aufgabe der Qualitätssicherung."
+    wertung: "ausnahme_greift"
+    begruendung: "Der Text nennt das als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+    beleg: "(96)"
+
+  - lage: "Ein System ordnet Schlussfolgerungen den Beweisunterlagen zu, um die Nachvollziehbarkeit einer Entscheidung zu stützen, ohne das menschliche Urteil zu ersetzen."
+    wertung: "ausnahme_greift"
+    begruendung: "Der Text nennt das als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+    beleg: "(96)"
+
+  - lage: "Ein System wandelt von Menschen geprüften Inhalt für die Zusammenarbeit zwischen Systemen oder für die Zugänglichkeit um."
+    wertung: "ausnahme_greift"
+    begruendung: "Das System formt die menschliche Ausgabe um, ersetzt sie aber nicht; der Text nennt es als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+    beleg: "(96)"
+
+  - lage: "Ein System soll früher abgeschlossene Prüfungen der Anspruchsberechtigung durch Bedienstete einer öffentlichen Verwaltung auswerten, um Entscheidungsmuster oder Abweichungen für Qualitätssicherung und Berichtswesen zu erkennen, ohne Ergebnisse für laufende Fälle vorzuschlagen und ohne die Leistung der Beschäftigten zu bewerten, etwa im Rahmen der jährlichen Beurteilung."
+    wertung: "ausnahme_greift"
+    begruendung: "Wird das System erst eingesetzt, nachdem die Bediensteten ihre Beurteilungen getroffen haben, kann es für die Ausnahme nach Artikel 6 Absatz 3 Buchstabe c in Betracht kommen und ist kein Profiling. Der Vergleich erlaubt dem Bediensteten, vom System erkannte Abweichungen von früheren Entscheidungsmustern in ähnlichen Fällen zu sehen, samt allen Punkten und Nachweisen, die bei der ersten Beurteilung berücksichtigt wurden; der Beurteiler oder eine Qualitätssicherung entscheidet nach ordentlicher menschlicher Nachprüfung, ob die erkannten Abweichungen für die abgeschlossene Beurteilung erheblich sind."
+    beleg: "(102)"
+
+  - lage: "Ein System soll Daten bewerten, die für eine Entscheidung erheblich sind, zum Beispiel über öffentliche Leistungen, und liefert dem menschlichen Bearbeiter Hinweise auf die einschlägigen Rechtsvorschriften, Angaben zur Zuständigkeit und möglicherweise bestehende interne Leitlinien, die für den Entscheidungsvorgang erheblich sind."
+    wertung: "ausnahme_greift"
+    begruendung: "Die Aufgaben können als vorbereitend im Sinne des Artikels 6 Absatz 3 Buchstabe d gelten, weil sie den konkreten Fall weder untersuchen noch bewerten und keine Ausgabe erzeugen, die die Entscheidung wesentlich beeinflusst; das System verweist auf allgemeine Angaben als ergänzende Information für den menschlichen Beurteiler."
+    beleg: "(108)"
+
+  - lage: "Ein System der Zollbehörden bewertet das Risiko, dass in die Europäische Union eingehende Waren dem an der Grenze anwendbaren Recht nicht entsprechen, auf Grundlage von Angaben zu den Wirtschaftsbeteiligten der Waren, etwa Behälternummer, Warenbeschreibung, Streckenführung, Transport und Zahlungsweise."
+    wertung: "ausnahme_greift"
+    begruendung: "Die Verarbeitung bewertet keine persönlichen Aspekte einer natürlichen Person, sondern das Risiko nicht vorschriftsmäßiger Sendungen; eine solche Bewertung ist deshalb kein Profiling und sperrt den Filter nicht."
+    beleg: "(111)"
+
+  - lage: "Ein System soll bei der Einstellung von Beschäftigten eingesetzt werden. Es erkennt Abweichungen von früheren Entscheidungsmustern bei der Einstellung, bevor die Einstellung abgeschlossen ist, um mögliche Unstimmigkeiten und Abweichungen von den Einstellungsregeln des Unternehmens zu erkennen, und bewertet dabei die persönlichen Merkmale der Personen, die die Bewerbungsgespräche führen."
+    wertung: "hochrisiko"
+    begruendung: "Die Bewertung der Entscheidungen der Gesprächsführenden und ihrer persönlichen Merkmale zur Untersuchung möglicher Abweichungen von früheren Entscheidungsmustern ist Profiling. Die Verwendung könnte unter Artikel 6 Absatz 3 Buchstabe c fallen, aber weil das System personenbezogene Daten verarbeitet, um die Gesprächsführenden zu profilieren, ist der Filter nicht anwendbar."
+    beleg: "(112)"
+
+  - lage: "Ein System ordnet Personen einfach nach persönlichen Merkmalen wie Alter, Geschlecht und Körpergröße ein."
+    wertung: "ausnahme_greift"
+    begruendung: "Eine solche einfache Einordnung führt nicht zwangsläufig zu Profiling; ob eine Bewertung Vorhersagen oder Schlussfolgerungen enthält, hängt vom Zweck der Einordnung ab. Ohne Vorhersage, Einschätzung oder Urteil über persönliche Merkmale liegt kein Profiling vor und der Filter ist nicht gesperrt."
+    beleg: "(112)"
+
+pflichten_wenn_filter_greift:
+  - text: "Ob ein System den Filter nutzen darf, hängt von einer Selbstbewertung des Anbieters ab."
+    beleg: "(113)"
+  - text: "Greift der Filter, ist das System nicht hochriskant, und weder die Pflichten der Anbieter noch die der Betreiber aus Kapitel III gelten dafür; Artikel 6 Absatz 4 sieht aber eigene Pflichten vor."
+    beleg: "(114)"
+  - text: "Erste eigene Pflicht: die Bewertung dokumentieren, bevor das System in Verkehr gebracht oder in Betrieb genommen wird."
+    beleg: "(114)"
+  - text: "Zweite eigene Pflicht: das System in der Datenbank der Europäischen Union nach Artikel 71 eintragen, damit ausgenommene Systeme nachvollziehbar bleiben."
+    beleg: "(114)"
+  - text: "Die Bewertung muss die Zweckbestimmung des Systems beschreiben."
+    beleg: "(115)"
+  - text: "Die Bewertung muss beschreiben, warum das System nach Artikel 6 Absatz 2 als hochriskant gilt."
+    beleg: "(115)"
+  - text: "Die Bewertung muss beschreiben, welche Bedingung oder Bedingungen des Artikels 6 Absatz 3 als erfüllt angesehen werden und warum."
+    beleg: "(115)"
+  - text: "Die Bewertung muss beschreiben, warum das System kein Profiling vornimmt; andernfalls darf der Filter nicht angewandt werden."
+    beleg: "(115)"
+  - text: "Die Bewertung ist so festzuhalten, dass sie der Marktaufsichtsbehörde jederzeit auf Verlangen vorgelegt werden kann; Betreiber, die Systeme beschaffen, sollen die Nutzung der Ausnahme in der Datenbank nach Artikel 71 zur eigenen Sorgfalt prüfen."
+    beleg: "(116)"
+  - text: "Marktaufsichtsbehörden können nach Artikel 80 die Einstufung eines Systems bewerten, den Anbieter auffordern, das System mit den Anforderungen für hochriskante Systeme in Einklang zu bringen, und Abhilfemaßnahmen verlangen."
+    beleg: "(117)"
+  - text: "Stellt die Marktaufsichtsbehörde fest, dass ein System falsch als nicht hochriskant eingestuft wurde, um die Anforderungen und Pflichten zu umgehen, kann sie dem Anbieter nach Artikel 99 Geldbußen auferlegen."
+    beleg: "(117)"

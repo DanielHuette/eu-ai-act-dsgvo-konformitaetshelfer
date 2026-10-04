@@ -30,7 +30,7 @@ schritt() {
 schritt "ruff — Programmtext auf Regeln"  python3 -m ruff check .
 schritt "ruff format — Formatierung"      python3 -m ruff format --check .
 schritt "mypy — Typen"                    python3 -m mypy src
-schritt "bandit — unsichere Muster"       python3 -m bandit -c pyproject.toml -r src scripts android -q
+schritt "bandit — unsichere Muster"       python3 -m bandit -c pyproject.toml -r src scripts verpacken -q
 # pip-audit prüft, was in der Umgebung liegt. Auf der Bauanlage ist das genau
 # dieses Projekt samt Abhängigkeiten; auf einem Entwicklungsrechner liegt
 # daneben alles Mögliche, und dessen Schwachstellen sagen über dieses Projekt
@@ -50,6 +50,13 @@ PY
 schritt "pip-audit — Schwachstellen"      python3 -m pip_audit -r "$pruefliste"
 rm -f "$pruefliste"
 schritt "pytest — Prüfungen"              python3 -m pytest -m "not langsam and not netz and not container" -q
+# Die Einstufung steht zweimal da: in src/helfer/einstufung/fragefolge.py für
+# das Programm und in web/durchlauf.js für die Webseite. Zwei Fassungen
+# derselben Logik laufen auseinander — beim Bau hat das dreissig von 217
+# amtlichen Beispielen gekostet. Darum fahren hier 400 gewürfelte
+# Antwortmuster durch beide Fassungen und werden Schritt für Schritt
+# verglichen. Weicht einer ab, bricht der Schritt ab.
+schritt "Webseite und Programm gleich"    python3 scripts/pruefe_zwei_wege.py --laeufe 400
 
 if [[ $mit_allem -eq 1 ]]; then
   schritt "pytest — Container ohne Netz"  python3 -m pytest -m container -q

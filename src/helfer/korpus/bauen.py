@@ -2,7 +2,7 @@
 
 Der Korpus ist eine JSONL-Datei: eine Zeile je Einheit. Diese Form ist mit
 Absicht einfach gewählt — sie ist im Git lesbar, lässt sich zeilenweise prüfen,
-und die Android-App kann sie ohne Python einlesen.
+und jedes Werkzeug kann sie zeilenweise ohne Python einlesen.
 
 Quellen und ihre Rolle:
 
@@ -31,15 +31,16 @@ from pathlib import Path
 import yaml
 from bs4 import XMLParsedAsHTMLWarning
 
+from helfer import orte
 from helfer.korpus.deutsche_quellen import artikeldateien, bdsg
 from helfer.korpus.eurlex import aus_datei as eurlex_zerlegen
 from helfer.modell import Einheit, Einheitsart, Rechtsakt
 
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
-WURZEL = Path(__file__).resolve().parents[3]
-ROH = WURZEL / "daten" / "roh"
-AUFBEREITET = WURZEL / "daten" / "aufbereitet"
+WURZEL = orte.wurzel()
+ROH = orte.roh()
+AUFBEREITET = orte.aufbereitet()
 KORPUS = AUFBEREITET / "korpus.jsonl"
 BEFUND = AUFBEREITET / "korpus_befund.json"
 
@@ -172,7 +173,7 @@ def sammeln() -> tuple[list[Einheit], dict]:
     einheiten.extend(bdsg_einheiten)
     befund["quellen"]["bdsg.html"] = {"einheiten": len(bdsg_einheiten)}
 
-    faelle = aus_faellen(WURZEL / "daten" / "faelle")
+    faelle = aus_faellen(orte.faelle())
     einheiten.extend(faelle)
     befund["quellen"]["faelle"] = {"fallbeispiele": len(faelle)}
 

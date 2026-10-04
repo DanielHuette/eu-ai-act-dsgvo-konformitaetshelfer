@@ -1,0 +1,711 @@
+[
+ {
+  "index": 72,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Anwendungsfall des Anhangs III. Der Filter des Artikels 6 Absatz 3 wird erst nach einem getroffenen Punkt gefragt, also hier nie erreicht; das Beispiel zeigt nur, dass die Bewertung von Warenrisiko kein Profiling ist."
+ },
+ {
+  "index": 73,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 14,
+  "fundstellen": []
+ },
+ {
+  "index": 74,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 75,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 25,
+  "fundstellen": []
+ },
+ {
+  "index": 76,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 77,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": []
+ },
+ {
+  "index": 78,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 79,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 26,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ]
+ },
+ {
+  "index": 80,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 54,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 81,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 54,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 82,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Der Verbund zu Anhang III Nummer 2 verlangt zwingend eine foermlich benannte kritische Einrichtung. Bereich Strassenverkehr und Schutzaufgabe tragen; wird allein diese Frage mit Ja beantwortet, ergibt der Durchlauf hochrisiko_anhang_iii. Anhang III Nummer 2 verlangt keine solche Benennung."
+ },
+ {
+  "index": 83,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 84,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 85,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": []
+ },
+ {
+  "index": 86,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": []
+ },
+ {
+  "index": 87,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 88,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Derselbe Verbundfehler: Bereich Trinkwasser und Schutzaufgabe tragen, nur die verlangte Benennung als kritische Einrichtung steht nicht in der Lage. Mit Ja darauf ergibt der Durchlauf hochrisiko_anhang_iii."
+ },
+ {
+  "index": 89,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 90,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 91,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 92,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": "(a) Es fehlt die Frage, ob das System ausschliesslich Betriebs- oder Firmendaten verwendet. Der Inhaber ist eine natuerliche Person, darum traegt nr-5-b; amtlich entscheidet aber die Herkunft der Daten."
+ },
+ {
+  "index": 93,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 41,
+  "fundstellen": []
+ },
+ {
+  "index": 94,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 95,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 54,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 96,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 97,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": []
+ },
+ {
+  "index": 98,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 99,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) und (b) Erstens derselbe Verbundfehler. Zweitens nimmt die Frage nach Schaeden, die Dritte verursachen, den Umfeldschutz einer Stromanlage heraus, obwohl er amtlich erfasst ist; mit Nein darauf und bejahter Benennung ergibt der Durchlauf hochrisiko_anhang_iii."
+ },
+ {
+  "index": 100,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 25,
+  "fundstellen": []
+ },
+ {
+  "index": 101,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 102,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 48,
+  "fundstellen": []
+ },
+ {
+  "index": 103,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 16,
+  "fundstellen": []
+ },
+ {
+  "index": 104,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": []
+ },
+ {
+  "index": 105,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 42,
+  "fundstellen": []
+ },
+ {
+  "index": 106,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 107,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 31,
+  "fundstellen": []
+ },
+ {
+  "index": 108,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 4,
+  "fragen": 16,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt nicht, dass eine Strafverfolgungsbehoerde das System einsetzt. Ohne diesen Bereich ist nr-6-e nicht erreichbar."
+ },
+ {
+  "index": 109,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 110,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 111,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 112,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 27,
+  "fundstellen": []
+ },
+ {
+  "index": 113,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 52,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ]
+ },
+ {
+  "index": 114,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Anwendungsfall des Anhangs III. Die enge Verfahrensaufgabe wird erst nach einem getroffenen Punkt gefragt."
+ },
+ {
+  "index": 115,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 35,
+  "fundstellen": []
+ },
+ {
+  "index": 116,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 117,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ]
+ },
+ {
+  "index": 118,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 119,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 50,
+  "fundstellen": []
+ },
+ {
+  "index": 120,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 32,
+  "fundstellen": []
+ },
+ {
+  "index": 121,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 46,
+  "fundstellen": []
+ },
+ {
+  "index": 122,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 123,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-c"
+  ]
+ },
+ {
+  "index": 124,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-c"
+  ]
+ },
+ {
+  "index": 125,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 126,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 127,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ]
+ },
+ {
+  "index": 128,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 129,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": []
+ },
+ {
+  "index": 130,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 21,
+  "fundstellen": []
+ },
+ {
+  "index": 131,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 21,
+  "fundstellen": []
+ },
+ {
+  "index": 132,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ]
+ },
+ {
+  "index": 133,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 25,
+  "fundstellen": []
+ },
+ {
+  "index": 134,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 42,
+  "fundstellen": []
+ },
+ {
+  "index": 135,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 37,
+  "fundstellen": []
+ },
+ {
+  "index": 136,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 137,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 138,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": []
+ },
+ {
+  "index": 139,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 140,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 141,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Anwendungsfall des Anhangs III. Das Beispiel ist ein Gegenbeispiel zum Filter, der ohne getroffenen Punkt nie gefragt wird."
+ },
+ {
+  "index": 142,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 143,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 144,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 41,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-d"
+  ]
+ }
+]

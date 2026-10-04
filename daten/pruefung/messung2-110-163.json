@@ -1,0 +1,519 @@
+[
+ {
+  "index": 110,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 111,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 112,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 113,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 47,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Frage im Bestand fehlt: Zu Anhang III Nummer 1 Buchstabe a (und ebenso Buchstabe b) hat der Punkt keine einzige Tatbestandsfrage - alle sieben Folgefragen sind Ausnahmen. Ein Ja auf die Hauptfrage traegt den Punkt deshalb nie; nr-1-a und nr-1-b koennen im Durchlauf gar nicht hochriskant werden. Die Antworten des Mitarbeiters waren richtig (Wiedererkennen an Koerpermerkmalen, Abgleich mit einer Sammlung, kein bewusstes Mitmachen)."
+ },
+ {
+  "index": 114,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt das entscheidende Merkmal nicht: Sie sagt nicht, in welchem Bereich des Anhangs III das Formularwerkzeug laeuft. Der Filter des Artikels 6 Absatz 3 wird erst gefragt, wenn ein Punkt traegt - das ist rechtlich richtig, geht hier aber nicht, weil kein Bereich erkennbar ist. Ergebnis kein hohes Risiko statt Ausnahme greift."
+ },
+ {
+  "index": 115,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 116,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 37,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 117,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 118,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 40,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 119,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 120,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 39,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 121,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 40,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 122,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 123,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 36,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 124,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": "(b) Frage missverstaendlich: Die Hauptfrage zu Nummer 5 Buchstabe c lautet 'das Risiko einzelner Menschen bewerten oder deren Beitrag festlegen'. Das System rechnet auf Gruppenebene, legt damit aber den Beitrag jedes Gruppenmitglieds fest. Das Wort 'einzelner' laesst ein Gruppenmodell draussen aussehen, obwohl die amtliche Begruendung allein auf 'Es legt den Beitrag fest' abstellt. Mit Ja auf dieselbe Frage trifft der Durchlauf nr-5-c richtig."
+ },
+ {
+  "index": 125,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 126,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 44,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 127,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 128,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 17,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 129,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 130,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 131,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 132,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 133,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 134,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 135,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 25,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 136,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 137,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 36,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 138,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 139,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 17,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 140,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 36,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 141,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt das entscheidende Merkmal nicht: Sie sagt nicht, in welchem Bereich des Anhangs III das System arbeitet. Die amtliche Wertung sagt nur, dass die Filterbedingung des Buchstaben b hier nicht traegt - das setzt einen tragenden Punkt voraus, den die Lage nicht hergibt."
+ },
+ {
+  "index": 142,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 143,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 144,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 39,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 145,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 53,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 146,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 147,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 41,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 148,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 149,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 50,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 150,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 151,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 40,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 152,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 153,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 154,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 45,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a",
+   "KI-VO/anh-III/nr-3-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 155,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 17,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 156,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 17,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 157,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 49,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 158,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 159,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 160,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 36,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 161,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 162,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 163,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ }
+]

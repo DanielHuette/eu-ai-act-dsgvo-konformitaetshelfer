@@ -12,8 +12,8 @@ nach einem Schlüssel.
 
 * Was die Lücke erlaubt.
 * Wie man sie nachstellt, Schritt für Schritt.
-* Welche Fassung betroffen ist: Marke oder Commit, und ob Python-Teil oder
-  Android-App.
+* Welche Fassung betroffen ist: Marke oder Commit, und ob es die Webseite,
+  das fertige Paket oder den Quelltext betrifft.
 * Ihre Einschätzung, wen es trifft.
 
 ## Was Sie erwarten können
@@ -64,8 +64,11 @@ Damit niemand mehr annimmt, als geprüft wurde:
 * `bandit` und `pip-audit` laufen in der Prüfung, `dependabot` meldet neue
   Fassungen wöchentlich. Das ist Werkzeugprüfung, keine Durchsicht durch
   Menschen.
-* Das **Android-Paket ist nicht unterschrieben**. Woher ein Paket stammt, lässt
-  sich nur über den öffentlichen Lauf in GitHub Actions nachvollziehen.
+* Die **fertigen Pakete sind nicht unterschrieben**. Woher ein Paket stammt,
+  lässt sich nur über den öffentlichen Lauf in GitHub Actions nachvollziehen.
+  Eine Unterschrift für Windows und Mac setzt ein kostenpflichtiges Zertifikat
+  voraus. Auf dem Mac verlangt das System darum beim ersten Start den Weg über
+  das Kontextmenü.
 
 Einzelheiten dazu, wo Daten liegen und was ein Gerät verlässt:
 [docs/sicherheit.md](docs/sicherheit.md).

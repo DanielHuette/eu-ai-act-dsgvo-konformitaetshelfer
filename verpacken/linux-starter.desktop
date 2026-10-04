@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Konformitätshelfer
+Comment=EU-KI-Verordnung und Datenschutz-Grundverordnung: Einstufung in sechs Schritten
+Exec=sh -c 'cd "$(dirname "$(readlink -f %k)")" && ./Konformitaetshelfer'
+Terminal=true
+Categories=Office;Utility;
+Keywords=KI-Verordnung;EU AI Act;DSGVO;Konformität;Einstufung;

@@ -8,7 +8,6 @@
 # Aufruf:
 #   ./scripts/start.sh                 bauen und starten
 #   ./scripts/start.sh --klein         ohne das große Suchmodell (schnell)
-#   ./scripts/start.sh --mit-ollama    zusätzlich ein Sprachmodell im Verbund
 #   ./scripts/start.sh --neu           ohne Zwischenspeicher neu bauen
 #   ./scripts/start.sh --stopp         anhalten
 
@@ -31,11 +30,10 @@ gut()     { printf '%s✓%s %s\n' "$GRUEN" "$AUS" "$*"; }
 warnen()  { printf '%s!%s %s\n' "$GELB" "$AUS" "$*"; }
 abbruch() { printf '%s✗%s %s\n' "$ROT" "$AUS" "$*" >&2; exit 1; }
 
-KLEIN=0; MIT_OLLAMA=0; NEU=0; STOPP=0
+KLEIN=0; NEU=0; STOPP=0
 for arg in "$@"; do
   case "$arg" in
     --klein)      KLEIN=1 ;;
-    --mit-ollama) MIT_OLLAMA=1 ;;
     --neu)        NEU=1 ;;
     --stopp)      STOPP=1 ;;
     -h|--hilfe)   sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
@@ -126,7 +124,6 @@ gut "Abbild gebaut"
 # ------------------------------------------------------------ 5. Starten
 
 HOCH=("${COMPOSE[@]}")
-[[ $MIT_OLLAMA -eq 1 ]] && HOCH+=(--profile ollama)
 HOCH+=(up --detach)
 
 "${HOCH[@]}" || abbruch "Der Start ist fehlgeschlagen. Protokoll ansehen mit:

@@ -1,0 +1,778 @@
+[
+ {
+  "index": 0,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 1,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 2,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Bereich des Anhangs III - ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt."
+ },
+ {
+  "index": 3,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 4,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 28,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 5,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 16,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 6,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Bereich des Anhangs III - ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt."
+ },
+ {
+  "index": 7,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-6-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 8,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 9,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 10,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 27,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 11,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Nummer 2 verlangt im Verbund die foermliche Benennung als kritische Einrichtung; die Lage nennt sie nicht, und Anhang III Nummer 2 der Verordnung verlangt sie auch nicht."
+ },
+ {
+  "index": 12,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 13,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Bereich des Anhangs III; Alter, Geschlecht und Koerpergroesse sind kein geschuetztes Merkmal nach Nummer 1 Buchstabe b."
+ },
+ {
+  "index": 14,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 32,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 15,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 37,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a",
+   "KI-VO/anh-III/nr-3-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 16,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 28,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 17,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 18,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 19,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 16,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 20,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 21,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 22,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 35,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 23,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 27,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 24,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 42,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 25,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 26,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 27,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 28,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 28,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 29,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 30,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 5,
+  "fragen": 35,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Anhang I verlangt die Gruppe Sicherheitsbauteil auch dann, wenn das KI-System selbst das Produkt ist - Artikel 6 Absatz 1 verlangt entweder das eine oder das andere."
+ },
+ {
+  "index": 31,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 22,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 32,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 33,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 34,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 35,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Nummer 2 verlangt im Verbund die foermliche Benennung als kritische Einrichtung; die Lage nennt sie nicht, und Anhang III Nummer 2 der Verordnung verlangt sie auch nicht."
+ },
+ {
+  "index": 36,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 35,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 37,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 34,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 38,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 8,
+  "fragen": 74,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 39,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 13,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 40,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 41,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 28,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 42,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 43,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 28,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-3-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 44,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 45,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 51,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 46,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 47,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 5,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Keine Frage traegt Nummer 5 Buchstabe a allein ueber den Bereich; ein rein rueckblickendes Pruefwerkzeug kann den Punkt nicht oeffnen, darum wird der Filter nie gefragt."
+ },
+ {
+  "index": 48,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": "(d) Die Lage nennt keinen Bereich des Anhangs III - ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt."
+ },
+ {
+  "index": 49,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 50,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 50,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 13,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 51,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-8-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 52,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 53,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 8,
+  "fragen": 51,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a",
+   "KI-VO/anh-III/nr-7-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 54,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 21,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 55,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fragen": 38,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Nummer 2 verlangt im Verbund die foermliche Benennung als kritische Einrichtung; die Lage nennt sie nicht, und Anhang III Nummer 2 der Verordnung verlangt sie auch nicht."
+ },
+ {
+  "index": 56,
+  "soll": "ausnahme_greift",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 57,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 13,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 58,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 59,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 3,
+  "fragen": 12,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 60,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 61,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 62,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 21,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 63,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 25,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 64,
+  "soll": "ausnahme_greift",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "schritte": 8,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-c"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 65,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 42,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 66,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 4,
+  "fragen": 13,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 67,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 24,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 68,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_i",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 35,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 69,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 6,
+  "fragen": 26,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 70,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "schritte": 5,
+  "fragen": 27,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 71,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-b"
+  ],
+  "warum_abweichung": ""
+ }
+]

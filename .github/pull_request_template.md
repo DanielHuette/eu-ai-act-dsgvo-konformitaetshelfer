@@ -12,7 +12,6 @@ Erledigt #
 - [ ] Neuer Rechtstextstand (Korpus neu gebaut)
 - [ ] Behebung eines Programmfehlers
 - [ ] Neue Fähigkeit
-- [ ] Android-App
 - [ ] Dokumentation
 - [ ] Bauablauf oder Prüfung
 
@@ -34,7 +33,6 @@ Erledigt #
       docs/betriebsanleitung.md, Abschnitt c)
 - [ ] Die Fundstelle ist am amtlichen Text nachgelesen, und die Quelle steht im
       Fehlerbericht oder hier
-- [ ] `python scripts/export_android.py` ist gelaufen, damit Rechner und
       Telefon dasselbe Regelwerk haben
 - [ ] Die Zahlen sind nachgemessen, nicht erinnert
 
@@ -43,7 +41,6 @@ Erledigt #
 - [ ] `daten/aufbereitet/korpus_befund.json` liegt bei oder ist im
       Änderungssatz, und die Warnungen darin sind benannt
 - [ ] Suchbestand und App-Datenbank sind neu gebaut; die Prüfsumme in
-      `android_export_befund.json` entspricht `sha256sum korpus.jsonl`
 - [ ] Die Stückzahlen in README und docs/datenquellen.md sind angepasst
 
 ## Immer
@@ -54,7 +51,6 @@ Erledigt #
 - [ ] `bandit -c pyproject.toml -r src scripts --skip B301,B403,B310,B608,B615`
       läuft durch
 - [ ] `pytest -m "not langsam and not netz"` läuft durch
-- [ ] Bei Änderungen an der App: `cd android && ./gradlew test`
 - [ ] Deutsch in Bezeichnern, Kommentaren und Meldungen; Fachbegriffe beim
       ersten Vorkommen erklärt, Abkürzungen ausgeschrieben
 - [ ] Der Dateikopf jeder geänderten Datei sagt noch das Warum

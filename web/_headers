@@ -1,0 +1,13 @@
+# Cloudflare Pages liest diese Datei und setzt die Kopfzeilen beim Ausliefern.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'
+
+/fragefolge.json
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/durchlauf.js
+  Cache-Control: public, max-age=3600, must-revalidate

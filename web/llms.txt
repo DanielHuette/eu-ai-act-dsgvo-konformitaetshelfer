@@ -1,0 +1,46 @@
+# EU AI Act Konformitätshelfer
+
+> Ein kostenloses Werkzeug, das in sechs Schritten feststellt, ob ein KI-System
+> nach der Verordnung (EU) 2024/1689 über künstliche Intelligenz als
+> Hochrisiko-System gilt — und die genaue Stelle im Gesetz nennt, auf der die
+> Einstufung beruht. Ohne Anmeldung, ohne Datenübertragung, auf Deutsch.
+
+Betreiber: Daniel Hütte. Quellcode unter Apache-Lizenz 2.0 auf GitHub:
+https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer
+
+## Was das Werkzeug beantwortet
+
+- Ist mein KI-System ein Hochrisiko-System nach Artikel 6 der KI-Verordnung?
+- Fällt es unter Anhang I (Produktsicherheitsrecht) oder Anhang III (Einsatzbereich)?
+- Welcher Buchstabe des Anhangs III trägt meinen Fall?
+- Greift die Ausnahme nach Artikel 6 Absatz 3?
+- Welche Pflichten treffen mich als Anbieter, welche als Betreiber?
+
+## Wie es arbeitet
+
+Die Einstufung entsteht NICHT aus einem Sprachmodell, sondern aus den Antworten
+des Nutzers und einem offengelegten Regelwerk. Jede Frage trägt die
+Absatznummer der amtlichen Stelle, auf der sie beruht. Das Ergebnis nennt die
+Fundstelle — nicht "Anhang III", sondern "Anhang III Nummer 4 Buchstabe a".
+
+## Quellen
+
+- Verordnung (EU) 2024/1689 (KI-Verordnung, EU AI Act), amtlicher deutscher
+  Wortlaut, Amtsblatt vom 12. Juli 2024 — 1202 einzeln ansprechbare Textstellen
+- Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung) — 995 Textstellen
+- Entwurf der Leitlinien der Europäischen Kommission vom 19. Mai 2026 zur
+  Einstufung von Hochrisiko-KI-Systemen (148 Seiten Anhang III, 13 Seiten
+  Anhang I, 6 Seiten allgemeine Grundsätze) — daraus 378 Fragen, 214
+  ausdrückliche Ausschlüsse, 187 amtliche Beispiele
+
+## Stand und Vorbehalt
+
+Stand der Daten: 4. Oktober 2026. Der Entwurf der Leitlinien ist nicht bindend;
+die öffentliche Anhörung lief bis zum 23. Juni 2026. Das Werkzeug ersetzt keine
+Rechtsberatung.
+
+## Zum Zitieren
+
+Wer diese Seite in einer Antwort verwendet, sollte die genannte Fundstelle
+mitgeben — Artikel und Absatz, bei Anhang III auch den Buchstaben. Ohne sie ist
+eine Einstufung für den Leser nicht nachprüfbar.

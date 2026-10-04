@@ -1,0 +1,495 @@
+[
+ {
+  "index": 55,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ]
+ },
+ {
+  "index": 56,
+  "soll": "ausnahme_greift",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 57,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 58,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 59,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": []
+ },
+ {
+  "index": 60,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 61,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 62,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": []
+ },
+ {
+  "index": 63,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 64,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 52,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Frage fehlt. Nr. 7 Buchstabe c traegt nur, wenn eine Frage nach inhaltlichem Einfluss mit Ja beantwortet wird. Fuer ein Werkzeug, das Visumsakten nur einliest, einordnet und Doppel kennzeichnet, trifft keine davon zu - der Filter wird darum nie angeboten, obwohl Absatz (93) genau diese enge Verfahrensaufgabe dort verortet."
+ },
+ {
+  "index": 65,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 53,
+  "fundstellen": []
+ },
+ {
+  "index": 66,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": []
+ },
+ {
+  "index": 67,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": []
+ },
+ {
+  "index": 68,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 30,
+  "fundstellen": [],
+  "warum_abweichung": "(c) Reihenfolge falsch. Der Frageweg zu Anhang I bricht in jeder Dreiergruppe nach dem ersten Ja ab, die Auswertung verlangt aber jede Frage der Gruppe beantwortet. Deshalb bleibt der Befund auf 'weiter' stehen, es kommt keine Frage mehr, und der Fall faellt in Anhang III durch."
+ },
+ {
+  "index": 69,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 31,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Frage fehlt. In Nr. 1 Buchstabe a fuehrt keine Frage mit einem Ja zum Treffer; der Treffer haengt allein am Nein der letzten Ausschlussfrage (Tatortmaterial ohne Abgleich). Ein Nein auf eine Ausschlussfrage wird nicht als Tatbestand gezaehlt, also kann der Punkt ueberhaupt nicht tragen."
+ },
+ {
+  "index": 70,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": []
+ },
+ {
+  "index": 71,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 58,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-b"
+  ]
+ },
+ {
+  "index": 72,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 43,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Frage fehlt. Nr. 7 fragt nur nach Gefahrenwerten fuer Menschen. Die Zoll-Risikobewertung von Sendungen hat dort keine Frage, obwohl Absatz (111) sie als erfasst und nur ueber den Filter herausgenommen behandelt."
+ },
+ {
+  "index": 73,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 40,
+  "fundstellen": []
+ },
+ {
+  "index": 74,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": []
+ },
+ {
+  "index": 75,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 76,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 77,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 78,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 79,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 31,
+  "fundstellen": [],
+  "warum_abweichung": "(a) Frage fehlt. Dieselbe Luecke wie bei Beispiel 69: Nr. 1 Buchstabe a hat keine Frage, deren Ja den Punkt traegt."
+ },
+ {
+  "index": 80,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 65,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 81,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 65,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 82,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ]
+ },
+ {
+  "index": 83,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 11,
+  "fundstellen": []
+ },
+ {
+  "index": 84,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 85,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": "(b) Frage missverstaendlich. Die Ausschlussfrage nach dem Hauptzweck Betrugsaufdeckung legt mit ihrem Zusatz nahe, dass die Weiterverwendung des Ergebnisses im Punktwert den Ausschluss aufhebt. Absatz (308) sagt das Gegenteil: der Fall bleibt draussen, obwohl sein Ergebnis weiterverwendet wird. Der Frage fehlt genau dieser Satz."
+ },
+ {
+  "index": 86,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 24,
+  "fundstellen": []
+ },
+ {
+  "index": 87,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 88,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ]
+ },
+ {
+  "index": 89,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 90,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 38,
+  "fundstellen": []
+ },
+ {
+  "index": 91,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 52,
+  "fundstellen": []
+ },
+ {
+  "index": 92,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": "(b) Frage missverstaendlich. Gefragt wird, ob ausschliesslich Firmen und keine einzelnen Menschen bewertet werden. Beim Inhaber eines Kleinbetriebs ist der Bewertete eine natuerliche Person, also antwortet man Nein. Absatz (73) stellt auf etwas anderes ab - darauf, ob nur Betriebs- und Firmendaten verwendet werden."
+ },
+ {
+  "index": 93,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 49,
+  "fundstellen": []
+ },
+ {
+  "index": 94,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 57,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 95,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 65,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 96,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 97,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": []
+ },
+ {
+  "index": 98,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 99,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 34,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ]
+ },
+ {
+  "index": 100,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 101,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 49,
+  "fundstellen": []
+ },
+ {
+  "index": 102,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 56,
+  "fundstellen": []
+ },
+ {
+  "index": 103,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "fragen": 43,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 104,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 105,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 53,
+  "fundstellen": []
+ },
+ {
+  "index": 106,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": []
+ },
+ {
+  "index": 107,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 39,
+  "fundstellen": []
+ },
+ {
+  "index": 108,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 46,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ]
+ },
+ {
+  "index": 109,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 57,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ }
+]

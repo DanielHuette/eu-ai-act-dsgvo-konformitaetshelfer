@@ -1,0 +1,485 @@
+[
+ {
+  "index": 55,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 19,
+  "fundstellen": [],
+  "warum_abweichung": "Nach Ja auf 'Versorgung mit Strom' fuehrt in Nr. 2 keine Folgefrage zu 'erfasst' - nur die Frage nach dem Sicherheitsbauteil in den Strombestandteilen eines Kernkraftwerks tut das. Luecke im Durchlauf, nicht Frageformulierung."
+ },
+ {
+  "index": 56,
+  "soll": "ausnahme_greift",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "fragen": 35,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 57,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 58,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 59,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 60,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 61,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 62,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 28,
+  "fundstellen": []
+ },
+ {
+  "index": 63,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 21,
+  "fundstellen": []
+ },
+ {
+  "index": 64,
+  "soll": "ausnahme_greift",
+  "ist": "hochrisiko_ausnahme",
+  "getroffen": true,
+  "fragen": 53,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-c"
+  ]
+ },
+ {
+  "index": 65,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": []
+ },
+ {
+  "index": 66,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 67,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 68,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 7,
+  "fundstellen": [],
+  "warum_abweichung": "Zu Anhang I wird gar nichts gefragt: die Punkte aus daten/regeln/fragefolge/anhang-i-produkte.yaml gehoeren zu keinem Bereich in fragefolge-aufbau.yaml und werden beim Laden verworfen. Der Durchlauf kennt die Klasse hochrisiko_anhang_i nicht."
+ },
+ {
+  "index": 69,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 31,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ]
+ },
+ {
+  "index": 70,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 71,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 20,
+  "fundstellen": [],
+  "warum_abweichung": "Entscheidend ist das Bereichstor 'Soll Ihr System im Bereich Migration, Asyl oder Grenzkontrolle eingesetzt werden, und zwar von einer dafuer zustaendigen Behoerde?'. Die Lage nennt weder Behoerde noch Bereich, nach der Zweifelsregel also Nein. Luecke in der Lage, nicht in der Frage."
+ },
+ {
+  "index": 72,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 20,
+  "fundstellen": [],
+  "warum_abweichung": "Keine Hauptfrage des Anhangs III trifft die Risikobewertung von Waren im Zoll; das Zolltor in Nr. 6 fragt nur nach Straftaten. Ohne getroffenen Punkt kann der Durchlauf 'hochrisiko_ausnahme' gar nicht ausgeben - die Ausnahme setzt einen Treffer voraus."
+ },
+ {
+  "index": 73,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 74,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 75,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 76,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 77,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 78,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-a"
+  ]
+ },
+ {
+  "index": 79,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 31,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-a"
+  ]
+ },
+ {
+  "index": 80,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 42,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 81,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 82,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 37,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 55: Ja auf 'Lenkung und Steuerung des Strassenverkehrs', danach fuehrt in Nr. 2 keine Folgefrage zu 'erfasst'. Luecke im Durchlauf."
+ },
+ {
+  "index": 83,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 84,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 25,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 85,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 86,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 87,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 88,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 20,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 55: Ja auf 'Versorgung mit Trinkwasser', danach fuehrt in Nr. 2 keine Folgefrage zu 'erfasst'. Luecke im Durchlauf."
+ },
+ {
+  "index": 89,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 30,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-1-c"
+  ]
+ },
+ {
+  "index": 90,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 91,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 92,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 23,
+  "fundstellen": []
+ },
+ {
+  "index": 93,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "fragen": 38,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-7-vorfragen"
+  ],
+  "warum_abweichung": "Entscheidend ist 'Verarbeitet Ihr System koerperbezogene Merkmale wie Gesicht, Fingerabdruecke oder Gangbild?' im Tor zu Nr. 7: Ja fuehrt sofort zu 'erfasst', ohne zu fragen, wozu. Nr. 1 Buchstabe b nimmt reine Alters- und Geschlechtsableitung ausdruecklich aus, das Tor zu Nr. 7 kennt diese Ausnahme nicht. Die Frage ist zu weit gefasst - sie trennt Erkennen nicht vom blossen Verarbeiten."
+ },
+ {
+  "index": 94,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ },
+ {
+  "index": 95,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 33,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ]
+ },
+ {
+  "index": 96,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 97,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 98,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-d"
+  ]
+ },
+ {
+  "index": 99,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 37,
+  "fundstellen": [],
+  "warum_abweichung": "Wie 55: Ja auf 'Versorgung mit Strom', danach fuehrt in Nr. 2 keine Folgefrage zu 'erfasst'. Luecke im Durchlauf."
+ },
+ {
+  "index": 100,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 23,
+  "fundstellen": []
+ },
+ {
+  "index": 101,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 29,
+  "fundstellen": []
+ },
+ {
+  "index": 102,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 51,
+  "fundstellen": []
+ },
+ {
+  "index": 103,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 104,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 105,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 26,
+  "fundstellen": []
+ },
+ {
+  "index": 106,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 7,
+  "fundstellen": []
+ },
+ {
+  "index": 107,
+  "soll": "kein_hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": true,
+  "fragen": 20,
+  "fundstellen": []
+ },
+ {
+  "index": 108,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "fragen": 29,
+  "fundstellen": [],
+  "warum_abweichung": "Entscheidend ist die erste Folgefrage zu Nr. 6 Buchstabe e: 'Soll Ihr System von einer Strafverfolgungsbehoerde, in deren Namen oder von einer Einrichtung der Europaeischen Union eingesetzt werden?'. Die Lage nennt keine Stelle, nach der Zweifelsregel also Nein. Luecke in der Lage, nicht in der Frage."
+ },
+ {
+  "index": 109,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "fragen": 32,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-a"
+  ]
+ }
+]

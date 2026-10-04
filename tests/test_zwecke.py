@@ -206,6 +206,28 @@ def _unternehmensfragen() -> list[dict[str, str]]:
     return list(yaml.safe_load(pfad.read_text(encoding="utf-8"))["fragen"])
 
 
+def _liegt_schon_da(modell: str) -> bool:
+    """Liegt das Modell bereits auf der Platte? — ohne es zu holen.
+
+    Der Unterschied ist wichtig: wer den Kreuzbewerter einfach anfordert,
+    löst einen Download von rund zwei Gigabyte aus. Auf einem Rechner ohne
+    diese Modelle hing ``python -m pytest`` dadurch minutenlang an der letzten
+    Prüfung, statt sie zu überspringen — ein Prüflauf, der scheinbar steht,
+    wird abgebrochen und danach nicht mehr gestartet.
+
+    ``try_to_load_from_cache`` sieht nur im Zwischenspeicher nach und geht
+    nicht ins Netz.
+    """
+    try:
+        from huggingface_hub import try_to_load_from_cache
+    except Exception:
+        return False
+    try:
+        return isinstance(try_to_load_from_cache(modell, "config.json"), str)
+    except Exception:
+        return False
+
+
 def test_unternehmensfragen_sind_vollstaendig_und_gemischt() -> None:
     """Die Sammlung selbst wird geprüft, nicht nur das Ergebnis darauf.
 
@@ -233,6 +255,10 @@ def test_genauigkeit_auf_unternehmensfragen() -> None:
     """
     from helfer.einstufung.pruefer import Pruefer, beschreibung_aus_text
     from helfer.modell import Rolle
+
+    for modell in ("BAAI/bge-reranker-v2-m3", "BAAI/bge-m3"):
+        if not _liegt_schon_da(modell):
+            pytest.skip(f"{modell} liegt nicht auf diesem Rechner")
 
     pruefer = Pruefer()
     if pruefer.zweckfinder() is None or pruefer.zweckfinder()._bewerter_holen() is None:

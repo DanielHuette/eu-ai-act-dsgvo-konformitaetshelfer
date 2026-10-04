@@ -1,0 +1,222 @@
+[
+ {
+  "index": 2,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keinen Bereich des Anhangs III; ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt, also kann 'hochrisiko_ausnahme' nicht entstehen."
+ },
+ {
+  "index": 6,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keinen Bereich des Anhangs III; ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt."
+ },
+ {
+  "index": 11,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 13,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Alter, Geschlecht und Koerpergroesse sind keine Koerpermerkmale nach Nummer 1; kein Bereich traegt, darum wird der Filter nie gefragt."
+ },
+ {
+  "index": 30,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_i",
+  "getroffen": true,
+  "schritte": 5,
+  "fundstellen": [],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 35,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 47,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 4,
+  "fundstellen": [],
+  "warum_abweichung": "Der Bereich Nummer 5 Buchstabe a oeffnet nur, wenn das System selbst den Anspruch prueft; ein rein rueckblickendes Pruefwerkzeug traegt den Punkt nicht, also wird der Filter nie gefragt."
+ },
+ {
+  "index": 48,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keinen Bereich des Anhangs III; ohne getragenen Punkt wird der Filter des Artikels 6 Absatz 3 nie gefragt."
+ },
+ {
+  "index": 55,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 72,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 4,
+  "fundstellen": [],
+  "warum_abweichung": "Warenrisiko an der Grenze bewertet keine Menschen; der Bereich Nummer 7 oeffnet nicht, darum wird der Filter nie gefragt."
+ },
+ {
+  "index": 82,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 88,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 92,
+  "soll": "kein_hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": false,
+  "schritte": 6,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-5-b"
+  ],
+  "warum_abweichung": "Es fehlt die Frage, ob ausschliesslich Betriebs- oder Firmendaten verwendet werden; weil der Inhaber eine natuerliche Person ist, traegt Nummer 5 Buchstabe b."
+ },
+ {
+  "index": 99,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 108,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keine Strafverfolgungsbehoerde als Betreiber; ohne diesen Bereich ist Nummer 6 Buchstabe e nicht erreichbar."
+ },
+ {
+  "index": 114,
+  "soll": "ausnahme_greift",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keinen Bereich des Anhangs III; die enge Verfahrensaufgabe wird erst nach einem getragenen Punkt gefragt."
+ },
+ {
+  "index": 141,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 3,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt keinen Bereich des Anhangs III; das Beispiel ist ein Gegenbeispiel zum Filter, der ohne getragenen Punkt nie gefragt wird."
+ },
+ {
+  "index": 157,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_anhang_iii",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-4-b"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 175,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 187,
+  "soll": "hochrisiko",
+  "ist": "kein_hohes_risiko",
+  "getroffen": false,
+  "schritte": 6,
+  "fundstellen": [],
+  "warum_abweichung": "Die Lage nennt fuer das Uebersetzungswerkzeug keine Schutzaufgabe; der Verbund der Nummer 2 bricht an diesem Punkt, nicht mehr an der Benennung."
+ },
+ {
+  "index": 188,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ },
+ {
+  "index": 196,
+  "soll": "hochrisiko",
+  "ist": "hochrisiko_bedingt",
+  "getroffen": true,
+  "schritte": 7,
+  "fundstellen": [
+   "KI-VO/anh-III/nr-2"
+  ],
+  "warum_abweichung": ""
+ }
+]

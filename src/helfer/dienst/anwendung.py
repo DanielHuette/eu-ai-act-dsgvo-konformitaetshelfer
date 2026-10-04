@@ -35,12 +35,13 @@ from typing import Any
 
 from fastapi import FastAPI, Request, Response
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.cors import CORSMiddleware
 
+from helfer import orte
 from helfer.antwort.formulieren import formulieren, modell_waehlen
 from helfer.dienst.modelle import (
     FRAGEBOGEN,
@@ -568,7 +569,24 @@ def anwendung_bauen() -> FastAPI:
         "/gestaltung", StaticFiles(directory=str(OBERFLAECHE / "gestaltung")), name="gestaltung"
     )
 
-    @dienst.get("/", response_class=HTMLResponse, include_in_schema=False)
+    # Die Fragefolge ist die Startseite. Sie entscheidet die Einstufung, und
+    # sie ist dieselbe Seite, die auch im Netz läuft — dieselben Daten,
+    # dieselbe Ablauflogik, nachgewiesen durch scripts/pruefe_zwei_wege.py.
+    # Die Suche im Verordnungstext liegt daneben unter /suche; sie braucht das
+    # grosse Sprachmodell, die Einstufung nicht.
+    fragefolge_ordner = orte.wurzel() / "web"
+    if fragefolge_ordner.is_dir():
+        dienst.mount(
+            "/einstufung",
+            StaticFiles(directory=str(fragefolge_ordner), html=True),
+            name="einstufung",
+        )
+
+        @dienst.get("/", response_class=HTMLResponse, include_in_schema=False)
+        async def startseite() -> Response:
+            return RedirectResponse("/einstufung/", status_code=307)
+
+    @dienst.get("/suche", response_class=HTMLResponse, include_in_schema=False)
     async def oberflaeche(anfrage: Request) -> Response:
         z: Zustand = dienst.state.zustand
         return vorlagen.TemplateResponse(

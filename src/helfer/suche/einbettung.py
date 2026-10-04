@@ -1,25 +1,26 @@
-"""Einbettungsmodelle — austauschbar, damit Rechner und Telefon je ihr Modell haben.
+"""Das Einbettungsmodell für die Suche im Rechtsbestand.
 
 Eine Einbettung ist eine Zahlenreihe, die den Sinn eines Textstücks abbildet.
 Zwei Texte, die dasselbe bedeuten, haben ähnliche Zahlenreihen. So findet die
 Suche "Dürfen wir Bewerbungen vorsortieren?" auch dann, wenn im Gesetz
 "Einstellung oder Auswahl natürlicher Personen" steht.
 
-Zwei Modelle, zwei Zwecke:
+Genutzt wird **bge-m3**: mehrsprachig, 1024 Zahlen je Textstück, und es liefert
+nicht nur die Sinn-Reihe, sondern zusätzlich Wortgewichte — damit ist ein Teil
+der Stichwortsuche schon im Modell enthalten. Rund 2,3 GB groß, läuft ohne
+Schlüssel und ohne Netz.
 
-* **bge-m3** auf dem Rechner. Mehrsprachig, 1024 Zahlen je Textstück, und es
-  liefert nicht nur die Sinn-Reihe, sondern zusätzlich Wortgewichte — damit ist
-  ein Teil der Stichwortsuche schon im Modell enthalten. Rund 2,3 GB groß.
-* **multilingual-e5-small** auf dem Telefon. 384 Zahlen, rund 120 MB als
-  ONNX-Datei, läuft auf einem Mittelklassegerät in Sekundenbruchteilen.
-
-Beide Modelle laufen ohne Schlüssel und ohne Netz. Das ist Absicht: die
-mitgelieferte Datenbank muss bei jedem funktionieren, der das Projekt
-herunterlädt — sonst wäre sie wertlos.
+Es gibt bewusst nur ein Modell. Ein kleineres zweites für schwächere Geräte
+hieße: dieselbe Auskunft, zwei Genauigkeiten, ein Name. Wer sich auf eine
+Rechtsauskunft verlässt, darf nicht raten müssen, welche der beiden er bekommt.
 
 Wichtig: Einbettungen verschiedener Modelle sind nicht vergleichbar. Deshalb
 trägt jede Datenbank den Modellnamen, und beim Laden wird geprüft, dass Frage
 und Bestand aus demselben Modell kommen.
+
+Die EINSTUFUNG hängt an keinem dieser Modelle. Sie kommt aus der Fragefolge und
+dem Regelwerk. Die Suche liefert den Gesetzestext zu Rückfragen und die
+Fundstelle zum Nachlesen.
 """
 
 from __future__ import annotations
@@ -37,8 +38,7 @@ protokoll = logging.getLogger(__name__)
 
 #: Das Modell, mit dem die mitgelieferte Datenbank gebaut ist.
 STANDARD_MODELL = "BAAI/bge-m3"
-#: Das Modell für die Android-App.
-TELEFON_MODELL = "intfloat/multilingual-e5-small"
+
 
 #: Diese Modelle wollen eine Anweisung vor dem Text - ohne sie fällt die
 #: Trefferqualität messbar ab.
@@ -133,13 +133,13 @@ class BgeM3(Einbetter):
 
 
 class SatzUmformer(Einbetter):
-    """Jedes Modell aus der sentence-transformers-Sammlung.
+    """Jedes Modell aus der sentence-transformers-Sammlung, ausdrücklich benannt.
 
-    Wird für das Telefonmodell gebraucht und als Rückfall, wenn bge-m3 auf dem
-    Rechner zu groß ist.
+    Dieser Weg wird nicht von allein gewählt. Er steht bereit, wenn jemand ein
+    anderes Modell nennt und seinen Bestand damit selbst baut.
     """
 
-    def __init__(self, name: str = TELEFON_MODELL, geraet: str | None = None) -> None:
+    def __init__(self, name: str = STANDARD_MODELL, geraet: str | None = None) -> None:
         try:
             from sentence_transformers import SentenceTransformer
         except ImportError as fehler:
@@ -206,13 +206,13 @@ class Streuwerk(Einbetter):
 def waehlen(name: str | None = None, geraet: str | None = None) -> Einbetter:
     """Liefert das gewünschte Modell, mit Rückfall und klarer Meldung.
 
-    Reihenfolge: ausdrücklich gewünschtes Modell, dann bge-m3, dann das kleine
-    Telefonmodell, dann das Ersatzmodell. Jeder Rückfall wird protokolliert —
+    Reihenfolge: ausdrücklich gewünschtes Modell, dann bge-m3, dann das
+    Ersatzmodell für Prüfläufe. Jeder Rückfall wird protokolliert —
     stillschweigend schlechter zu suchen wäre schlimmer als eine Fehlermeldung.
     """
     if name == Streuwerk.name:
         return Streuwerk()
-    versuche = [n for n in (name, STANDARD_MODELL, TELEFON_MODELL) if n]
+    versuche = [n for n in (name, STANDARD_MODELL) if n]
     for kandidat in versuche:
         try:
             if kandidat == "BAAI/bge-m3":

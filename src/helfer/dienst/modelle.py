@@ -45,7 +45,7 @@ class FrageAnfrage(BaseModel):
     modell: str | None = Field(
         default=None,
         description="Welcher Antwortgeber formulieren soll: anthropic, openai, "
-        "ollama, auto — oder 'ohne' für eine Antwort rein aus dem "
+        "auto — oder 'ohne' für eine Antwort rein aus dem "
         "Regelwerk",
     )
     nur_rechtsakte: tuple[Rechtsakt, ...] | None = Field(

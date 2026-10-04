@@ -1,0 +1,175 @@
+# Aufbau des Durchlaufs — welche Frage wann gestellt wird.
+#
+# Die Fragen selbst stehen in daten/regeln/fragefolge/*.yaml und stammen Zeile
+# für Zeile aus dem Entwurf der Leitlinien der Kommission vom 19.05.2026, jede
+# mit Absatznummer. Diese Datei legt nur die Reihenfolge fest und sagt, welche
+# Frage ein Tor ist und welche nur unterrichtet.
+#
+# Warum diese Trennung: eine Frage wie "Wollen Sie das System allein deswegen
+# als nicht hochriskant einstufen, weil am Ende ein Mensch prüft?" ist keine
+# Weggabelung. Sie räumt einen verbreiteten Irrtum aus. Würde der Durchlauf sie
+# als Tor behandeln, könnte der Nutzer sich mit einem Ja aus der Prüfung
+# herausantworten — genau das, was der amtliche Text ausschliesst.
+stand: "2026-10-04"
+
+# Die Vorfragen, in dieser Reihenfolge. "tor" heisst: die Antwort lenkt den
+# weiteren Weg. "hinweis" heisst: sie wird angezeigt, nicht gefragt.
+vorfragen:
+  - kennung: ist-es-ein-ki-system
+    art: tor
+    bei_nein: ende
+    endtext: >
+      Was Sie beschreiben, ist nach Artikel 3 Nummer 1 kein KI-System. Die
+      KI-Verordnung gilt dafür nicht. Die Datenschutz-Grundverordnung kann
+      trotzdem gelten, wenn personenbezogene Daten verarbeitet werden.
+  - kennung: natuerliche-personen
+    art: tor
+    wirkt_auf: [KI-VO/anh-III/nr-1-a, KI-VO/anh-III/nr-1-b, KI-VO/anh-III/nr-1-c,
+                KI-VO/anh-III/nr-3-a, KI-VO/anh-III/nr-3-b, KI-VO/anh-III/nr-3-c,
+                KI-VO/anh-III/nr-3-d, KI-VO/anh-III/nr-4-a, KI-VO/anh-III/nr-4-b,
+                KI-VO/anh-III/nr-5-a, KI-VO/anh-III/nr-5-b, KI-VO/anh-III/nr-5-c,
+                KI-VO/anh-III/nr-5-d, KI-VO/anh-III/nr-6-a, KI-VO/anh-III/nr-6-b,
+                KI-VO/anh-III/nr-6-c, KI-VO/anh-III/nr-6-d, KI-VO/anh-III/nr-6-e,
+                KI-VO/anh-III/nr-7-a, KI-VO/anh-III/nr-7-b, KI-VO/anh-III/nr-7-c,
+                KI-VO/anh-III/nr-7-d, KI-VO/anh-III/nr-8-a, KI-VO/anh-III/nr-8-b]
+  - kennung: im-namen-von
+    art: tor
+    wirkt_auf: [KI-VO/anh-III/nr-5-a, KI-VO/anh-III/nr-6-a, KI-VO/anh-III/nr-6-b,
+                KI-VO/anh-III/nr-6-c, KI-VO/anh-III/nr-6-d, KI-VO/anh-III/nr-6-e,
+                KI-VO/anh-III/nr-7-a, KI-VO/anh-III/nr-7-b, KI-VO/anh-III/nr-7-c,
+                KI-VO/anh-III/nr-7-d, KI-VO/anh-III/nr-8-a]
+    nur_als_zusatz: true
+  - kennung: menschliche-beteiligung
+    art: hinweis
+  - kennung: teil-eines-zusammengesetzten-produkts
+    art: hinweis
+  - kennung: bestimmungsgemaesse-verwendung
+    art: hinweis
+  - kennung: soweit-zugelassen
+    art: hinweis
+
+# Die Bereiche in der Reihenfolge, in der gefragt wird.
+#
+# Jeder Bereich trägt eine kurze Frage. Sie entscheidet nichts — sie führt nur
+# dorthin, wo weitergefragt wird. Ohne sie standen 31 Rechtsfragen auf einem
+# Blatt; so sind es acht Sätze, die jeder über sein eigenes Unternehmen
+# beantworten kann, und die Rechtsfragen kommen erst im gewählten Bereich.
+# Darum steht an diesen acht Sätzen auch keine Absatznummer: sie stammen nicht
+# aus dem amtlichen Text, sie sortieren nur. Die Reihenfolge folgt
+# der Häufigkeit in der Wirtschaft, nicht der Nummerierung des Anhangs: wer
+# zuerst nach Strafverfolgung gefragt wird, hält den Helfer für nicht gemacht.
+bereiche:
+  - fundstelle: KI-VO/anh-III/nr-4
+    titel: Beschäftigung und Personal
+    frage: >-
+      Hat Ihr System mit Beschäftigten, Bewerbern oder Selbstständigen zu tun, die für Sie oder Ihre Kunden arbeiten?
+  - fundstelle: KI-VO/anh-III/nr-5
+    titel: Kredit, Versicherung, Sozialleistungen, Notrufe
+    frage: >-
+      Geht es bei Ihrem System um Geld oder Daseinsvorsorge für einzelne Menschen — Kredite, Lebens- oder Krankenversicherung, Sozialleistungen oder Notrufe?
+  - fundstelle: KI-VO/anh-III/nr-1
+    titel: Gesichter, Körpermerkmale, Gefühle
+    frage: >-
+      Verarbeitet Ihr System Körpermerkmale von Menschen — Gesicht, Stimme, Fingerabdruck, Gang, Mimik?
+  - fundstelle: KI-VO/anh-III/nr-3
+    titel: Schule, Hochschule, Ausbildung
+    frage: >-
+      Wird Ihr System in einer Schule, Hochschule oder Ausbildungseinrichtung eingesetzt, oder wirkt es auf Noten, Zeugnisse oder die Aufnahme ein?
+  - fundstelle: KI-VO/anh-III/nr-2
+    titel: Strom, Gas, Wasser, Wärme, Straßenverkehr
+    frage: >-
+      Wird Ihr System beim Betrieb von Strom-, Gas-, Wasser- oder Wärmeversorgung, im Straßenverkehr oder in kritischer digitaler Infrastruktur eingesetzt?
+  - fundstelle: KI-VO/anh-III/nr-8
+    titel: Gerichte und Wahlen
+    frage: >-
+      Wirkt Ihr System in einem Gerichts- oder Schlichtungsverfahren mit, oder soll es Wahlen oder Abstimmungen beeinflussen?
+  - fundstelle: KI-VO/anh-III/nr-6
+    titel: Polizei und Strafverfolgung
+    frage: >-
+      Wird Ihr System von der Polizei oder einer Strafverfolgungsbehörde eingesetzt — oder von Ihnen in deren Auftrag?
+  - fundstelle: KI-VO/anh-III/nr-7
+    titel: Grenze, Asyl, Aufenthalt
+    frage: >-
+      Wird Ihr System an der Grenze, im Asylverfahren oder bei Aufenthaltsfragen eingesetzt — oder von Ihnen im Auftrag einer solchen Behörde?
+
+# Punkte, deren Hauptfrage ein Tor für ihren ganzen Bereich ist. Lautet die
+# Antwort Nein, entfällt der Bereich samt seinen Buchstaben.
+tore_je_bereich:
+  KI-VO/anh-III/nr-4: KI-VO/anh-III/nr-4
+  KI-VO/anh-III/nr-6: KI-VO/anh-III/nr-6-vorfragen
+  KI-VO/anh-III/nr-7: KI-VO/anh-III/nr-7-vorfragen
+
+# Anhang I — hohes Risiko über das Produktsicherheitsrecht, Artikel 6 Absatz 1.
+#
+# Dieser Weg ist anders gebaut als Anhang III und braucht darum eine eigene
+# Ordnung: Artikel 6 Absatz 2 trifft zu, wenn EINER der acht Bereiche passt.
+# Artikel 6 Absatz 1 verlangt, dass DREI Dinge zusammenkommen — eine Gattung
+# aus Anhang I, die Rolle als Sicherheitsbauteil oder als Produkt selbst, und
+# eine Konformitätsbewertung durch eine dritte Stelle. Fehlt eines, ist das
+# System nach Anhang I nicht hochriskant, mag der Rest auch zutreffen.
+#
+# Geprüft wird vor Anhang III, weil Artikel 6 Absatz 1 vor Absatz 2 steht.
+anhang_i:
+  tor: produkt-faellt-unter-anhang-i
+  bedingungen:
+    - gruppe: rolle
+      eine_genuegt: [ki-system-ist-selbst-das-produkt, teil-eines-geregelten-produkts]
+    - gruppe: sicherheitsbauteil
+      eine_genuegt: [sicherheitsaufgabe, ausfall-gefaehrdet]
+      ausschluss: [nur-komfort-oder-effizienz]
+      # Artikel 6 Absatz 1 Buchstabe a verlangt: Sicherheitsbauteil eines
+      # Produkts ODER selbst ein solches Produkt. Ist das System selbst das
+      # Produkt, ist die Frage nach dem Sicherheitsbauteil gegenstandslos.
+      # Vorher verlangte der Durchlauf beides und liess ein System, das selbst
+      # ein geregeltes Produkt ist, durchfallen.
+      entfaellt_wenn: [ki-system-ist-selbst-das-produkt]
+    - gruppe: dritte-stelle
+      eine_genuegt: [dritte-stelle-verlangt, verstaerkte-kontrolle-vor-dem-verkauf]
+  # Diese Fragen werden nicht gestellt: sie fassen nur zusammen, was der
+  # Durchlauf selbst mitzählt, oder sie verweisen den Nutzer in den
+  # Gesetzestext statt ihn nach seinem System zu fragen.
+  nicht_fragen: [beide-bedingungen-zusammen, wo-steht-das-verfahren,
+                 baustein-a-nur-mit-normen, sicherheitsbauteil, getrennte-lieferung]
+
+# Bereiche, deren Punkte ZUSAMMEN zutreffen müssen, nicht einer von vielen.
+#
+# Die meisten Bereiche des Anhangs III zählen Buchstaben auf: Nummer 4
+# Buchstabe a ODER b, Nummer 5 Buchstabe a ODER b ODER c ODER d. Nummer 2 ist
+# nicht so gebaut. Dort verlangt der amtliche Text dreierlei gleichzeitig:
+# einen der sechs Versorgungsbereiche, einen Betreiber, den ein Mitgliedstaat
+# förmlich als kritische Einrichtung benannt hat, und ein System, das selbst
+# eine Schutzaufgabe erfüllt. Fehlt eines, ist es kein Sicherheitsbauteil im
+# Sinne der Nummer 2 — eine Ampelsteuerung, die nur Auskunft gibt, so wenig
+# wie ein Schutzsystem bei einem nicht benannten Betreiber.
+#
+# Gemessen hat die falsche Abbildung zehn der amtlichen Beispiele gekostet: als
+# Aufzählung gelesen konnte Nummer 2 ÜBERHAUPT KEINEN Treffer ergeben, weil
+# keine ihrer Fragen allein zum Treffer führt.
+verbunde:
+  - bereich: KI-VO/anh-III/nr-2
+    klasse: hochrisiko_anhang_iii
+    fundstelle: KI-VO/anh-III/nr-2
+    sonderfall_hauptfrage_enthaelt: Kernenergie
+    # Eine Bedingung, die der Nutzer oft gar nicht wissen KANN.
+    #
+    # Absatz (190) der Leitlinien verlangt, dass der Betreiber von seinem
+    # Mitgliedstaat förmlich als kritische Einrichtung benannt ist. Absatz
+    # (191) stellt im selben Atemzug fest, dass diese Benennung dem Anbieter
+    # nicht offengelegt werden muss — ein Softwarehaus, das Netzleitsysteme
+    # verkauft, erfährt sie in der Regel nicht.
+    #
+    # Ein Nein auf eine Frage, die der Nutzer nicht beantworten kann, ist eine
+    # falsche Auskunft: gemessen fielen so zehn amtliche Beispiele zu Nummer 2
+    # auf "kein hohes Risiko", obwohl die Kommission sie als hochriskant führt.
+    # Bleibt die Frage offen und trägt der Rest, lautet der Befund darum
+    # "bedingt hochriskant" mit dem Satz, der sagt, woran es hängt.
+    darf_offen_bleiben:
+      hauptfrage_enthaelt: "förmlich als kritische Einrichtung"
+      beleg: "(190), (191)"
+      wenn_offen: >-
+        Ihr System erfüllt alle übrigen Voraussetzungen der Nummer 2.
+        Hochriskant ist es, sobald ein Betreiber es einsetzt, den sein
+        Mitgliedstaat förmlich als kritische Einrichtung benannt hat. Diese
+        Benennung muss Ihnen als Anbieter nicht offengelegt werden. Rechnen Sie
+        damit, dass ein solcher Betreiber zu Ihren Kunden gehört, so gelten die
+        Pflichten für Hochrisiko-KI-Systeme.

@@ -593,7 +593,7 @@ def zerleger_bauen() -> argparse.ArgumentParser:
     p.add_argument("frage", help="Die Rechtsfrage")
     p.add_argument("--beschreibung", default="", help="Das KI-System in eigenen Worten")
     p.add_argument("--rolle", action="append", metavar="ROLLE")
-    p.add_argument("--modell", default=None, help="anthropic, openai, ollama, auto oder ohne")
+    p.add_argument("--modell", default=None, help="anthropic, openai, auto oder ohne")
     p.add_argument("--anzahl", type=int, default=8, help="Zahl der Fundstellen")
     p.add_argument(
         "--rechtsakt",

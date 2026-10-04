@@ -1,0 +1,1521 @@
+[
+ {
+  "lage": "Ein Finanzintermediär bewertet mit einem System, ob bestehenden oder künftigen Kunden ein Wertpapierkredit für gehebelte Produkte gewährt oder erhöht wird, und nur das.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(nach 309)",
+  "amtliche_begruendung": "Es ist allein für einen nicht grundlegenden privaten Dienst gedacht."
+ },
+ {
+  "lage": "Ein KI-System verbessert lediglich die Heizzeiten anhand der Gewohnheiten des Haushalts, um Energie zu sparen. Ein Ausfall führt nur zu Unbehagen oder höheren Energiekosten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(43)",
+  "amtliche_begruendung": "Das System erfüllt weder eine Sicherheitsaufgabe noch das Merkmal, dass Ausfall oder Fehlverhalten Gesundheit und Sicherheit gefährden. Es ist daher kein Sicherheitsbauteil."
+ },
+ {
+  "lage": "Ein System ordnet Schlussfolgerungen den Beweisunterlagen zu, um die Nachvollziehbarkeit einer Entscheidung zu stützen, ohne das menschliche Urteil zu ersetzen.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(96)",
+  "amtliche_begruendung": "Der Text nennt das als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Ein System überwacht nach der Kreditvergabe nur noch die Kreditrisiken des Hauses und erkennt früh Zahlungsschwierigkeiten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(nach 309)",
+  "amtliche_begruendung": "Es dient allein innerbetrieblichen Aufsichtszwecken nach der Vergabe."
+ },
+ {
+  "lage": "Ein System entscheidet anhand von Einkommen, Ausgaben und Familiengroesse, ob eine Person ein Stipendium erhalten kann.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Mit der Entscheidung ueber die Geldhilfe wird der Zugang der Person zu einer Bildungseinrichtung bestimmt."
+ },
+ {
+  "lage": "Ein System berechnet allein Zinssätze und Preise und greift dafür auf Daten aus einer Bewertung der Zahlungsfähigkeit zurück.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(300)",
+  "amtliche_begruendung": "Reine Preisbildung gehört nicht zum Anwendungsfall."
+ },
+ {
+  "lage": "Ein System kennzeichnet Fehler oder Widersprüche in abgeschlossener menschlicher Arbeit und übernimmt damit eine Aufgabe der Qualitätssicherung.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(96)",
+  "amtliche_begruendung": "Der Text nennt das als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Ein System soll die Gefahr vorhersagen, dass eine bestimmte Person in einem bestimmten Gebiet eine Straftat begeht.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-a",
+  "beleg": "(359)",
+  "amtliche_begruendung": "Ein solches System fiele nicht unter Nummer 6 Buchstabe a, sondern unter Nummer 6 Buchstabe d."
+ },
+ {
+  "lage": "Ein Chatbot beantwortet Sachfragen eines Sachbearbeiters zum Antrag auf Gesundheitsleistungen, etwa das Alter der Person, und gibt vorhandene Angaben nur geordnet wieder; der Sachbearbeiter muss sie prüfen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, ist aber als enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstaben a und d ausgenommen."
+ },
+ {
+  "lage": "Eine Internetplattform, über die Verbraucher selbstständige Dienstleister für verschiedene Aufgaben finden, bildet mit einem Abgleichwerkzeug eine Rangfolge der Dienstleister und bestimmt, welche den Verbrauchern gezeigt werden.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Die Ausgabe bestimmt den Zugang zu künftigen Aufträgen und kann über Laufbahn, Lebensunterhalt und Rechte der Selbstständigen entscheiden."
+ },
+ {
+  "lage": "Eine Aufsichtsperson bemerkt in einer Pruefung im Netz auffaelliges Verhalten und laesst sich den Verdacht von einem System bestaetigen oder verwerfen; das System liefert einen Bericht mit den erkannten Mustern, die Aufsichtsperson entscheidet danach selbst ueber das weitere Vorgehen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Das System verbessert das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit; Ausnahme nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Eine Brandmeldeanlage mit KI-Steuerung in einem Rechenzentrum für Rechenleistung aus dem Netz.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(194)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System, das unberechtigte Zugriffe erkennen hilft, sodass betroffene Kunden gewarnt werden, bevor ihr Kennwort missbraucht wird.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(187)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System ordnet Personen einfach nach persönlichen Merkmalen wie Alter, Geschlecht und Körpergröße ein.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(112)",
+  "amtliche_begruendung": "Eine solche einfache Einordnung führt nicht zwangsläufig zu Profiling; ob eine Bewertung Vorhersagen oder Schlussfolgerungen enthält, hängt vom Zweck der Einordnung ab. Ohne Vorhersage, Einschätzung oder Urteil über persönliche Merkmale liegt kein Profiling vor und der Filter ist nicht gesperrt."
+ },
+ {
+  "lage": "Ein System wertet abgeschlossene Statusakten aus, um Muster oder Abweichungen in der Entscheidungspraxis fuer die Qualitaetssicherung zu erkennen, ohne Ergebnisse fuer laufende Faelle vorzuschlagen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es erfuellt die Ausnahme fuer die nachtraegliche Erkennung von Mustern; dafuer muss das System auf die nachtraegliche Erkennung von Mustern oder Abweichungen angelegt sein."
+ },
+ {
+  "lage": "Ein System ordnet Lernende mit besonderem Bildungsbedarf passenden Programmen zu und empfiehlt die geeignete Platzierung samt notwendiger Unterstuetzung, auf Grundlage von Testergebnissen, Rueckmeldungen von Lehrkraeften, psychologischen Berichten und der Krankheitsgeschichte.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das System bestimmt die Einstufung und das Mass der Unterstuetzung fuer einzelne Personen."
+ },
+ {
+  "lage": "Eine Stadt oder eine Region weist Kinder automatisch Schulen zu, anhand von Wohnort, Schulbezirk, freien Plaetzen, Geschwisterkindern und Angaben zu den Eltern.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Weil das System dabei persoenliche Daten bewertet, kann die Ausnahmeregel in Artikel 6 Absatz 3 nicht angewandt werden."
+ },
+ {
+  "lage": "Ein System bewertet Risiko und Beitrag einer Krankenversicherung und hat zusätzlich eine Funktion zur Betrugsaufdeckung, die kein eigenes System für sich ist.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(321)",
+  "amtliche_begruendung": "Für die Lebens- und Krankenversicherung gibt es keine Ausnahme für Betrugsaufdeckung."
+ },
+ {
+  "lage": "Ein System zur Überwachung der Netz- und Informationssicherheit in Stromnetzen. Es überwacht fortlaufend den Netzverkehr, erkennt ungewöhnliche Muster und meldet mögliche Angriffe an das Sicherheitspersonal; es arbeitet unabhängig von den Betriebssystemen, die den Stromnetzbetrieb körperlich steuern.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Eine Plattform empfiehlt Schuelerinnen und Schuelern anhand ihrer angegebenen Vorlieben und Interessen Studiengaenge und passende Hochschulen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Das Ergebnis bestimmt den Zugang nicht, sondern unterstuetzt die Lernenden bei ihrer eigenen Entscheidung, ob sie sich bewerben."
+ },
+ {
+  "lage": "Ein System platziert Stellenanzeigen gezielt bei bestimmten Nutzern sozialer Medien; es sammelt und analysiert Nutzungsmuster und Nutzermerkmale, erhält von den Werbenden Zielkriterien wie Alter, Bildung, Berufserfahrung oder Branche und bestimmt und priorisiert daraufhin mögliche Zielgruppen - über ein blosses Abgleichen von Anforderungen wie Berufszulassung oder Ort hinaus.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es bestimmt über gezielte Werbung den Zugang zu Beschäftigungsmöglichkeiten und kann wesentlich beeinflussen, welche Bewerber überhaupt von offenen Stellen erfahren."
+ },
+ {
+  "lage": "Ein System einer Behörde lädt Menschen auf Grundlage von Bevölkerungsgruppen zur Vorsorgeuntersuchung ein, etwa zur Mammographie, und prüft dabei auch den Anspruch darauf.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es prüft den Anspruch auf eine Gesundheitsleistung, auch wenn das über eine Einladung von sich aus geschieht."
+ },
+ {
+  "lage": "KI-Systeme in vernetzten Haushaltsgeräten wie Thermostaten, Waschmaschinen, Luftreinigern, Kühlschränken und Fernsehgeräten, deren Zweck Komfort, Bequemlichkeit oder Optimierung ist, etwa von Energieverbrauch, Luftgüte, Helligkeit oder Ton.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(48)",
+  "amtliche_begruendung": "Die meisten dieser Systeme fallen nicht unter den Begriff des Sicherheitsbauteils, weil ein Ausfall oder Fehlverhalten Gesundheit und Sicherheit voraussichtlich nicht gefährdet, sondern zu Unannehmlichkeit, Unbehagen, falschen Vorschlägen oder schwächerer Leistung führt."
+ },
+ {
+  "lage": "Eine Bildungseinrichtung prueft Hausaufgaben und abgegebene Arbeiten gegen eine Sammlung bestehender Texte auf Abschreiben.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Es werden abgegebene Arbeiten geprueft, die in unbeaufsichtigter Umgebung entstanden sind; es gibt keine Beobachtung in Echtzeit waehrend einer Pruefung."
+ },
+ {
+  "lage": "Ein System platziert Arbeitgeberwerbung, die das Unternehmen als attraktiven Arbeitsplatz darstellt - etwa Unternehmenskultur, Zusatzleistungen oder Entwicklungsmöglichkeiten -, ist an keine konkrete offene Stelle gebunden, ist nicht diskriminierend und optimiert die Platzierung nach Kennzahlen wie Seitenaufrufen, Beteiligungsraten oder allgemeiner Bevölkerungsstruktur.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es beschränkt sich auf Arbeitgeberwerbung und betrifft keine bestimmten offenen Stellen."
+ },
+ {
+  "lage": "System der Spielebranche verfolgt Körperhaltung, Gesichtsausdruck, Augenschluss und Blick, um Erregung, Wut, Frust und Belustigung der Spieler zu messen und das Produkt zu verbessern.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Gefühle werden aus Körpermerkmalen erschlossen."
+ },
+ {
+  "lage": "Dasselbe System erzeugt die notwendigen Qualifikationen und Fähigkeiten selbst aus einer groben Beschreibung der Stelle, oder es bewertet zusätzlich die Lebensläufe der Bewerber an der von ihm erstellten Stellenbeschreibung und empfiehlt daraufhin, wer geeignet ist.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(247)",
+  "amtliche_begruendung": "Es kann das Bewerbungsverfahren wesentlich beeinflussen und fällt deshalb nicht unter die Ausnahmen."
+ },
+ {
+  "lage": "Ein System ueberwacht Aufnahme- oder Hafteinrichtungen, schaetzt aber nur Auffaelligkeiten der Gesamtlage ein, etwa einen Andrang oder einen ploetzlichen Laermanstieg, ohne Menschen aufzuspueren oder zu verfolgen und ohne personenbezogene Hinweise.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-d",
+  "beleg": "(403)",
+  "amtliche_begruendung": "Das System faellt nicht unter diesen Fall."
+ },
+ {
+  "lage": "Ein System zur Optimierung des Verkehrsflusses auf Grundlage von Daten, die in Echtzeit gesammelt werden.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(183)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System prueft eine von einer Lehrkraft erstellte Pruefung auf Grammatikfehler, unklare Formulierungen und Widersprueche zum Bewertungsraster und schlaegt Aenderungen vor.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Es aendert Inhalt, Schwierigkeit und Lernziel nicht, die Lehrkraft bleibt fuer die Pruefung verantwortlich; es faellt unter die Ausnahme fuer das Verbessern des Ergebnisses einer bereits abgeschlossenen menschlichen Taetigkeit, Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Software, die die Maschinenverordnung (EU) 2023/1230 ausdrücklich in die Begriffsbestimmung der Maschinenprodukte einbezieht und die für eine Konformitätsbewertung durch eine dritte Stelle vorgesehen ist.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(30)",
+  "amtliche_begruendung": "Solche Software kann selbst ein geregeltes Produkt nach der Maschinenverordnung sein und ist dann nach Artikel 6 Absatz 1 hochriskant, sofern für sie eine Bewertung durch eine dritte Stelle verlangt ist."
+ },
+ {
+  "lage": "Gesichtserkennung am Stadioneingang, die gesperrte Personen bei der Einlasskontrolle erkennt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(144)",
+  "amtliche_begruendung": "Die Bedingung der Erkennung aus der Ferne fehlt, weil die Personen bewusst vor das Gerät treten müssen, um Einlass zu bekommen."
+ },
+ {
+  "lage": "Ein System verarbeitet Sozialleistungsanträge, gleicht sie mit externen Datenbanken ab und erzeugt daraus eine Entscheidung über den Anspruch.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es prüft den Anspruch und erzeugt die Entscheidung darüber."
+ },
+ {
+  "lage": "Eine Einrichtung beobachtet mit Gesichtserkennung, Auswertung des Tastenanschlags und Bildschirmbeobachtung Pruefungsteilnehmer in einer Pruefung zur Zertifizierung und erkennt unerlaubtes Verhalten, etwa den Zugriff auf verbotene Unterlagen oder die Verstaendigung mit anderen Personen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Das System beobachtet und erkennt unerlaubtes Verhalten waehrend einer Pruefung."
+ },
+ {
+  "lage": "Ein Chatbot zur Vorsortierung in der seelischen Krise bewertet über Textkontakt Schwere und Dringlichkeit, ohne ärztliche Untersuchung oder Diagnose.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es steuert die Reaktion und nimmt eine erste Vorsortierung im Notfall vor."
+ },
+ {
+  "lage": "Ein System, das den Straßenverkehr überwacht und die Ampeln entsprechend nachregelt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Das KI-System ist zwar Ausfall-kritisch, aber die Gefährdung von Menschen oder Eigentum ist nur theoretisch denkbar und tritt im Zusammenhang des Produkts nicht ein.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(39)",
+  "amtliche_begruendung": "Die Wahrscheinlichkeit eines Ausfalls oder Fehlverhaltens darf nicht nur eine theoretische Möglichkeit sein, sondern muss im Zusammenhang des Produkts zu einer Gefährdung von Personen oder Eigentum führen."
+ },
+ {
+  "lage": "Der Inhaber einer Rechtsperson wird auf Kreditwürdigkeit geprüft, weil er einen Firmenkredit besichert.",
+  "soll": "kein_hochrisiko",
+  "punkt": "",
+  "beleg": "(74)",
+  "amtliche_begruendung": "Der Inhaber fällt nicht unter Nummer 5 Buchstabe b, obwohl er als natürliche Person handelt, weil der Kredit vorrangig der Firma und nicht der Einzelperson zugutekommt."
+ },
+ {
+  "lage": "Ein System soll bei der Einstellung von Beschäftigten eingesetzt werden. Es erkennt Abweichungen von früheren Entscheidungsmustern bei der Einstellung, bevor die Einstellung abgeschlossen ist, um mögliche Unstimmigkeiten und Abweichungen von den Einstellungsregeln des Unternehmens zu erkennen, und bewertet dabei die persönlichen Merkmale der Personen, die die Bewerbungsgespräche führen.",
+  "soll": "hochrisiko",
+  "punkt": "",
+  "beleg": "(112)",
+  "amtliche_begruendung": "Die Bewertung der Entscheidungen der Gesprächsführenden und ihrer persönlichen Merkmale zur Untersuchung möglicher Abweichungen von früheren Entscheidungsmustern ist Profiling. Die Verwendung könnte unter Artikel 6 Absatz 3 Buchstabe c fallen, aber weil das System personenbezogene Daten verarbeitet, um die Gesprächsführenden zu profilieren, ist der Filter nicht anwendbar."
+ },
+ {
+  "lage": "Ein System versendet persönlich zugeschnittene Eingangsbestätigungen per E-Mail mit Namen und Anrede der Person, die sich beworben hat.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es beeinflusst die Aussicht auf Auswahl in keiner Weise; enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein System wertet Daten aus, um anhand des Akteninhalts Begleitangaben herauszuziehen, etwa die Verfahrensrollen aus der Klage, also Parteien, Rechtsvertreter, Zeugen und Sachverstaendige, um Bueroarbeiten wie Ladungen zu unterstuetzen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-a",
+  "beleg": "(423)",
+  "amtliche_begruendung": "Im Regelfall gilt das nicht als Unterstuetzung beim Ermitteln und Auslegen von Tatsachen und Recht; selbst wenn einzelne Funktionen dazu fuehren wuerden, greift jedenfalls die Ausnahme fuer eine eng begrenzte Verfahrensaufgabe."
+ },
+ {
+  "lage": "Ein System durchsucht elektronische Geraete in grossem Umfang, um Begleitdaten zum Reiseweg eines Menschen herauszuziehen, und gibt alle Standortdaten sachlich aus, ohne eine Angabe gegenueber einer anderen zu bevorzugen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Das kann als vorbereitende Aufgabe gelten."
+ },
+ {
+  "lage": "Ein System zur Störungserkennung zur vorsorglichen Vermeidung von Ausfällen. Es erkennt Abweichungen, sagt drohende Ausfälle voraus und warnt die Netzleitstelle, die dann vorsorglich Lasten umschalten kann.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System prueft Bewerbungen, Zeugnisse und Testergebnisse und bestimmt daraus, wer an der Einrichtung aufgenommen werden kann.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Das Ergebnis wirkt sich unmittelbar auf das Recht aus, an dieser Einrichtung zu lernen, sich auszubilden oder sich einzuschreiben, weil die Bewertung und die Empfehlung den Ausgang der Aufnahmeentscheidung bestimmen koennen."
+ },
+ {
+  "lage": "Ein System fasst Arztberichte zusammen, die Grundlage der Entscheidung über Gesundheitsleistungen sind; der Sachbearbeiter muss die Berichte selbst durchsehen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, ist aber als enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstaben a und d ausgenommen."
+ },
+ {
+  "lage": "Körperkameras von Polizeikräften erkennen selbsttätig Verhaltensmuster und melden eine aggressive Körperhaltung anhand von Gangart, Haltung, Bewegung und Gesichtsauswertung, um einzuschätzen, ob eine Person in eine Auseinandersetzung geraten wird.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Körperliche Anzeichen werden ausgelegt, um den Gefühlszustand Wut zu erschliessen."
+ },
+ {
+  "lage": "Ein System bewertet oder ordnet Migranten ueber einen Zeitraum hinweg nach koerperlichen Reaktionen, Verhalten einschliesslich der Taetigkeit im Netz oder anderen persoenlichen Daten, um daraus einen allgemeinen Wert fuer Vertrauenswuerdigkeit oder Gefahr zu bilden, besonders wenn das ueber verschiedene Lebensbereiche hinweg geschieht oder zu Nachteilen fuehrt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-vorfragen",
+  "beleg": "(384)",
+  "amtliche_begruendung": "Ein solches System kann eine nach Artikel 5 Absatz 1 Buchstabe c verbotene soziale Bewertung sein; Anbieter und Betreiber muessen sicherstellen, dass der Einsatz nicht darauf hinauslaeuft."
+ },
+ {
+  "lage": "Ein System soll früher abgeschlossene Prüfungen der Anspruchsberechtigung durch Bedienstete einer öffentlichen Verwaltung auswerten, um Entscheidungsmuster oder Abweichungen für Qualitätssicherung und Berichtswesen zu erkennen, ohne Ergebnisse für laufende Fälle vorzuschlagen und ohne die Leistung der Beschäftigten zu bewerten, etwa im Rahmen der jährlichen Beurteilung.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(102)",
+  "amtliche_begruendung": "Wird das System erst eingesetzt, nachdem die Bediensteten ihre Beurteilungen getroffen haben, kann es für die Ausnahme nach Artikel 6 Absatz 3 Buchstabe c in Betracht kommen und ist kein Profiling. Der Vergleich erlaubt dem Bediensteten, vom System erkannte Abweichungen von früheren Entscheidungsmustern in ähnlichen Fällen zu sehen, samt allen Punkten und Nachweisen, die bei der ersten Beurteilung berücksichtigt wurden; der Beurteiler oder eine Qualitätssicherung entscheidet nach ordentlicher menschlicher Nachprüfung, ob die erkannten Abweichungen für die abgeschlossene Beurteilung erheblich sind."
+ },
+ {
+  "lage": "Ein System wandelt von Menschen geprüften Inhalt für die Zusammenarbeit zwischen Systemen oder für die Zugänglichkeit um.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(96)",
+  "amtliche_begruendung": "Das System formt die menschliche Ausgabe um, ersetzt sie aber nicht; der Text nennt es als Beispiel einer unterstützenden Verbesserungsfunktion nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Eine Beratungsgesellschaft verbessert mit einem Schreibhilfssystem die Beförderungsberichte der Führungskräfte, nachdem die Bewertungen vollständig abgeschlossen sind; die Führungskräfte entscheiden über die Empfehlungen, verfassen die Begründungen und setzen die Bewertungen nach den Unternehmenskriterien selbst, bevor das System die Sprache klarer macht, die Einheitlichkeit mit dem Hausstil sichert und möglicherweise voreingenommene Formulierungen markiert; am Ende muss die Führungskraft die überarbeiteten Bewertungen nach interner Vorgabe noch einmal prüfen. Das System ändert keine Ergebnisse oder Bewertungen und erzeugt keine neuen Inhalte.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System betrifft Beförderungsentscheidungen, beeinflusst aber die Entscheidungsfindung nicht; es fällt unter die Ausnahme für Systeme, die das Ergebnis einer bereits abgeschlossenen menschlichen Tätigkeit verbessern sollen, nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Ein System erkennt ausschließlich nicht inklusive oder diskriminierende Formulierungen in Anzeigentexten; die Erkennungslogik beruht auf Mustern und Begriffen, die Menschen festgelegt und geprüft haben, und das System markiert mögliche problematische Wendungen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es ist nicht dazu bestimmt, Menschen zu gewinnen oder auszuwählen, auch wenn es im weiten Beschäftigungsbereich arbeitet."
+ },
+ {
+  "lage": "Ein System wird genutzt, nachdem der Richter die Entscheidung entworfen hat, und vergleicht den Entwurf mit der Fallakte, um Tatsachenfragen oder Punkte zu bestimmen, die der Entwurf offenbar nicht behandelt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-a",
+  "beleg": "(423)",
+  "amtliche_begruendung": "Dabei kann eine Auslegung des Tatsachenstoffs vorkommen; nimmt das System aber nur eine Vollstaendigkeitspruefung vor, bewertet es keine Glaubwuerdigkeit, bestimmt es nicht, was geschehen ist, schlaegt es keine Antwort auf eine Tatsachenfrage vor und beeinflusst es die richterliche Feststellung der Tatsachen nicht wesentlich, so verbessert es das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit."
+ },
+ {
+  "lage": "Ein System in einer Notaufnahme sortiert Patienten nach Vorrang, ohne ärztliche Untersuchung oder Diagnose.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es bestimmt die Reihenfolge beim Ingangsetzen der Vorsortierung von Notfallpatienten."
+ },
+ {
+  "lage": "Derselbe Grenzautomat gleicht die aufgenommenen Körpermerkmale zusätzlich mit einer Sammlung von Straftätern ab.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(136)",
+  "amtliche_begruendung": "Neben der Bestätigung tritt ein Abgleich mit einer Sammlung zur Feststellung der Identität."
+ },
+ {
+  "lage": "System im Fahrzeug verfolgt Körperhaltung, Gesichtsausdruck, Augenschluss und Blick, um zu erkennen, wenn der Fahrer die Aufmerksamkeit verliert, einschläft oder ein plötzliches gesundheitliches Problem hat, und bringt das Fahrzeug sicher zum Stehen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Schmerz und Müdigkeit sind körperliche Zustände und gehören nicht zu Gefühlen oder Absichten."
+ },
+ {
+  "lage": "Ein System, das beim Betrieb von Stromnetzen Abweichungen in Datenmustern erkennt, um kritische Funktionen zu überwachen und Entscheidungen dazu zu unterstützen, etwa die Verteilung der Last, die Netzstabilität oder Abschaltverfahren.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System soll Daten bewerten, die für eine Entscheidung erheblich sind, zum Beispiel über öffentliche Leistungen, und liefert dem menschlichen Bearbeiter Hinweise auf die einschlägigen Rechtsvorschriften, Angaben zur Zuständigkeit und möglicherweise bestehende interne Leitlinien, die für den Entscheidungsvorgang erheblich sind.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(108)",
+  "amtliche_begruendung": "Die Aufgaben können als vorbereitend im Sinne des Artikels 6 Absatz 3 Buchstabe d gelten, weil sie den konkreten Fall weder untersuchen noch bewerten und keine Ausgabe erzeugen, die die Entscheidung wesentlich beeinflusst; das System verweist auf allgemeine Angaben als ergänzende Information für den menschlichen Beurteiler."
+ },
+ {
+  "lage": "Ein System unterstützt die Einarbeitung neuer Mitarbeiter mit persönlich zugeschnittenen Hinweisen zu Unternehmensregeln und Schulungsplänen und beantwortet häufige Fragen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es unterstützt interne Personalabläufe nach der Einstellung und beeinflusst weder Gewinnung oder Auswahl noch in irgendeiner Weise den Zugang zur Arbeit; es kann jedoch unter Nummer 4 Buchstabe b fallen, wenn es die Bedingungen des Arbeitsverhältnisses betrifft, in Leistungsbewertungen einfließt oder Mitarbeiter überwacht."
+ },
+ {
+  "lage": "Ein System hört während des Gesprächs mit, schreibt mit und vergleicht mit früheren Notrufen, um dem Mitarbeiter Anzeichen lebensbedrohlicher Lagen anzuzeigen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es bewertet den Anruf und hilft, ihn nach Schwere einzustufen."
+ },
+ {
+  "lage": "Eine Wirtschaftspruefungsgesellschaft setzt ein System zur Erkennung von Geldwaesche ein, um ihre Pflichten aus dem Geldwaescherecht der Europaeischen Union zu erfuellen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-vorfragen",
+  "beleg": "(81)",
+  "amtliche_begruendung": "Die Gesellschaft handelt nicht im Namen von Strafverfolgungsbehoerden, sondern auf eigene Rechnung, weshalb das System im Bereich der Strafverfolgung nach Nummer 6 nicht als hochriskant eingeordnet wird."
+ },
+ {
+  "lage": "Ein System entscheidet im Einzelfall über Arbeitslosengeld, prüft wer wie lange und in welcher Höhe Anspruch hat und empfiehlt das dem Sachbearbeiter.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es prüft den Anspruch und empfiehlt Gewähren oder Ablehnen."
+ },
+ {
+  "lage": "System im Callcenter wertet Tonlage, Tonhöhe und Lautstärke der Kundenstimme aus, um Zufriedenheit zu messen, Wut zu erkennen und an einen Menschen weiterzuleiten.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Aus der Stimme werden Gefühle abgeleitet; dass der Kunde nicht erkannt werden soll, ändert nichts."
+ },
+ {
+  "lage": "Ein Fernsehsender zählt mit einem Gerät, wie oft seine Nachrichtensprecher in die Kamera lächeln.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Blosse Beobachtung eines offen sichtbaren Ausdrucks ohne Ableitung von Gefühlen."
+ },
+ {
+  "lage": "Ein System empfiehlt Lernenden selbst, welche Kurse, Programme oder Abschluesse sie im naechsten Jahr anstreben koennten, auf Grundlage ihrer eigenen Angaben zu Interessen und Berufszielen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Es wird nicht von einer Bildungseinrichtung eingesetzt, sondern hilft den Lernenden nur, ihren Bildungsweg selbst zu entscheiden."
+ },
+ {
+  "lage": "Ein System im Bereich Migration, Grenzkontrolle und Grenzverwaltung durchsucht jede eingereichte Visumsakte, wandelt eingelesene Dokumente in Text zum Verzeichnen um, legt Bestandteile selbsttätig in feste, vorab bestimmte Ordner wie Ausweispapiere, Reiseverlauf, Nachweise und Übersetzungen ab und erkennt vollständig gleiche Doppelanlagen und kennzeichnet sie als Doppel.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(93)",
+  "amtliche_begruendung": "Solche engen Verfahrensaufgaben können den Filter nutzen, sofern das System keine Rangfolge bildet, die Dokumente bewertet, aussortiert oder verbirgt, kein Material als nützlich oder weniger nützlich kennzeichnet und keine nächsten Schritte oder Einschätzungen der Glaubwürdigkeit vorschlägt."
+ },
+ {
+  "lage": "Ein System prüft Berufszulassungen von Bewerbern gegen amtliche Register, etwa die vom Bewerber angegebene Kammermitgliedsnummer gegen die Register der Kammern; die Ausgabe ist tatsächlich und lautet bestätigt oder nicht bestätigt, Auffälligkeiten gehen zur Nachprüfung an die Personalabteilung oder die Rechtsabteilung.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es fällt in den Anwendungsfall, prägt aber die Auswahl über die tatsächliche Bestätigung hinaus nicht wesentlich und erfüllt eine klar umschriebene, begrenzte Funktion; es ist deshalb eine enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein System stabilisiert, entrauscht oder verbessert Videobilder, ohne Menschen aufzuspueren, zu erkennen oder zu bestimmen und ohne Hinweise fuer ein Handeln im Einsatz zu erzeugen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-d",
+  "beleg": "(403)",
+  "amtliche_begruendung": "Es fällt unter die Ausnahme fuer Systeme mit vorbereitender Aufgabe."
+ },
+ {
+  "lage": "Ein System prueft im Nachhinein die Entscheidungen eines Zulassungsausschusses, um die Qualitaet des Verfahrens zu kontrollieren.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Es soll Entscheidungsmuster und Abweichungen erkennen und nicht die abgeschlossene menschliche Bewertung ersetzen oder beeinflussen; es faellt unter die Ausnahme in Artikel 6 Absatz 3 Buchstabe c."
+ },
+ {
+  "lage": "Ein KI-System ist Sicherheitsbauteil eines Produkts nach Anhang I der Maschinenverordnung oder selbst ein solches Produkt, nach Artikel 25 Absatz 2 und Absatz 3 jener Verordnung.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(59)",
+  "amtliche_begruendung": "Der Text stuft diese KI-Systeme ebenso wie die der Spielzeugverordnung nach Artikel 6 Absatz 1 als hochriskant ein."
+ },
+ {
+  "lage": "Kameras in Wand und Decke eines Stadions; nach einem Vorfall werden die aufgenommenen Gesichtsbilder mit einer Sammlung abgeglichen, um Täter festzustellen, ohne dass die Besucher mitmachen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(144)",
+  "amtliche_begruendung": "Feststellung der Identität durch Abgleich mit einer Sammlung, ohne bewusstes Mitmachen."
+ },
+ {
+  "lage": "Eine Sprachlern-Anwendung gibt Lernenden sofortige Rueckmeldung und korrigiert erkannte Fehler; sie fuehrt zu keinem Zeugnis, keiner Bescheinigung und keiner anerkannten Form der Anerkennung und wird von Lernenden aus eigenem Antrieb genutzt, ohne dass eine Einrichtung das verlangt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Sie dient nicht formalem und beilaeufigem Lernen aus eigenem Antrieb und fuehrt zu keiner anerkannten Qualifikation."
+ },
+ {
+  "lage": "Ein System erkennt Muster von Papierfaelschungen, und diese Muster werden spaeter auf namentlich bekannte Menschen angewandt, um sie vorzusortieren.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-d",
+  "beleg": "(403)",
+  "amtliche_begruendung": "Dann fällt das System unter diesen Fall, weil es eine Gefahreneinschaetzung auf Personenebene vornimmt."
+ },
+ {
+  "lage": "Ein System der Zollbehörden bewertet das Risiko, dass in die Europäische Union eingehende Waren dem an der Grenze anwendbaren Recht nicht entsprechen, auf Grundlage von Angaben zu den Wirtschaftsbeteiligten der Waren, etwa Behälternummer, Warenbeschreibung, Streckenführung, Transport und Zahlungsweise.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(111)",
+  "amtliche_begruendung": "Die Verarbeitung bewertet keine persönlichen Aspekte einer natürlichen Person, sondern das Risiko nicht vorschriftsmäßiger Sendungen; eine solche Bewertung ist deshalb kein Profiling und sperrt den Filter nicht."
+ },
+ {
+  "lage": "Ein System liest Korrektur oder verbessert den Stil von Entscheidungen oder Urteilen, die Richter verfasst haben, ohne den Inhalt zu aendern.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-a",
+  "beleg": "(423)",
+  "amtliche_begruendung": "Es ist zweifelhaft, ob darin ueberhaupt eine Unterstuetzung beim Anwenden des Rechts liegt, weil der Grad der Unterstuetzung sehr gering erscheint; jedenfalls greift die Ausnahme fuer Systeme, die das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit verbessern."
+ },
+ {
+  "lage": "Das Produkt fällt nicht unter eine der in Anhang I genannten Rechtsvorschriften.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(26)",
+  "amtliche_begruendung": "Artikel 6 Absatz 1 erweitert das Produktrecht nicht auf neue oder weitere Produkte, die diesem Recht nicht schon unterliegen, und die Liste der Rechtsvorschriften in Anhang I ist abschließend."
+ },
+ {
+  "lage": "Eine Einrichtung wertet mit einem System aus, welche Empfehlungen Ausbilder Auszubildenden fuer weiterfuehrende Kurse gegeben haben, und erhaelt Vorschlaege, wie sie dabei kuenftig vorgehen koennte.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das Ergebnis verbessert das Vorgehen der Einrichtung, trifft aber keine Entscheidung ueber Einstufung oder Moeglichkeiten der Auszubildenden; Ausnahme nach Artikel 6 Absatz 3 Buchstabe b."
+ },
+ {
+  "lage": "Ein System benennt Menschen mit Bedarf an Vorsorge, prüft aber keinen Anspruch, und sein Ergebnis wird nicht zur Priorisierung oder zum Ausschluss genutzt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es bestimmt keinen Anspruch der benannten Menschen."
+ },
+ {
+  "lage": "Ein Industrieunternehmen sammelt mit einem System die monatlichen Anwesenheitsdaten der Beschäftigten automatisch aus der Zeiterfassungsanwendung, ordnet sie in gegliederte Berichte und Übersichten und schickt diese zu einem festen Termin an die Führungskräfte; es überwacht die Anwesenheit nicht, erzeugt keine Leistungswerte, gibt keine Empfehlungen und markiert keine Beschäftigten, sondern fasst nur die Angaben zusammen, die die Beschäftigten selbst in der Zeiterfassung eingetragen haben. Die Führungskräfte nehmen ihre inhaltlichen Bewertungen weiterhin selbst vor.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System fällt in den Anwendungsfall, überwacht aber nicht und trifft keine bewertenden Urteile; es fällt unter die Ausnahme für vorbereitende Aufgaben nach Artikel 6 Absatz 3 Buchstabe d."
+ },
+ {
+  "lage": "Ein System durchsucht Anträge auf Krankengeld nach Unstimmigkeiten und Betrugshinweisen und markiert einzelne zur Prüfung durch einen Sachbearbeiter.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Die Markierung entscheidet über genauere Prüfung, Verzögerung, Aussetzung oder möglicherweise Ablehnung und wirkt damit auf den Zugang."
+ },
+ {
+  "lage": "Gesichts- und Stimmerkennung, die ausgewählte Personen in Rundfunkarchiven aufspürt, indem der Inhalt mit einer Sammlung abgeglichen wird, ohne dass die Personen mitmachen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(144)",
+  "amtliche_begruendung": "Feststellung der Identität durch Abgleich mit einer Sammlung ohne Mitmachen der Betroffenen."
+ },
+ {
+  "lage": "Eine Anwaltskanzlei verteilt mit einem System die Arbeitslast unter den angestellten Anwälten; es verarbeitet Daten zu abgerechneten Stunden, Bearbeitungszeiten früherer Mandate, Reaktionsbereitschaft auf E-Mails und freiwilliger Teilnahme an Kanzleiaktivitäten wie Schulungen oder Mandantengewinnung und fasst diese Verhaltensdaten zu einem Wert zusammen, der die Grundlage für die Zuweisung von Mandaten bildet.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System weist Aufgaben anhand des individuellen Verhaltens zu und berührt damit wesentlich sowohl die gegenwärtigen Arbeitsbedingungen als auch die langfristigen Berufswege."
+ },
+ {
+  "lage": "Ein Handels- und Logistikunternehmen setzt einen Planer ein, der Schichten, Ruhezeiten und Rufbereitschaftsfenster zuweist; Eingangsgrößen sind unter anderem Verhaltens- und Leistungssignale wie Pünktlichkeit, Nichterscheinen in der Vergangenheit, Annahme- und Ablehnungsraten angebotener Schichten sowie Bewertungen von Kunden und Führungskräften. Der Planer bringt die Arbeitenden für jeden Platz in eine Rangfolge und weist Schichten selbst zu, wobei die leistungsstärksten Personen die wichtigsten Schichten erhalten; niedriger eingeordnete Personen erhalten weniger wichtige und möglicherweise weniger Schichten, geringeres veränderliches Entgelt und unbeständigere Muster, und wer vorrangige Angebote ablehnt, wird in der Priorität herabgestuft.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System bewertet Leistung und Verhalten der Arbeitenden und weist auf dieser Grundlage Aufgaben zu; der Einsatz berührt Entgelt, Zugang zu vorrangigen Aufgaben und möglicherweise den Aufstieg, so dass die Ausnahmen des Artikels 6 Absatz 3 nicht greifen."
+ },
+ {
+  "lage": "Ein Steuerungssystem, das über Telekommunikationsnetze mit Verkehrsteilnehmern sprechen kann (intelligentes Verkehrssteuerungssystem). Es erkennt Verkehr, wertet die empfangenen Daten aus und entscheidet auf dieser Grundlage, etwa um bestimmte Verkehrsteilnehmer zu bevorrechtigen oder Verkehrsteilnehmern mitzuteilen, wie lange eine Ampel rot oder grün bleibt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System erkennt hochwassergefährdete Gebiete, modelliert die Ausbreitung von Waldbränden und beobachtet Wetter und Erdbebentätigkeit, ohne über Zeitpunkt oder Ort des Losschickens zu entscheiden.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es fehlt der Bezug zum Losschicken von Rettungskräften."
+ },
+ {
+  "lage": "Ein System in einer Notrufzentrale stuft Anrufe an die 112 mit Sprachverarbeitung nach Dringlichkeit ein und lenkt die Einsatzkräfte.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es bewertet und stuft Anrufe ein, bestimmt die Reihenfolge und schickt die Kräfte los."
+ },
+ {
+  "lage": "Ein System zur Betrugsaufdeckung liefert ein Ergebnis, das danach in die Bewertung der Zahlungsfähigkeit oder in den Punktwert einfließt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(308)",
+  "amtliche_begruendung": "Es fällt aus dem Anwendungsfall heraus, obwohl sein Ergebnis weiterverwendet wird."
+ },
+ {
+  "lage": "Ein System einer Bank berechnet nur die risikogewichteten Forderungsbeträge von Darlehensbeständen nach dem auf internen Beurteilungen beruhenden Ansatz und ist nicht für Punktwerte oder die Bewertung der Zahlungsfähigkeit gedacht.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(323)",
+  "amtliche_begruendung": "Der Zweck des Anwendungsfalls fehlt."
+ },
+ {
+  "lage": "Ein System deutet Wetterrisikodaten vor einer wahrscheinlichen Notlage und liefert Vorarbeit für die Verteilung von Mitteln, etwa vorverlegte Feuerwehrkräfte; Fachleute und der zuständige Einsatzleiter prüfen und bestätigen das.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, ist aber als vorbereitende Aufgabe nach Artikel 6 Absatz 3 Buchstabe d ausgenommen."
+ },
+ {
+  "lage": "Ein System, das als Druckfühler in der Überwachung des Wasserdrucks eingesetzt wird.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(198)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Armbanduhr misst Stimme und Herzschlag und überwacht die Stimmung des Trägers, um ihm den eigenen Gefühlszustand bewusst zu machen und Vorschläge zur Besserung zu geben.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Gefühle werden erschlossen; dass das Ergebnis nur dem Träger angezeigt wird, ändert nichts."
+ },
+ {
+  "lage": "Ein System wandelt das Gespräch zwischen Sachbearbeiter und Antragsteller in Text um und fasst es zusammen; der Sachbearbeiter ist dabei und kann die Zusammenfassung prüfen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, doch das Ergebnis ist nur unterstützend und nicht entscheidend und nach Artikel 6 Absatz 3 Buchstaben a und d ausgenommen."
+ },
+ {
+  "lage": "Ein System ordnet eine Fallakte allein nach festgelegten Kategorien zur Ablage und zum Wiederfinden, etwa Ausweispapiere, Gesundheitsunterlagen, Gespraechsnotizen, ohne das Material nach Bedeutung zu ordnen und ohne etwas auszulassen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Das Anbringen fester, vorgegebener Bezeichnungen zur Ablage und zum Wiederfinden ist eine eng begrenzte Verfahrenshandlung; das System bewertet keine Beweise, setzt keine Rangfolge und beeinflusst die Beurteilung nicht."
+ },
+ {
+  "lage": "Ein Anbieter entwickelt ein System, das die Bonität des Inhabers eines Kleinbetriebs oder einer Firma bestimmen soll, die keine Rechtsperson ist.",
+  "soll": "kein_hochrisiko",
+  "punkt": "",
+  "beleg": "(73)",
+  "amtliche_begruendung": "Ein solches System soll keine natürliche Person bewerten, wenn es nur Betriebs- oder Firmendaten verwendet."
+ },
+ {
+  "lage": "Kameras an der Grenze nehmen Gesichtsbilder auf und leiten daraus Alter und Geschlecht einreisender Ausländer ab.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Alter und Geschlecht sind keine geschützten Merkmale."
+ },
+ {
+  "lage": "Ein System bewertet schriftliche oder mündliche Antworten von Bewerbern in einer Online-Prüfung, gibt jedem eine Punktzahl nach sprachlichen und inhaltlichen Kriterien und erzeugt daraus eine Rangfolge, die bestimmt, wer zum Gespräch eingeladen wird.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es übernimmt eine zentrale bewertende Aufgabe und beeinflusst die Substanz von Gewinnung und Auswahl in bedeutsamer Weise."
+ },
+ {
+  "lage": "Eine Fahrdienstplattform setzt ein System ein, um die Vergütung der Fahrer laufend festzulegen; Eingangsgrößen sind die aktuelle Nachfrage, Annahmeraten der Fahrer, Bewertungen der Fahrgäste und durchschnittliche Fahrtzeiten. Das System berechnet Fahrtpreise und verändert die Entgeltfaktoren einzelner Fahrer: wer dauerhaft schlechter bewertet wird oder langsamer fährt, erhält einen geringeren Faktor, hoch bewertete Fahrer erhalten Zuschläge. Die Anpassungen erfolgen automatisch in Echtzeit; eine menschliche Aufsicht besteht förmlich, in der Praxis bestimmt aber allein der Algorithmus die Entgelthöhe, und Beschwerden ändern die Ergebnisse selten.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Entscheidungen über die Vergütung gehören zu den Bedingungen eines Arbeitsverhältnisses."
+ },
+ {
+  "lage": "Das Risiko des KI-Systems betrifft allein öffentliche Belange jenseits von Gesundheit, Sicherheit und Grundrechten, etwa die Nutzung von Funkfrequenzen oder die elektromagnetische Verträglichkeit.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(25)",
+  "amtliche_begruendung": "Für die Einstufung nach Artikel 6 Absatz 1 ist der Begriff des Sicherheitsbauteils so zu verstehen, dass solche Belange ausgenommen sind."
+ },
+ {
+  "lage": "Ein System erkennt vor allem gefälschte Ausweise, Einkommensnachweise und Kontoauszüge in Kreditanträgen; die Betrugsaufdeckung geht allen anderen Zwecken vor.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(307)",
+  "amtliche_begruendung": "Die Ausnahme für die Aufdeckung von Finanzbetrug greift, weil die Betrugsaufdeckung der vorrangige Zweck ist."
+ },
+ {
+  "lage": "Ein System sagt Wahrscheinlichkeit und Richtung von Waldbränden voraus und löst zugleich das Losschicken der Kräfte aus oder empfiehlt klar die Verteilung des Personals; der Mensch entscheidet weiter.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es ist ausdrücklich dafür gedacht, Rettungskräfte auszulösen und über Zeitpunkt und Ort des Losschickens zu entscheiden."
+ },
+ {
+  "lage": "Ein System zur Überwachung und zum Schutz des äußeren Umfelds einer Stromanlage, etwa Kamerasysteme, Radarsysteme und die Steuerung von Fluggeräten ohne Besatzung.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System hilft Lehrkraeften, die Pruefung der Bereitschaft einer Person fuer eine Stufe vorzubereiten, indem es aus Vorbildung und Berufserfahrung Fragen und Themen erstellt, die die Lehrkraft dann selbst nutzt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das Ergebnis dient der Lehrkraft fuer ihr eigenes Vorgehen und befindet nicht selbst ueber die Stufe; es faellt unter die Ausnahme fuer vorbereitende Taetigkeiten in Artikel 6 Absatz 3 Buchstabe d."
+ },
+ {
+  "lage": "Ein System prueft, ob in einem Beurteilungsbogen eines Bewaehrungshelfers alle Pflichtfelder gefuellt sind, oder zeigt Widersprueche in den eingegebenen Daten an, etwa nicht zusammenpassende Daten der Tat oder der Haftzeit.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-d",
+  "beleg": "(368)",
+  "amtliche_begruendung": "Das System erfuellt eine vorbereitende Aufgabe fuer die Gefahreneinschaetzung und bewertet keine persoenlichen Merkmale; es erfuellt zudem eine eng begrenzte Verfahrensaufgabe, weil es nur Widersprueche anzeigt."
+ },
+ {
+  "lage": "Nach einer Festnahme wird im Polizeigewahrsam ein Lichtbild des Verdächtigen aufgenommen und mit einer Sammlung gespeicherter Körpermerkmale abgeglichen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(140)",
+  "amtliche_begruendung": "Keine Erkennung aus der Ferne, weil der Verdächtige im formellen Verfahren mitmacht."
+ },
+ {
+  "lage": "Ein System gibt den Einsatzkräften ein Lagebild der Unfallstelle, etwa Aufenthaltsort und Körpertemperatur von Verletzten, aus Daten von Helfern, Rettungsrobotern, Drohnen und Sensoren, und gibt vorhandene Angaben nur geordnet wieder.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, ist aber als enge Verfahrens- und vorbereitende Aufgabe nach Artikel 6 Absatz 3 Buchstaben a und d ausgenommen."
+ },
+ {
+  "lage": "Eine Essenslieferplattform empfiehlt mit einem System Gebiete, in denen nach Wetter, früheren Bestellungen und aktuellen Verkehrsdaten höhere Nachfrage erwartet wird; die Kuriere erhalten Hinweise wie hohe Nachfrage in Gebiet X zwischen 13 und 14 Uhr, können sie aber frei übergehen. Es gibt keine Nachteile für das Ablehnen, kein Verzeichnis darüber, wer Empfehlungen angenommen oder abgelehnt hat, und das System verringert den Zugang zu künftigen Aufträgen nicht.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das Empfehlungswerkzeug liefert nur freiwillige, nicht bindende Hilfsinformationen und stellt keine Aufgabenzuweisung auf der Grundlage individuellen Verhaltens dar."
+ },
+ {
+  "lage": "Ein System hilft Bewerbern, ihren Lebenslauf auf eine bestimmte offene Stelle zuzuschneiden: es prüft den Lebenslauf und die vom Bewerber selbst bereitgestellte Stellenbeschreibung und empfiehlt Änderungen, um die Einladungschance zu erhöhen; die Empfehlungen gehen ausschließlich an den Bewerber.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Der Einsatz wird vom Bewerber begonnen und geführt, liegt außerhalb der Einflussmöglichkeit des möglichen Arbeitgebers und findet außerhalb des Einstellungs- und Auswahlverfahrens statt."
+ },
+ {
+  "lage": "Landwirtschaft: ein KI-System in einer Drohne oder einem Roboter dient Zwecken des Anbaus, etwa der Ertragsvorhersage oder einer besseren Bewässerung.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(47)",
+  "amtliche_begruendung": "Das System erfüllt keine Sicherheitsaufgabe, und seine Fehlfunktion würde Gesundheit, Sicherheit oder Eigentum nicht gefährden. Könnte sein Ausfall oder Fehlverhalten im Zusammenhang des Produkts Gesundheit und Sicherheit von Menschen oder Eigentum gefährden, kann es dennoch Sicherheitsbauteil sein, sofern die übrigen Bedingungen des Artikels 6 Absatz 1 erfüllt sind."
+ },
+ {
+  "lage": "Ein System untersucht große Mengen demografischer, verhaltensbezogener und sozioökonomischer Daten, um Bedarfslücken zu finden und neue Lebensversicherungsprodukte samt Preisrahmen zu gestalten, ohne Einzelfälle zu bewerten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(nach 321)",
+  "amtliche_begruendung": "Es wird kein Risikoprofil eines Menschen bewertet; die Produktgestaltung ist eine frühere und eigene Stufe."
+ },
+ {
+  "lage": "Ein System erkennt verdaechtige Zahlungsmuster und wird zusaetzlich mit personenbezogenen Daten wie Namen oder Kontonummern angereichert, sodass daraus Profile einzelner Menschen entstehen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-e",
+  "beleg": "(370)",
+  "amtliche_begruendung": "Bewertet das System auf diese Weise persoenliche Merkmale, ist es als hochriskant einzuordnen; allein auf Zahlungsdaten bezogen, etwa auf Betraege, Haeufigkeiten, Abstaende und Leitwege, ist es es nicht."
+ },
+ {
+  "lage": "Ein Werkzeug gleicht Bewerber automatisch mit Stellen ab und bildet eine Rangfolge; es verarbeitet Lebensläufe, Fähigkeiten, Bildung, frühere Einsätze sowie kognitive, soziale und emotionale Kompetenzen, vergleicht sie mit Stellenbeschreibungen oder früheren Einstellungsdaten und erzeugt Punktwerte, Ranglisten wie Top 5 und Passungskategorien wie hohe oder geringe Passung. Interne und externe Personalverantwortliche dürfen übersteuern, aber die Rangfolge ist die wichtigste Eingangsgröße der Entscheidung.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Das System prüft und filtert Bewerber; es könnte etwa zu einer niedrigen Einordnung oder zum Ausschluss von Bewerbern eines bestimmten Geschlechts oder von Bewerbern mit Behinderungen führen."
+ },
+ {
+  "lage": "Ein Köder-System im Netz (Honeypot), das Angriffe über das Netz in Echtzeit erkennen und unschädlich machen soll.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(187)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein Ausfall oder Fehlverhalten des KI-Systems führt nur zu Schaden am Ansehen, zu rein finanziellem Verlust, zu einer geringen Verschlechterung des Dienstes oder zu einer Unannehmlichkeit ohne Sicherheitsgefahr.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(40)",
+  "amtliche_begruendung": "Diese Folgen zählen nicht zur Gefährdung von Gesundheit, Sicherheit und Eigentum."
+ },
+ {
+  "lage": "Eine Bildungseinrichtung beobachtet Verhalten in Mensa, Gaengen und anderen Bereichen ohne Pruefung und warnt Personal bei moeglichen Vorfaellen wie Schikane oder Belaestigung.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Das System beobachtet kein unerlaubtes Verhalten waehrend Pruefungen, sondern dient der Sicherheit und Ordnung; es kann aber unter Nummer 1 des Anhangs III fallen, wenn es ein System zur biometrischen Fernidentifizierung ist."
+ },
+ {
+  "lage": "Ein System zur Lageerfassung am Tatort hat zusaetzlich die Faehigkeit, Menschen an koerperlichen Merkmalen zu erkennen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-a",
+  "beleg": "(359)",
+  "amtliche_begruendung": "Dann kann es unter Nummer 1 des Anhangs III fallen."
+ },
+ {
+  "lage": "Ein System erkennt unvollständige Formulare und kennzeichnet sie, damit sie zur richtigen Ergänzung an den Antragsteller zurückgehen.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(93)",
+  "amtliche_begruendung": "Das kann als enge Verfahrensaufgabe eingeordnet werden und den Filter nutzen."
+ },
+ {
+  "lage": "Ein smartes Thermostat fällt unter die Funkanlagen-Richtlinie. Sein Verwendungszweck ist, durch Erlernen der Haushaltsabläufe und Anpassen der Temperatur Komfort und Energieeffizienz zu steigern.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(49)",
+  "amtliche_begruendung": "Das System soll keine Sicherheitsaufgabe erfüllen, und ein Ausfall oder Fehlverhalten führt nur zu Unbehagen oder höheren Energiekosten, ohne Gesundheit und Sicherheit von Menschen oder Eigentum zu gefährden."
+ },
+ {
+  "lage": "Ein Punktesystem einer Verwaltung sagt aus demografischen, Verhaltens- und Finanzdaten die Wahrscheinlichkeit von Betrug oder dauerhafter Abhängigkeit voraus und wird für Sozialwohnungen oder Arbeitslosengeld genutzt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es hilft bei der Anspruchsprüfung und beeinflusst die Entscheidung über den Erhalt wesentlich."
+ },
+ {
+  "lage": "Eine Auskunftei betreibt ein System, das Punktwerte bildet und an Dritte weitergibt, die damit über Darlehen, Hypothek oder Zugang zu Wohnung, Gesundheitsversorgung und Telekommunikation entscheiden.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(nach 309)",
+  "amtliche_begruendung": "Der Betreiber muss nicht derselbe sein wie die entscheidende Stelle."
+ },
+ {
+  "lage": "Ein System sammelt Vorstrafen, Bewaehrungsberichte und andere Unterlagen und sortiert sie vor, um eine Fallakte fuer menschliche Bearbeiter vorzubereiten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-d",
+  "beleg": "(368)",
+  "amtliche_begruendung": "Das System erfuellt eine vorbereitende Aufgabe fuer die Gefahreneinschaetzung und kommt daher fuer eine Ausnahme in Betracht."
+ },
+ {
+  "lage": "Ein Kurier- und Versandunternehmen verfolgt mit einem System Versanddaten und erkennt mögliche Fehler bei der Beschriftung oder Störungen in der Verteilung; es prüft Inhalte von Etiketten, beobachtet Pakete auf dem Weg und erkennt Abweichungen zwischen erwarteter und tatsächlicher Route. Erkennt es eine Abweichung, benachrichtigt es ausschließlich den zuständigen Mitarbeiter, der dann die nötigen Schritte zur Berichtigung einleitet.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Zweck ist ein störungsfreier Arbeitsablauf und die Einhaltung vertraglicher Pflichten; das System unterstützt die Arbeitenden bei ihren Aufgaben statt ihre Leistung zu bewerten, die Überwachung ist nur beiläufig - vorausgesetzt, es ist nicht auch zur Leistungsbeurteilung bestimmt."
+ },
+ {
+  "lage": "Ein System prueft Akten einer Reisegenehmigung oder eines Visums auf Vollstaendigkeit oder Form, etwa Pflichtfelder und das Vorhandensein von Unterlagen, ohne einen Gefahrenwert, einen Hinweis oder eine Vorsortierung von Menschen zu erzeugen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es erfuellt eng begrenzte Verfahrensaufgaben und keine vorbereitenden Aufgaben, weil es keine inhaltlichen Teile fuer die Pruefung vorbereitet oder strukturiert."
+ },
+ {
+  "lage": "Ein System verzeichnet und beschlagwortet im Lauf der Beweisbewertung gesammelte Finanzunterlagen, etwa damit sie mit Kontobewegungen verglichen oder auf das Vorkommen von Namen oder Gegenstaenden geprueft werden koennen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-c",
+  "beleg": "(365)",
+  "amtliche_begruendung": "Solche Systeme fallen unter die Ausnahmen fuer Systeme, die eine eng begrenzte Verfahrensaufgabe oder eine vorbereitende Aufgabe erfuellen."
+ },
+ {
+  "lage": "Kameras an Wänden und Decken prüfen bei Konzerten die Stimmung des Publikums anhand von Stimmen, Gesichtern und Bewegungen und schicken mehr Sicherheitspersonal in Bereiche, in denen die Stimmung aggressiv wird.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-c",
+  "beleg": "(177)",
+  "amtliche_begruendung": "Gefühle einzelner Teilnehmer werden ausgewertet, um die Stimmung einzuschätzen."
+ },
+ {
+  "lage": "Ein System einer öffentlich-rechtlichen Krankenversicherung bewertet das Risiko einzelner Menschen und legt Beiträge fest.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(319)",
+  "amtliche_begruendung": "Die Versicherung kann privat oder öffentlich angeboten werden."
+ },
+ {
+  "lage": "Ein System eines Versicherers schätzt die erwarteten Behandlungskosten einer Risikogruppe, rechnet Verwaltungsaufwand und Gewinnspanne hinzu, und daraus wird der Beitrag der Gruppenmitglieder.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(nach 321)",
+  "amtliche_begruendung": "Es legt den Beitrag fest."
+ },
+ {
+  "lage": "Ein System schreibt Notrufe schlechter Qualität mit und hebt Schlüsselwörter hervor, bewertet und stuft den Anruf aber nicht ein.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es bewertet und stuft den Anruf nicht ein."
+ },
+ {
+  "lage": "Ein System prüft mit Kameras und Sensoren das Sehvermögen von Pilotenbewerbern, misst etwa Sehschärfe und Reaktionsgeschwindigkeit und bewertet, ob die Schwellenwerte für den Passagierflug erreicht werden; das Ergebnis entscheidet unmittelbar über die Eignung für bestimmte Rollen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es wird in Gewinnung und Auswahl eingesetzt, um die Eignung von Bewerbern zu bewerten."
+ },
+ {
+  "lage": "Ein System bewertet die Zahlungsfähigkeit und bildet im selben durchgehenden Vorgang den Kreditpreis.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(300)",
+  "amtliche_begruendung": "Beide Funktionen sind in einem System zusammengeführt."
+ },
+ {
+  "lage": "Ein System, das Abweichungen in Daten aus dem Stromnetzbetrieb erkennt und auswertet, dessen Ergebnis die Grundlage für künftige Verbesserungen im Netzbetrieb ist und von einem Menschen geprüft wird.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein Anbieter entwickelt ein System, das die Kreditwürdigkeit von Firmen anhand ihrer Daten, Bilanzen und Abschlüsse bewertet.",
+  "soll": "kein_hochrisiko",
+  "punkt": "",
+  "beleg": "(74)",
+  "amtliche_begruendung": "Solange das System nicht die persönlichen Finanzen natürlicher Personen bewerten soll, ist seine vorgesehene Verwendung keine Bewertung natürlicher Personen und das System deshalb nicht hochriskant."
+ },
+ {
+  "lage": "System nimmt das Tippverhalten von Kunden auf, leitet daraus das Geschlecht ab und spielt danach persönlich zugeschnittene Werbung aus.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Es wird nach Körpermerkmalen eingeteilt, das abgeleitete Merkmal Geschlecht ist aber nicht geschützt."
+ },
+ {
+  "lage": "Ein System prueft den Ton bereits von Menschen geschriebener Kampagnentexte, hebt moeglicherweise unklare oder nachteilige Formulierungen hervor, zeigt Widersprueche zu bestehenden Parteimaterialien auf oder schlaegt Umformulierungen vor, die die von der Partei betonten Haltungen oder Werte besser vermitteln.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-b",
+  "beleg": "(447)",
+  "amtliche_begruendung": "Man koennte darin eine Beeinflussung des Wahlergebnisses durch Einwirken auf die Entscheidung der Waehlerschaft sehen, doch kommt die Ausnahme in Betracht, weil das System lediglich das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit verbessert."
+ },
+ {
+  "lage": "Ein System bildet aus Zahlungsverhalten und Einkommen eine Kennzahl der Zahlungsfähigkeit und unterstützt damit die Entscheidung über einen Verbraucherkredit oder eine Hypothek.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(nach 309)",
+  "amtliche_begruendung": "Verbraucherkredit und Hypothek sind grundlegende private Dienste."
+ },
+ {
+  "lage": "Einrichtungen, Politik und Forschung nutzen ein System, das aus verschiedenen Quellen allgemeine Entwicklungen auswertet, welche Bildungsstufen nach der weiterfuehrenden Schule gewaehlt werden.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das Ergebnis dient nicht Entscheidungen ueber die Einstufung oder die Moeglichkeiten einzelner Lernender, sondern einem breiteren Bild der Bildungslandschaft."
+ },
+ {
+  "lage": "Ein System plant Vorstellungsgespräche: es greift auf die Kalenderwerkzeuge des Unternehmens und die von den Bewerbern angegebenen Zeitwünsche zu, schlägt Termine nach gegenseitiger Verfügbarkeit und Randbedingungen wie Zeitzonen oder maximaler Zahl täglicher Gespräche vor, versendet Erinnerungen und nimmt angegebene Barrierefreiheitsbedarfe wie Gebärdensprachdolmetschung, verlängerte Gesprächsdauer oder andere Kommunikationsformen auf.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Der Zweck ist rein organisatorisch; das System trägt nicht zur Auswahl bei und löst oder beeinflusst keine beschäftigungsbezogene Bewertung; enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein System verarbeitet waehrend einer Pruefung Ausweise oder biometrische Angaben wie einen Gesichtsabgleich, um festzustellen, ob die anwesende Person die angemeldete Person ist.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Es erleichtert nur die Feststellung der Person und entscheidet nicht selbst, ob die Person fortfahren darf oder ob Folgen eintreten; das entscheidet die Aufsichtsperson; Ausnahme nach Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein System für vorausschauende Wartung, das genauere Vorhersagen zur Wartung der Straßeninfrastruktur erlaubt und Teil einer Reihe von Sicherheitsmaßnahmen ist.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System ist in eine oeffentliche Datenbank der nationalen Rechtsprechung eingebunden, die von der Oeffentlichkeit und von Gerichtsmitarbeitern genutzt wird, und erlaubt die Suche nach Entscheidungen mit herkoemmlichen Mitteln, erstellt Zusammenfassungen veroeffentlichter Entscheidungen und von Suchergebnissen und erlaubt die Suche in natuerlicher Sprache.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-a",
+  "beleg": "(423)",
+  "amtliche_begruendung": "Das System unterstuetzt zwar beim Ermitteln und Auslegen des Rechts, erfuellt dabei aber nur eng begrenzte Verfahrensaufgaben."
+ },
+ {
+  "lage": "Ein System prüft menschliche Muster bei früheren Einstellungsentscheidungen: es wertet anonymisierte Daten wie Lebenslaufbewertungen, Gesprächsnotizen und Einstellungsergebnisse statistisch aus, um mögliche Verzerrungen oder Widersprüche zu erkennen; es nimmt an laufenden Verfahren nicht teil, beeinflusst keine aktuellen Bewerberbewertungen und bewertet oder entscheidet nicht anhand bestimmbarer persönlicher Merkmale von Personalverantwortlichen oder Bewerbern.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es fällt in den Anwendungsfall, nutzt aber die Ausnahme des Artikels 6 Absatz 3 Buchstabe c für Systeme, die Entscheidungsmuster oder Abweichungen davon erkennen sollen, ohne abgeschlossene menschliche Bewertungen zu ersetzen oder zu beeinflussen."
+ },
+ {
+  "lage": "Selbstfahrende Roboter, die in einem Heizkraftwerk regelmäßige, vorab festgelegte Runden und Kontrollpunkte abfahren.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(202)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System erkennt bei wartenden Anrufen in der Warteschlange Art und Schwere der Notlage und weist den Mitarbeiter auf vorzuziehende Anrufe hin; die Entscheidung bleibt beim Menschen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es bewertet und stuft Notrufe in lebensbedrohliche und nicht lebensbedrohliche ein."
+ },
+ {
+  "lage": "Ein System prüft eine von einem Menschen getroffene Entscheidung, einen Plan oder eine Konstruktion und liefert eine wesentlich andere Lösung.",
+  "soll": "hochrisiko",
+  "punkt": "",
+  "beleg": "(96)",
+  "amtliche_begruendung": "Das ist kein Verbessern eines zuvor abgeschlossenen menschlichen Ergebnisses im Sinne des Artikels 6 Absatz 3 Buchstabe b, weil es sich nicht auf Verfeinern oder Aufwerten des Ergebnisses beschränkt; die Bedingung trägt die Ausnahme nicht."
+ },
+ {
+  "lage": "Ein Werkzeug für vorausschauende Wartung zur Überwachung einer Gasfernleitung, das Betriebsdaten auswertet, um den Wartungsbedarf vorherzusagen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(200)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Eine Technik, die sich mit möglichen Angreifern aktiv einlässt, um neue Angriffsmuster zu lernen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(187)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Eine Bildungseinrichtung erkennt mit Gesichtserkennung und Gegenstandserkennung unerlaubtes Verhalten in Pruefungen in Praesenz, etwa die Nutzung verbotener Unterlagen oder Geraete.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Das System beobachtet und erkennt unerlaubtes Verhalten waehrend einer Pruefung."
+ },
+ {
+  "lage": "Ein Unternehmen bewertet mit einem System den Fortschritt der Beschäftigten in freiwilligen Schulungsmodulen anhand von Testergebnissen und Abschlussdaten; es gibt ausschließlich Rückmeldungen und Lernempfehlungen an die Beschäftigten selbst, um deren persönliche Entwicklung zu unterstützen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Die Funktion beschränkt sich darauf, Lernergebnisse in einem Schulungszusammenhang zu messen; sie beurteilt nicht die Arbeitsleistung, bestimmt keine Beförderungen und prägt keine Leitungsentscheidungen."
+ },
+ {
+  "lage": "Ein System teilt nur mit, welche Stelle einen Antrag auf grundlegende Unterstützungsleistungen weiter bearbeiten soll.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es empfiehlt nur den Bearbeiter, ohne den Anspruch zu bewerten."
+ },
+ {
+  "lage": "Ein Chatbot beantwortet rechtliche Fragen eines Sachbearbeiters, zugeschnitten auf den einzelnen Pflegeleistungsfall; der Sachbearbeiter entscheidet weiter selbst.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Die Entscheidung über den Anspruch wird durch die rechtlichen Antworten wesentlich beeinflusst."
+ },
+ {
+  "lage": "Ein System zur Zollrisikosteuerung liefert Zollbeamten Hinweise darauf, wie wahrscheinlich es ist, dass Waren beim Grenzuebertritt rechtliche Anforderungen nicht erfuellen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-vorfragen",
+  "beleg": "(349)",
+  "amtliche_begruendung": "Solche Systeme sollen im Regelfall keine Straftaten verhueten, aufklaeren, aufdecken oder verfolgen, sondern moegliche Verstoesse gegen Regeln zu Agrar- und Lebensmittelsicherheit, Pflanzen- und Tiergesundheit, Rechten des geistigen Eigentums, Produktsicherheit, Umwelt und Abfall oder dem Schutz von Kulturgut anzeigen. Werden sie zusaetzlich zur Aufdeckung von Straftaten eingesetzt, sind sie hochriskant, wenn sie unter einen der Faelle der Nummer 6 fallen."
+ },
+ {
+  "lage": "Eine öffentliche Verwaltung weist mit einem System erfolgreiche Bewerber wie Lehrkräfte oder Ärzte nach einem bestandenen Auswahlverfahren bestimmten Stellen zu; es berücksichtigt Prüfungsergebnisse, Ortswünsche, freie Stellen und Dienstalter und erzeugt endgültige Zuweisungslisten, die bestimmen, wer welche Stelle erhält. Beschwerden sind möglich, in der Praxis ist die Zuweisung des Systems aber entscheidend, weil die Verwaltung sich bei der endgültigen Besetzung darauf stützt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System wird zur Zuweisung von Rollen im öffentlichen Dienst eingesetzt und bestimmt unmittelbar und bedeutsam die Arbeitsbedingungen und Berufswege der Bediensteten."
+ },
+ {
+  "lage": "Dasselbe System wird sowohl für den Punktwert einzelner Menschen als auch für interne Beurteilungen und Ausfallschätzungen zur Eigenmittelberechnung genutzt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(324)",
+  "amtliche_begruendung": "Es kommt nicht auf den Hauptzweck an; einer der Zwecke erfüllt den Anwendungsfall."
+ },
+ {
+  "lage": "Eine Behörde prüft mit Gesichtserkennung die Identität von Personen gegen eine Liste terrorverdächtiger Personen, um ihnen Einlass in einen abgesperrten Sicherheitsbereich innerhalb eines öffentlichen Platzes zu geben; Hinweise sind sichtbar angebracht und der Sensor verlangt, dass man in einem markierten Feld steht und hineinschaut.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(140)",
+  "amtliche_begruendung": "Die Personen machen bewusst mit, deshalb fehlt die Erkennung aus der Ferne."
+ },
+ {
+  "lage": "Ein Bestandteil soll ausschließlich Zwecken der Cybersicherheit dienen, im Zusammenhang mit Sicherheitsbauteilen in kritischer Infrastruktur.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(38)",
+  "amtliche_begruendung": "Erwägungsgrund 55 der KI-Verordnung nimmt Bestandteile, die ausschließlich für Zwecke der Cybersicherheit verwendet werden sollen, ausdrücklich von den Sicherheitsbauteilen aus, dies aber nur im Zusammenhang mit Sicherheitsbauteilen in kritischer Infrastruktur. Außerhalb dieses Zusammenhangs können KI-Bestandteile für die Cybersicherheit Sicherheitsbauteile sein, wenn ihr Ausfall oder Fehlverhalten Gesundheit und Sicherheit von Menschen oder Eigentum gefährden könnte."
+ },
+ {
+  "lage": "Ein System vereinheitlicht Begriffe und verbessert die Sprache in einer Entscheidung, nachdem die menschliche Beurteilung abgeschlossen ist, ohne zusaetzliche Begruendung einzufuehren und ohne das Ergebnis zu aendern.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es verbessert das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit; ein System, das rechtliche oder tatsaechliche Gruende erschliesst oder formuliert, die nicht ausdruecklich genannt sind, oder das die Glaubwuerdigkeit erneut bewertet, ist davon nicht gedeckt."
+ },
+ {
+  "lage": "Eine Einrichtung nutzt ein Einstufungswerkzeug, das die Faehigkeiten neuer Lernender prueft und den Lehrkraeften empfiehlt, ob sie in den Anfaenger-, Mittel- oder Fortgeschrittenenkurs gehoeren, oder das darueber befindet, ob eine Person in die Hochschulbildung oder in die Berufsbildung wechselt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das System bestimmt die passende Stufe fuer eine bestimmte Person."
+ },
+ {
+  "lage": "Ein System, das als Assistent Empfehlungen gibt und den Energieverbrauch auf Ebene der Fernleitung, der Region oder vor Ort vorhersagt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Systeme, die die Dienstgüte und den Betrieb kritischer digitaler Infrastruktur verbessern sollen: Verwaltung von Störungsmeldungen, Optimierung des Netzes und Anpassung an einzelne Kundenbedürfnisse, KI-gestützte Auskunft aus dem technischen Handbuch zur Netzwartung, Vorhersage der Netzlast.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(194)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Eine Nachhilfeplattform verwaltet mit einem System die Konten selbstständiger Lehrkräfte; Eingangsgrößen sind Zufriedenheitsbewertungen der Schüler, Abschlussquoten der Stunden und Pünktlichkeitsprotokolle aus dem Videosystem. Daraus bildet das System einen Leistungswert; fällt er drei Wochen hintereinander unter vier von fünf, sperrt das System das Konto automatisch für einen Monat, halten die niedrigen Bewertungen in einem weiteren Prüfzeitraum an, wird das Konto dauerhaft abgeschaltet - die Lehrkräfte können dann keine Stunden mehr annehmen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Die Wirkung ist die tatsächliche Beendigung des Arbeitsverhältnisses; Beendigung ist inhaltlich zu verstehen und umfasst jede Entscheidung, die den Arbeitenden die weitere Beschäftigung nimmt."
+ },
+ {
+  "lage": "Ein System erkennt Angaben in eingegangenen Lebensläufen und ordnet sie in einer internen Datenbank, die Personalverantwortliche durchsuchen können.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es erfüllt eine klar umschriebene, begrenzte Funktion und wirkt sich nicht wesentlich auf Gewinnung oder Auswahl des Bewerbers aus; es fällt unter die Ausnahme des Artikels 6 Absatz 3 Buchstabe d."
+ },
+ {
+  "lage": "Ein Lernbegleiter fuer Menschen mit anderer Wahrnehmung oder Verarbeitung, etwa Autismus, Lese-Rechtschreib-Schwierigkeiten oder Aufmerksamkeitsstoerung, baut persoenliche Lernwege, passt Material, Tempo und Darstellung an und bietet Vorlesefunktion, Schriftgroessen, Farbanpassungen, mehr Zeit oder Pausen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Das Ergebnis dient dem Unterricht der Lehrkraft und der zusaetzlichen Unterstuetzung; es soll keine Noten bestimmen und das Gelernte nicht bewerten."
+ },
+ {
+  "lage": "Ein System eines Versicherers prüft Anträge auf Lebensversicherung, verarbeitet Alter, Gesundheitszustand, Familiengeschichte, Lebensgewohnheiten und Beruf und nutzt Sterbetafeln; daraus folgt, ob der Antrag angenommen wird und zu welchen Bedingungen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(nach 321)",
+  "amtliche_begruendung": "Es handelt sich um eine Risikobewertung."
+ },
+ {
+  "lage": "Ein System hilft Bewerbern, die beste verfügbare Stelle zu finden: es prüft offene Stellen und die vom Bewerber angegebenen Fähigkeiten, Erfahrungen und Erwartungen, bildet daraus eine Rangfolge der Stellen und empfiehlt die passendsten; die Empfehlungen gehen ausschließlich an den Bewerber.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Der Einsatz wird vom Bewerber begonnen und geführt, liegt außerhalb der Einflussmöglichkeit des möglichen Arbeitgebers und findet außerhalb des Einstellungs- und Auswahlverfahrens statt."
+ },
+ {
+  "lage": "Ein Unternehmen durchsucht mit einem System Internetplattformen und soziale Medien nach Äußerungen über sich als Arbeitgeber, um das eigene Ansehen zu verfolgen und allgemeine Entwicklungen in der Wahrnehmung durch mögliche Bewerber zu erkennen; einzelne Beiträge oder einzelne Nutzer werden nicht ausgewertet oder verfolgt, die Daten werden bei der Erhebung anonymisiert.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Das System ist nicht dazu bestimmt, Menschen unmittelbar zu gewinnen oder auszuwählen, auch wenn das Ansehen des Arbeitgebers mittelbar mit der Personalgewinnung zusammenhängt."
+ },
+ {
+  "lage": "Ein System verschriftlicht Gespraeche, uebersetzt Gespraechsmitschriften oder erstellt sachliche Zusammenfassungen fuer die Akte, ohne zu naechsten Schritten zu raten und ohne Ergebnisse vorzuschlagen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es erfuellt eine vorbereitende Aufgabe; geht ein System darueber hinaus, etwa indem es Angaben hinzufuegt, die in den Aussagen nicht enthalten sind, die Glaubwuerdigkeit bewertet oder die Aussagen mit dem Rechtsrahmen verknuepft, greift die Ausnahme nicht."
+ },
+ {
+  "lage": "Ein System verteilt begrenzte Stunden häuslicher Pflege unter anspruchsberechtigten Menschen und legt die Reihenfolge fest.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es beeinflusst den Zugang zu grundlegenden Pflegeleistungen wesentlich."
+ },
+ {
+  "lage": "Ein Vorpruefwerkzeug leitet einen Antragsteller nach strengen, sachlichen Regeln zur Zahlung einer festen Gebuehr, etwa weil ein Abkommen zur Visumerleichterung die Gebuehr fuer Antragsteller aus einem bestimmten Land festlegt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es erfuellt eine eng begrenzte Verfahrensaufgabe."
+ },
+ {
+  "lage": "Ein System gegen Geldwäsche und Terrorismusfinanzierung ist funktional verbunden und zugleich dafür gedacht, die Zahlungsfähigkeit zu bewerten.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-b",
+  "beleg": "(309)",
+  "amtliche_begruendung": "Die Betrugsausnahme gilt hier nicht, und der Zweck der Bewertung der Zahlungsfähigkeit ist mitumfasst."
+ },
+ {
+  "lage": "Ein System zeigt woertliche Unterschiede zwischen aktuellen und frueheren Aussagen an, etwa Unterschiede auf Zeichenebene, ohne eine Bewertung der Glaubwuerdigkeit zu erzeugen und ohne Nachfragen zu empfehlen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Bewertet das System dagegen die Bedeutung der Unterschiede oder bezeichnet es sie als Zweifel an der Glaubwuerdigkeit, greift die Ausnahme nicht mehr."
+ },
+ {
+  "lage": "Spielzeug: ein KI-System empfiehlt Musik in einem vernetzten Spielzeug.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(47)",
+  "amtliche_begruendung": "Das System erfüllt keine Sicherheitsaufgabe, und seine Fehlfunktion würde Gesundheit, Sicherheit oder Eigentum nicht gefährden. Es fällt daher nicht unter den Begriff des Sicherheitsbauteils."
+ },
+ {
+  "lage": "Ein System errechnet aus den im Schuljahr erzielten Noten und deren Gewichtungen den Durchschnitt, den die Lehrkraft fuer ihre Endbewertung nutzt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Es fuehrt nur eine einfache Rechnung aus und faellt damit unter die Ausnahme fuer eng umgrenzte Verfahrensaufgaben in Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein System sortiert eingehende Bewerbungen für die Aufnahme an einer Schule oder Hochschule nach der angestrebten Klassenstufe oder Bildungsstufe und ordnet sie in vorab festgelegte Kategorien ein, etwa Grundschule, weiterführende Schule, Oberstufe oder bestimmte Klassenstufen, auf Grundlage der Angaben in der Bewerbung.",
+  "soll": "ausnahme_greift",
+  "punkt": "",
+  "beleg": "(92)",
+  "amtliche_begruendung": "Das System erfüllt eine enge Verfahrensaufgabe, weil es die Geeignetheit der Bewerber nicht bewertet und keine Aufnahmeentscheidungen trifft."
+ },
+ {
+  "lage": "Ein System vereinheitlicht Ton- und Bildsignale, etwa durch Rauschminderung, Anpassung der Beleuchtung oder Herausziehen von Gesichtspunkten, damit Sachbearbeiter Aufnahmen leichter durchsehen koennen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-a",
+  "beleg": "(392)",
+  "amtliche_begruendung": "Erzeugt das System keine Schluesse auf Taeuschung und legt es solche auch nicht nahe, kann es unter die Ausnahme fuer Systeme mit vorbereitender Aufgabe fallen."
+ },
+ {
+  "lage": "Ein persoenlicher Lernassistent gibt fortlaufend Rueckmeldung und erstellt am Ende jeder Einheit einen Bericht mit Noten, Staerken, Schwaechen und Verbesserungsvorschlaegen; die Lehrkraft nutzt den Bericht fuer die Notengebung am Ende des Zeitraums.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Obwohl das System vor allem begleitend Rueckmeldung gibt, wird sein Ergebnis von der Lehrkraft fuer die Notenentscheidung genutzt und wirkt damit auf die abschliessende Bewertung ein."
+ },
+ {
+  "lage": "Ein Unternehmen optimiert mit einem Buchungswerkzeug die Verteilung von Arbeitsplätzen in einem gemischt genutzten Büro, indem es Reservierungen der Beschäftigten mit freien Schreibtischen oder Besprechungsräumen zusammenbringt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Es organisiert körperliche Arbeitsmittel, weist aber keine Aufgaben zu, bestimmt keine Beförderungen, bewertet die Arbeitenden nicht und berührt keine Beschäftigungsrechte."
+ },
+ {
+  "lage": "Ein System wird bei der Beweisbewertung eingesetzt, teilt aber nur die zur Echtheitspruefung ausgewaehlten Schriftstuecke, Bilder, Videos oder anderes Material in Gruppen ein, und diese Einteilung wirkt sich auf die Beurteilung der Verlaesslichkeit nicht aus.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-c",
+  "beleg": "(365)",
+  "amtliche_begruendung": "Solche Systeme fallen unter die Ausnahme fuer Systeme, die eine eng begrenzte Verfahrensaufgabe erfuellen."
+ },
+ {
+  "lage": "Ein System, das Wasserstandsdaten in Echtzeit mit der Schleusensteuerung für den Straßenverkehr verknüpft, etwa bei Hochwassergefahr.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Eine Arbeitsagentur laesst Vorbildung, Abschluesse und Testergebnisse von Bewerbern auswerten und ordnet die Personen freien Ausbildungsplaetzen zu.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Das System wendet feste Zugangskriterien und Platzgrenzen an und weist dadurch Personen Ausbildungsplaetze zu; weil es dabei persoenliche Daten bewertet, greift die Ausnahmeregel in Artikel 6 Absatz 3 nicht."
+ },
+ {
+  "lage": "Ein System bewertet Bewerbungen um Sozialwohnungen nach Einkommen, Haushaltsgröße, Alter, Erwerbsstatus und Wohnort und bildet daraus Dringlichkeit und Reihenfolge.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es wirkt sich unmittelbar auf den Zugang zu grundlegenden Wohnleistungen aus."
+ },
+ {
+  "lage": "Ein Wirtschaftsunternehmen setzt ein System zur Unterstützung der Gewinnung von Auszubildenden ein; es verwaltet und bearbeitet Bewerbungen, sichtet Lebensläufe, ordnet Bewerber Rollen zu oder erzeugt engere Listen anhand vorgegebener Kriterien wie Qualifikation oder Alter.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Obwohl eine Ausbildung Lernanteile hat, wird das System im Rahmen der Einstellung für ein förmliches Arbeitsverhältnis eingesetzt."
+ },
+ {
+  "lage": "Eine Polizeibehoerde setzt ein System ein, das die Gefahrenlage fuer Terrorismus in einem Stadtbezirk mit Regierungsgebaeuden einschaetzt, etwa niedrig, mittel oder erheblich, und sich dabei auf Gefahrenhinweise aus Lageberichten, die Zahl der letzten Vorfaelle und politische Entwicklungen stuetzt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-6-vorfragen",
+  "beleg": "(355)",
+  "amtliche_begruendung": "Es findet keine Profilbildung bei Menschen statt, die Einschaetzung bewertet keine persoenlichen Merkmale einer bestimmten Person, das Ergebnis gilt gemeinsam fuer alle Anwesenden im Bezirk, und niemand wird als moeglicher Taeter oder moegliches Opfer herausgegriffen."
+ },
+ {
+  "lage": "Eine Bildungseinrichtung wertet mit maschinellem Lernen in Echtzeit das Verhalten der Lernenden aus und erkennt Muster, die auf Taeuschung in Pruefungen im Netz hindeuten.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-d",
+  "beleg": "(235)",
+  "amtliche_begruendung": "Das System beobachtet und erkennt unerlaubtes Verhalten waehrend einer Pruefung."
+ },
+ {
+  "lage": "Ein System bearbeitet Leistungsfälle einer Krankenversicherung, prüft die Berechtigung nach den Vertragsbedingungen und bestimmt die Zahlungshöhe.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-c",
+  "beleg": "(nach 321)",
+  "amtliche_begruendung": "Leistungsfallbearbeitung ist von Risikobewertung und Beitragsfestlegung zu unterscheiden."
+ },
+ {
+  "lage": "System teilt Patienten ein: es nimmt das Gangbild auf, leitet daraus Gesundheitsangaben ab und ordnet die Personen Krankheitsstufen zu, um frühe Anzeichen von Krankheiten mit Bewegungsstörungen zu erkennen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Körpermerkmale als Eingabe, Gesundheit als abgeleitetes geschütztes Merkmal, danach Einteilung."
+ },
+ {
+  "lage": "Eine Personalvermittlung sucht mit einem Werkzeug in sozialen Netzwerken, Berufsportalen, Stellenbörsen und eigenen Lebenslaufdatenbanken nach Personen, die vorgegebenen Kriterien wie Berufsjahren, technischen Fähigkeiten oder Bildungsweg entsprechen, und erzeugt eine engere Liste möglicher Bewerber oder Auftragnehmer.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Es wirkt unmittelbar und bedeutsam auf Gewinnung und Auswahl von Menschen, indem es Bewerber filtert und auffindet; keine der Ausnahmen des Artikels 6 Absatz 3 greift."
+ },
+ {
+  "lage": "Ein System wertet Notrufe bei der Polizei aus, zieht Schlüsselwörter heraus, bewertet die Dringlichkeit und bestimmt die Reihenfolge der Einsätze.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es ist unmittelbar an Bewertung, Reihenfolge und Veranlassung der eingehenden Anrufe beteiligt."
+ },
+ {
+  "lage": "Eine Buchhaltungsfirma setzt ein System ein, das Geldwäsche erkennt, um ihre Pflichten aus dem Geldwäscherecht der Europäischen Union zu erfüllen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "",
+  "beleg": "(81)",
+  "amtliche_begruendung": "Die Firma handelt nicht im Namen der Strafverfolgungsbehörden, sondern im eigenen Namen; das System ist deshalb im Bereich Strafverfolgung nach Nummer 6 des Anhangs III nicht hochriskant."
+ },
+ {
+  "lage": "Eine Berufsbildungseinrichtung prueft mit Einstufungstests und Kompetenzpruefungen Wissen und Koennen in Mathematik, Physik und technischen Grundlagen und bestimmt daraus die Zugangsberechtigung fuer eine bestimmte Stufe oder einen bestimmten Kurs.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-c",
+  "beleg": "(229)",
+  "amtliche_begruendung": "Das System schaetzt ein, welche Stufe der Bildung die Person in einem bestimmten Programm erreichen kann."
+ },
+ {
+  "lage": "Ein Werkzeug für Übersetzung in Echtzeit im Straßenverkehr.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System, das den Überlauf der Abwasseranlage vorhersagt, soweit dieser das Trinkwasser beeinträchtigt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(198)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System sortiert eingehende Bewerbungen vor dem Verfahren, ordnet sie festen Gruppen zu und markiert doppelte Bewerbungen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Solange es keine Entscheidung ueber Aufnahme oder Zugang trifft, faellt es unter die Ausnahme fuer eng umgrenzte Verfahrensaufgaben der Datenverarbeitung und Ordnung in Artikel 6 Absatz 3 Buchstabe a."
+ },
+ {
+  "lage": "Ein Auskunftsassistent einer Hochschule beantwortet Fragen zu Zulassungsvoraussetzungen, Bewerbungsablauf und Studienangebot.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Er entscheidet nicht ueber Aufnahmen und gibt keine persoenlichen Empfehlungen, die eine Aufnahmeentscheidung spuerbar beeinflussen koennten."
+ },
+ {
+  "lage": "Ein Chatbot löst in einer medizinischen Einrichtung den Notfalldienst aus, ohne ärztliche Untersuchung oder Diagnose.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-d",
+  "beleg": "(nach 336)",
+  "amtliche_begruendung": "Es gehört zu den in Nummer 5 Buchstabe d genannten Zwecken."
+ },
+ {
+  "lage": "Spielzeug mit einem KI-System als Sicherheitsbauteil, bei dem der Hersteller auf die Bewertung durch eine dritte Stelle verzichten darf, weil er harmonisierte Normen anwendet.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(59)",
+  "amtliche_begruendung": "Die Wahl des Bewertungsverfahrens durch den Hersteller soll die Einstufung als hochriskantes KI-System nach Artikel 6 Absatz 1 nicht berühren, auch wenn ein Verzicht auf die Bewertung durch eine dritte Stelle bei Anwendung harmonisierter Normen möglich ist."
+ },
+ {
+  "lage": "Ein System zur Optimierung des Stromnetzes durch Vorhersage des Energiebedarfs.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System unterstuetzt die Bearbeitung von Bewerbungen, indem es Unterlagen ordnet, durchsucht, uebersetzt und die Angaben in eine geordnete Form bringt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-a",
+  "beleg": "(219)",
+  "amtliche_begruendung": "Es erleichtert nur das Ordnen und Durchsehen der Unterlagen und hat keinen bedeutsamen Einfluss auf die Entscheidung; es faellt unter die Ausnahme fuer vorbereitende Taetigkeiten in Artikel 6 Absatz 3 Buchstabe d."
+ },
+ {
+  "lage": "System durchsucht Texte und Bilder, um verbotene oder unangemessene Inhalte zu finden, auch solche, die auf politische Meinungen hindeuten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Die Einteilung beruht nicht auf Körpermerkmalen."
+ },
+ {
+  "lage": "Ein System, das schwere Gegenstände auf anfälligen Brücken und Kaimauern erkennt.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(196)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein System bewertet Arbeiten, Tests, Kurztests und Pruefungen der Lernenden, die in die Endbewertung einfliessen, und schlaegt Noten vor.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Es wirkt auf die abschliessende Bewertung der Lernenden ein, indem es die Ergebnisse auswertet und Noten vorschlaegt."
+ },
+ {
+  "lage": "Ein System erzeugt Stellenbeschreibungen ausschließlich aus einer Liste von Aufgaben und einer Liste notwendiger Qualifikationen und Fähigkeiten, die zuvor ein Mensch festgelegt hat.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(247)",
+  "amtliche_begruendung": "Es erfüllt eine enge Verfahrensaufgabe nach Artikel 6 Absatz 3 Buchstabe a, birgt nur begrenzte Risiken und beeinflusst das Bewerbungsverfahren nicht in bedeutsamer Weise."
+ },
+ {
+  "lage": "Ein System prüft Kostenerstattungsanträge von Firmen, nicht von einzelnen Menschen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Es bewertet keine Anträge einzelner Menschen."
+ },
+ {
+  "lage": "Ein System bewertet Anträge auf Gesundheitsleistungen vor und bestimmt damit, ob eine externe Stelle sie vertieft prüft; die Weiterleitung spricht ein Sachbearbeiter aus.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Die Vorbewertung ist der entscheidende Schritt für die weitere Prüfung und damit für den Zugang zu Gesundheitsleistungen."
+ },
+ {
+  "lage": "Ein System zur Qualitätssicherung beim Einbau von Stromzählern, das Bilder eingebauter Zähler auswertet und dem Beschäftigten Hinweise auf Fehler und Verbesserungen gibt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Gangerkennung, die das gespeicherte Gangbild eines bekannten Flüchtigen mit Videomaterial aus Verkehrsknotenpunkten abgleicht, um ihn weiterzuverfolgen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(135)",
+  "amtliche_begruendung": "Das Verfolgen beruht auf Körpermerkmalen und auf dem Abgleich mit einer Sammlung."
+ },
+ {
+  "lage": "Ein System wertet den Inhalt einer bei Gericht eingegangenen Klage oder eines Antrags sowie Muster frueherer Rechtsprechung aus, um die Fallart vorab einzuordnen, etwa Vertragsrecht oder Erbsache.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-8-a",
+  "beleg": "(423)",
+  "amtliche_begruendung": "Grundsaetzlich kann das als Unterstuetzung beim Ermitteln und Auslegen von Tatsachen und Recht gelten, doch kommen die Ausnahmen fuer eine eng begrenzte Verfahrensaufgabe und fuer eine vorbereitende Aufgabe in Betracht. Gibt das System zusaetzlich Empfehlungen zur Zulaessigkeit des Falls, abgesehen von rein technischen Pruefungen, greifen die Ausnahmen nicht mehr, auch wenn Gerichtsmitarbeiter das spaeter pruefen."
+ },
+ {
+  "lage": "Ein Werkzeug gibt Lernenden Rueckmeldung zu Aussprache oder Lesefluss, analysiert die Sprache und schlaegt Verbesserungen bei Betonung, Rhythmus und Aussprache vor.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Die Rueckmeldung nutzen die Lernenden selbst; Lehrkraefte verwenden sie nicht, um Noten zu bestimmen, die in eine Endbewertung einfliessen, und nicht, um Sprachkenntnisse festzustellen."
+ },
+ {
+  "lage": "Ein System übersetzt fremdsprachige Anträge auf öffentliche Unterstützungsdienste.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-5-a",
+  "beleg": "(nach 293)",
+  "amtliche_begruendung": "Der Fall gehört in den Anwendungsfall, doch die Übersetzung ist ein unvermeidlicher, aber für die Anspruchsprüfung nicht entscheidender Schritt und nach Artikel 6 Absatz 3 Buchstaben a und d ausgenommen."
+ },
+ {
+  "lage": "Ein System führt Hintergrundprüfungen von Bewerbern durch: es bündelt amtliche Nachweise, Beschäftigungsverlauf, Verlauf in sozialen Netzwerken sowie - soweit rechtlich zulässig - Kredit- und Finanzdaten mit offen zugänglichen Internetinformationen und gibt zusammengesetzte Risikowerte, Kategorien wie geringes, mittleres oder hohes Risiko oder Hinweise auf auffällige Punkte aus; in Verfahren mit hohen Bewerberzahlen werden damit Bewerber vor der menschlichen Prüfung zurückgestellt oder ausgeschlossen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Die Ausgabe beeinflusst in der Praxis stark, wer weiterkommt, und damit die Berufsaussichten wesentlich; weil das System Profilbildung vornimmt, kann es die Ausnahmen des Artikels 6 Absatz 3 nicht nutzen."
+ },
+ {
+  "lage": "Spielzeug mit einem KI-System als Sicherheitsbauteil, für das eine Konformitätsbewertung durch eine dritte Stelle verlangt ist, nach Artikel 26 Absatz 2 und Absatz 3 der Spielzeugverordnung (EU) 2025/2509.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-I",
+  "beleg": "(59)",
+  "amtliche_begruendung": "Erwägungsgrund 15 der Spielzeugverordnung bestätigt diese Einstufung ausdrücklich. KI-Systeme, die Sicherheitsbauteile von Spielzeug sind oder selbst solche Produkte, sind nach Artikel 6 Absatz 1 hochriskant."
+ },
+ {
+  "lage": "Grenzautomat vergleicht das aufgenommene Gesichtsbild eines Reisenden mit dem Bild im Chip seines Passes, um zu bestätigen, dass er der Inhaber des Dokuments ist.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-a",
+  "beleg": "(136)",
+  "amtliche_begruendung": "Reine Bestätigung der behaupteten Identität."
+ },
+ {
+  "lage": "Flughafenkameras nehmen Gangbild und Gesichtsmuster der Reisenden auf, leiten daraus unter anderem die ethnische Herkunft ab und teilen die Reisenden in Gruppen ein, etwa um Sammelprofile zu bilden oder gezielte Massnahmen zu stützen.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Ethnische Herkunft wird aus Körpermerkmalen abgeleitet und zur Einteilung benutzt."
+ },
+ {
+  "lage": "Ein System, das verdächtige Absenderadressen von Nachrichten erkennt und entwendete Daten ausfindig macht.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(187)",
+  "amtliche_begruendung": ""
+ },
+ {
+  "lage": "Ein Unternehmen optimiert mit einer Anwendung Geschäftsreisen und schlägt kostengünstige Flüge, Hotels und Reisewege für Beschäftigte vor, die Termine oder Tagungen besuchen müssen; die Vorschläge hindern die Beschäftigten nicht daran, anders zu wählen oder vollständig selbst zu buchen, solange sie nicht gegen sachliche Regeln der Unternehmensrichtlinie wie Höchstpreise verstoßen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-b",
+  "beleg": "(278)",
+  "amtliche_begruendung": "Das System unterstützt Abwicklung und Budgetierung, bestimmt aber nicht die Verteilung der Arbeit, keine Leistungsbewertungen, keinen Aufstieg und keine Beendigungsentscheidungen."
+ },
+ {
+  "lage": "Eine Arbeitsvermittlung ordnet mit einem System Bewerber offenen Stellen zu: es verarbeitet Bewerberdaten aus Lebensläufen wie Fähigkeiten, Bildungsweg und frühere Berufserfahrung sowie auf Arbeitgeberseite Stellenanforderungen, Berufsklassifikationen und Arbeitsmarktdaten und erzeugt Empfehlungen, indem es Bewerber für bestimmte Stellen in eine Rangfolge bringt oder Jobsuchenden passende Stellen vorschlägt; die Sachbearbeiter stützen sich bei großen Bewerbermengen stark darauf.",
+  "soll": "hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-4-a",
+  "beleg": "(254)",
+  "amtliche_begruendung": "Die Empfehlungen wirken sich unmittelbar darauf aus, welche Bewerber Arbeitgebern vorgeschlagen und welche Stellen Jobsuchenden gezeigt werden."
+ },
+ {
+  "lage": "Ein System prueft Visumantraege auf Vollstaendigkeit und Form und sortiert oder verteilt Akten zur verwaltungsmaessigen Bearbeitung nach oeffentlichen und sachlichen Maßstaeben, wobei es nur technische und nicht auslegende Handlungen vornimmt, den Inhalt nicht bewertet, den Verfahrensweg nicht bestimmt und die Pruefung inhaltlich nicht steuert.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-7-c",
+  "beleg": "(400)",
+  "amtliche_begruendung": "Es erfuellt eine eng begrenzte Verfahrensaufgabe."
+ },
+ {
+  "lage": "System schätzt aus Gesichtszügen oder Tippverhalten das Alter, um Minderjährige von schädlichen Inhalten, von altersbeschränkten Diensten, von Räumen oder von Warenautomaten fernzuhalten.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-1-b",
+  "beleg": "(170)",
+  "amtliche_begruendung": "Abgeleitet wird das Alter, das nicht zu den geschützten Merkmalen gehört."
+ },
+ {
+  "lage": "Ein System beobachtet die Bewertungsmuster von Lehrkraeften ueber die Zeit und meldet Abweichungen, die danach ein Mensch prueft und bei Bedarf berichtigt.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-3-b",
+  "beleg": "(225)",
+  "amtliche_begruendung": "Es soll Entscheidungsmuster und Abweichungen davon erkennen, aendert Bewertungen nicht selbsttaetig und soll eine abgeschlossene menschliche Bewertung nicht ersetzen oder beeinflussen; Ausnahme nach Artikel 6 Absatz 3 Buchstabe c."
+ },
+ {
+  "lage": "Ein von einem Menschen beaufsichtigtes System, das Ungleichgewichte im Stromnetz vorhersagt, etwa im Abstand von 15 Minuten. Die Vorhersagen stützen die Betriebsplanung, wirken aber auch unmittelbar auf Marktteilnehmer; eine Fehlfunktion könnte innere und äußere Beteiligte in die Irre führen und über schlechtere Einsatz- oder Absicherungsentscheidungen die Netzstabilität und damit die Stromversorgung beeinträchtigen.",
+  "soll": "kein_hochrisiko",
+  "punkt": "KI-VO/anh-III/nr-2",
+  "beleg": "(206)",
+  "amtliche_begruendung": ""
+ }
+]

@@ -1,4 +1,4 @@
-﻿name: Fehler im Programm
+name: Fehler im Programm
 description: Etwas stürzt ab oder tut nicht, was dasteht
 title: "[Fehler] "
 labels: ["fehler"]
@@ -22,8 +22,6 @@ body:
         - Suche im Rechtstext (src/helfer/suche)
         - Antwort und Sprachmodell (src/helfer/antwort)
         - Korpusbau oder Beschaffung (src/helfer/korpus, scripts)
-        - Android-App
-        - Bau des Android-Pakets in GitHub Actions
         - Weiß ich nicht
     validations:
       required: true
@@ -80,8 +78,6 @@ body:
       label: Umgebung
       description: >-
         Betriebssystem und Python-Fassung (`python -V`), oder bei der App das
-        Telefon und die Android-Fassung.
-      placeholder: "Windows 11, Python 3.12.4 — oder: Pixel 7a, Android 15"
     validations:
       required: true
 

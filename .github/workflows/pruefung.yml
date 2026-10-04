@@ -7,8 +7,6 @@
 # ausgenommen. Wer eine solche Prüfung schreibt, markiert sie mit
 # @pytest.mark.langsam.
 #
-# Das Android-Paket wird von .github/workflows/android.yml gebaut, nicht hier.
-#
 # Geprüft wird auf Python 3.11, 3.12 und 3.13 — den Fassungen, die
 # pyproject.toml unter requires-python und in den Klassifizierungen nennt.
 
@@ -18,12 +16,10 @@ on:
   push:
     branches: ["**"]
     paths-ignore:
-      - "android/**"
       - "docs/**"
       - "*.md"
   pull_request:
     paths-ignore:
-      - "android/**"
       - "docs/**"
       - "*.md"
   workflow_dispatch:
@@ -107,17 +103,26 @@ jobs:
       #   B310        urlopen in scripts/holen_*.py — die Adresse geht jetzt
       #               durch _nur_https() und wird abgewiesen, wenn sie kein
       #               https ist.
-      #   B608        die SQL-Abfrage in scripts/export_android.py prüft den
-      #               Tabellennamen gegen ZULAESSIGE_TABELLEN, bevor er
-      #               eingesetzt wird.
       #   B615        from_pretrained nennt jetzt MODELL_FASSUNG, die
       #               Prüfsumme des Modellstands. Ohne sie erzeugte derselbe
       #               Quelltext nach einer Änderung beim Anbieter eine andere
       #               Datenbank.
-      # Wer eine Ausnahme braucht, begründet sie hier — und erst, wenn sich
-      # der Befund nicht beheben lässt.
+      # Vier Stellen tragen ein ``# nosec`` mit Nummer, weil sich der Befund
+      # dort nicht beheben lässt, ohne den Zweck aufzugeben:
+      #   B311        der Zufallsgenerator in scripts/pruefe_zwei_wege.py
+      #               würfelt Antwortmuster, keine Schlüssel — mit festem
+      #               Startwert, damit jeder Lauf derselbe ist.
+      #   B404, B603, B607
+      #               node fährt web/durchlauf.js, und verpacken/start_pruefen.py
+      #               startet das eben gebaute Paket. Beides ist der Zweck des
+      #               Skripts; der Name steht im Programmtext, nicht in einer
+      #               Eingabe.
+      #   B310        urlopen gegen 127.0.0.1, um zu sehen, ob das gebaute
+      #               Paket antwortet.
+      # Wer eine weitere Ausnahme braucht, begründet sie hier — und erst, wenn
+      # sich der Befund nicht beheben lässt.
       - name: bandit — auf unsichere Muster prüfen
-        run: bandit -c pyproject.toml -r src scripts android
+        run: bandit -c pyproject.toml -r src scripts verpacken
 
       # pip-audit ohne --strict: der Schalter macht jedes Paket, das sich
       # nicht gegen PyPI prüfen lässt, zum Fehler — und dazu gehört dieses
@@ -129,22 +134,17 @@ jobs:
       - name: pip-audit — Pakete auf bekannte Schwachstellen prüfen
         run: pip-audit --skip-editable
 
-      # Der Rückgabewert 5 bedeutet "keine Prüfungen gefunden". Das ist zum
-      # Stand 03.10.2026 der Normalfall, weil tests/ leer ist, und soll den
-      # Lauf nicht rot machen. SOBALD DIE ERSTEN PRÜFUNGEN VORLIEGEN, IST
-      # DIESE AUSNAHME ZU ENTFERNEN — sonst verdeckt sie den Tag, an dem die
-      # Prüfungen versehentlich nicht mehr gefunden werden.
       - name: pytest — Prüfungen ohne Modelle
-        run: |
-          set +e
-          pytest -m "not langsam and not netz and not container" --color=yes
-          ergebnis=$?
-          set -e
-          if [ "$ergebnis" -eq 5 ]; then
-            echo "::warning title=Keine Prüfungen::pytest hat keine Prüfung gefunden (tests/ ist leer)."
-            exit 0
-          fi
-          exit "$ergebnis"
+        run: pytest -m "not langsam and not netz and not container" --color=yes
+
+      # Die Einstufung steht zweimal da: in src/helfer/einstufung/fragefolge.py
+      # für das Programm und in web/durchlauf.js für die Webseite. Zwei
+      # Fassungen derselben Logik laufen auseinander — beim Bau dieses
+      # Durchlaufs hat das dreissig von 217 amtlichen Beispielen gekostet.
+      # 400 gewürfelte Antwortmuster gehen durch beide Fassungen; verglichen
+      # wird Frage für Frage und Befund für Befund.
+      - name: Webseite und Programm rechnen gleich
+        run: python scripts/pruefe_zwei_wege.py --laeufe 400
 
       # Der Containerlauf baut ein Abbild und startet es ohne Netz. Das dauert
       # ein paar Minuten und steht darum hinter den schnellen Prüfungen: wer

@@ -1,324 +1,172 @@
-# EU AI Act und DSGVO Konformitätshelfer
+# EU AI Act Konformitätshelfer
 
-Beschreiben Sie Ihr KI-Vorhaben in eigenen Worten und erfahren Sie mit
-Artikelverweis, was die KI-Verordnung (EU) 2024/1689 und die
-Datenschutz-Grundverordnung von Ihnen verlangen — getrennt danach, ob Sie das
-System anbieten oder einsetzen.
+Sechs Fragen, und Sie wissen, in welche Risikoklasse der KI-Verordnung
+(EU) 2024/1689 Ihr KI-System fällt — mit der genauen Stelle im Gesetz, auf der
+die Einstufung beruht. Nicht „Anhang III", sondern „Anhang III Nummer 4
+Buchstabe a".
 
 ![Lizenz](https://img.shields.io/badge/Lizenz-Apache--2.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-blue)
 [![Prüfung](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/pruefung.yml/badge.svg)](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/pruefung.yml)
-[![Android-Paket](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/android.yml/badge.svg)](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/android.yml)
+[![Pakete](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/pakete.yml/badge.svg)](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/actions/workflows/pakete.yml)
+
+**Im Browser ausprobieren:** <https://konformitaetshelfer.speedofthespirit.dev/>
+— ohne Anmeldung, ohne Installation, auch auf dem Handy.
+**Für den eigenen Rechner:** [fertige Pakete für Windows, Mac und
+Linux](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/releases).
 
 ## Das ist keine Rechtsberatung
 
-Dieses Werkzeug ordnet eine Beschreibung anhand des Verordnungstextes ein und
-nennt die Fundstellen dazu. Es ist **keine Rechtsberatung**, **kein Ersatz für
-eine Prüfung im Einzelfall** und es wird **keine Richtigkeit gewährleistet**.
-Vor einer Entscheidung mit Geld- oder Rechtsfolgen ist der geltende Stand bei
-einer Rechtsanwältin, einem Rechtsanwalt oder der zuständigen Aufsichtsbehörde
-zu prüfen. Einzelne Geltungstermine der KI-Verordnung wurden zum Datenstand
-politisch erörtert und können sich geändert haben. Ausführlich:
-[docs/haftung.md](docs/haftung.md).
+Dieses Werkzeug ordnet ein KI-System anhand des Verordnungstextes ein und nennt
+die Fundstellen dazu. Es ist **keine Rechtsberatung**, **kein Ersatz für eine
+Prüfung im Einzelfall** und es wird **keine Richtigkeit gewährleistet**. Vor
+einer Entscheidung mit Geld- oder Rechtsfolgen ist der geltende Stand bei einer
+Rechtsanwältin, einem Rechtsanwalt oder der zuständigen Aufsichtsbehörde zu
+prüfen. Ausführlich: [docs/haftung.md](docs/haftung.md).
 
-## Was es tut
+## Wie genau ist es?
 
-Sie geben eine Beschreibung ein. Das Werkzeug
+**206 von 217 amtlichen Beispielen** der Europäischen Kommission
+werden richtig eingestuft. Im Schnitt **5.3 Schritte** je Fall.
 
-1. stuft das Vorhaben in eine Risikoklasse der KI-Verordnung ein — mit der
-   Regel und der Fundstelle, über die es dort gelandet ist,
-2. listet die Pflichten, die aus dieser Klasse und Ihrer Rolle folgen, je mit
-   Artikel, Frist und einem Satz dazu, was zu tun ist,
-3. geht den Prüfpfad des Datenschutzrechts durch, soweit er greift,
-4. nennt die offenen Fragen, deren Antwort die Auskunft genauer machen würde,
-5. legt die Stellen im Wortlaut daneben, auf die es sich stützt.
+Die Beispiele stammen aus dem Entwurf der Leitlinien der Kommission vom
+19. Mai 2026 zur Einstufung von Hochrisiko-KI-Systemen. Jedes beschreibt ein
+System und nennt die Wertung der Kommission. Gemessen wurde, ob der Helfer zur
+selben Wertung kommt, wenn jemand nur die Beschreibung kennt.
 
-Die Einstufung kommt dabei **nicht** aus einem Sprachmodell, sondern aus einem
-Entscheidungsbaum in Textdateien. Ein Sprachmodell formuliert die Auskunft
-höchstens aus. Warum das so getrennt ist, steht unter
-[Wie die Einstufung zustande kommt](#wie-die-einstufung-zustande-kommt).
+Sieben der elf Abweichungen messen den Helfer nicht: ihre Beschreibungen nennen
+gar keinen Anwendungsbereich, und die Ausnahme des Artikels 6 Absatz 3 kommt
+ohne Bereich zu Recht nie an die Reihe. Rechnet man sie heraus, sind es
+**206 von 210**. Das Verfahren und jede einzelne Abweichung stehen in
+[daten/pruefung/MESSUNG.md](daten/pruefung/MESSUNG.md).
 
-### Ein echter Lauf
+Was diese Zahl nicht hergibt: kein Jurist hat den Durchlauf gegengelesen.
 
-```
-$ konformitaetshelfer pruefen "Wir entwickeln einen Chatbot für unsere
-  Webseite, der Kundenfragen zu Lieferzeiten beantwortet. Er trifft keine
-  Entscheidungen über Menschen."
-```
+## Warum Fragen statt Raten
 
-Ausgabe, gekürzt — der Lauf vom 03.10.2026 lieferte 3 Pflichten nach der
-KI-Verordnung und 16 Abschnitte des Datenschutzpfads:
+Die erste Fassung ließ den Nutzer sein System beschreiben und erriet daraus die
+Einstufung — erst über Stichwortlisten, dann über Bedeutungsvergleich. Auf
+zwanzig Beschreibungen, wie Unternehmen sie wirklich einreichen, traf das 11 von
+20; nach einer Nacht Arbeit 20 von 20.
 
-```
-Einstufung
-──────────
-  transparenz
-  Transparenzpflichten nach Artikel 50
+Trotzdem war der Ansatz falsch. Ein Jurist fragt fünf bis acht Dinge ab und hat
+danach Gewissheit, nicht 98 Prozent. Genaues Raten ist schlechter als Fragen —
+und der Helfer riet die Antworten auf Fragen, die er stellen konnte.
 
-  Rolle anbieter — entwickelt ein KI-System oder lässt es entwickeln und
-  bringt es unter eigenem Namen auf den Markt oder nimmt es in Betrieb
+Heute entscheidet die Fragefolge. Weil die Antworten vom Nutzer kommen, ist das
+Ergebnis nicht wahrscheinlich, sondern richtig, soweit seine Angaben stimmen.
+Und er sieht, woran es hängt.
 
-Warum
-─────
-  • Menschen müssen erfahren, dass sie mit einem KI-System sprechen — es sei
-  denn, das ist aus den Umständen offensichtlich. (Artikel 50 Absatz 1 KI-VO)
-    Sicherheit: zu_pruefen · Fundstellen: KI-VO/art-50/abs-1
+## Was drinsteckt
 
-Zu tun nach der KI-Verordnung (3 Punkte)
-────────────────────────────────────────
-   1. Personal im Umgang mit KI schulen
-      Zu tun ist: Allen Mitarbeitern und allen Personen, die in Ihrem Auftrag
-      mit dem KI-System arbeiten, ein ausreichendes Verständnis dafür
-      verschaffen, was das System kann, wo seine Grenzen liegen und welche
-      Risiken es mitbringt. […]
-      Artikel 4 KI-VO · gilt ab 02.02.2025
-   2. Offenlegen, dass der Mensch mit einem KI-System spricht
-      […]
-      Artikel 50 Absatz 1 KI-VO · gilt ab 02.08.2026
-   3. Künstlich erzeugte Inhalte maschinenlesbar kennzeichnen
-      […]
-      Artikel 50 Absatz 2 KI-VO · gilt ab 02.08.2026
+| | |
+|---|---|
+| Rechtsbestand | 2811 einzeln ansprechbare Textstellen: 1386 aus der KI-Verordnung, 1024 aus der Datenschutz-Grundverordnung, dazu das Bundesdatenschutzgesetz |
+| Fragefolge | 379 Fragen zu 31 Stellen des Gesetzes, 214 ausdrückliche Ausschlüsse, 187 amtliche Beispiele |
+| Belegt | Jede Frage, jeder Ausschluss, jedes Beispiel trägt die Absatznummer der amtlichen Auslegung |
+| Zwei Wege, ein Ergebnis | Webseite und Programm rechnen nachweislich gleich — 400 von 400 Prüfläufen |
 
-Damit die Auskunft genauer wird
-───────────────────────────────
-  ? Verarbeitet das System personenbezogene Daten — also Angaben, über die
-  sich ein Mensch bestimmen lässt? Davon hängt ab, ob zusätzlich das
-  Datenschutzrecht greift.
-  ? Die Beschreibung ist noch dünn. Je genauer Zweck, Einsatzbereich und
-  betroffene Personen benannt sind, desto belastbarer die Auskunft.
+Die Fragen stammen Zeile für Zeile aus dem Entwurf der Leitlinien der
+Europäischen Kommission vom 19. Mai 2026: 148 Seiten zu Anhang III, 13 Seiten zu
+Anhang I, 6 Seiten allgemeine Grundsätze. Nichts darin ist ausgedacht.
 
-──────────────────────────────────────────────────────────────────────────────
-Keine Rechtsberatung. […] Regelsatz Stand 31.05.2026
-```
+## Wie ein Durchlauf aussieht
 
-Dazwischen stand der Abschnitt „Zu tun nach dem Datenschutzrecht" mit 16
-Punkten; er ist hier weggelassen.
+1. **Drei Vorfragen** — Ist es überhaupt ein KI-System nach Artikel 3 Nummer 1?
+   Bewertet es Menschen oder nur Firmen? Handeln Sie im Auftrag einer Behörde?
+2. **Anhang I** — Steckt Ihr System in einem geregelten Produkt (Maschine,
+   Spielzeug, Aufzug, Medizinprodukt, Fahrzeug) oder ist es selbst eines?
+   15 Produktgattungen.
+3. **Acht Bereichsfragen** — Womit hat Ihr System zu tun? Beschäftigung, Geld
+   und Daseinsvorsorge, Körpermerkmale, Bildung, Versorgungsnetze, Gerichte und
+   Wahlen, Polizei, Grenze. Diese acht Sätze sortieren nur.
+4. **Die Rechtsfragen des gewählten Bereichs** — Erst hier wird entschieden.
+5. **Die Ausnahme nach Artikel 6 Absatz 3** — nur, wenn vorher eine Stelle
+   trägt. Vier Bedingungen und die Gegenausnahme Profiling.
+6. **Der Befund** — Klasse, Fundstelle, die amtlichen Beispiele zum Vergleichen.
 
-Die Marke `zu_pruefen` hinter einer Begründung heißt: die Regel hat
-angeschlagen, aber die Beschreibung belegt sie nicht sicher. Das Werkzeug
-unterscheidet `sicher`, `wahrscheinlich` und `zu_pruefen` und schreibt es
-jeweils dazu.
+Jede Frage hat drei Antworten: Ja, Nein und **Trifft nicht zu**. Die dritte ist
+nicht Bequemlichkeit. Ein Werkzeug, das Lebensläufe sichtet, schaltet keine
+Stellenanzeigen — auf die Frage, ob eine Anzeige eine konkrete offene Stelle
+anzeigt, gibt es dort weder Ja noch Nein. Ein erzwungenes Nein warf gemessen
+genau solche Fälle aus der Einstufung.
 
-## Für wen
+## Loslegen
 
-* **Mitarbeiter in Unternehmen**, die ein KI-Vorhaben haben und wissen müssen,
-  was auf sie zukommt, bevor sie eine Kanzlei beauftragen. Man muss die
-  Verordnung nicht kennen, um die Auskunft zu lesen.
-* **Datenschutzbeauftragte und Betriebsräte**, die eine Vorlage im Haus
-  beurteilen und die Fundstellen dazu brauchen.
-* **Entwicklerinnen und Entwickler**, die prüfen wollen, in welche Klasse ihr
-  Vorhaben fällt und welche Pflichten bei welcher Rolle greifen.
+### Im Browser
 
-Nicht gedacht ist es für die abschließende rechtliche Bewertung. Die bleibt
-Sache von Menschen mit Berufszulassung.
+<https://konformitaetshelfer.speedofthespirit.dev/> — nichts zu installieren.
+Die Seite ist eine HTML-Datei, eine JavaScript-Datei und die Fragedaten. Keine
+Anmeldung, kein Server, keine Übertragung Ihrer Angaben.
 
-## Schnellstart
+### Als Programm
 
-### Weg 1: Container — ein Befehl
+Paket für Ihr System von der
+[Veröffentlichungsseite](https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/releases)
+holen, installieren, starten. Die Bedienoberfläche öffnet sich im Browser. Kein
+Python, kein Conda, keine Einrichtung.
+
+Dazu kommt dort die **Volltextsuche im Verordnungstext**: eine Frage in eigenen
+Worten, und der Helfer zeigt die Stellen, die sie beantworten. Sie braucht ein
+Sprachmodell von rund 2,3 Gigabyte, das der Helfer auf Wunsch einmalig holt —
+die Einstufung läuft ohne.
+
+### Aus dem Quellcode
 
 ```bash
-./scripts/start.sh
-```
-
-Unter Windows `scripts\start.ps1`. Das Skript prüft die Voraussetzungen, baut
-das Abbild und startet den Dienst auf `http://127.0.0.1:8000`. Weitere
-Schalter: `--klein` (ohne das große Suchmodell, baut schnell), `--mit-ollama`
-(zusätzlich ein Sprachmodell im Verbund), `--neu` (ohne Zwischenspeicher),
-`--stopp`.
-
-Von Hand, ohne Skript:
-
-```bash
-docker compose up --build
-```
-
-Das Abbild enthält Rechtsbestand, Regelwerk **und** das Einbettungsmodell, damit
-der Container ohne Netz suchen kann — und ist dadurch rund 5 Gigabyte groß. Wer
-das nicht will, baut mit `--build-arg MIT_SUCHMODELL=0` beziehungsweise
-`./scripts/start.sh --klein`: dann läuft die Suche mit einem Ersatzverfahren,
-das nur Wörter vergleicht, und der Dienst sagt das in `/gesundheit` und in der
-Oberfläche. Für einen Prüflauf reicht das, für den Betrieb nicht.
-
-Der Dienst läuft im Container unter dem Nutzer `helfer` (Kennung 10001), nicht
-als Verwalter, mit nur lesendem Dateisystem, und ist nach außen nur an
-`127.0.0.1` gebunden. Einstellungen kommen aus `.env`; die Vorlage dazu ist
-`.env.example` — dort gehört nie ein echter Schlüssel hinein.
-
-### Weg 2: Python unmittelbar
-
-Gebraucht werden Python 3.11 oder neuer und ein Verzeichnis dieses Projekts.
-
-```bash
-python -m venv .venv
-source .venv/bin/activate            # Windows: .venv\Scripts\activate
+git clone https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer
+cd eu-ai-act-dsgvo-konformitaetshelfer
 pip install -e .
+python verpacken/start_helfer.py
 ```
-
-Damit stehen fünf Befehle bereit. Die Einstufung braucht kein Modell, keinen
-Schlüssel und kein Netz — nur die Regeldateien unter `daten/regeln`:
-
-```bash
-konformitaetshelfer pruefen "Wir sortieren Bewerbungen mit einem Sprachmodell vor"
-konformitaetshelfer fragen "Brauchen wir eine Folgenabschätzung?" --rolle betreiber
-konformitaetshelfer suchen "Artikel 6 Absatz 3" --kurz
-konformitaetshelfer dienst --port 8000
-konformitaetshelfer stand
-```
-
-`stand` sagt, womit das Werkzeug gerade arbeitet und was fehlt — Rechtstexte,
-Suchbestand, Regelsatz, Sprachmodell. Wer die Ausgabe weiterverarbeiten will,
-nimmt `--json`.
-
-Für die Suche im Rechtstext kommen das Einbettungsmodell und der Suchbestand
-dazu — rund 2,3 Gigabyte Modell und ein Rechenlauf von einigen Minuten:
-
-```bash
-pip install -e ".[suche]"
-```
-
-Der Suchbestand liegt im Verzeichnis (2811 Vektoren, Stand 04.10.2026) und muss
-nicht gebaut werden. Nur nach einer Änderung am Rechtsbestand:
-
-```bash
-python scripts/bestand_bauen.py
-```
-
-Der abgelegte Bestand trägt die Kennungen des Korpus, aus dem er gebaut wurde,
-und wird beim Laden abgewiesen, wenn sie nicht mehr passen — sonst zeigte jeder
-Vektor auf die falsche Fundstelle, und die Antwort sähe aus wie immer. Liegt
-kein Bestand vor, läuft die Suche mit einem Ersatzverfahren, das nur Wörter
-vergleicht und keine Bedeutung; `konformitaetshelfer stand` sagt das dann
-ausdrücklich. Die Einstufung ist davon nicht betroffen.
-
-### Weg 3: Webdienst im Browser
-
-```bash
-konformitaetshelfer dienst --port 8000
-```
-
-Dann `http://127.0.0.1:8000` öffnen. Der Dienst lädt Korpus, Suchbestand und
-Regelwerk beim Start in den Speicher, nicht je Anfrage. Neben der Oberfläche
-gibt es fünf Schnittstellen — `POST /api/einstufung`, `POST /api/suche`,
-`POST /api/frage`, `GET /api/fragebogen`, `GET /api/fristen` — dazu
-`GET /gesundheit`. `POST /api/einstufung` ist der Teil, der ohne Sprachmodell
-arbeitet.
-
-Standardmäßig hört der Dienst nur auf `127.0.0.1`, also nur auf dem eigenen
-Rechner. Wer ihn im Netz anbietet, liest zuerst
-[docs/sicherheit.md](docs/sicherheit.md).
-
-### Weg 4: Android-App
-
-Die App trägt Rechtsbestand, Regelwerk und Einbettungsmodell auf dem Gerät.
-Sie braucht kein Netz und kein Konto; die Beschreibung verlässt das Telefon
-nicht.
-
-1. Unter **Releases** die Datei `konformitaetshelfer-<Fassung>.apk`
-   herunterladen — auf dem Telefon. Gibt es noch keine Veröffentlichung, liegt
-   das Paket unter **Actions** beim Lauf „Android-Paket bauen" als Artefakt
-   `konformitaetshelfer-apk` (ein ZIP-Archiv, die APK-Datei steckt darin).
-2. Die Datei antippen. Android fragt nach der Erlaubnis für Apps aus
-   unbekannter Quelle: dem Hinweis folgen, den Schalter für die Browser- oder
-   Dateien-App umlegen, zurückgehen, „Installieren" tippen.
-3. Fertig.
-
-Das Paket ist nicht unterschrieben — ein Unterschriftsschlüssel gehört nicht in
-ein öffentliches Verzeichnis. Es ist groß, weil Rechtsbestand und Modell
-mitkommen: die drei Beigaben im Verzeichnis messen zusammen 143 571 672 Byte,
-also rund 144 Megabyte — Einbettungsmodell 118,1, Wortschatz 17,1, Datenbank
-8,4. Mindestens Android 8.0 (Schnittstellenstufe 26).
 
 ## Wie die Einstufung zustande kommt
 
-Zwei Dinge, streng getrennt:
+Aus dem Regelwerk, nicht aus einem Sprachmodell. Drei Textdateien tragen sie:
 
-**Was gilt**, entscheidet der Prüfer in `src/helfer/einstufung/pruefer.py` aus
-den Regeldateien unter `daten/regeln`. Das ist ein Entscheidungsbaum: dieselbe
-Beschreibung ergibt immer dieselbe Einstufung, und an jeder Verzweigung steht
-die Fundstelle. Er arbeitet die Reihenfolge der Verordnung ab — verbotene
-Praktiken nach Artikel 5, hohes Risiko über das Produktsicherheitsrecht
-(Artikel 6 Absatz 1), hohes Risiko über den Einsatzbereich (Artikel 6 Absatz 2
-mit Anhang III), die Ausnahme nach Artikel 6 Absatz 3, Transparenzpflichten
-nach Artikel 50, Modelle mit allgemeinem Verwendungszweck ab Artikel 51, und
-zuletzt die KI-Kompetenz nach Artikel 4.
+- `daten/regeln/fragefolge/*.yaml` — die Fragen, Ausschlüsse und amtlichen
+  Beispiele, je mit Absatznummer der Leitlinien
+- `daten/regeln/fragefolge-aufbau.yaml` — die Reihenfolge: welche Frage wann,
+  welche entscheidet, welche unterrichtet nur
+- `daten/regeln/kivo_pflichten.yaml` — was aus einer Klasse und einer Rolle an
+  Pflichten folgt
 
-**Wie die Stelle gefunden wird**, läuft auf zwei Wegen in dasselbe Regelwerk.
-Der erste geht über kennzeichnende Wörter. Der zweite über den Zweck: in
-`daten/regeln/kivo_zweckkatalog.yaml` steht zu jeder Fundstelle derselbe Zweck
-in der Sprache, in der ein Unternehmen ihn beschreibt — *„Wir sichten
-Bewerbungen und sortieren sie vor."* Beschreibung und Zwecksatz werden Satz für
-Satz verglichen, und der Katalog zeigt auf die **bestehenden** Regelkennungen.
-Er ist damit ein zweiter Eingang in dieselbe Regel und kein zweites Regelwerk:
-Rollenprüfung, Merkmalsfilter, Ausnahmen und Pflichtenableitung gelten
-unverändert. Das Modell findet die Stelle, das Regelwerk entscheidet.
+Ein Sprachmodell formuliert höchstens die Auskunft aus. Es kann das Ergebnis
+nicht verändern. Grund: eine erfundene Einstufung kostet Geld und Vertrauen.
 
-Der Grund für diesen zweiten Weg ist gemessen. Mit Wortlisten allein traf der
-Prüfer 44 von 44 Anwendungsfällen — aber nur 55 von 100 Beschreibungen, wie
-Unternehmen sie wirklich einreichen. Eine Wortliste trifft nur, was jemand
-vorher aufgeschrieben hat. Mit dem Zweckkatalog sind es 100 von 100; die
-Sammlung liegt unter `daten/pruefung/unternehmensfragen.yaml` und wird bei
-jedem Lauf nachgerechnet. Fehlen die lokalen Modelle, bleibt der Zweckweg aus
-und die Wortlisten entscheiden allein — der Container ohne Netz und das Telefon
-stufen weiter ein.
+### Dass beide Wege gleich rechnen, ist nachgemessen
 
-**Wie es gesagt wird**, macht ein Sprachmodell — und das ist freiwillig. Es
-bekommt die Einstufung als feststehende Tatsache vorgelegt und darf sie nicht
-ändern. Der Grund ist nicht Vorsicht, sondern Erfahrung: ein Modell, das
-Pflichten erfinden darf, erfindet Pflichten. Es antwortet höflich und
-plausibel auch dann, wenn der genannte Artikel nicht existiert. Bei einer
-Auskunft, nach der jemand ein Produkt umbaut oder eben nicht umbaut, ist das
-nicht hinnehmbar.
+Die Einstufung läuft an zwei Orten — in `src/helfer/einstufung/fragefolge.py`
+für das Programm und in `web/durchlauf.js` für die Webseite. Zwei Fassungen
+derselben Logik laufen auseinander; beim Bau dieses Durchlaufs haben Fragefolge
+und Auswertung genau das getan und 30 von 217 Beispielen gekostet.
 
-Ohne Sprachmodell läuft alles weiter; die Auskunft ist dann nüchterner
-formuliert, aber inhaltlich dieselbe — das Beispiel oben ist ein solcher Lauf.
-Dafür gibt es den Befehl `pruefen` und die Schnittstelle `/api/einstufung`:
-beide arbeiten ohne Sprachmodell.
-
-Gesucht wird im Rechtstext über vier Wege gleichzeitig: Bedeutung
-(Vektorsuche), Wortlaut (Stichwortsuche nach dem Verfahren BM25), die
-Wortgewichte des Einbettungsmodells, und ein Fundstellenweg, der „Art. 6
-Abs. 3" unmittelbar in die Kennung `KI-VO/art-6/abs-3` auflöst. Die vier
-Trefferlisten werden über ihre Rangplätze zusammengeführt und die besten 30
-anschließend von einem Kreuzbewerter neu sortiert. Die Einzelheiten und die
-Begründung jeder dieser Entscheidungen stehen in
-[docs/architektur.md](docs/architektur.md) und in
-[docs/entscheidungen.md](docs/entscheidungen.md).
+`scripts/pruefe_zwei_wege.py` würfelt Antwortmuster und fährt beide Fassungen
+damit: dieselbe Frage in derselben Reihenfolge, derselbe Befund. Der Prüflauf
+baut kein Paket, bevor 400 von 400 Läufen gleich sind.
 
 ## Datenstand und Quellen
 
-Stand des Regelwerks: **31.05.2026**. Rechtsbestand geholt und gebaut am
-**04.10.2026**. Nachgemessen am 04.10.2026:
-
-| Was | Menge | Datei |
+| Quelle | Stand | Umfang |
 |---|---|---|
-| Rechtseinheiten im Bestand | 2811 | `daten/aufbereitet/korpus.jsonl` |
-| Einstufungsregeln | 28 | `daten/regeln/kivo_risikoklassen.yaml` |
-| Einträge im Zweckkatalog | 55 | `daten/regeln/kivo_zweckkatalog.yaml` |
-| Pflichten der KI-Verordnung | 57 | `daten/regeln/kivo_pflichten.yaml` |
-| Abschnitte des Datenschutzpfads | 26 | `daten/regeln/dsgvo_pruefpfad.yaml` |
-| Anwendungsfälle | 44 | `daten/faelle/*.yaml` |
-| Unternehmensfragen zur Genauigkeit | 100 | `daten/pruefung/unternehmensfragen.yaml` |
+| Verordnung (EU) 2024/1689 (KI-Verordnung) | Amtsblatt 12.07.2024 | 1386 Textstellen |
+| Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung) | Amtsblatt 04.05.2016 | 1024 Textstellen |
+| Entwurf der Leitlinien der Kommission zur Einstufung von Hochrisiko-KI-Systemen | 19.05.2026 | 167 Seiten |
+| Bundesdatenschutzgesetz | geltende Fassung | im Bestand |
 
-Eine Rechtseinheit ist das kleinste Stück, auf das sich zeigen lässt: ein
-Absatz eines Artikels, eine Nummer eines Anhangs, ein Erwägungsgrund, ein
-Paragraf.
+Der amtliche Wortlaut wird über Cellar geholt, den Datendienst des Amts für
+Veröffentlichungen — nicht von der EUR-Lex-Webseite, die ohne vollständigen
+Browser-Kopf leere Antworten liefert. `scripts/holen_amtsblatt.py`.
 
-Woher der Text kommt:
+Der Entwurf der Leitlinien ist **nicht bindend**. Die öffentliche Anhörung lief
+bis zum 23. Juni 2026; eine endgültige Fassung lag bei Abschluss dieser Arbeit
+nicht vor. Der Helfer sagt diesen Vorbehalt in jeder Auskunft mit.
 
-* **KI-Verordnung** — amtlicher Volltext aus dem Amtsblatt über EUR-Lex
-  (CELEX 32024R1689), 1386 Einheiten: 113 Artikel mit 929 Absätzen und
-  Nummern, 13 Anhänge mit 151 Nummern und Buchstaben, 180 Erwägungsgründe.
-* **Datenschutz-Grundverordnung** — amtlicher Volltext aus dem Amtsblatt über
-  EUR-Lex (CELEX 32016R0679), 1024 Einheiten: 99 Artikel mit 752 Absätzen und
-  Nummern, 173 Erwägungsgründe.
-* **Bundesdatenschutzgesetz** — 357 Paragrafen von gesetze-im-internet.de,
-  Teile 1 und 2.
-* **Anwendungsfälle** — 44 selbst geschriebene Beispiele, keine Rechtsquelle.
+## Nachbauen
 
-Fristen können sich ändern; der Vorbehalt dazu steht im Regelwerk und in jeder
-Auskunft. Alles Weitere, auch die Lizenzlage der Quellen:
-[docs/datenquellen.md](docs/datenquellen.md). Lizenzhinweise zu den
-mitgelieferten Rechtstexten: [NOTICE](NOTICE).
+[BAUPLAN.md](BAUPLAN.md) beschreibt das ganze Projekt so, dass es sich in einem
+Durchgang neu bauen lässt: Stufen, Grundsätze, Zielzahlen als Prüfkriterien und
+die Fallstricke, die beim ersten Bau Zeit gekostet haben.
 
 ## Mitarbeit
 
@@ -357,35 +205,6 @@ Sicherheitslücken nicht öffentlich melden, sondern nach
 | [docs/sicherheit.md](docs/sicherheit.md) | Wo Daten liegen, was das Gerät verlässt, Schutz gegen untergeschobene Anweisungen |
 | [docs/entscheidungen.md](docs/entscheidungen.md) | Die Architekturentscheidungen mit Begründung und Folgen |
 | [docs/haftung.md](docs/haftung.md) | Was das Werkzeug nicht ist |
-
-## Präsentation
-
-[docs/praesentation.html](docs/praesentation.html) erklärt Architektur,
-Funktionsweise und Betrieb auf 14 Folien — für Fachkundige und für Fachfremde.
-Die Datei im Browser öffnen: sie läuft ohne Netz, blättert mit den Pfeiltasten
-und ergibt gedruckt eine Folie je Seite (auch als PDF).
-
-Geändert wird sie nicht in dieser Datei, sondern in den einzelnen Folien unter
-`praesentation/folien/`; zusammengesetzt wird sie mit
-
-```bash
-python scripts/praesentation_bauen.py --messen
-```
-
-Das `--messen` sieht im Browser nach, ob jede Folie auf ihre Fläche passt und
-keine Schrift unter 24 Punkte fällt. Eine Folie, deren Inhalt überläuft, wird
-beim Vortrag unten abgeschnitten — und das sieht man dem Text nicht an.
-
-## Nachbauen
-
-[BAUPLAN.md](BAUPLAN.md) ist der vollständige Auftrag, mit dem sich dieses
-Werkzeug in einem Durchgang nachbauen lässt: elf Stufen, zehn Grundsätze, die
-Zielzahlen als Prüfkriterien und die Fallstricke, die hier Stunden gekostet
-haben — von der Firewall bei EUR-Lex bis zu den Standardrändern des Browsers,
-die eine Präsentation unbemerkt abschneiden.
-
-Er ist an einen Programmierassistenten gerichtet und so geschrieben, dass keine
-Rückfrage offenbleibt.
 
 ## Lizenz
 

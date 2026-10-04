@@ -110,8 +110,6 @@ body:
       options:
         - Auf dem Rechner, ohne Sprachmodell
         - Auf dem Rechner, mit Claude oder GPT
-        - Auf dem Rechner, mit einem Modell über Ollama
-        - In der Android-App
         - Beim Lesen der Regeldateien
         - In der Dokumentation
     validations:

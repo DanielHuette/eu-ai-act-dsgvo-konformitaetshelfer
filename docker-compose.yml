@@ -5,7 +5,6 @@
 # wenn man ihn ausdrücklich nennt:
 #
 #   docker compose up --build              nur der Helfer
-#   docker compose --profile ollama up     Helfer und eigenes Sprachmodell
 #
 # Die Absicherung ist kein Beiwerk: der Dienst nimmt Freitext von außen an.
 # Darum ein Dateisystem, in das nicht geschrieben werden kann, keine neuen
@@ -41,7 +40,6 @@ services:
       # Schlüssel kommen aus .env und stehen nirgends in dieser Datei.
       ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
       OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
-      OLLAMA_HOST: "${OLLAMA_HOST:-http://ollama:11434}"
     env_file:
       - path: .env
         required: false
@@ -85,33 +83,3 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-
-  # ------------------------------------------------------------- Ollama
-  #
-  # Ein Sprachmodell auf demselben Rechner, für den Betrieb ohne Schlüssel
-  # und ohne Netz. Abgeschaltet, bis man es nennt:
-  #     docker compose --profile ollama up
-  # Danach einmal das Modell holen:
-  #     docker compose exec ollama ollama pull qwen2.5:7b-instruct
-  ollama:
-    profiles: ["ollama"]
-    image: ollama/ollama:latest
-    container_name: konformitaetshelfer-ollama
-    # Kein Zugang nach außen: nur der Helfer im selben Verbund spricht damit.
-    expose:
-      - "11434"
-    volumes:
-      # Hier bleiben die geholten Modelle, damit sie nicht bei jedem Start
-      # neu geladen werden. Das ist der einzige Ort, an dem geschrieben wird.
-      - ollama-modelle:/root/.ollama
-    security_opt:
-      - no-new-privileges:true
-    deploy:
-      resources:
-        limits:
-          memory: ${OLLAMA_SPEICHER:-8g}
-    restart: unless-stopped
-
-volumes:
-  ollama-modelle:
-    name: konformitaetshelfer-ollama-modelle

@@ -4,13 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "konformitaetshelfer"
-version = "1.1.0"
+version = "1.2.0"
 description = "Konformitätshelfer für die KI-Verordnung (EU) 2024/1689 und die Datenschutz-Grundverordnung — belegte Auskunft statt Raten"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Daniel Hütte" }]
-keywords = ["eu-ai-act", "ki-verordnung", "dsgvo", "gdpr", "rag", "compliance"]
+keywords = ["eu-ai-act", "ki-verordnung", "dsgvo", "gdpr", "compliance",
+            "hochrisiko", "anhang-iii", "einstufung", "konformitaet"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Legal Industry",
@@ -109,7 +110,22 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S", "ARG"]
-"scripts/*" = ["S310", "S311"]
+# S310 - urlopen in den Beschaffungsskripten. Die Adresse geht vorher durch
+#        _nur_https() und wird abgewiesen, wenn sie kein https ist.
+# S311 - der Zufallsgenerator in scripts/pruefe_zwei_wege.py würfelt
+#        Antwortmuster, keine Schlüssel. Er hat einen festen Startwert, damit
+#        jeder Lauf derselbe ist; ein kryptographischer Generator hätte das
+#        nicht.
+# S603/S607 - node wird aufgerufen, um web/durchlauf.js zu fahren. Der Name
+#        steht im Skript, nicht in einer Eingabe; der volle Pfad hängt vom
+#        System ab und wird deshalb über PATH gesucht.
+"scripts/*" = ["S310", "S311", "S603", "S607"]
+# S310 - urlopen gegen den eigenen Anschluss auf 127.0.0.1, um zu sehen, ob das
+#        gebaute Paket antwortet. Die Adresse steht im Programmtext.
+# S603 - das eben gebaute Paket wird gestartet. Genau das soll geprüft werden:
+#        ein Paket, das sich bauen lässt, muss sich noch lange nicht starten
+#        lassen.
+"verpacken/*" = ["S310", "S603"]
 
 [tool.mypy]
 python_version = "3.11"

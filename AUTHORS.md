@@ -2,7 +2,7 @@
 
 ## Urheber
 
-**Daniel Hütte** — Entwurf, Programmtext, Regelwerk, Android-App,
+**Daniel Hütte** — Entwurf, Programmtext, Regelwerk,
 Dokumentation. Erreichbar über dhuette@gmx.net und
 [github.com/DanielHuette](https://github.com/DanielHuette).
 

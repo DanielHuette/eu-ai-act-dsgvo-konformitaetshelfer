@@ -1,0 +1,119 @@
+name: Pakete bauen
+
+# Baut die fertigen Programme für Windows, Mac und Linux.
+#
+# Warum auf drei Maschinen gebaut wird und nicht auf einer: ein Paket enthält
+# die Laufzeitumgebung des Systems, auf dem es gebaut wurde. Ein auf Linux
+# gebautes Windows-Programm gibt es nicht. GitHub stellt für öffentliche
+# Projekte alle drei Maschinen kostenlos bereit.
+#
+# Was der Nutzer am Ende bekommt: eine Datei zum Ausführen. Keine Installation
+# von Python, keine Umgebung, kein Conda, kein Nachladen von Paketen. Beim
+# Start öffnet sich die Bedienoberfläche im Browser.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bauen:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            name: Windows
+            paket: Konformitaetshelfer-Windows
+          - os: macos-latest
+            name: Mac
+            paket: Konformitaetshelfer-Mac
+          - os: ubuntu-latest
+            name: Linux
+            paket: Konformitaetshelfer-Linux
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhängigkeiten
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pyinstaller
+
+      - name: Fragefolge erzeugen
+        shell: bash
+        run: |
+          python scripts/fragefolge_ausgeben.py --ziel web/fragefolge.json
+          cp web/fragefolge.json daten/aufbereitet/fragefolge.json
+
+      - name: Beide Wege vergleichen
+        shell: bash
+        # Die Einstufung läuft im Programm und im Browser. Laufen die beiden
+        # auseinander, bekommt derselbe Fall zwei Antworten. Das Paket wird
+        # darum erst gebaut, wenn beide Wege nachweislich gleich rechnen.
+        run: python scripts/pruefe_zwei_wege.py --laeufe 400
+
+      - name: Paket bauen
+        shell: bash
+        run: python -m PyInstaller verpacken/helfer.spec --noconfirm
+
+      - name: Start prüfen
+        shell: bash
+        # Ein Paket, das sich bauen lässt, muss sich noch lange nicht starten
+        # lassen. Hier wird nachgesehen, ob es antwortet und die Fragefolge
+        # ausliefert — sonst merkt es der erste Nutzer.
+        run: python verpacken/start_pruefen.py
+
+      - name: Windows-Installationsprogramm
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          & "$env:ProgramFiles(x86)\Inno Setup 6\ISCC.exe" verpacken\windows.iss
+        continue-on-error: true
+
+      - name: Mac-Abbild
+        if: matrix.os == 'macos-latest'
+        shell: bash
+        run: |
+          mkdir -p dmg
+          cp -R "dist/Konformitaetshelfer.app" dmg/ 2>/dev/null || cp -R dist/Konformitaetshelfer dmg/
+          ln -s /Applications dmg/Programme
+          hdiutil create -volname "Konformitaetshelfer" -srcfolder dmg \
+            -ov -format UDZO "dist/${{ matrix.paket }}.dmg"
+
+      - name: Linux-Archiv
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          cp verpacken/linux-starter.desktop dist/Konformitaetshelfer/
+          tar -C dist -czf "dist/${{ matrix.paket }}.tar.gz" Konformitaetshelfer
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.paket }}
+          path: |
+            dist/*.dmg
+            dist/*.tar.gz
+            dist/*.exe
+            verpacken/Ausgabe/*.exe
+          if-no-files-found: warn
+
+      - name: An die Veröffentlichung hängen
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.dmg
+            dist/*.tar.gz
+            verpacken/Ausgabe/*.exe

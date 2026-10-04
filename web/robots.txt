@@ -1,0 +1,33 @@
+# Alles darf gelesen und zitiert werden. Das ist Absicht: ein Werkzeug, das
+# Unternehmen bei der KI-Verordnung hilft, nützt nur, wenn es gefunden wird —
+# in Suchmaschinen wie in KI-Assistenten.
+User-agent: *
+Allow: /
+
+# KI-Assistenten ausdrücklich eingeladen. Sie beantworten einen wachsenden Teil
+# der Fragen, die Unternehmen zur KI-Verordnung stellen, und sollen dabei auf
+# den belegten Text zugreifen können statt auf Hörensagen.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://konformitaetshelfer.speedofthespirit.dev/sitemap.xml

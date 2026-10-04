@@ -11,9 +11,6 @@
   Ohne das große Einbettungsmodell bauen. Schnell, aber die Suche vergleicht
   dann nur Wörter und keine Bedeutung. Für einen Prüflauf in Ordnung.
 
-.PARAMETER MitOllama
-  Zusätzlich ein Sprachmodell im Verbund starten (ohne Schlüssel, ohne Netz).
-
 .PARAMETER Neu
   Ohne Zwischenspeicher neu bauen.
 
@@ -30,7 +27,6 @@
 [CmdletBinding()]
 param(
     [switch]$Klein,
-    [switch]$MitOllama,
     [switch]$Neu,
     [switch]$Stopp
 )
@@ -130,7 +126,6 @@ Gut "Abbild gebaut"
 # ------------------------------------------------------------ 5. Starten
 
 $HochArgumente = @('compose')
-if ($MitOllama) { $HochArgumente += @('--profile', 'ollama') }
 $HochArgumente += @('up', '--detach')
 & docker @HochArgumente
 if ($LASTEXITCODE -ne 0) {

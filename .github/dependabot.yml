@@ -6,7 +6,6 @@
 #
 # Zwei Fassungen sind mit Absicht festgehalten und dürfen nicht nebenbei
 # erhöht werden; sie sind unten ausgenommen und stehen mit Begründung in
-# android/gradle/libs.versions.toml und in docs/sicherheit.md.
 
 version: 2
 updates:
@@ -38,41 +37,3 @@ updates:
           - "pip-audit"
           - "pytest*"
 
-  - package-ecosystem: gradle
-    directory: "/android"
-    schedule:
-      interval: weekly
-      day: monday
-      time: "06:00"
-      timezone: Europe/Berlin
-    open-pull-requests-limit: 5
-    labels: ["abhaengigkeiten", "android"]
-    commit-message:
-      prefix: "gradle"
-    ignore:
-      # Festgelegt auf 1.28.0. Nach dem Prüfvermerk in
-      # android/gradle/libs.versions.toml melden spätere Fassungen die
-      # Berechtigungen INTERNET und ACCESS_NETWORK_STATE an und starten beim
-      # Start der App einen Dienst für Telemetrie. Ein Werkzeug, das zusagt,
-      # dass die Beschreibung des KI-Vorhabens das Gerät nicht verlässt, kann
-      # das nicht mitliefern. Eine Erhöhung ist von Hand zu prüfen.
-      - dependency-name: "com.microsoft.onnxruntime:onnxruntime-android"
-      # Abgekündigt, aber ohne schlankeren Ersatz in AndroidX. Ein Wechsel ist
-      # eine Entscheidung, kein Fassungssprung. Siehe docs/sicherheit.md.
-      - dependency-name: "androidx.security:security-crypto"
-    groups:
-      compose:
-        patterns:
-          - "androidx.compose*"
-
-  - package-ecosystem: github-actions
-    directory: "/"
-    schedule:
-      interval: weekly
-      day: monday
-      time: "06:00"
-      timezone: Europe/Berlin
-    open-pull-requests-limit: 3
-    labels: ["abhaengigkeiten", "bauablauf"]
-    commit-message:
-      prefix: "actions"

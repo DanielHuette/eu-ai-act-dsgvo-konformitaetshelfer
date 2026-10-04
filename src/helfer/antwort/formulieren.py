@@ -152,82 +152,24 @@ class OpenAI:
         return antwort.choices[0].message.content or ""
 
 
-@dataclass
-class Ollama:
-    """Ein Modell, das auf demselben Rechner läuft.
-
-    Der Weg für den Betrieb ohne Schlüssel und ohne Netz. Die Antwortqualität
-    bleibt bei Rechtsfragen hinter Claude und GPT zurück — das sagt die Antwort
-    dann auch, damit niemand die Auskunft für mehr nimmt, als sie ist.
-    """
-
-    modell: str = "qwen2.5:7b-instruct"
-    adresse: str = ""
-    name: str = ""
-
-    def __post_init__(self) -> None:
-        self.adresse = self.adresse or os.environ.get("OLLAMA_HOST") or "http://127.0.0.1:11434"
-        self.name = f"ollama/{self.modell}"
-        # Erreichbarkeit beim Wählen prüfen, nicht erst beim Antworten: sonst
-        # meldet das Werkzeug ein Modell als verfügbar, das nicht läuft, und
-        # der Nutzer wartet auf eine Antwort, die nie kommt.
-        try:
-            import httpx
-
-            liste = httpx.get("{}/api/tags".format(self.adresse.rstrip("/")), timeout=3.0)
-            liste.raise_for_status()
-            vorhanden = [m.get("name", "") for m in liste.json().get("models", [])]
-        except Exception as fehler:
-            raise RuntimeError(
-                f"Ollama ist unter {self.adresse} nicht erreichbar: {type(fehler).__name__}"
-            ) from fehler
-        if vorhanden and not any(m.split(":")[0] == self.modell.split(":")[0] for m in vorhanden):
-            raise RuntimeError(
-                "Ollama läuft, aber das Modell {} fehlt. Vorhanden: {}. "
-                "Holen mit: ollama pull {}".format(
-                    self.modell, ", ".join(vorhanden[:5]) or "keines", self.modell
-                )
-            )
-
-    def antworten(self, systemanweisung: str, auftrag: str) -> str:
-        import httpx
-
-        antwort = httpx.post(
-            "{}/api/chat".format(self.adresse.rstrip("/")),
-            json={
-                "model": self.modell,
-                "stream": False,
-                "options": {"temperature": 0.2},
-                "messages": [
-                    {"role": "system", "content": systemanweisung},
-                    {"role": "user", "content": auftrag},
-                ],
-            },
-            timeout=180.0,
-        )
-        antwort.raise_for_status()
-        inhalt = antwort.json().get("message", {}).get("content", "")
-        return str(inhalt)
-
-
 def modell_waehlen(wunsch: str | None = None) -> Sprachmodell | None:
     """Wählt den Antwortgeber nach Wunsch, sonst nach Verfügbarkeit.
 
-    Reihenfolge ohne Wunsch: Claude, GPT, Ollama. Ist nichts erreichbar, wird
-    nichts geliefert — die Antwort entsteht dann allein aus den Regeln.
+    Reihenfolge ohne Wunsch: Claude, dann GPT. Ist keines erreichbar, wird
+    nichts geliefert — die Antwort entsteht dann allein aus den Regeln. Das ist
+    kein Notbehelf: die Einstufung und die Pflichten kommen ohnehin aus dem
+    Regelwerk, das Sprachmodell formuliert sie nur aus.
     """
-    kandidaten: list[type[Anthropic] | type[OpenAI] | type[Ollama]]
+    kandidaten: list[type[Anthropic] | type[OpenAI]]
     if wunsch == "anthropic":
         kandidaten = [Anthropic]
     elif wunsch == "openai":
         kandidaten = [OpenAI]
-    elif wunsch == "ollama":
-        kandidaten = [Ollama]
     elif wunsch in (None, "", "auto"):
-        kandidaten = [Anthropic, OpenAI, Ollama]
+        kandidaten = [Anthropic, OpenAI]
     else:
         protokoll.warning("Unbekannter Modellwunsch %r — es wird automatisch gewählt", wunsch)
-        kandidaten = [Anthropic, OpenAI, Ollama]
+        kandidaten = [Anthropic, OpenAI]
 
     for bauart in kandidaten:
         try:

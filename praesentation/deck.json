@@ -3,14 +3,14 @@
  "createdOnFiles": { "v": 1, "at": "2026-10-03T22:00:00Z" },
  "lists": "css",
  "title": "EU AI Act und DSGVO Konformitätshelfer",
- "order": ["cover", "lage", "beispiel", "grundsatz", "bestand", "suche",
-           "einstufung", "pflichten", "sicherheit", "orte", "anleitung-pc",
-           "anleitung-telefon", "geprueft", "grenzen"],
+ "order": ["cover", "lage", "fragen-statt-raten", "durchlauf", "beispiel",
+           "herkunft", "grundsatz", "bestand", "einstufung", "pflichten",
+           "suche", "sicherheit", "orte", "anleitung-pc", "geprueft", "grenzen"],
  "sections": {
-  "s1": { "description": "Wozu der Helfer da ist und was er einem Mitarbeiter abnimmt.", "start": "cover" },
-  "s2": { "description": "Wie er arbeitet: Rechtsbestand, vier Suchwege, Einstufung aus dem Regelwerk, Sicherheitsarchitektur.", "start": "bestand" },
-  "s3": { "description": "Betriebsanleitung für Rechner, Container und Telefon.", "start": "orte" },
-  "s4": { "description": "Was nachgeprüft ist und wo die Grenzen liegen.", "start": "geprueft" }
+  "s1": { "description": "Wozu der Helfer da ist, warum er fragt statt zu raten und wie ein Durchlauf aussieht.", "start": "cover" },
+  "s2": { "description": "Wie er arbeitet: Regelwerk, Rechtsbestand, Befunde, Pflichten, Nachlesen, Sicherheit.", "start": "grundsatz" },
+  "s3": { "description": "Wo er läuft und wie man ihn in Gang setzt.", "start": "orte" },
+  "s4": { "description": "Was nachgemessen ist und wo die Grenzen liegen.", "start": "geprueft" }
  },
  "faces": {
   "source-serif-4": {
