@@ -11,6 +11,12 @@ Auskunft bekommt, ist ein geänderter Artikelverweis wichtiger als jede
 Programmänderung. Jeder Eintrag zum Datenstand nennt das Datum, auf dem das
 Regelwerk danach steht.
 
+## 1.2.4 — 04.10.2026
+
+Die Pakete tragen jetzt dieselbe Oberfläche wie die Webseite: den Prüfbogen mit
+Bild, Plastik und der dritten Antwort „Weiß ich nicht". Die Fassung 1.2.3 war
+gebaut, bevor diese Änderungen fertig waren.
+
 ## 1.2.3 — 04.10.2026
 
 Eine Abweichung weniger: **207 von 217** statt 206.
