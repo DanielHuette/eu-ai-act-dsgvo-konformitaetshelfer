@@ -64,7 +64,7 @@ body{margin:0;background:var(--grund);color:var(--text);font-family:var(--sans);
 
 /* ------------------------------------------------------------------ Haupt */
 .masthead{background:var(--tinte);color:#fff;
-  padding:clamp(38px,6vw,72px) 20px calc(clamp(38px,6vw,72px) + 56px)}
+  padding:clamp(56px,8vw,104px) 20px calc(clamp(74px,10vw,128px) + 56px)}
 .masthead-innen{max-width:1140px;margin:0 auto}
 .masthead h1{font-family:var(--serif);font-weight:400;
   font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.04;letter-spacing:-.015em;
@@ -113,6 +113,8 @@ body{margin:0;background:var(--grund);color:var(--text);font-family:var(--sans);
   line-height:1.15;letter-spacing:-.01em;margin:0 0 .5rem}
 .bogen p{margin:0 0 1rem;max-width:64ch}
 .leise{color:var(--text-leise);font-size:.93rem}
+.quelle{color:var(--text-zart);font-size:.85rem;max-width:58ch;
+  margin:1.8rem 0 0 !important;padding-top:1.3rem;border-top:1px solid var(--linie)}
 .hinweis{color:var(--text-leise);font-size:.93rem;max-width:62ch;
   border-left:2px solid var(--linie-stark);padding-left:14px;margin:0 0 1.4rem !important}
 
@@ -220,6 +222,62 @@ a{color:var(--blau)}
   .wahl{width:100%}
   .wahl button{flex:1 1 auto}
 }
+
+/* ------------------------------------------------- Plastik und Bildgrund */
+:root{
+  --hebung: 0 1px 0 rgba(255,255,255,.85) inset, 0 -1px 0 rgba(10,30,70,.05) inset,
+            0 1px 2px rgba(8,22,52,.05), 0 12px 26px -14px rgba(8,22,52,.22),
+            0 34px 68px -38px rgba(8,22,52,.34);
+  --hebung-klein: 0 1px 0 rgba(255,255,255,.75) inset,
+            0 1px 2px rgba(8,22,52,.08), 0 6px 14px -8px rgba(8,22,52,.22);
+}
+@media (prefers-color-scheme: dark){:root:not([data-thema="hell"]){
+  --hebung: 0 1px 0 rgba(255,255,255,.06) inset, 0 -1px 0 rgba(0,0,0,.4) inset,
+            0 2px 4px rgba(0,0,0,.4), 0 30px 64px -34px rgba(0,0,0,.9);
+  --hebung-klein: 0 1px 0 rgba(255,255,255,.07) inset, 0 4px 12px -6px rgba(0,0,0,.6);
+}}
+
+.masthead{position:relative;overflow:hidden;background:var(--tinte)}
+.masthead .bild{position:absolute;inset:0}
+.masthead .bild img{width:100%;height:100%;object-fit:cover;object-position:72% 34%}
+.masthead .schleier{position:absolute;inset:0;
+  background:linear-gradient(100deg,
+    rgba(4,13,33,.97) 0%, rgba(4,13,33,.94) 38%,
+    rgba(4,13,33,.58) 60%, rgba(4,13,33,.18) 80%, rgba(4,13,33,.06) 100%),
+    linear-gradient(to top, rgba(4,13,33,.9) 0%, rgba(4,13,33,0) 34%)}
+.masthead-innen{position:relative}
+.warnhinweis{display:inline-flex;align-items:center;gap:10px;margin:clamp(24px,4vw,34px) 0 0;
+  padding:9px 16px 9px 14px;border-radius:999px;
+  background:rgba(255,204,0,.12);border:1px solid rgba(255,204,0,.42);
+  color:#ffdf66;font-size:.85rem;font-weight:600}
+.warnhinweis::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gelb);flex:none}
+
+.werk{box-shadow:var(--hebung)}
+.wahl{box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 1px 3px rgba(8,22,52,.07) inset}
+.wahl button[aria-pressed="true"]{
+  background:linear-gradient(180deg, color-mix(in srgb,var(--blau) 88%,white) 0%, var(--blau) 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 2px 5px rgba(8,22,52,.3)}
+.knopf{background:linear-gradient(180deg, color-mix(in srgb,var(--blau) 88%,white) 0%, var(--blau) 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 2px 6px rgba(8,22,52,.26)}
+.knopf:hover{background:linear-gradient(180deg, var(--blau) 0%, var(--blau-tief) 100%)}
+.knopf.leer{background:linear-gradient(180deg,#fff 0%, var(--kalt-flaeche) 100%);
+  box-shadow:var(--hebung-klein)}
+.befund{box-shadow:var(--hebung)}
+details{box-shadow:var(--hebung-klein)}
+
+/* ------------------------------------------------------------ Bildblock */
+.bildblock{max-width:1140px;margin:0 auto;padding:clamp(44px,6vw,80px) 20px;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,64px);align-items:center}
+.bildblock .rahmenbild{margin:0;border-radius:var(--rund-gross);overflow:hidden;
+  box-shadow:var(--hebung);line-height:0;background:var(--bogen)}
+.bildblock .rahmenbild img{width:100%;height:auto;display:block}
+.bildblock h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  line-height:1.14;letter-spacing:-.012em;margin:0 0 1rem}
+.bildblock p{max-width:52ch;margin:0 0 1rem}
+.bildblock ul{margin:0;padding-left:1.15rem;max-width:52ch;color:var(--text-leise)}
+.bildblock li{margin-bottom:.5rem}
+@media (max-width:880px){.bildblock{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -388,17 +446,13 @@ a{color:var(--blau)}
 </head>
 <body>
 <header class="masthead">
+  <div class="bild"><img src="bilder/eu-flagge.jpg" alt="" aria-hidden="true" fetchpriority="high"></div>
+  <div class="schleier"></div>
   <div class="masthead-innen">
     <h1>Fällt Ihre KI unter die EU-Verordnung?</h1>
     <p class="unter">Beantworten Sie die Fragen, die ein Jurist stellen würde. Am Ende steht die
     Einstufung — mit der Stelle im Gesetz, auf der sie beruht.</p>
-    <ul class="zahlen">
-      <li><b>207 / 217</b><span>amtliche Beispiele richtig eingestuft</span></li>
-      <li><b>5,3</b><span>Schritte im Schnitt je Fall</span></li>
-      <li><b>400 / 400</b><span>Webseite und Programm rechnen gleich</span></li>
-      <li><b>2.811</b><span>Textstellen im Rechtsbestand</span></li>
-      <li><b class="gelb">0</b><span>Angaben, die das Gerät verlassen</span></li>
-    </ul>
+    <p class="warnhinweis">Keine Rechtsberatung</p>
   </div>
 </header>
 
@@ -422,8 +476,30 @@ a{color:var(--blau)}
   </div>
 </div>
 
+
+<section class="bildblock">
+  <figure class="rahmenbild"><img src="bilder/besprechung.jpg" width="1400" height="935"
+    alt="Besprechung an einem Konferenztisch, auf dem Bildschirm eine Auswertung zu Europa"
+    loading="lazy"></figure>
+  <div>
+    <h2>Die Frage kommt immer im selben Moment</h2>
+    <p>Ein Vorhaben ist beschlossen, das Geld steht, der Termin steht — und jemand fragt, ob
+    das unter die KI-Verordnung fällt. Dann sucht die Runde nach einer Antwort, die niemand
+    im Raum belegen kann.</p>
+    <p>Dieses Werkzeug führt die Runde durch dieselben Fragen, die ein Anwalt stellen würde,
+    und legt neben jede Antwort die Stelle im Gesetz. Was dabei herauskommt, lässt sich in
+    der nächsten Sitzung zeigen.</p>
+    <ul>
+      <li>Niemand muss die Verordnung gelesen haben.</li>
+      <li>Jede Frage nennt den Absatz der amtlichen Auslegung, auf dem sie beruht.</li>
+      <li>Keine Angabe verlässt das Gerät: kein Server, keine Anmeldung, keine Speicherung.</li>
+    </ul>
+  </div>
+</section>
+
 <footer class="fuss">
   <p id="stand"></p>
+  <p>Bilder: Dušan Cvetanović und Kampus Production, Pexels.</p>
   <p>Keine Rechtsberatung. Die Einstufung folgt dem Verordnungstext und dem Entwurf der
   Leitlinien der Europäischen Kommission vom 19. Mai 2026. Der Entwurf ist nicht bindend;
   eine endgültige Fassung lag bei Abschluss dieser Arbeit nicht vor.</p>

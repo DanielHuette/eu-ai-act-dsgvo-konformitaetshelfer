@@ -61,12 +61,10 @@ function taktSetzen(text, rechts, anteil) {
 }
 
 function start() {
-  const z = d.d.zahlen;
   buehne.replaceChildren(
     el("h2", {text:"Die Einstufung beginnt mit drei Fragen zum System"}),
-    el("p", {text:"Danach fragt der Helfer nur noch das, was Ihre Antworten offenlassen. Im "
-      + "Schnitt sind es fünf bis sechs Schritte. Am Ende steht die Klasse, die Begründung und "
-      + "die Stelle im Gesetz."}),
+    el("p", {text:"Danach fragt der Helfer nur noch das, was Ihre Antworten offenlassen. Am Ende "
+      + "steht die Klasse, die Begründung und die Stelle im Gesetz."}),
     el("p", {text:"Geraten wird dabei nicht: die Einstufung entsteht aus Ihren Antworten und dem "
       + "Regelwerk, nicht aus einem Sprachmodell. Darum trägt jede Frage die Absatznummer der "
       + "amtlichen Auslegung, auf der sie beruht."}),
@@ -75,12 +73,9 @@ function start() {
     el("div", {class:"aktionen"}, [
       el("button", {class:"knopf", id:"los", text:"Einstufung beginnen"}),
     ]),
-    el("ul", {class:"start-zahlen"}, [
-      el("li", {}, [el("b", {text:String(z.fragen)}), el("span", {text:"Fragen, jede mit Fundstelle"})]),
-      el("li", {}, [el("b", {text:String(z.ausschluesse)}), el("span", {text:"ausdrückliche Ausschlüsse"})]),
-      el("li", {}, [el("b", {text:String(z.beispiele)}), el("span", {text:"amtliche Beispiele der Kommission"})]),
-      el("li", {}, [el("b", {text:"19.05.2026"}), el("span", {text:"Stand der Leitlinien"})]),
-    ]),
+    el("p", {class:"quelle", text:"Die Fragen stammen Zeile für Zeile aus dem Verordnungstext "
+      + "und dem Entwurf der Leitlinien der Europäischen Kommission vom 19. Mai 2026. Jede nennt "
+      + "den Absatz, auf dem sie beruht."}),
   );
   document.getElementById("los").onclick = () => { schritt = 0; verlauf = []; antworten = {}; zeichnen(); };
   ablaufSetzen(0);
@@ -141,7 +136,7 @@ function zeichnen() {
     const inhalt = el("div");
     inhalt.append(el("p", {class:"fragetext", text:f.text}));
     const wahl = el("div", {class:"wahl", role:"group"});
-    for (const [wert, wort] of [[true,"Ja"],[false,"Nein"],[TRIFFT_NICHT_ZU,"Trifft nicht zu"]]) {
+    for (const [wert, wort] of [[true,"Ja"],[false,"Nein"],[TRIFFT_NICHT_ZU,"Weiß ich nicht"]]) {
       const b = el("button", {type:"button", "aria-pressed":"false", text:wort});
       b.onclick = () => {
         antworten[f.kennung] = wert;
