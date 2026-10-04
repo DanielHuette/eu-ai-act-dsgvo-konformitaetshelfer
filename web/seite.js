@@ -32,7 +32,7 @@ function el(tag, attrs = {}, kinder = []) {
 function start() {
   buehne.replaceChildren(
     el("div", {class:"karte"}, [
-      el("h2", {text:"Was dieses Werkzeug tut"}),
+      el("h2", {text:"Was dieses Werkzeug leistet"}),
       el("p", {text:"Es stellt Ihnen die Fragen, die ein Jurist stellen würde, und sagt Ihnen danach, "
         + "in welche Klasse der KI-Verordnung Ihr System fällt — und an welcher Stelle des Gesetzes das steht."}),
       el("p", {text:"Es rät nicht. Die Einstufung entsteht aus Ihren Antworten und dem Regelwerk, "
