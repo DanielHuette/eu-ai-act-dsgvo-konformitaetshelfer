@@ -33,8 +33,8 @@ from helfer.einstufung.fragefolge import TRIFFT_NICHT_ZU, Durchlauf  # noqa: E40
 JS_TREIBER = """
 import {{Durchlauf}} from "{js}";
 import {{readFileSync}} from "fs";
-const daten = JSON.parse(readFileSync("{json}", "utf8"));
-const muster = JSON.parse(readFileSync("{muster}", "utf8"));
+const daten = JSON.parse(readFileSync({json}, "utf8"));
+const muster = JSON.parse(readFileSync({muster}, "utf8"));
 const aus = [];
 for (const m of muster) {{
   const d = new Durchlauf(daten);
@@ -118,8 +118,10 @@ def main(argv: list[str] | None = None) -> int:
     treiber.write_text(
         JS_TREIBER.format(
             js=(WURZEL / "web" / "durchlauf.js").as_uri(),
-            json=WURZEL / "web" / "fragefolge.json",
-            muster=ordner / "muster.json",
+            # Als JSON-Zeichenkette, nicht roh: ein Windows-Pfad enthaelt
+            # Rueckstriche, und "\\a" waere in JavaScript ein Steuerzeichen.
+            json=json.dumps(str(WURZEL / "web" / "fragefolge.json")),
+            muster=json.dumps(str(ordner / "muster.json")),
         ),
         encoding="utf-8",
     )

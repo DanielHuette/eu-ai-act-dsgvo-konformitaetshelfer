@@ -150,7 +150,8 @@ WORKDIR /app
 COPY --chown=0:0 src/ /app/src/
 COPY --chown=0:0 daten/ /app/daten/
 COPY --chown=0:0 pyproject.toml README.md /app/
-RUN chmod -R a-w /app/src /app/daten /app/pyproject.toml /app/README.md
+COPY --chown=0:0 web/ /app/web/
+RUN chmod -R a-w /app/src /app/daten /app/web /app/pyproject.toml /app/README.md
 
 # PYTHONPATH zeigt auf /app/src, obwohl das Paket auch in der Umgebung liegt.
 # Das ist kein Versehen: Korpus und Regeln werden über den Ort des Quelltextes
