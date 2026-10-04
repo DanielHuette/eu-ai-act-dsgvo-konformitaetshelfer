@@ -11,6 +11,14 @@ Auskunft bekommt, ist ein geänderter Artikelverweis wichtiger als jede
 Programmänderung. Jeder Eintrag zum Datenstand nennt das Datum, auf dem das
 Regelwerk danach steht.
 
+## 1.2.2 — 04.10.2026
+
+Das Windows-Paket entstand nicht. Inno Setup ist auf den Maschinen von GitHub
+nicht mehr vorinstalliert; der Schritt lief ins Leere und meldete trotzdem
+Erfolg. Inno Setup wird jetzt geholt, der Schritt bricht ab, wenn es fehlt,
+und daneben entsteht immer ein Archiv — damit es für Windows in jedem Fall
+etwas zum Laden gibt.
+
 ## 1.2.1 — 04.10.2026
 
 Zwei Fehler, die erst der Bau auf fremden Maschinen gezeigt hat.

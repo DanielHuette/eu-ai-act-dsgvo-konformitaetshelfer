@@ -9,7 +9,7 @@
 ; erhöhten Rechte, und ein Rechtswerkzeug hat im Systemordner nichts verloren.
 
 #define Name "Konformitätshelfer"
-#define Fassung "1.2.1"
+#define Fassung "1.2.2"
 #define Herausgeber "Daniel Hütte"
 #define Programmdatei "Konformitaetshelfer.exe"
 
