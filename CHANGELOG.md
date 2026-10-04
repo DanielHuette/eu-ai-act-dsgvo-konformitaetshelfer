@@ -88,6 +88,17 @@ behoben.
   vorkommt, und nennt die betroffenen Kennungen. Eine Zahl allein sagte nicht,
   wo zu suchen ist.
 
+### Suchbestand
+
+* Der abgelegte Bestand vergleicht beim Laden die **Kennungen** des Korpus und
+  nicht nur ihre Anzahl. Ein Bestand aus einem anderen Korpus kann zufällig
+  gleich viele Einheiten haben — oder, häufiger, derselbe Korpus ist umsortiert
+  oder eine Einheit ersetzt. Dann zeigt jeder Vektor auf die falsche
+  Fundstelle, und die Antwort sieht aus wie immer. Eine eigene Prüfung baut
+  genau diesen Fall nach.
+* Der Bestand liegt neu gebaut im Verzeichnis: 2811 Vektoren mit bge-m3,
+  Stand 04.10.2026.
+
 ### Berichtigungen
 
 * `_kennung()` rief sich selbst auf und brach mit Endlosrekursion ab. Der

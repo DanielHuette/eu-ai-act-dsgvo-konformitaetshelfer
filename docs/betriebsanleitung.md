@@ -533,8 +533,22 @@ Wörter und keine Bedeutung. Abhilfe:
 
 ```bash
 pip install -e ".[suche]"
+```
+
+Meldet das Laden „Der abgelegte Bestand gehört zu einem anderen
+Rechtsbestand", so ist der Korpus seit dem Bau des Bestands geändert worden.
+Das ist kein Fehler, sondern die Prüfung, die genau das verhindern soll: ohne
+sie zeigte jeder Vektor auf die falsche Fundstelle, und die Antwort sähe aus
+wie immer. Neu bauen:
+
+```bash
 python scripts/bestand_bauen.py
 ```
+
+Der Lauf braucht auf einem Hauptprozessor rund eine Stunde und legt alle 64
+Einheiten einen Zwischenstand ab. Bricht er ab — unter 8 Gigabyte
+Arbeitsspeicher kommt das vor —, einfach erneut starten: er überspringt, was
+schon gerechnet ist, und sagt am Ende, wie viel er übernommen hat.
 
 ### Die App findet nichts oder stürzt beim Start ab
 

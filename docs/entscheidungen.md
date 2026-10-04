@@ -292,9 +292,14 @@ einlesen.
   Beschaffungslauf, der an EUR-Lex scheitern kann.
 * Schlecht: die Datei ist 2,9 Megabyte groß und wächst mit jeder
   Rechtsänderung in der Versionsverwaltung mit. Das ist tragbar.
-* Schlecht: es gibt keine Prüfung, die sicherstellt, dass Korpus, Suchbestand
-  und App-Datenbank zusammenpassen. Es gibt nur die Prüfsumme, mit der man es
-  feststellen **kann** — am 03.10.2026 passten sie nicht zusammen, am 04.10.2026 passen sie.
+* Gut: der abgelegte Suchbestand trägt seit dem 04.10.2026 die Kennungen des
+  Korpus, aus dem er gebaut wurde, und wird beim Laden abgewiesen, wenn sie
+  nicht mehr passen. Die Anzahl allein genügte nicht: ein Bestand aus einem
+  anderen Korpus kann zufällig gleich viele Einheiten haben, und dann zeigt
+  jeder Vektor auf die falsche Fundstelle — die Antwort sähe aus wie immer.
+* Schlecht: für die App-Datenbank gibt es diese Prüfung nicht, sondern nur die
+  Prüfsumme in `android_export_befund.json`, mit der man es feststellen
+  **kann**. Am 03.10.2026 passten sie nicht zusammen, am 04.10.2026 passen sie.
 
 ---
 

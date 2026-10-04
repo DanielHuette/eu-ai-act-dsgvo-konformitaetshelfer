@@ -174,13 +174,21 @@ dazu — rund 2,3 Gigabyte Modell und ein Rechenlauf von einigen Minuten:
 
 ```bash
 pip install -e ".[suche]"
+```
+
+Der Suchbestand liegt im Verzeichnis (2811 Vektoren, Stand 04.10.2026) und muss
+nicht gebaut werden. Nur nach einer Änderung am Rechtsbestand:
+
+```bash
 python scripts/bestand_bauen.py
 ```
 
-Der Suchbestand liegt **nicht** im Verzeichnis und muss einmal gebaut werden.
-Ohne ihn läuft die Suche mit einem Ersatzverfahren, das nur Wörter vergleicht
-und keine Bedeutung; `konformitaetshelfer stand` sagt das dann ausdrücklich.
-Die Einstufung ist davon nicht betroffen.
+Der abgelegte Bestand trägt die Kennungen des Korpus, aus dem er gebaut wurde,
+und wird beim Laden abgewiesen, wenn sie nicht mehr passen — sonst zeigte jeder
+Vektor auf die falsche Fundstelle, und die Antwort sähe aus wie immer. Liegt
+kein Bestand vor, läuft die Suche mit einem Ersatzverfahren, das nur Wörter
+vergleicht und keine Bedeutung; `konformitaetshelfer stand` sagt das dann
+ausdrücklich. Die Einstufung ist davon nicht betroffen.
 
 ### Weg 3: Webdienst im Browser
 
