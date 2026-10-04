@@ -23,46 +23,63 @@
  * bunte Oberfläche. Schriften kommen vom Gerät, es lädt nichts nach. */
 :root{
   color-scheme: light dark;
-  --grund:#f7f7f5; --flaeche:#fff; --flaeche-tief:#f0f0ee;
-  --rand:#d6d6d0; --rand-stark:#b4b4ac;
-  --text:#1c1c1a; --text-leise:#5c5c56;
-  --betont:#1b4e7a; --betont-flaeche:#e8f0f7;
+  --grund:#f4f6fb; --flaeche:#fff; --flaeche-tief:#eaeef7;
+  --rand:#cfd8ea; --rand-stark:#9fb0d0;
+  --text:#101b33; --text-leise:#4d5c7a;
+  --betont:#003399; --betont-flaeche:#e6ecfa;
+  --gelb:#ffcc00; --tief:#002266; --tief-text:#ffffff; --tief-leise:#b9c8ec;
   --verboten:#8c1d1d; --verboten-flaeche:#fbeaea;
-  --hoch:#8a4b06; --hoch-flaeche:#fdf0e0;
+  --hoch:#8a5a00; --hoch-flaeche:#fff6dd;
   --minimal:#1f5c33; --minimal-flaeche:#e7f3ea;
-  --unklar:#4a4a46; --unklar-flaeche:#eeeeec;
+  --unklar:#3d4a66; --unklar-flaeche:#eceff7;
   --abstand:1rem; --rundung:6px; --lesebreite:68ch;
   --serif:"Source Serif 4",ui-serif,Georgia,"Times New Roman",serif;
   --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-thema="hell"]){
-  --grund:#16181a; --flaeche:#1f2225; --flaeche-tief:#262a2e;
-  --rand:#3a3f44; --rand-stark:#555b61;
-  --text:#e8e8e4; --text-leise:#a8aaa6;
-  --betont:#8cc0ea; --betont-flaeche:#1d2b36;
+  --grund:#0b1020; --flaeche:#141b2e; --flaeche-tief:#1b2440;
+  --rand:#2a3652; --rand-stark:#44557c;
+  --text:#e9edf7; --text-leise:#a2b0ce;
+  --betont:#8fb0ff; --betont-flaeche:#17213c;
+  --gelb:#ffcc00; --tief:#070c1a; --tief-text:#ffffff; --tief-leise:#a7b7de;
   --verboten:#f0a0a0; --verboten-flaeche:#2e1c1c;
-  --hoch:#e6b870; --hoch-flaeche:#2e2516;
-  --minimal:#8fcfa3; --minimal-flaeche:#1a2a1f;
-  --unklar:#c0c2be; --unklar-flaeche:#24262a;
+  --hoch:#ffcc00; --hoch-flaeche:#2b2410;
+  --minimal:#8fcfa3; --minimal-flaeche:#13281c;
+  --unklar:#c3cbe0; --unklar-flaeche:#1a2238;
 }}
 :root[data-thema="dunkel"]{
-  --grund:#16181a; --flaeche:#1f2225; --flaeche-tief:#262a2e;
-  --rand:#3a3f44; --rand-stark:#555b61;
-  --text:#e8e8e4; --text-leise:#a8aaa6;
-  --betont:#8cc0ea; --betont-flaeche:#1d2b36;
+  --grund:#0b1020; --flaeche:#141b2e; --flaeche-tief:#1b2440;
+  --rand:#2a3652; --rand-stark:#44557c;
+  --text:#e9edf7; --text-leise:#a2b0ce;
+  --betont:#8fb0ff; --betont-flaeche:#17213c;
+  --gelb:#ffcc00; --tief:#070c1a; --tief-text:#ffffff; --tief-leise:#a7b7de;
   --verboten:#f0a0a0; --verboten-flaeche:#2e1c1c;
-  --hoch:#e6b870; --hoch-flaeche:#2e2516;
-  --minimal:#8fcfa3; --minimal-flaeche:#1a2a1f;
-  --unklar:#c0c2be; --unklar-flaeche:#24262a;
+  --hoch:#ffcc00; --hoch-flaeche:#2b2410;
+  --minimal:#8fcfa3; --minimal-flaeche:#13281c;
+  --unklar:#c3cbe0; --unklar-flaeche:#1a2238;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--grund);color:var(--text);font-family:var(--sans);
   font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
 .rahmen{max-width:900px;margin:0 auto;padding:clamp(16px,4vw,40px) 16px 64px}
+/* Der Kopf ist das erste Blatt der Präsentation: tiefes Europablau, die
+ * Überschrift in der Serifenschrift, Gelb als einziger Akzent. */
+.kopf{background:var(--tief);color:var(--tief-text);
+  border-bottom:4px solid var(--gelb)}
+.kopf-innen{max-width:900px;margin:0 auto;padding:clamp(28px,6vw,56px) 16px clamp(22px,4vw,34px)}
+.augenbraue{font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gelb);margin:0 0 1rem}
+.marke{font-family:var(--serif);font-size:clamp(1.9rem,6vw,3.1rem);font-weight:400;
+  line-height:1.06;margin:0 0 .7rem;color:var(--tief-text);max-width:18ch}
+.unterzeile{color:var(--tief-leise);font-size:clamp(1rem,2.4vw,1.15rem);margin:0;max-width:52ch}
+.zahlen{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,44px);margin:clamp(22px,4vw,34px) 0 0;
+  padding-top:clamp(18px,3vw,26px);border-top:1px solid rgba(255,255,255,.18);list-style:none}
+.zahlen li{margin:0}
+.zahlen b{display:block;font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.3rem,3.4vw,1.8rem);color:var(--tief-text);line-height:1.1}
+.zahlen b.gelb{color:var(--gelb)}
+.zahlen span{display:block;font-size:.8rem;line-height:1.35;color:var(--tief-leise);margin-top:.2rem}
 header{border-bottom:1px solid var(--rand);padding-bottom:var(--abstand);margin-bottom:2rem}
-.marke{font-family:var(--serif);font-size:clamp(1.4rem,4vw,2rem);font-weight:600;
-  line-height:1.2;margin:0 0 .3rem}
-.unterzeile{color:var(--text-leise);font-size:.95rem;margin:0}
 h2{font-family:var(--serif);font-size:1.35rem;line-height:1.3;margin:0 0 .4rem}
 p{max-width:var(--lesebreite);margin:0 0 1rem}
 .leise{color:var(--text-leise);font-size:.92rem}
@@ -72,7 +89,7 @@ p{max-width:var(--lesebreite);margin:0 0 1rem}
   color:var(--text-leise);font-size:.88rem;margin-bottom:1.25rem}
 .balken{flex:1 1 140px;height:4px;background:var(--flaeche-tief);border-radius:2px;
   overflow:hidden;min-width:120px}
-.balken i{display:block;height:100%;background:var(--betont);transition:width .25s}
+.balken i{display:block;height:100%;background:var(--gelb);transition:width .25s}
 fieldset{border:0;padding:0;margin:0 0 1.4rem}
 legend{padding:0;font-weight:500;max-width:var(--lesebreite)}
 .frage{border-top:1px solid var(--rand);padding:1rem 0}
@@ -82,7 +99,8 @@ legend{padding:0;font-weight:500;max-width:var(--lesebreite)}
 .wahl button{font:inherit;font-size:.95rem;padding:.45rem 1rem;border:1px solid var(--rand-stark);
   background:var(--flaeche);color:var(--text);border-radius:var(--rundung);cursor:pointer}
 .wahl button:hover{background:var(--flaeche-tief)}
-.wahl button[aria-pressed="true"]{background:var(--betont);border-color:var(--betont);color:var(--flaeche)}
+.wahl button[aria-pressed="true"]{background:var(--betont);border-color:var(--betont);color:#fff;
+  box-shadow:inset 0 -3px 0 var(--gelb)}
 :root[data-thema="dunkel"] .wahl button[aria-pressed="true"],
 @media (prefers-color-scheme: dark){.wahl button[aria-pressed="true"]{color:#16181a}}
 .beleg{color:var(--text-leise);font-size:.82rem;margin-top:.45rem}
@@ -93,7 +111,7 @@ legend{padding:0;font-weight:500;max-width:var(--lesebreite)}
 .reihe{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-top:1.25rem}
 .befund{border-left:4px solid var(--unklar);background:var(--unklar-flaeche);
   padding:1.25rem;border-radius:var(--rundung)}
-.befund.hoch{border-color:var(--hoch);background:var(--hoch-flaeche)}
+.befund.hoch{border-color:var(--gelb);background:var(--hoch-flaeche)}
 .befund.verboten{border-color:var(--verboten);background:var(--verboten-flaeche)}
 .befund.minimal{border-color:var(--minimal);background:var(--minimal-flaeche)}
 .befund .zeichen{font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem}
@@ -294,11 +312,22 @@ details.wissen p{padding:0 0 1rem;margin:0}
 </script>
 </head>
 <body>
+<div class="kopf">
+  <div class="kopf-innen">
+    <p class="augenbraue">Ein Werkzeug für Anbieter und Betreiber</p>
+    <h1 class="marke">Fällt Ihre KI unter die EU-Verordnung?</h1>
+    <p class="unterzeile">Sechs Schritte. Jede Antwort zeigt die Stelle im Gesetz, auf der sie
+    beruht — und keine Angabe verlässt dabei Ihr Gerät.</p>
+    <ul class="zahlen">
+      <li><b>206 / 217</b><span>amtliche Beispiele<br>richtig eingestuft</span></li>
+      <li><b>5,3</b><span>Schritte im Schnitt<br>je Fall</span></li>
+      <li><b>400 / 400</b><span>Webseite und Programm<br>rechnen gleich</span></li>
+      <li><b>2.811</b><span>Textstellen im<br>Rechtsbestand</span></li>
+      <li><b class="gelb">0</b><span>Angaben, die das<br>Gerät verlassen</span></li>
+    </ul>
+  </div>
+</div>
 <div class="rahmen">
-<header>
-  <h1 class="marke">Fällt Ihre KI unter die EU-Verordnung?</h1>
-  <p class="unterzeile">Sechs Schritte. Jede Antwort zeigt die Stelle im Gesetz, auf der sie beruht.</p>
-</header>
 <main id="buehne" aria-live="polite"></main>
 <footer>
   <p id="stand"></p>
@@ -407,224 +436,6 @@ details.wissen p{padding:0 0 1rem;margin:0}
   und Quellcode auf GitHub</a> — Apache-Lizenz 2.0.</p>
 </section>
 
-<script type="module">
-import {Durchlauf, TRIFFT_NICHT_ZU} from "./durchlauf.js";
-
-const buehne = document.getElementById("buehne");
-let d = null, antworten = {}, schritt = 0, verlauf = [];
-
-const KLASSEN = {
-  hochrisiko_anhang_iii: {wort:"Hohes Risiko", zeichen:"▲", stil:"hoch",
-    satz:"Ihr System fällt nach Artikel 6 Absatz 2 und Anhang III unter die Hochrisiko-Systeme."},
-  hochrisiko_anhang_i: {wort:"Hohes Risiko", zeichen:"▲", stil:"hoch",
-    satz:"Ihr System fällt nach Artikel 6 Absatz 1 über das Produktsicherheitsrecht unter die Hochrisiko-Systeme."},
-  hochrisiko_bedingt: {wort:"Bedingt hohes Risiko", zeichen:"▲", stil:"hoch",
-    satz:"Ihr System erfüllt alle Voraussetzungen bis auf eine, die Sie nicht wissen können."},
-  hochrisiko_ausnahme: {wort:"Ausnahme greift", zeichen:"◆", stil:"",
-    satz:"Ihr System fällt unter Anhang III, nimmt aber nach Artikel 6 Absatz 3 eine Ausnahme in Anspruch. Diese Ausnahme ist zu dokumentieren und das System ist zu registrieren."},
-  kein_hohes_risiko: {wort:"Kein hohes Risiko", zeichen:"●", stil:"minimal",
-    satz:"Nach Ihren Angaben fällt Ihr System in keinen der Anwendungsfälle des Anhangs I oder III."},
-  kein_ki_system: {wort:"Kein KI-System", zeichen:"○", stil:"minimal",
-    satz:"Was Sie beschrieben haben, ist nach Artikel 3 Nummer 1 kein KI-System."},
-};
-
-function el(tag, attrs = {}, kinder = []) {
-  const k = document.createElement(tag);
-  for (const [n, v] of Object.entries(attrs)) {
-    if (n === "text") k.textContent = v;
-    else if (n === "html") k.innerHTML = v;
-    else k.setAttribute(n, v);
-  }
-  for (const kind of [].concat(kinder)) if (kind) k.append(kind);
-  return k;
-}
-
-function start() {
-  buehne.replaceChildren(
-    el("div", {class:"karte"}, [
-      el("h2", {text:"Was dieses Werkzeug tut"}),
-      el("p", {text:"Es stellt Ihnen die Fragen, die ein Jurist stellen würde, und sagt Ihnen danach, "
-        + "in welche Klasse der KI-Verordnung Ihr System fällt — und an welcher Stelle des Gesetzes das steht."}),
-      el("p", {text:"Es rät nicht. Die Einstufung entsteht aus Ihren Antworten und dem Regelwerk, "
-        + "nicht aus einem Sprachmodell. Darum steht an jeder Frage die Absatznummer der amtlichen "
-        + "Auslegung, auf der sie beruht."}),
-      el("p", {class:"leise", text:"Nichts von Ihren Angaben verlässt Ihr Gerät. Es gibt keinen Server, "
-        + "keine Anmeldung und keine Speicherung."}),
-      el("div", {class:"reihe"}, [
-        el("button", {class:"knopf", id:"los", text:"Einstufung beginnen"}),
-      ]),
-    ]),
-    el("div", {class:"karte"}, [
-      el("h2", {text:"Woher die Fragen kommen"}),
-      el("p", {id:"herkunft"}),
-    ]),
-  );
-  document.getElementById("los").onclick = () => { schritt = 0; verlauf = []; antworten = {}; zeichnen(); };
-  const z = d.d.zahlen;
-  document.getElementById("herkunft").textContent =
-    `${z.fragen} Fragen, ${z.ausschluesse} ausdrückliche Ausschlüsse und ${z.beispiele} amtliche `
-    + `Beispiele, Zeile für Zeile aus dem Verordnungstext und dem Entwurf der Leitlinien der `
-    + `Europäischen Kommission vom 19. Mai 2026 — 148 Seiten zu Anhang III, 13 Seiten zu Anhang I.`;
-  document.getElementById("stand").textContent = "Stand der Daten: " + (d.d.stand || "—");
-}
-
-function bereichsname(frage) {
-  const b = (d.aufbau.bereiche || []).find((x) => frage.fundstelle.startsWith(x.fundstelle));
-  return b ? b.titel : frage.titel || "";
-}
-
-function zeichnen() {
-  const gruppe = d.naechsteGruppe(antworten);
-  if (!gruppe.length) return befundZeigen();
-  schritt += 1;
-  const gesamt = Math.max(schritt + 1, 6);
-  const anteil = Math.min(95, Math.round((schritt / gesamt) * 100));
-
-  const kopf = el("div", {class:"schritt"}, [
-    el("span", {text:`Schritt ${schritt}`}),
-    el("div", {class:"balken"}, el("i", {style:`width:${anteil}%`})),
-    el("span", {text:gruppe.length === 1 ? "eine Frage" : `${gruppe.length} Fragen`}),
-  ]);
-
-  const karte = el("div", {class:"karte"});
-  const erste = gruppe[0];
-  let ueberschrift = "Zu Ihrem System";
-  if (erste.stufe === "vorfrage") ueberschrift = "Zuerst drei Fragen zum System selbst";
-  else if (erste.stufe === "bereich") ueberschrift = "Womit hat Ihr System zu tun?";
-  else if (erste.kennung.startsWith("haupt:")) ueberschrift = bereichsname(erste) || "Genauer nachgefragt";
-  else if (erste.kennung.startsWith("anhang-i-gattung:")) ueberschrift = "Um welches Produkt geht es?";
-  else if (erste.stufe === "anhang_i") ueberschrift = "Zum Produkt und zur Prüfung";
-  else if (erste.stufe === "filter") ueberschrift = "Ausnahme nach Artikel 6 Absatz 3";
-  else ueberschrift = bereichsname(erste) || "Zu Ihrem System";
-  karte.append(el("h2", {text:ueberschrift}));
-  if (erste.stufe === "bereich") {
-    karte.append(el("p", {class:"leise", text:"Mehrfachnennung möglich. Was nicht zutrifft, "
-      + "bitte mit Nein beantworten — der Helfer fragt dann nicht weiter danach. "
-      + "Diese acht Sätze sortieren nur; entschieden wird danach."}));
-  }
-
-  let letzterBereich = null;
-  for (const f of gruppe) {
-    if (f.kennung.startsWith("haupt:")) {
-      const b = bereichsname(f);
-      if (b && b !== letzterBereich) {
-        karte.append(el("p", {class:"leise", style:"margin:1.2rem 0 .2rem;font-weight:500", text:b}));
-        letzterBereich = b;
-      }
-    }
-    const zeile = el("div", {class:"frage"});
-    zeile.append(el("p", {class:"fragetext", text:f.text}));
-    const wahl = el("div", {class:"wahl"});
-    for (const [wert, wort] of [[true,"Ja"],[false,"Nein"],[TRIFFT_NICHT_ZU,"Trifft nicht zu"]]) {
-      const b = el("button", {type:"button", "aria-pressed":"false", text:wort});
-      b.onclick = () => {
-        antworten[f.kennung] = wert;
-        for (const g of wahl.children) g.setAttribute("aria-pressed","false");
-        b.setAttribute("aria-pressed","true");
-        pruefeWeiter();
-      };
-      wahl.append(b);
-    }
-    zeile.append(wahl);
-    if (f.beleg) zeile.append(el("p", {class:"beleg", text:"Leitlinien der Kommission, Absatz " + f.beleg}));
-    if (f.wirkung) zeile.append(el("p", {class:"beleg", text:f.wirkung}));
-    karte.append(zeile);
-  }
-
-  const weiter = el("button", {class:"knopf", id:"weiter", text:"Weiter", disabled:""});
-  weiter.onclick = () => { verlauf.push({...antworten}); zeichnen(); };
-  const zurueck = el("button", {class:"knopf leer", text:"Zurück"});
-  zurueck.onclick = () => {
-    if (!verlauf.length) { schritt = 0; return start(); }
-    antworten = verlauf.pop(); schritt = Math.max(0, schritt - 2); zeichnen();
-  };
-  karte.append(el("div", {class:"reihe"}, [weiter, zurueck]));
-  buehne.replaceChildren(kopf, karte);
-  window.scrollTo({top:0, behavior:"instant"});
-
-  function pruefeWeiter() {
-    const fertig = gruppe.every((f) => antworten[f.kennung] !== undefined);
-    const w = document.getElementById("weiter");
-    if (fertig) w.removeAttribute("disabled"); else w.setAttribute("disabled","");
-  }
-}
-
-function befundZeigen() {
-  const e = d.ergebnis(antworten);
-  const k = KLASSEN[e.klasse] || KLASSEN.kein_hohes_risiko;
-  const kasten = el("div", {class:"befund " + k.stil}, [
-    el("div", {class:"zeichen", text:k.zeichen + " " + k.wort}),
-    el("h2", {text:k.wort}),
-    el("p", {text:e.endtext || k.satz}),
-  ]);
-
-  const karte = el("div", {class:"karte"});
-  let etwasDrin = false;
-  if (e.getroffene_punkte.length) {
-    etwasDrin = true;
-    const liste = el("dl");
-    for (const p of e.getroffene_punkte) {
-      liste.append(el("dt", {text:p.titel || p.bereich}));
-      liste.append(el("dd", {class:"stelle", text:p.fundstelle.replace("KI-VO/anh-III/nr-","Anhang III Nummer ").replace("KI-VO/anh-I","Anhang I").replace(/-([a-e])$/," Buchstabe $1")}));
-      liste.append(el("dd", {class:"leise", text:p.hauptfrage.text}));
-    }
-    karte.append(el("h2", {text:"Die Stelle, auf der das beruht"}), liste);
-  }
-  if (e.filter_greift) {
-    etwasDrin = true;
-    karte.append(el("h2", {text:"Welche Ausnahme greift"}), el("p", {text:e.filter_grund}));
-  }
-  if (!etwasDrin) {
-    // Ohne getroffene Stelle gibt es nichts zu zeigen. Eine leere Karte wäre
-    // ein Kasten, der nichts sagt — der Nutzer sucht dann, was ihm entgeht.
-    etwasDrin = true;
-    karte.append(
-      el("h2", {text:"Was jetzt gilt"}),
-      el("p", {text:"Es bleibt die Pflicht zur KI-Kompetenz nach Artikel 4: wer KI einsetzt oder "
-        + "anbietet, muss dafür sorgen, dass die damit befassten Personen sie verstehen. "
-        + "Werden personenbezogene Daten verarbeitet, gilt daneben die Datenschutz-Grundverordnung."}),
-      el("p", {class:"leise", text:"Ändert sich der Zweck des Systems, ändert sich die Einstufung. "
-        + "Dann lohnt ein neuer Durchlauf."}),
-    );
-  }
-  if (e.belege.length) {
-    karte.append(el("p", {class:"beleg", text:"Leitlinien der Kommission, Absätze "
-      + e.belege.join(", ")}));
-  }
-
-  const beispiele = el("div");
-  for (const p of e.getroffene_punkte) {
-    if (!p.beispiele.length) continue;
-    const auf = el("details");
-    auf.append(el("summary", {text:`${p.beispiele.length} amtliche Beispiele zu dieser Stelle`}));
-    for (const b of p.beispiele) {
-      const ja = b.wertung === "hochrisiko";
-      auf.append(el("div", {class:"beispiel"}, [
-        el("div", {class:"wertung " + (ja ? "ja" : "nein"),
-          text:ja ? "▲ erfasst" : "● nicht erfasst"}),
-        el("p", {text:b.lage}),
-        b.begruendung ? el("p", {class:"leise", text:b.begruendung}) : null,
-        b.beleg ? el("p", {class:"beleg", text:"Absatz " + b.beleg}) : null,
-      ]));
-    }
-    beispiele.append(auf);
-  }
-
-  const nochmal = el("button", {class:"knopf leer", text:"Von vorn"});
-  nochmal.onclick = () => { antworten = {}; schritt = 0; verlauf = []; start(); };
-  buehne.replaceChildren(kasten, karte, beispiele,
-    el("div", {class:"reihe"}, [nochmal]));
-  window.scrollTo({top:0, behavior:"instant"});
-}
-
-fetch("./fragefolge.json")
-  .then((r) => r.json())
-  .then((daten) => { d = new Durchlauf(daten); start(); })
-  .catch(() => {
-    buehne.replaceChildren(el("div", {class:"karte"}, el("p", {
-      text:"Die Fragedaten konnten nicht geladen werden. Die Seite braucht die Datei "
-        + "fragefolge.json im selben Ordner."})));
-  });
-</script>
+<script type="module" src="./seite.js"></script>
 </body>
 </html>
