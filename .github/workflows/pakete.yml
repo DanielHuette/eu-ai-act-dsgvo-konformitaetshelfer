@@ -95,12 +95,20 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
-          $iscc = Get-ChildItem -Path `
-            "$env:ProgramFiles(x86)\Inno Setup 6\ISCC.exe", `
-            "$env:ProgramFiles\Inno Setup 6\ISCC.exe" `
-            -ErrorAction SilentlyContinue | Select-Object -First 1
+          # Chocolatey legt einen Aufrufer in den Pfad. Findet er sich
+          # nicht, wird in beiden Programmordnern nachgesehen - geklammert,
+          # denn "$env:ProgramFiles(x86)" liest PowerShell sonst als
+          # "$env:ProgramFiles" gefolgt von "(x86)".
+          $iscc = (Get-Command ISCC -ErrorAction SilentlyContinue).Source
+          if (-not $iscc) {
+            $iscc = Get-ChildItem -Path `
+              "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe", `
+              "${env:ProgramFiles}\Inno Setup 6\ISCC.exe" `
+              -ErrorAction SilentlyContinue |
+              Select-Object -First 1 -ExpandProperty FullName
+          }
           if (-not $iscc) { throw "ISCC.exe nicht gefunden" }
-          & $iscc.FullName verpacken\windows.iss
+          & $iscc verpacken\windows.iss
           Get-ChildItem verpacken\Ausgabe
 
       - name: Mac-Abbild
