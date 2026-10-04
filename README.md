@@ -85,7 +85,7 @@ Anhang I, 6 Seiten allgemeine Grundsätze. Nichts darin ist ausgedacht.
    trägt. Vier Bedingungen und die Gegenausnahme Profiling.
 6. **Der Befund** — Klasse, Fundstelle, die amtlichen Beispiele zum Vergleichen.
 
-Jede Frage hat drei Antworten: Ja, Nein und **Trifft nicht zu**. Die dritte ist
+Jede Frage hat drei Antworten: Ja, Nein und **Weiß ich nicht**. Die dritte ist
 nicht Bequemlichkeit. Ein Werkzeug, das Lebensläufe sichtet, schaltet keine
 Stellenanzeigen — auf die Frage, ob eine Anzeige eine konkrete offene Stelle
 anzeigt, gibt es dort weder Ja noch Nein. Ein erzwungenes Nein warf gemessen

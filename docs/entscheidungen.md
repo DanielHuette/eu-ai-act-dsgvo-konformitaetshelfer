@@ -181,7 +181,7 @@ sagt, woran es hängt.
   nicht wissen" — eine Auskunft, die der Lage entspricht.
 * Schlecht: drei Antworten sind mehr zu bedenken als zwei, in der Oberfläche
   und in beiden Fassungen der Ablauflogik.
-* Schlecht: wer „Trifft nicht zu" aus Bequemlichkeit wählt, bekommt einen
+* Schlecht: wer „Weiß ich nicht" aus Bequemlichkeit wählt, bekommt einen
   unentschiedenen Befund statt einer Einstufung. Das Werkzeug kann nicht
   unterscheiden, ob die Frage wirklich nicht passt.
 

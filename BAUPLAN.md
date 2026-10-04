@@ -230,7 +230,7 @@ Anhangs III, eine für Anhang I, eine für die Vorfragen und den Filter — und 
   und ausnehmen, als Text mit Beleg; das ist, was der Nutzer am Ende liest
 * `beispiele` — die amtlichen Beispiele zu dieser Stelle, zum Vergleichen
 
-**Drei Antworten, nicht zwei: Ja, Nein und „Trifft nicht zu".** Die dritte ist
+**Drei Antworten, nicht zwei: Ja, Nein und „Weiß ich nicht".** Die dritte ist
 keine Bequemlichkeit, sie ist gemessen. Zu Anhang III Nummer 4 Buchstabe a
 gehört nach Absatz (251) die Frage, ob eine Stellenanzeige aktiv eine konkrete
 offene Stelle anzeigt; ein Nein darauf schließt aus. Für ein Werkzeug, das
@@ -705,7 +705,7 @@ dürfen:**
   Befund, mit den Antworten, die ein Mitarbeiter über sein eigenes System gäbe.
   Eine Prüfung, die nur die Wertung aufruft, prüft die Hälfte: dass der Weg die
   nötigen Fragen überhaupt stellt, ist die andere.
-* **„Trifft nicht zu" braucht die Gegenprobe.** Eine Prüfung, die zeigt, dass
+* **„Weiß ich nicht" braucht die Gegenprobe.** Eine Prüfung, die zeigt, dass
   der Fall mit der offenen Antwort erfasst bleibt, ist nur halb etwas wert. Die
   andere Hälfte: mit einem erzwungenen Nein fällt er heraus. Ohne diese
   Gegenprobe prüft die erste Hälfte nichts.

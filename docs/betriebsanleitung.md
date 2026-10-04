@@ -21,7 +21,7 @@ besteht aus einer HTML-Datei, einer JavaScript-Datei und den Fragedaten. Ihre
 Angaben werden im Browser verrechnet und nicht übertragen.
 
 Ein Durchlauf dauert im Schnitt 5,3 Schritte. Jede Frage hat drei Antworten:
-**Ja**, **Nein** und **Trifft nicht zu**. Die dritte ist nicht Bequemlichkeit —
+**Ja**, **Nein** und **Weiß ich nicht**. Die dritte ist nicht Bequemlichkeit —
 nehmen Sie sie, wenn eine Frage auf Ihr System nicht passt. Beispiel: Ein
 Werkzeug, das Lebensläufe sichtet, schaltet keine Stellenanzeigen; auf die
 Frage, ob eine Anzeige eine konkrete offene Stelle anzeigt, gibt es dort weder

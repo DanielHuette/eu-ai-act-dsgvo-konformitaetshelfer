@@ -127,7 +127,7 @@ Punkte und die amtlichen Beispiele zum Vergleichen.
 
 ### Drei Antworten, nicht zwei
 
-Jede Frage hat Ja, Nein und **Trifft nicht zu**. Die dritte ist nicht
+Jede Frage hat Ja, Nein und **Weiß ich nicht**. Die dritte ist nicht
 Bequemlichkeit. Zu Anhang III Nummer 4 Buchstabe a gehört die Frage, ob eine
 Stellenanzeige aktiv eine konkrete offene Stelle anzeigt. Ein Werkzeug, das
 Lebensläufe sichtet, schaltet keine Anzeigen — darauf gibt es weder Ja noch
