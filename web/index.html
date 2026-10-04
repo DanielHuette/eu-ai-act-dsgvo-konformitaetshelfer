@@ -14,137 +14,212 @@
 <meta property="og:title" content="EU AI Act Einstufung: Ist Ihre KI ein Hochrisiko-System?">
 <meta property="og:description" content="Sechs Fragen, und Sie wissen, in welche Risikoklasse der KI-Verordnung Ihr System fällt — mit der genauen Stelle im Gesetz.">
 <meta property="og:url" content="https://konformitaetshelfer.speedofthespirit.dev/">
+<meta property="og:image" content="https://konformitaetshelfer.speedofthespirit.dev/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fällt Ihre KI unter die EU-Verordnung? Sechs Schritte, jede Antwort mit der Stelle im Gesetz.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://konformitaetshelfer.speedofthespirit.dev/vorschau.png">
 <meta name="author" content="Daniel Hütte">
 <style>
-/* Gestaltung nach src/helfer/weboberflaeche/gestaltung/stil.css:
- * ruhig und sachlich, lesbar vor schön, Farbe nie der einzige Träger.
- * Das Werkzeug sagt Leuten, dass sie Bußgelder riskieren — dazu passt keine
- * bunte Oberfläche. Schriften kommen vom Gerät, es lädt nichts nach. */
+/* Gestaltung: ein Prüfbogen, kein Prospekt.
+ * Dunkle Fassung für den Rahmen, heller Bogen für die Arbeit, Gelb nur dort,
+ * wo gerade etwas lebt — der laufende Abschnitt und die gegebene Antwort.
+ * Jede Frage trägt ihre Fundstelle am Rand, wie die Anmerkung in einem
+ * Kommentar. Schriften kommen vom Gerät, es lädt nichts nach. */
 :root{
   color-scheme: light dark;
-  --grund:#f4f6fb; --flaeche:#fff; --flaeche-tief:#eaeef7;
-  --rand:#cfd8ea; --rand-stark:#9fb0d0;
-  --text:#101b33; --text-leise:#4d5c7a;
-  --betont:#003399; --betont-flaeche:#e6ecfa;
-  --gelb:#ffcc00; --tief:#002266; --tief-text:#ffffff; --tief-leise:#b9c8ec;
-  --verboten:#8c1d1d; --verboten-flaeche:#fbeaea;
-  --hoch:#8a5a00; --hoch-flaeche:#fff6dd;
-  --minimal:#1f5c33; --minimal-flaeche:#e7f3ea;
-  --unklar:#3d4a66; --unklar-flaeche:#eceff7;
-  --abstand:1rem; --rundung:6px; --lesebreite:68ch;
+  --tinte:#061634; --blau:#0b3fa8; --blau-tief:#092f80; --blau-hell:#3c78f0;
+  --gelb:#ffcc00;
+  --bogen:#ffffff; --grund:#e8edf6; --rail:#f4f7fc;
+  --linie:#dde4ef; --linie-stark:#b7c4da;
+  --text:#0e1b33; --text-leise:#5a6a86; --text-zart:#8794ab;
+  --gut:#15663a; --gut-flaeche:#e9f4ed;
+  --warn:#8a5a00; --warn-flaeche:#fff6dc;
+  --stop:#8c1d1d; --stop-flaeche:#fbeaea;
+  --kalt:#2c3f63; --kalt-flaeche:#eef2f9;
   --serif:"Source Serif 4",ui-serif,Georgia,"Times New Roman",serif;
-  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --rund:10px; --rund-gross:18px;
+  --schatten:0 1px 2px rgba(6,22,52,.05), 0 18px 40px -24px rgba(6,22,52,.35);
 }
 @media (prefers-color-scheme: dark){:root:not([data-thema="hell"]){
-  --grund:#0b1020; --flaeche:#141b2e; --flaeche-tief:#1b2440;
-  --rand:#2a3652; --rand-stark:#44557c;
-  --text:#e9edf7; --text-leise:#a2b0ce;
-  --betont:#8fb0ff; --betont-flaeche:#17213c;
-  --gelb:#ffcc00; --tief:#070c1a; --tief-text:#ffffff; --tief-leise:#a7b7de;
-  --verboten:#f0a0a0; --verboten-flaeche:#2e1c1c;
-  --hoch:#ffcc00; --hoch-flaeche:#2b2410;
-  --minimal:#8fcfa3; --minimal-flaeche:#13281c;
-  --unklar:#c3cbe0; --unklar-flaeche:#1a2238;
+  --tinte:#040d1f;
+  --bogen:#101a30; --grund:#080f1f; --rail:#0c1526;
+  --linie:#223150; --linie-stark:#3b4e73;
+  --text:#e8edf8; --text-leise:#a3b1cc; --text-zart:#7b8aa8;
+  --blau:#2f6bff; --blau-tief:#2258db; --blau-hell:#7aa4ff;
+  --gut:#7fcf9d; --gut-flaeche:#112a1c;
+  --warn:#ffcc00; --warn-flaeche:#2b2410;
+  --stop:#f0a0a0; --stop-flaeche:#2e1616;
+  --kalt:#c2cde3; --kalt-flaeche:#16203a;
+  --schatten:0 1px 2px rgba(0,0,0,.4), 0 18px 40px -24px rgba(0,0,0,.8);
 }}
-:root[data-thema="dunkel"]{
-  --grund:#0b1020; --flaeche:#141b2e; --flaeche-tief:#1b2440;
-  --rand:#2a3652; --rand-stark:#44557c;
-  --text:#e9edf7; --text-leise:#a2b0ce;
-  --betont:#8fb0ff; --betont-flaeche:#17213c;
-  --gelb:#ffcc00; --tief:#070c1a; --tief-text:#ffffff; --tief-leise:#a7b7de;
-  --verboten:#f0a0a0; --verboten-flaeche:#2e1c1c;
-  --hoch:#ffcc00; --hoch-flaeche:#2b2410;
-  --minimal:#8fcfa3; --minimal-flaeche:#13281c;
-  --unklar:#c3cbe0; --unklar-flaeche:#1a2238;
-}
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--grund);color:var(--text);font-family:var(--sans);
-  font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
-.rahmen{max-width:900px;margin:0 auto;padding:clamp(16px,4vw,40px) 16px 64px}
-/* Der Kopf ist das erste Blatt der Präsentation: tiefes Europablau, die
- * Überschrift in der Serifenschrift, Gelb als einziger Akzent. */
-.kopf{background:var(--tief);color:var(--tief-text);
-  border-bottom:4px solid var(--gelb)}
-.kopf-innen{max-width:900px;margin:0 auto;padding:clamp(28px,6vw,56px) 16px clamp(22px,4vw,34px)}
-.augenbraue{font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gelb);margin:0 0 1rem}
-.marke{font-family:var(--serif);font-size:clamp(1.9rem,6vw,3.1rem);font-weight:400;
-  line-height:1.06;margin:0 0 .7rem;color:var(--tief-text);max-width:18ch}
-.unterzeile{color:var(--tief-leise);font-size:clamp(1rem,2.4vw,1.15rem);margin:0;max-width:52ch}
-.zahlen{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,44px);margin:clamp(22px,4vw,34px) 0 0;
-  padding-top:clamp(18px,3vw,26px);border-top:1px solid rgba(255,255,255,.18);list-style:none}
-.zahlen li{margin:0}
-.zahlen b{display:block;font-family:var(--serif);font-weight:400;
-  font-size:clamp(1.3rem,3.4vw,1.8rem);color:var(--tief-text);line-height:1.1}
-.zahlen b.gelb{color:var(--gelb)}
-.zahlen span{display:block;font-size:.8rem;line-height:1.35;color:var(--tief-leise);margin-top:.2rem}
-header{border-bottom:1px solid var(--rand);padding-bottom:var(--abstand);margin-bottom:2rem}
-h2{font-family:var(--serif);font-size:1.35rem;line-height:1.3;margin:0 0 .4rem}
-p{max-width:var(--lesebreite);margin:0 0 1rem}
-.leise{color:var(--text-leise);font-size:.92rem}
-.karte{background:var(--flaeche);border:1px solid var(--rand);border-radius:var(--rundung);
-  padding:clamp(16px,3vw,28px);margin-bottom:1.25rem}
-.schritt{display:flex;gap:.6rem;align-items:baseline;flex-wrap:wrap;
-  color:var(--text-leise);font-size:.88rem;margin-bottom:1.25rem}
-.balken{flex:1 1 140px;height:4px;background:var(--flaeche-tief);border-radius:2px;
-  overflow:hidden;min-width:120px}
-.balken i{display:block;height:100%;background:var(--gelb);transition:width .25s}
-fieldset{border:0;padding:0;margin:0 0 1.4rem}
-legend{padding:0;font-weight:500;max-width:var(--lesebreite)}
-.frage{border-top:1px solid var(--rand);padding:1rem 0}
-.frage:last-of-type{border-bottom:1px solid var(--rand)}
-.fragetext{max-width:var(--lesebreite);margin:0 0 .6rem}
-.wahl{display:flex;gap:.5rem;flex-wrap:wrap}
-.wahl button{font:inherit;font-size:.95rem;padding:.45rem 1rem;border:1px solid var(--rand-stark);
-  background:var(--flaeche);color:var(--text);border-radius:var(--rundung);cursor:pointer}
-.wahl button:hover{background:var(--flaeche-tief)}
-.wahl button[aria-pressed="true"]{background:var(--betont);border-color:var(--betont);color:#fff;
-  box-shadow:inset 0 -3px 0 var(--gelb)}
-:root[data-thema="dunkel"] .wahl button[aria-pressed="true"],
-@media (prefers-color-scheme: dark){.wahl button[aria-pressed="true"]{color:#16181a}}
-.beleg{color:var(--text-leise);font-size:.82rem;margin-top:.45rem}
-.knopf{font:inherit;font-weight:500;padding:.7rem 1.5rem;border:1px solid var(--betont);
-  background:var(--betont);color:#fff;border-radius:var(--rundung);cursor:pointer}
-.knopf[disabled]{opacity:.45;cursor:not-allowed}
-.knopf.leer{background:transparent;color:var(--text);border-color:var(--rand-stark)}
-.reihe{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-top:1.25rem}
-.befund{border-left:4px solid var(--unklar);background:var(--unklar-flaeche);
-  padding:1.25rem;border-radius:var(--rundung)}
-.befund.hoch{border-color:var(--gelb);background:var(--hoch-flaeche)}
-.befund.verboten{border-color:var(--verboten);background:var(--verboten-flaeche)}
-.befund.minimal{border-color:var(--minimal);background:var(--minimal-flaeche)}
-.befund .zeichen{font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem}
-.befund h2{margin-top:.2rem}
-dl{margin:0}
-dt{font-weight:500;margin-top:1rem}
-dd{margin:.2rem 0 0}
-.stelle{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem}
-details{border:1px solid var(--rand);border-radius:var(--rundung);padding:.7rem 1rem;margin:.6rem 0;
-  background:var(--flaeche)}
-summary{cursor:pointer;font-weight:500}
-.beispiel{border-top:1px solid var(--rand);padding:.8rem 0}
-.beispiel:first-of-type{border-top:0}
-.wertung{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.wertung.ja{color:var(--hoch)} .wertung.nein{color:var(--minimal)}
-footer{margin-top:3rem;border-top:1px solid var(--rand);padding-top:1rem;color:var(--text-leise);
-  font-size:.86rem}
-footer a{color:var(--betont)}
+  font-size:16.5px;line-height:1.6;font-feature-settings:"tnum" 0}
+:focus-visible{outline:2px solid var(--blau-hell);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
 
-.rahmen-inhalt{max-width:900px;margin:0 auto;padding:0 16px 2.5rem}
-.rahmen-inhalt h2{font-family:var(--serif);font-size:1.5rem;margin:2.5rem 0 1rem;
-  padding-top:1.5rem;border-top:1px solid var(--rand)}
-.rahmen-inhalt h3{font-family:var(--sans);font-size:1rem;font-weight:500;margin:0;display:inline}
-details.wissen{border:0;border-bottom:1px solid var(--rand);border-radius:0;background:transparent;
+/* ------------------------------------------------------------------ Haupt */
+.masthead{background:var(--tinte);color:#fff;
+  padding:clamp(38px,6vw,72px) 20px calc(clamp(38px,6vw,72px) + 56px)}
+.masthead-innen{max-width:1140px;margin:0 auto}
+.masthead h1{font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.04;letter-spacing:-.015em;
+  margin:0 0 .6rem;max-width:17ch;color:#fff}
+.masthead .unter{font-size:clamp(1.02rem,2.2vw,1.18rem);line-height:1.5;
+  color:#aec0e2;max-width:56ch;margin:0}
+.zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));
+  gap:clamp(14px,2.4vw,30px);margin:clamp(26px,4vw,40px) 0 0;padding-top:clamp(20px,3vw,26px);
+  border-top:1px solid rgba(255,255,255,.16);list-style:none}
+.zahlen b{display:block;font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.1;color:#fff;
+  font-variant-numeric:tabular-nums}
+.zahlen b.gelb{color:var(--gelb)}
+.zahlen span{display:block;font-size:.8rem;line-height:1.4;color:#93a7cc;margin-top:.25rem}
+
+/* ------------------------------------------------------------------- App */
+.app{max-width:1140px;margin:-56px auto 0;padding:0 20px 72px}
+.werk{background:var(--bogen);border:1px solid var(--linie);border-radius:var(--rund-gross);
+  box-shadow:var(--schatten);overflow:hidden;
+  display:grid;grid-template-columns:238px minmax(0,1fr)}
+.takt{grid-column:1/-1;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:5;
+  padding:13px 22px;background:var(--bogen);border-bottom:1px solid var(--linie);
+  font-size:.84rem;color:var(--text-leise);position:relative}
+.takt .punkt{width:7px;height:7px;border-radius:50%;background:var(--gelb);flex:none}
+.takt .rechts{margin-left:auto;font-variant-numeric:tabular-nums}
+.takt::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:var(--anteil,0%);
+  background:var(--gelb);transition:width .35s cubic-bezier(.4,0,.2,1)}
+
+.ablauf{background:var(--rail);border-right:1px solid var(--linie);padding:22px 0 26px}
+@media (min-width:901px){.ablauf ol{position:sticky;top:70px}}
+.ablauf ol{list-style:none;margin:0;padding:0}
+.ablauf li{display:flex;gap:12px;align-items:flex-start;padding:9px 22px;
+  font-size:.88rem;line-height:1.35;color:var(--text-zart)}
+.ablauf .nr{flex:none;width:23px;height:23px;border-radius:50%;background:transparent;
+  border:1px solid var(--linie-stark);color:var(--text-zart);
+  display:grid;place-items:center;font-size:.72rem;font-weight:600;margin-top:-1px;
+  transition:background .2s,border-color .2s,color .2s}
+.ablauf li.jetzt{color:var(--text);font-weight:600}
+.ablauf li.jetzt .nr{background:var(--blau);border-color:var(--blau);color:#fff;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--blau) 18%,transparent)}
+.ablauf li.fertig{color:var(--text-leise)}
+.ablauf li.fertig .nr{background:var(--gelb);border-color:var(--gelb);color:var(--tinte)}
+
+.bogen{padding:clamp(22px,3.6vw,42px) clamp(20px,3.6vw,44px) clamp(26px,4vw,44px);min-width:0}
+.bogen h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,3.4vw,2rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .5rem}
+.bogen p{margin:0 0 1rem;max-width:64ch}
+.leise{color:var(--text-leise);font-size:.93rem}
+.hinweis{color:var(--text-leise);font-size:.93rem;max-width:62ch;
+  border-left:2px solid var(--linie-stark);padding-left:14px;margin:0 0 1.4rem !important}
+
+/* ------------------------------------------------------- Fragen mit Rand */
+.fragen{list-style:none;margin:1.6rem 0 0;padding:0}
+.frage{display:grid;grid-template-columns:116px minmax(0,1fr);gap:26px;
+  padding:26px 0;border-top:1px solid var(--linie)}
+.frage:last-child{border-bottom:1px solid var(--linie)}
+.marge{font-size:.76rem;line-height:1.45;color:var(--text-zart);text-align:right;
+  padding-top:.35rem;font-variant-numeric:tabular-nums}
+.marge b{display:block;font-weight:600;color:var(--text-leise)}
+.fragetext{font-size:1.06rem;line-height:1.5;margin:0 0 1rem !important;max-width:58ch}
+.wirkung{font-size:.86rem;color:var(--text-leise);margin:.85rem 0 0 !important;max-width:58ch}
+.abschnitt{grid-column:1/-1;font-family:var(--serif);font-size:1.08rem;
+  color:var(--text);margin:1.4rem 0 -.6rem}
+
+.wahl{display:inline-flex;background:var(--kalt-flaeche);border:1px solid var(--linie);
+  border-radius:999px;padding:3px;gap:2px;max-width:100%;flex-wrap:wrap}
+.wahl button{font:inherit;font-size:.9rem;border:0;background:transparent;color:var(--text-leise);
+  border-radius:999px;padding:9px 19px;cursor:pointer;white-space:nowrap;
+  transition:background .16s,color .16s}
+.wahl button:hover{color:var(--text);background:color-mix(in srgb,var(--blau) 7%,transparent)}
+.wahl button[aria-pressed="true"]{background:var(--blau);color:#fff;font-weight:600;
+  box-shadow:0 1px 3px rgba(6,22,52,.25)}
+.wahl button[aria-pressed="true"]:hover{background:var(--blau-tief)}
+
+.aktionen{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:1.9rem}
+.knopf{font:inherit;font-size:.97rem;font-weight:600;padding:12px 24px;border:1px solid var(--blau);
+  background:var(--blau);color:#fff;border-radius:var(--rund);cursor:pointer;
+  transition:background .16s,border-color .16s,transform .06s}
+.knopf:hover{background:var(--blau-tief);border-color:var(--blau-tief)}
+.knopf:active{transform:translateY(1px)}
+.knopf[disabled]{opacity:.4;cursor:not-allowed}
+.knopf.leer{background:transparent;color:var(--text);border-color:var(--linie-stark);font-weight:500}
+.knopf.leer:hover{background:var(--kalt-flaeche);border-color:var(--linie-stark)}
+.offen{margin-left:auto;font-size:.84rem;color:var(--text-zart)}
+
+/* ------------------------------------------------------------------ Start */
+.start-zahlen{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;margin:1.8rem 0 0;padding-top:1.4rem;border-top:1px solid var(--linie);list-style:none}
+.start-zahlen b{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;
+  line-height:1.1;font-variant-numeric:tabular-nums}
+.start-zahlen span{display:block;font-size:.84rem;color:var(--text-leise);margin-top:.2rem;line-height:1.4}
+
+/* ----------------------------------------------------------------- Befund */
+.befund{border-radius:var(--rund-gross);padding:clamp(24px,4vw,40px);
+  background:var(--kalt-flaeche);border:1px solid var(--linie);
+  border-left:5px solid var(--kalt);margin-bottom:1.6rem}
+.befund.hoch{background:var(--warn-flaeche);border-left-color:var(--gelb);border-color:var(--warn-flaeche)}
+.befund.verboten{background:var(--stop-flaeche);border-left-color:var(--stop);border-color:var(--stop-flaeche)}
+.befund.minimal{background:var(--gut-flaeche);border-left-color:var(--gut);border-color:var(--gut-flaeche)}
+.befund .lage{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;
+  letter-spacing:.02em;color:var(--text-leise);margin:0 0 .7rem}
+.urteil{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4.6vw,2.7rem);
+  line-height:1.06;letter-spacing:-.018em;margin:0 0 .7rem}
+.befund p{font-size:1.04rem;max-width:62ch;margin:0}
+.block{margin-top:2rem}
+.block h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:0 0 .9rem}
+dl{margin:0}
+dt{font-weight:600;margin-top:1.1rem}
+dd{margin:.15rem 0 0}
+.stelle{font-size:.84rem;color:var(--blau);font-weight:600}
+details{border:1px solid var(--linie);border-radius:var(--rund);background:var(--bogen);
+  padding:.8rem 1.1rem;margin:.7rem 0}
+summary{cursor:pointer;font-weight:500;font-size:.95rem}
+.beispiel{border-top:1px solid var(--linie);padding:.9rem 0}
+.beispiel:first-of-type{border-top:0}
+.wertung{font-size:.76rem;font-weight:700;letter-spacing:.02em}
+.wertung.ja{color:var(--warn)} .wertung.nein{color:var(--gut)}
+.beleg{font-size:.8rem;color:var(--text-zart);margin:.4rem 0 0 !important}
+
+footer.fuss{max-width:1140px;margin:0 auto;padding:0 20px 56px;color:var(--text-leise);font-size:.85rem}
+footer.fuss p{max-width:70ch;margin:0 0 .6rem}
+
+/* ------------------------------------------------------------- Lesestoff */
+.lesestoff{background:var(--bogen);border-top:1px solid var(--linie);padding:clamp(40px,6vw,72px) 20px}
+.lesestoff-innen{max-width:760px;margin:0 auto}
+.lesestoff h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3.4vw,2rem);
+  margin:0 0 1.2rem;letter-spacing:-.01em}
+.lesestoff h2+p{color:var(--text-leise)}
+.lesestoff h3{font-family:var(--sans);font-size:1rem;font-weight:600;margin:0;display:inline}
+details.wissen{border:0;border-bottom:1px solid var(--linie);border-radius:0;background:transparent;
   padding:0;margin:0}
-details.wissen summary{padding:.9rem 0;list-style:none}
+details.wissen summary{padding:1rem 0;list-style:none;display:flex;gap:12px;align-items:baseline}
 details.wissen summary::-webkit-details-marker{display:none}
-details.wissen summary::before{content:"+ ";color:var(--text-leise);font-weight:600}
-details.wissen[open] summary::before{content:"\2212 "}
-details.wissen p{padding:0 0 1rem;margin:0}
-.bereichsliste{max-width:var(--lesebreite);padding-left:1.3rem}
-.bereichsliste li{margin-bottom:.6rem}
-@media (max-width:480px){body{font-size:16px}.rahmen{padding-left:16px;padding-right:16px}}
+details.wissen summary::before{content:"+";color:var(--blau);font-weight:700;flex:none;width:12px}
+details.wissen[open] summary::before{content:"\2212"}
+details.wissen p{padding:0 0 1.1rem 24px;margin:0;max-width:66ch}
+.bereichsliste{padding-left:1.2rem;max-width:66ch}
+.bereichsliste li{margin-bottom:.55rem}
+a{color:var(--blau)}
+
+@media (max-width:900px){
+  .werk{grid-template-columns:1fr}
+  .ablauf{border-right:0;border-bottom:1px solid var(--linie);padding:14px 0;overflow-x:auto}
+  .ablauf ol{display:flex;gap:4px;padding:0 16px;min-width:max-content}
+  .ablauf li{padding:4px 10px;white-space:nowrap;align-items:center}
+  .frage{grid-template-columns:1fr;gap:0}
+  .marge{text-align:left;order:2;padding-top:1rem}
+  .marge b{display:inline}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .app{padding-left:12px;padding-right:12px}
+  .wahl{width:100%}
+  .wahl button{flex:1 1 auto}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -312,32 +387,50 @@ details.wissen p{padding:0 0 1rem;margin:0}
 </script>
 </head>
 <body>
-<div class="kopf">
-  <div class="kopf-innen">
-    <p class="augenbraue">Ein Werkzeug für Anbieter und Betreiber</p>
-    <h1 class="marke">Fällt Ihre KI unter die EU-Verordnung?</h1>
-    <p class="unterzeile">Sechs Schritte. Jede Antwort zeigt die Stelle im Gesetz, auf der sie
-    beruht — und keine Angabe verlässt dabei Ihr Gerät.</p>
+<header class="masthead">
+  <div class="masthead-innen">
+    <h1>Fällt Ihre KI unter die EU-Verordnung?</h1>
+    <p class="unter">Beantworten Sie die Fragen, die ein Jurist stellen würde. Am Ende steht die
+    Einstufung — mit der Stelle im Gesetz, auf der sie beruht.</p>
     <ul class="zahlen">
-      <li><b>206 / 217</b><span>amtliche Beispiele<br>richtig eingestuft</span></li>
-      <li><b>5,3</b><span>Schritte im Schnitt<br>je Fall</span></li>
-      <li><b>400 / 400</b><span>Webseite und Programm<br>rechnen gleich</span></li>
-      <li><b>2.811</b><span>Textstellen im<br>Rechtsbestand</span></li>
-      <li><b class="gelb">0</b><span>Angaben, die das<br>Gerät verlassen</span></li>
+      <li><b>206 / 217</b><span>amtliche Beispiele richtig eingestuft</span></li>
+      <li><b>5,3</b><span>Schritte im Schnitt je Fall</span></li>
+      <li><b>400 / 400</b><span>Webseite und Programm rechnen gleich</span></li>
+      <li><b>2.811</b><span>Textstellen im Rechtsbestand</span></li>
+      <li><b class="gelb">0</b><span>Angaben, die das Gerät verlassen</span></li>
     </ul>
   </div>
+</header>
+
+<div class="app">
+  <div class="werk">
+    <div class="takt" id="takt">
+      <span class="punkt"></span>
+      <span id="takt-text">Bereit</span>
+      <span class="rechts" id="takt-rechts"></span>
+    </div>
+    <nav class="ablauf" aria-label="Ablauf der Prüfung">
+      <ol id="ablauf">
+        <li data-phase="1"><span class="nr">1</span><span>System</span></li>
+        <li data-phase="2"><span class="nr">2</span><span>Einsatzgebiet</span></li>
+        <li data-phase="3"><span class="nr">3</span><span>Nachfragen</span></li>
+        <li data-phase="4"><span class="nr">4</span><span>Ausnahme</span></li>
+        <li data-phase="5"><span class="nr">5</span><span>Befund</span></li>
+      </ol>
+    </nav>
+    <main class="bogen" id="buehne" aria-live="polite"></main>
+  </div>
 </div>
-<div class="rahmen">
-<main id="buehne" aria-live="polite"></main>
-<footer>
+
+<footer class="fuss">
   <p id="stand"></p>
   <p>Keine Rechtsberatung. Die Einstufung folgt dem Verordnungstext und dem Entwurf der
   Leitlinien der Europäischen Kommission vom 19. Mai 2026. Der Entwurf ist nicht bindend;
   eine endgültige Fassung lag bei Abschluss dieser Arbeit nicht vor.</p>
 </footer>
-</div>
 
-<section id="wissen" class="rahmen-inhalt">
+<div class="lesestoff"><div class="lesestoff-innen">
+<section id="wissen">
   <h2>Häufige Fragen zur KI-Verordnung</h2>
   <details class="wissen">
     <summary><h3>Fällt unser Recruiting-Tool unter den EU AI Act?</h3></summary>
@@ -381,7 +474,7 @@ details.wissen p{padding:0 0 1rem;margin:0}
   </details>
 </section>
 
-<section id="bereiche" class="rahmen-inhalt">
+<section id="bereiche">
   <h2>Die acht Bereiche des Anhangs III</h2>
   <p>Fällt der Zweck Ihres Systems in einen dieser Bereiche, ist es nach Artikel 6 Absatz 2
   ein Hochrisiko-KI-System — vorbehaltlich der Ausnahme des Artikels 6 Absatz 3.</p>
@@ -406,7 +499,7 @@ details.wissen p{padding:0 0 1rem;margin:0}
   </ol>
 </section>
 
-<section id="quellen" class="rahmen-inhalt">
+<section id="quellen">
   <h2>Woher die Antworten stammen</h2>
   <p>Jede Frage dieses Werkzeugs und jedes Beispiel trägt die Absatznummer der Stelle, auf der
   sie beruht. Gearbeitet wird mit drei Quellen:</p>
@@ -426,7 +519,7 @@ details.wissen p{padding:0 0 1rem;margin:0}
   Dieses Werkzeug ersetzt keine Rechtsberatung.</p>
 </section>
 
-<section id="programm" class="rahmen-inhalt">
+<section id="programm">
   <h2>Für den eigenen Rechner</h2>
   <p>Dieselbe Einstufung gibt es als Programm für Windows, Mac und Linux. Dort kommt die
   Volltextsuche im Verordnungstext dazu: eine Frage in eigenen Worten, und der Helfer zeigt
@@ -435,6 +528,8 @@ details.wissen p{padding:0 0 1rem;margin:0}
   <p><a href="https://github.com/DanielHuette/eu-ai-act-dsgvo-konformitaetshelfer/releases">Programm
   und Quellcode auf GitHub</a> — Apache-Lizenz 2.0.</p>
 </section>
+
+</div></div>
 
 <script type="module" src="./seite.js"></script>
 </body>
