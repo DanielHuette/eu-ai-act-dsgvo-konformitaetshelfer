@@ -234,6 +234,25 @@ mit Anhang III), die Ausnahme nach Artikel 6 Absatz 3, Transparenzpflichten
 nach Artikel 50, Modelle mit allgemeinem Verwendungszweck ab Artikel 51, und
 zuletzt die KI-Kompetenz nach Artikel 4.
 
+**Wie die Stelle gefunden wird**, läuft auf zwei Wegen in dasselbe Regelwerk.
+Der erste geht über kennzeichnende Wörter. Der zweite über den Zweck: in
+`daten/regeln/kivo_zweckkatalog.yaml` steht zu jeder Fundstelle derselbe Zweck
+in der Sprache, in der ein Unternehmen ihn beschreibt — *„Wir sichten
+Bewerbungen und sortieren sie vor."* Beschreibung und Zwecksatz werden Satz für
+Satz verglichen, und der Katalog zeigt auf die **bestehenden** Regelkennungen.
+Er ist damit ein zweiter Eingang in dieselbe Regel und kein zweites Regelwerk:
+Rollenprüfung, Merkmalsfilter, Ausnahmen und Pflichtenableitung gelten
+unverändert. Das Modell findet die Stelle, das Regelwerk entscheidet.
+
+Der Grund für diesen zweiten Weg ist gemessen. Mit Wortlisten allein traf der
+Prüfer 44 von 44 Anwendungsfällen — aber nur 55 von 100 Beschreibungen, wie
+Unternehmen sie wirklich einreichen. Eine Wortliste trifft nur, was jemand
+vorher aufgeschrieben hat. Mit dem Zweckkatalog sind es 100 von 100; die
+Sammlung liegt unter `daten/pruefung/unternehmensfragen.yaml` und wird bei
+jedem Lauf nachgerechnet. Fehlen die lokalen Modelle, bleibt der Zweckweg aus
+und die Wortlisten entscheiden allein — der Container ohne Netz und das Telefon
+stufen weiter ein.
+
 **Wie es gesagt wird**, macht ein Sprachmodell — und das ist freiwillig. Es
 bekommt die Einstufung als feststehende Tatsache vorgelegt und darf sie nicht
 ändern. Der Grund ist nicht Vorsicht, sondern Erfahrung: ein Modell, das
@@ -260,15 +279,17 @@ Begründung jeder dieser Entscheidungen stehen in
 ## Datenstand und Quellen
 
 Stand des Regelwerks: **31.05.2026**. Rechtsbestand geholt und gebaut am
-**03.10.2026**. Nachgemessen am 03.10.2026:
+**04.10.2026**. Nachgemessen am 04.10.2026:
 
 | Was | Menge | Datei |
 |---|---|---|
-| Rechtseinheiten im Bestand | 2721 | `daten/aufbereitet/korpus.jsonl` |
+| Rechtseinheiten im Bestand | 2811 | `daten/aufbereitet/korpus.jsonl` |
 | Einstufungsregeln | 28 | `daten/regeln/kivo_risikoklassen.yaml` |
+| Einträge im Zweckkatalog | 55 | `daten/regeln/kivo_zweckkatalog.yaml` |
 | Pflichten der KI-Verordnung | 57 | `daten/regeln/kivo_pflichten.yaml` |
 | Abschnitte des Datenschutzpfads | 26 | `daten/regeln/dsgvo_pruefpfad.yaml` |
 | Anwendungsfälle | 44 | `daten/faelle/*.yaml` |
+| Unternehmensfragen zur Genauigkeit | 100 | `daten/pruefung/unternehmensfragen.yaml` |
 
 Eine Rechtseinheit ist das kleinste Stück, auf das sich zeigen lässt: ein
 Absatz eines Artikels, eine Nummer eines Anhangs, ein Erwägungsgrund, ein
@@ -277,12 +298,11 @@ Paragraf.
 Woher der Text kommt:
 
 * **KI-Verordnung** — amtlicher Volltext aus dem Amtsblatt über EUR-Lex
-  (CELEX 32024R1689), 1228 Einheiten; 71 weitere Einheiten (darunter
-  Artikel 3) über artificialintelligenceact.eu.
-* **Datenschutz-Grundverordnung** — 1021 Einheiten artikel- und
-  erwägungsgrundweise über dsgvo-gesetz.de. Der amtliche Volltext
-  (CELEX 32016R0679) war bei der Beschaffung nicht erreichbar; EUR-Lex lieferte
-  bei sechs Versuchen nur 2035 Byte.
+  (CELEX 32024R1689), 1386 Einheiten: 113 Artikel mit 929 Absätzen und
+  Nummern, 13 Anhänge mit 151 Nummern und Buchstaben, 180 Erwägungsgründe.
+* **Datenschutz-Grundverordnung** — amtlicher Volltext aus dem Amtsblatt über
+  EUR-Lex (CELEX 32016R0679), 1024 Einheiten: 99 Artikel mit 752 Absätzen und
+  Nummern, 173 Erwägungsgründe.
 * **Bundesdatenschutzgesetz** — 357 Paragrafen von gesetze-im-internet.de,
   Teile 1 und 2.
 * **Anwendungsfälle** — 44 selbst geschriebene Beispiele, keine Rechtsquelle.

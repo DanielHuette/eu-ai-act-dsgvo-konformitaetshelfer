@@ -1,0 +1,473 @@
+# Zweckkatalog — der Bedeutungsweg der Einstufung.
+#
+# WOZU DIESE DATEI
+# Die Einstufung lief zuerst allein über Stichworte. Auf der eigenen
+# Fallsammlung traf das 44 von 44 Fällen, auf zwanzig Beschreibungen, wie
+# Unternehmen sie wirklich einreichen, nur 14. Alle sechs Fehlgriffe waren
+# derselbe: nichts erkannt, also "minimal". Eine Stichwortliste trifft nur,
+# was jemand vorher aufgeschrieben hat.
+#
+# Hier steht daher neben jeder Fundstelle derselbe Zweck in der Sprache, in
+# der ein Unternehmen ihn beschreibt. Verglichen wird Zweck mit Zweck.
+#
+# WARUM DIE SÄTZE SO FORMULIERT SIND
+# Drei Formen wurden gemessen, je gegen dieselben drei Beschreibungen:
+#
+#   Form                                richtig        falsch
+#   "Bilder oder Fotos erzeugen"        0,036–0,447    bis 0,141
+#   "Das System erzeugt Bilder."        0,037–0,546    bis 0,159
+#   "Wir erzeugen mit KI Bilder."       0,986–0,989    bis 0,073
+#
+# Nur die dritte Form trennt. Der Grund: eine Beschreibung ist ein Aussagesatz
+# in der ersten Person, und der Kreuzbewerter vergleicht Satz mit Satz. Ein
+# Infinitiv ohne Handelnden liest sich wie ein Stichwort und bringt dieselbe
+# Unschärfe zurück, die zu beheben war.
+#
+# DESHALB: jeder Zwecksatz ist ein vollständiger Aussagesatz in der ersten
+# Person Plural, so wie ein Unternehmen ihn schreiben würde. Wer hier einen
+# Zweck ergänzt, hält diese Form ein — sonst sinkt der Wert um den Faktor
+# zwanzig, und die Stelle wird nicht mehr gefunden.
+#
+# WAS DIESE DATEI NICHT TUT
+# Sie stuft nicht ein. Sie sagt, WELCHE Stelle zu prüfen ist, nicht WAS gilt.
+# Das Feld "regel" zeigt auf die bestehende Kennung in kivo_risikoklassen.yaml:
+# der Zweckweg ist ein zweiter Eingang in dieselbe Regel, kein zweites
+# Regelwerk. So gelten Rollenprüfung, Merkmalsfilter, Ausnahmen und
+# Pflichtenableitung unverändert, und die Einstufung kommt weiter aus dem
+# Regelwerk.
+#
+# FELDER
+#   fundstelle  Kennung im Korpus; wird beim Bauen gegen den amtlichen Text geprüft
+#   klasse      Risikoklasse, die diese Stelle auslöst
+#   regel       bestehende Kennung in kivo_risikoklassen.yaml
+#   zwecke      derselbe Zweck als Aussagesatz in der ersten Person
+#   ausser      Gegenzwecke; trifft einer besser, trägt die Stelle den Fall nicht
+#   verlangt    Wörter, von denen mindestens eines in der Beschreibung stehen
+#               MUSS. Für Stellen, deren Tatbestand ein ausdrückliches Merkmal
+#               verlangt, das kein Bedeutungsvergleich ersetzt: Artikel 5
+#               Absatz 1 Buchstabe d verbietet die Vorhersage von Straftaten
+#               nur, wenn sie AUSSCHLIESSLICH auf Profiling beruht. Steht das
+#               Wort nicht da, ist der Tatbestand nicht erfüllt - dann greift
+#               Anhang III Nummer 6 Buchstabe d mit Pflichten statt Verbot.
+stand: "2026-10-04"
+eintraege:
+
+  # === Anhang III Nummer 1 — Biometrie ===================================
+  - fundstelle: KI-VO/anh-III/nr-1-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-1-biometrie
+    zwecke:
+      - Wir erkennen Personen aus der Ferne an ihrem Gesicht, auch aus einer Menschenmenge heraus.
+      - Wir gleichen Kamerabilder mit einer Datenbank von Gesichtern ab und stellen fest, wer die Person ist.
+      - Wir ordnen unbekannte Personen über ihre körperlichen Merkmale einer Identität zu.
+    ausser:
+      - Wir prüfen nur, ob jemand die Person ist, für die er sich ausgibt, etwa beim Anmelden oder Entsperren.
+  - fundstelle: KI-VO/anh-III/nr-1-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-1-biometrie
+    zwecke:
+      - Wir teilen Menschen anhand ihrer körperlichen Merkmale in Gruppen ein.
+      - Wir schließen aus Aussehen oder Stimme auf Herkunft, Geschlecht, Alter oder Gesundheit.
+      - Wir schätzen per Kamera das Alter oder die Altersgruppe von Personen.
+  - fundstelle: KI-VO/anh-III/nr-1-c
+    klasse: hochrisiko_anhang_iii
+    regel: a3-1-biometrie
+    zwecke:
+      - Wir erkennen die Gefühle und Stimmungen von Menschen.
+      - Wir lesen aus Gesicht, Stimme oder Tonfall ab, wie jemand sich fühlt.
+    ausser:
+      # Die Spracherkennung schreibt auf, was gesagt wurde, und schliesst
+      # nichts auf die Person. Sie sieht der Stimmauswertung aehnlich und ist
+      # keine: ohne diesen Gegenzweck wurde ein Besprechungsprotokoll aus einer
+      # Tonaufnahme als Biometrie nach Anhang III Nummer 1 ausgegeben.
+      - Wir schreiben eine Tonaufnahme in Text um, ohne auf Merkmale oder Gefühle der Sprecher zu schließen.
+      - Wir erkennen gesprochene Sprache und wandeln sie in geschriebenen Text.
+
+  # === Anhang III Nummer 2 — kritische Infrastruktur =====================
+  - fundstelle: KI-VO/anh-III/nr-2
+    klasse: hochrisiko_anhang_iii
+    regel: a3-2-kritische-infrastruktur
+    zwecke:
+      - Wir steuern ein Strom-, Gas-, Wärme- oder Wassernetz.
+      - Wir überwachen ein Versorgungsnetz und greifen bei Störungen ein.
+      - Wir steuern den Straßenverkehr, etwa Ampeln oder ein Verkehrsleitsystem.
+      - Wir halten eine Anlage der Versorgung sicher und schalten sie im Notfall ab.
+      - Wir betreiben ein Rechenzentrum oder ein Netz als kritische digitale Infrastruktur.
+
+  # === Anhang III Nummer 3 — Bildung =====================================
+  - fundstelle: KI-VO/anh-III/nr-3-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-3-bildung
+    zwecke:
+      - Wir entscheiden über die Aufnahme an einer Schule, Hochschule oder Ausbildungsstelle.
+      - Wir wählen Bewerber um einen Studien- oder Ausbildungsplatz aus oder weisen sie einer Klasse zu.
+      - Wir stufen Teilnehmer in Niveaus ein und weisen sie danach den Kursen zu.
+  - fundstelle: KI-VO/anh-III/nr-3-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-3-bildung
+    zwecke:
+      - Wir bewerten Prüfungen, Hausarbeiten oder Aufsätze von Lernenden und geben eine Note.
+      - Wir beurteilen den Lernfortschritt von Schülern oder Studenten und geben den Lernweg vor.
+  - fundstelle: KI-VO/anh-III/nr-3-c
+    klasse: hochrisiko_anhang_iii
+    regel: a3-3-bildung
+    zwecke:
+      - Wir legen fest, welches Bildungsniveau oder welchen Schulzweig jemand bekommt.
+  - fundstelle: KI-VO/anh-III/nr-3-d
+    klasse: hochrisiko_anhang_iii
+    regel: a3-3-bildung
+    zwecke:
+      - Wir überwachen Lernende während einer Prüfung und erkennen Täuschungsversuche.
+
+  # === Anhang III Nummer 4 — Beschäftigung ===============================
+  - fundstelle: KI-VO/anh-III/nr-4-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-4-beschaeftigung
+    zwecke:
+      - Wir sichten Bewerbungen und sortieren sie vor.
+      - Wir lesen Lebensläufe und schlagen die passendsten Bewerber vor.
+      - Wir bewerten Bewerber und geben eine Empfehlung, wer eingestellt wird.
+      - Wir zeigen Stellenanzeigen gezielt bestimmten Personen an.
+  - fundstelle: KI-VO/anh-III/nr-4-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-4-beschaeftigung
+    zwecke:
+      - Wir beobachten und bewerten die Leistung oder das Verhalten von Beschäftigten.
+      - Wir teilen Mitarbeitern Aufgaben, Schichten oder Touren nach ihrem Verhalten oder ihren Merkmalen zu.
+      - Wir entscheiden über Beförderung, Kündigung, Gehalt oder Vertragsbedingungen von Beschäftigten.
+      - Unsere Ergebnisse fließen in die Leistungsbeurteilung von Angestellten ein.
+      - Wir zeigen der Leitung, welche Mitarbeiter unter der Vorgabe oder dem Soll liegen.
+      - Wir entscheiden mit, wer eine Prämie, einen Bonus oder eine Gehaltserhöhung bekommt.
+      - Wir werten die Arbeitsdaten einzelner Beschäftigter aus und melden Abweichungen nach oben.
+    ausser:
+      # Zwei Faelle sahen dem Personalvorgang aehnlich und sind keiner: die
+      # Suche nach Kuendigungsfristen in Liefervertraegen und das Protokoll
+      # einer Besprechung. Beide nennen Woerter aus dem Arbeitsrecht, bewerten
+      # aber niemanden. Ohne diese Gegenzwecke wurden sie als Anhang III
+      # Nummer 4 ausgegeben.
+      - Wir suchen in Verträgen nach Fristen oder Klauseln und listen sie auf.
+      - Wir schreiben aus einer Tonaufnahme ein Besprechungsprotokoll, das wir selbst gegenlesen.
+
+  # === Anhang III Nummer 5 — grundlegende Dienste ========================
+  - fundstelle: KI-VO/anh-III/nr-5-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-5-grundlegende-dienste
+    zwecke:
+      - Wir prüfen als Behörde, ob jemand Anspruch auf eine Sozialleistung hat.
+      - Wir bewilligen, kürzen, streichen oder fordern eine staatliche Leistung zurück.
+  - fundstelle: KI-VO/anh-III/nr-5-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-5-grundlegende-dienste
+    zwecke:
+      - Wir prüfen die Kreditwürdigkeit von Privatpersonen.
+      - Wir berechnen einen Score, nach dem über einen Kredit oder eine Finanzierung entschieden wird.
+      - Wir bewerten die Bonität eines Antragstellers.
+    ausser:
+      - Wir decken Betrug bei Zahlungen oder Anträgen auf.
+  - fundstelle: KI-VO/anh-III/nr-5-c
+    klasse: hochrisiko_anhang_iii
+    regel: a3-5-grundlegende-dienste
+    zwecke:
+      - Wir schätzen bei einer Lebens- oder Krankenversicherung das Risiko einer Person ein.
+      - Wir legen den Beitrag für eine Lebens- oder Krankenversicherung fest.
+  - fundstelle: KI-VO/anh-III/nr-5-d
+    klasse: hochrisiko_anhang_iii
+    regel: a3-5-grundlegende-dienste
+    zwecke:
+      - Wir nehmen Notrufe an, ordnen sie ein und sortieren sie nach Dringlichkeit.
+      - Wir schicken Rettungswagen, Feuerwehr oder Polizei zu Einsätzen und legen die Reihenfolge fest.
+      - Wir teilen Patienten in der Notaufnahme nach Dringlichkeit ein.
+
+  # === Anhang III Nummer 6 — Strafverfolgung =============================
+  - fundstelle: KI-VO/anh-III/nr-6-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-6-strafverfolgung
+    zwecke:
+      - Wir schätzen für die Polizei ein, wie wahrscheinlich jemand Opfer einer Straftat wird.
+  - fundstelle: KI-VO/anh-III/nr-6-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-6-strafverfolgung
+    zwecke:
+      - Wir erkennen für die Polizei, ob eine Aussage gelogen ist.
+  - fundstelle: KI-VO/anh-III/nr-6-c
+    klasse: hochrisiko_anhang_iii
+    regel: a3-6-strafverfolgung
+    zwecke:
+      - Wir bewerten für die Polizei, wie verlässlich ein Beweismittel ist.
+  - fundstelle: KI-VO/anh-III/nr-6-d
+    klasse: hochrisiko_anhang_iii
+    regel: a3-6-strafverfolgung
+    zwecke:
+      - Wir schätzen für die Polizei ein, wie wahrscheinlich jemand eine Straftat begeht.
+      - Wir bewerten Personen nach ihrem früheren kriminellen Verhalten.
+  - fundstelle: KI-VO/anh-III/nr-6-e
+    klasse: hochrisiko_anhang_iii
+    regel: a3-6-strafverfolgung
+    zwecke:
+      - Wir erstellen für die Polizei Täterprofile von Personen.
+
+  # === Anhang III Nummer 7 — Migration ==================================
+  - fundstelle: KI-VO/anh-III/nr-7-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-7-migration
+    zwecke:
+      - Wir erkennen an der Grenze oder im Asylverfahren, ob jemand die Wahrheit sagt.
+  - fundstelle: KI-VO/anh-III/nr-7-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-7-migration
+    zwecke:
+      - Wir schätzen bei Einreisenden ein Sicherheits- oder Gesundheitsrisiko ein.
+      - Wir schätzen ein, ob jemand unerlaubt einwandern will.
+  - fundstelle: KI-VO/anh-III/nr-7-c
+    klasse: hochrisiko_anhang_iii
+    regel: a3-7-migration
+    zwecke:
+      - Wir prüfen Asylanträge, Visumanträge oder Aufenthaltstitel.
+  - fundstelle: KI-VO/anh-III/nr-7-d
+    klasse: hochrisiko_anhang_iii
+    regel: a3-7-migration
+    zwecke:
+      - Wir spüren an der Grenze oder im Migrationsverfahren Personen auf und identifizieren sie.
+    ausser:
+      - Wir prüfen Reisedokumente auf Echtheit.
+
+  # === Anhang III Nummer 8 — Rechtspflege ================================
+  - fundstelle: KI-VO/anh-III/nr-8-a
+    klasse: hochrisiko_anhang_iii
+    regel: a3-8-rechtspflege
+    zwecke:
+      - Wir unterstützen ein Gericht bei der Auslegung des Rechts und bei der Entscheidung eines Falles.
+      - Wir helfen in einem Schlichtungs- oder Schiedsverfahren, einen Streit zu entscheiden.
+  - fundstelle: KI-VO/anh-III/nr-8-b
+    klasse: hochrisiko_anhang_iii
+    regel: a3-8-rechtspflege
+    zwecke:
+      - Wir sprechen Wähler an, um ihr Wahlverhalten oder das Ergebnis einer Wahl zu beeinflussen.
+    ausser:
+      - Wir planen eine politische Kampagne organisatorisch, ohne Wähler direkt anzusprechen.
+
+  # === Anhang I — hohes Risiko über das Produktsicherheitsrecht ==========
+  # Alle Einträge ziehen dieselbe Regel: Artikel 6 Absatz 1 macht das System
+  # zum Hochrisiko-KI-System, wenn es Sicherheitsbauteil eines Produkts nach
+  # Anhang I ist oder selbst ein solches Produkt — und für dieses Produkt eine
+  # Konformitätsbewertung durch eine dritte Stelle verlangt wird. Diese letzte
+  # Voraussetzung prüft das Regelwerk, nicht dieser Katalog.
+  - fundstelle: KI-VO/anh-I/nr-A-1
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen ein KI-Teil, das eine Maschine sicher hält und sie notfalls stoppt.
+      - Unsere Software steuert eine Maschine oder Anlage und löst den Not-Halt aus.
+      - Wir liefern ein Sicherheitsbauteil für eine Werkzeugmaschine oder einen Roboter.
+    ausser:
+      # Die Sichtprüfung in der Fertigung sieht dem Sicherheitsbauteil ähnlich -
+      # beides ist eine Kamera an einer Maschine. Sie hält die Maschine aber
+      # nicht sicher, sondern sortiert Teile aus, und greift nicht in die
+      # Steuerung ein. Ohne diesen Gegenzweck wurde die Schweissnahtpruefung als
+      # Anhang I eingeordnet, obwohl sie unter keine Klasse der Verordnung fällt.
+      - Wir prüfen die Qualität von Werkstücken oder Bauteilen und sortieren schlechte aus, ohne in die Maschine einzugreifen.
+      - Wir kontrollieren mit einer Kamera, ob gefertigte Teile in Ordnung sind.
+      - Wir sagen voraus, wann eine Maschine oder Pumpe gewartet werden muss, ohne in ihre Sicherheitssteuerung einzugreifen.
+      - Wir sagen aus Maschinendaten den Ausschuss oder die Ausbeute in der Fertigung voraus.
+      - Wir planen die Reihenfolge der Fertigungsaufträge an den Maschinen.
+  - fundstelle: KI-VO/anh-I/nr-A-2
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Spielzeug ein.
+  - fundstelle: KI-VO/anh-I/nr-A-4
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern die Steuerung oder ein Sicherheitsbauteil für einen Aufzug.
+  - fundstelle: KI-VO/anh-I/nr-A-5
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Gerät für explosionsgefährdete Bereiche ein.
+  - fundstelle: KI-VO/anh-I/nr-A-6
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in eine Funkanlage oder ein Funkmodul ein.
+  - fundstelle: KI-VO/anh-I/nr-A-7
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern die Steuerung oder Überwachung für einen Druckbehälter oder ein Druckgerät.
+  - fundstelle: KI-VO/anh-I/nr-A-8
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern die Steuerung oder ein Sicherheitsbauteil für eine Seilbahn.
+  - fundstelle: KI-VO/anh-I/nr-A-9
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in eine persönliche Schutzausrüstung ein, etwa in einen Helm oder eine Schutzweste.
+  - fundstelle: KI-VO/anh-I/nr-A-10
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern die Steuerung für ein Gasgerät, einen Brenner oder eine Heizung.
+  - fundstelle: KI-VO/anh-I/nr-A-11
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Medizinprodukt ein.
+      - Unsere Software ist selbst ein Medizinprodukt und befundet oder überwacht Patienten.
+  - fundstelle: KI-VO/anh-I/nr-A-12
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Unsere Software wertet Labor- oder Testergebnisse als In-vitro-Diagnostikum aus.
+  - fundstelle: KI-VO/anh-I/nr-B-14
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Motorrad, einen Motorroller oder ein dreirädriges Fahrzeug ein.
+  - fundstelle: KI-VO/anh-I/nr-B-15
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in einen Traktor oder eine andere Landmaschine ein.
+  - fundstelle: KI-VO/anh-I/nr-B-16
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern KI als Schiffsausrüstung oder für die Steuerung eines Schiffs.
+  - fundstelle: KI-VO/anh-I/nr-B-17
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir liefern KI für die Steuerung oder Sicherung eines Eisenbahnsystems.
+  - fundstelle: KI-VO/anh-I/nr-B-18
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Kraftfahrzeug ein, etwa als Fahrerassistenz oder Notbremsassistent.
+      - Unsere Software fährt ein Fahrzeug oder greift in die Fahrzeugsteuerung ein.
+  - fundstelle: KI-VO/anh-I/nr-B-20
+    klasse: hochrisiko_anhang_i
+    regel: h6-1-produktsicherheit
+    zwecke:
+      - Wir bauen KI in ein Luftfahrzeug oder eine Drohne ein.
+      - Wir liefern KI für die Flugsteuerung oder die Flugsicherung.
+
+  # === Artikel 5 Absatz 1 — verbotene Praktiken ==========================
+  - fundstelle: KI-VO/art-5/abs-1-a
+    klasse: verboten
+    regel: v5-1a-unterschwellig
+    zwecke:
+      - Wir beeinflussen Menschen unterschwellig, ohne dass sie es merken.
+      - Wir drängen Nutzer mit täuschenden Mitteln zu einer Entscheidung, die ihnen schadet.
+      - Wir setzen Reize unterhalb der Wahrnehmungsschwelle ein, damit Nutzer länger bleiben und mehr kaufen.
+  - fundstelle: KI-VO/art-5/abs-1-b
+    klasse: verboten
+    regel: v5-1b-schwaeche
+    zwecke:
+      - Wir nutzen die Schwäche von Kindern, alten oder bedürftigen Menschen aus, um ihr Verhalten zu lenken.
+  - fundstelle: KI-VO/art-5/abs-1-c
+    klasse: verboten
+    regel: v5-1c-sozialbewertung
+    zwecke:
+      - Wir bewerten und stufen Menschen nach ihrem Sozialverhalten ein.
+      - Wir führen einen allgemeinen Punktestand über Personen, der ihnen an anderer Stelle Nachteile bringt.
+  - fundstelle: KI-VO/art-5/abs-1-d
+    klasse: verboten
+    regel: v5-1d-straftatvorhersage
+    verlangt: [ausschliesslich, ausschließlich, allein, einzig, nur aufgrund,
+               nur anhand, nur auf der grundlage, lediglich]
+    zwecke:
+      - Wir sagen allein aus Persönlichkeitsmerkmalen voraus, ob jemand eine Straftat begehen wird.
+    ausser:
+      # Artikel 5 Absatz 1 Buchstabe d verbietet die Vorhersage nur, wenn sie
+      # AUSSCHLIESSLICH auf dem Profiling beruht. Stützt sie sich auf Akten,
+      # Vorstrafen oder Tatumstände, ist sie nicht verboten, sondern Anhang III
+      # Nummer 6 Buchstabe d - also hohes Risiko mit Pflichten statt Verbot.
+      # Ohne diesen Gegenzweck wurde eine Rueckfallprognose fuer die Polizei als
+      # verboten ausgegeben, was dem Nutzer ein zulaessiges Geschaeft untersagt.
+      - Wir schätzen für die Polizei das Rückfallrisiko aus Akten, Vorstrafen und Tatumständen.
+  - fundstelle: KI-VO/art-5/abs-1-e
+    klasse: verboten
+    regel: v5-1e-gesichtsdatenbank
+    zwecke:
+      - Wir sammeln Gesichtsbilder ungezielt aus dem Internet oder aus Überwachungsaufnahmen und bauen daraus eine Gesichtsdatenbank auf.
+  - fundstelle: KI-VO/art-5/abs-1-f
+    klasse: verboten
+    regel: v5-1f-emotion-arbeit-bildung
+    zwecke:
+      - Wir erkennen die Gefühle oder die Stimmung von Beschäftigten am Arbeitsplatz.
+      - Wir erkennen die Gefühle von Schülern oder Studierenden in der Schule oder Hochschule.
+      - Wir schließen aus Gesicht, Stimme oder Tonfall von Mitarbeitern auf ihre Stimmung.
+    ausser:
+      - Wir erkennen aus Sicherheitsgründen die Müdigkeit eines Fahrers oder Piloten.
+      - Wir erkennen Gefühle aus medizinischen Gründen, etwa zur Behandlung.
+  - fundstelle: KI-VO/art-5/abs-1-g
+    klasse: verboten
+    regel: v5-1g-biometrische-kategorisierung
+    zwecke:
+      - Wir schließen aus biometrischen Daten auf Rasse, politische Einstellung, Gewerkschaft, Religion oder Sexualleben.
+      - Wir leiten aus Gesichtsfotos die politische Einstellung einer Person ab.
+      - Wir schließen aus einem Porträtfoto auf die sexuelle Orientierung.
+      - Wir erkennen am Gesicht die Religion oder die Volksgruppe einer Person.
+  - fundstelle: KI-VO/art-5/abs-1-h
+    klasse: verboten
+    regel: v5-1h-echtzeit-fernidentifizierung
+    zwecke:
+      - Wir suchen Personen in Echtzeit an öffentlichen Orten per Gesichtserkennung für die Polizei.
+
+  # === Artikel 50 — Transparenzpflichten =================================
+  - fundstelle: KI-VO/art-50/abs-1
+    klasse: transparenz
+    regel: t50-1-interaktion
+    zwecke:
+      - Wir bieten einen Chatbot, der sich mit Kunden unterhält.
+      - Wir beantworten Kundenfragen im Dialog.
+      - Wir sprechen am Telefon oder im Chat mit Anrufern.
+  - fundstelle: KI-VO/art-50/abs-2
+    klasse: transparenz
+    regel: t50-2-synthetische-inhalte
+    zwecke:
+      - Wir erzeugen mit KI Bilder, Fotos oder Grafiken.
+      - Wir erzeugen mit KI Texte.
+      - Wir schreiben mit KI ganze Artikel, Beiträge oder Texte aus einem Stichwort.
+      - Wir erzeugen mit KI Stimmen, Musik oder Tonaufnahmen.
+      - Wir erzeugen mit KI Videos.
+    ausser:
+      - Wir korrigieren einen vorhandenen Text nur, ohne ihn inhaltlich zu ändern.
+      # Nicht "Pläne": ein Schichtplan, der Nachtschichten nach Krankheitstagen
+      # verteilt, ist ein Personalvorgang nach Anhang III Nummer 4 Buchstabe b
+      # und kein internes Schriftstück. Das Wort entlastete ihn mit.
+      - Wir erstellen mit KI Übersichten oder Protokolle für den internen Betrieb und lesen sie selbst gegen.
+  - fundstelle: KI-VO/art-50/abs-3
+    klasse: transparenz
+    regel: t50-3-emotion-biometrie
+    zwecke:
+      - Wir betreiben ein System zur Gefühlserkennung oder zur biometrischen Einteilung.
+  - fundstelle: KI-VO/art-50/abs-4
+    klasse: transparenz
+    regel: t50-4-deepfake
+    zwecke:
+      - Wir verändern Bilder oder Videos von echten Menschen so, dass sie etwas tun oder sagen, was nicht geschehen ist.
+      - Wir erzeugen Texte zu Themen von öffentlichem Interesse und veröffentlichen sie.
+      # Ob ein erzeugtes Bild ein Deepfake im Sinne des Absatzes 4 ist, hängt
+      # daran, ob es bestehende Personen, Orte oder Ereignisse vortäuscht.
+      # Ein erfundener Raum mit echten Möbeln ist in der Regel keiner; sobald
+      # ein echter Ort oder eine erkennbare Person erscheint, kippt es. Darum
+      # wird der Fall genannt und nicht entschieden - die Antwort trägt die
+      # Sicherheit "zu prüfen".
+      - Wir veröffentlichen Bilder oder Videos, die eine KI für uns erzeugt hat.
+
+  # === Artikel 3 Nummer 63 — Modelle mit allgemeinem Verwendungszweck ====
+  - fundstelle: KI-VO/art-3/nr-63
+    klasse: gpai
+    regel: g51-basismodell
+    zwecke:
+      - Wir trainieren ein eigenes Sprachmodell oder Basismodell und stellen es anderen bereit.
+      - Wir verkaufen den Zugang zu unserem Modell über eine Programmierschnittstelle an andere Unternehmen.
+      - Wir veröffentlichen ein vielseitig einsetzbares Modell, das andere in ihre Anwendungen einbauen.
+    ausser:
+      - Wir nutzen ein fremdes Modell nur im eigenen Unternehmen.
+      - Wir setzen ein Modell nur zur Forschung oder für einen Prototyp ein, ohne es in Verkehr zu bringen.
+      - Wir trainieren ein Modell ausschließlich für die eigene Forschung und bringen es nicht in Verkehr.

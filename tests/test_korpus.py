@@ -57,15 +57,25 @@ def test_keine_doppelten_kennungen(korpus):
 
 def test_kennungen_haben_die_vereinbarte_form(korpus):
     """``KI-VO/art-6/abs-3`` — darauf verlassen sich Regeln und Fundstellenweg."""
-    # Erlaubt sind drei Formen:
-    #   Rechtsakt/Einheit            KI-VO/art-6, KI-VO/anh-III, DSGVO/erw-71
-    #   dazu ein Punkt              KI-VO/art-6/abs-3, DSGVO/art-13/abs-1-a,
-    #                               KI-VO/anh-III/nr-4, KI-VO/anh-X/nr-a
-    #   Anwendungsfall              fall/<sprechende-kennung>
+    # Erlaubt sind diese Formen:
+    #   Rechtsakt/Einheit     KI-VO/art-6, KI-VO/anh-III, DSGVO/erw-71
+    #   dazu ein Punkt        KI-VO/art-6/abs-3, DSGVO/art-13/abs-1-a,
+    #                         KI-VO/anh-III/nr-4, KI-VO/art-3/nr-39
+    #   Buchstabe im Anhang   KI-VO/anh-III/nr-4-a
+    #   Abschnitt im Anhang   KI-VO/anh-I/nr-A-11, KI-VO/anh-XI/nr-2-1-c
+    #                         Ein Anhang kann in Abschnitte zerfallen, deren
+    #                         Zählung jeweils wieder bei 1 beginnt. Ohne den
+    #                         Abschnitt in der Kennung trüge jede Nummer
+    #                         mehrfach denselben Namen.
+    #   Zweiter Unterabsatz   KI-VO/art-43/abs-1-ua2-a
+    #                         Artikel 43 hat in Absatz 1 zweimal a) und b) —
+    #                         im Amtsblatt sind das zwei Unterabsätze.
+    #   Anwendungsfall        fall/<sprechende-kennung>
+    teil = r"(?:[0-9]{1,3}|[A-Z]|[a-z]{1,2}|ua[0-9])"
     form = re.compile(
         r"^((KI-VO|DSGVO|BDSG|Leitlinie)/"
         r"(art|anh|erw|par)-[0-9A-Za-z]+"
-        r"(/(abs|nr)-([0-9]+(-[a-z]{1,2})?|[a-z]{1,2}))?"
+        rf"(/(abs|nr)-{teil}(-{teil}){{0,3}})?"
         r"|fall/[a-z0-9\-]+)$"
     )
     verstoesse = [e.kennung for e in korpus if not form.match(e.kennung)]

@@ -775,8 +775,28 @@ class Suchbestand:
         if len(bestand.vektoren) != len(einheiten):
             raise RuntimeError(
                 "Bestand und Korpus passen nicht zusammen: %d Vektoren, %d Einheiten. "
-                "Bestand neu bauen." % (len(bestand.vektoren), len(einheiten))
+                "Bestand neu bauen: python scripts/bestand_bauen.py"
+                % (len(bestand.vektoren), len(einheiten))
             )
+
+        # Die Anzahl allein genügt nicht. Ein Bestand aus einem anderen Korpus
+        # kann zufällig gleich viele Einheiten haben - oder, häufiger, derselbe
+        # Korpus ist umsortiert oder eine Einheit ist durch eine andere ersetzt
+        # worden. Dann zeigt jeder Vektor auf die falsche Fundstelle, und die
+        # Suche antwortet mit Stellen, die mit der Frage nichts zu tun haben.
+        # Auffallen würde das niemandem: die Antwort sieht aus wie immer. Darum
+        # werden die Kennungen verglichen und nicht nur gezählt.
+        abgelegt = beipack.get("kennungen")
+        if abgelegt is not None:
+            jetzt = [e.kennung for e in einheiten]
+            if abgelegt != jetzt:
+                anders = [a for a, b in zip(abgelegt, jetzt, strict=False) if a != b]
+                raise RuntimeError(
+                    "Der abgelegte Bestand gehört zu einem anderen Rechtsbestand: "
+                    "%d Kennungen weichen ab, zuerst %s. Bestand neu bauen: "
+                    "python scripts/bestand_bauen.py"
+                    % (len(anders), ", ".join(anders[:3]) or "(Reihenfolge)")
+                )
         return bestand
 
 

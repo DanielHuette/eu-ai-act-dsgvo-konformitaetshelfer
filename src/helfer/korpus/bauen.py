@@ -43,14 +43,20 @@ AUFBEREITET = WURZEL / "daten" / "aufbereitet"
 KORPUS = AUFBEREITET / "korpus.jsonl"
 BEFUND = AUFBEREITET / "korpus_befund.json"
 
-QUELLEN_EURLEX = {
-    "ki-vo-de.html": (
+#: Die amtlichen Volltexte, geholt von scripts/holen_amtsblatt.py aus Cellar,
+#: dem Dokumentenspeicher des Amtes für Veröffentlichungen. Als Quelle genannt
+#: wird die Fundstelle im Amtsblatt, nicht die Abrufadresse: wer die Angabe
+#: prüfen will, schlägt im Amtsblatt nach, nicht in einem Dienst.
+QUELLEN_AMTSBLATT = {
+    "kivo_amtsblatt_de.xhtml": (
         Rechtsakt.KI_VO,
-        "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32024R1689",
+        "Verordnung (EU) 2024/1689, ABl. L vom 12.7.2024",
+        1_000_000,
     ),
-    "dsgvo-de.html": (
+    "dsgvo_amtsblatt_de.xhtml": (
         Rechtsakt.DSGVO,
-        "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679",
+        "Verordnung (EU) 2016/679, ABl. L 119 vom 4.5.2016, S. 1",
+        700_000,
     ),
 }
 
@@ -128,11 +134,15 @@ def sammeln() -> tuple[list[Einheit], dict]:
     einheiten: list[Einheit] = []
     befund: dict = {"quellen": {}, "warnungen": []}
 
-    for name, (rechtsakt, adresse) in QUELLEN_EURLEX.items():
-        pfad = ROH / "eurlex" / name
-        if not pfad.exists() or pfad.stat().st_size < 100_000:
+    for name, (rechtsakt, adresse, mindestens) in QUELLEN_AMTSBLATT.items():
+        pfad = ROH / name
+        if not pfad.exists() or pfad.stat().st_size < mindestens:
             befund["warnungen"].append(
-                f"amtlicher Volltext fehlt: {name} - es wird die artikelweise Fassung genutzt"
+                f"AMTLICHER VOLLTEXT FEHLT: {name} — es wird die artikelweise "
+                "Fassung aus zweiter Quelle genutzt. Sie ist unvollständig: "
+                "beim Vergleich am 04.10.2026 wichen 51 Prozent der Einheiten "
+                "ab, Artikel 13 DSGVO hatte 909 statt 3374 Zeichen. "
+                "Erst holen: python scripts/holen_amtsblatt.py"
             )
             continue
         zerlegung = eurlex_zerlegen(pfad, rechtsakt, quelle=adresse)
@@ -142,8 +152,16 @@ def sammeln() -> tuple[list[Einheit], dict]:
 
     vorhanden = {e.kennung for e in einheiten}
 
-    # Artikelweise Fassungen füllen nur, was der amtliche Text nicht hergab.
+    # Die artikelweise Fassung aus zweiter Quelle springt nur ein, wenn der
+    # amtliche Volltext für diesen Rechtsakt ganz fehlt. Sie als Lückenfüller
+    # danebenzulegen war falsch: sie zählt die Begriffsbestimmungen als
+    # "Absatz 14", der amtliche Text als "Nummer 14" — derselbe Inhalt landete
+    # zweimal im Bestand unter zwei Kennungen, und die Suche lieferte ihn
+    # doppelt. Entweder amtlich oder Rückfall, nicht beides gemischt.
+    amtlich = {e.rechtsakt for e in einheiten}
     for ordner, rechtsakt in ((ROH / "kivo", Rechtsakt.KI_VO), (ROH / "dsgvo", Rechtsakt.DSGVO)):
+        if rechtsakt in amtlich:
+            continue
         ergaenzt = [e for e in artikeldateien(ordner, rechtsakt) if e.kennung not in vorhanden]
         einheiten.extend(ergaenzt)
         vorhanden.update(e.kennung for e in ergaenzt)

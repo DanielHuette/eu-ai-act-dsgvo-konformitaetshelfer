@@ -76,7 +76,7 @@ den Programmtext zu verstehen.
 * Die Verknüpfung zwischen Regel und Rechtstext ist nur eine Zeichenfolge: eine
   Pflicht nennt `KI-VO/art-26/abs-1` als Rechtsgrundlage. Steht diese Kennung
   nicht im Korpus, erscheint die Pflicht ohne Belegstelle im Wortlaut.
-  Nachgemessen am 03.10.2026 ist jede genannte Rechtsgrundlage vorhanden; der
+  Nachgemessen am 04.10.2026 ist jede genannte Rechtsgrundlage vorhanden; der
   Prüfbefehl steht in [betriebsanleitung.md](betriebsanleitung.md).
 
 ---
@@ -185,15 +185,16 @@ plausibel sortiert sind.
   Laden macht eine stille Verwechslung unmöglich.
 * Schlecht: zwei Bestände müssen gepflegt werden, und nach jeder Änderung am
   Korpus müssen beide neu gebaut werden. Wird das vergessen, laufen sie
-  auseinander — nachgemessen am 03.10.2026 war genau das der Fall: die
-  App-Datenbank hat 1972 Einheiten, der Korpus 2721.
+  auseinander. Genau das war am 03.10.2026 der Fall: die App-Datenbank kannte
+  1972 Einheiten, der Korpus 2721. Nachgemessen am 04.10.2026 tragen beide
+  2811 Einheiten und dieselbe Prüfsumme.
 * Schlecht: dieselbe Frage kann auf Rechner und Telefon verschiedene
   Fundstellen hervorbringen. Die **Einstufung** bleibt gleich, weil sie aus dem
   Regelwerk kommt und nicht aus der Suche — das ist der Grund, warum diese
   Folge tragbar ist.
 * Das Telefon hat drei Suchwege statt vier: die Wortgewichte liefert nur
   bge-m3.
-* Die 8-Bit-Umwandlung kostet Genauigkeit. Der Ausgabebefund vom 03.10.2026
+* Die 8-Bit-Umwandlung kostet Genauigkeit. Der Ausgabebefund vom 04.10.2026
   nennt eine gemessene Ähnlichkeit von 0,9907 zwischen dem groben und dem
   feinen Modell. Was dieser Wert für die Trefferqualität bedeutet, ist nicht
   gemessen.
@@ -202,7 +203,7 @@ plausibel sortiert sind.
 
 ## E6 — SQLite mit FTS5 in der App statt Room
 
-**Lage.** Die App braucht eine Datenbank für 1972 Rechtseinheiten samt
+**Lage.** Die App braucht eine Datenbank für 2811 Rechtseinheiten samt
 Volltextsuche, Vektoren, Regelwerk und Fällen. Der gewöhnliche Weg unter
 Android ist Room, die Datenbankschicht von AndroidX.
 
@@ -273,7 +274,7 @@ meint sie.
 
 ## E8 — Der Rechtsbestand liegt als JSONL im Verzeichnis
 
-**Lage.** 2721 Rechtseinheiten müssen irgendwo liegen. Möglich wären eine
+**Lage.** 2811 Rechtseinheiten müssen irgendwo liegen. Möglich wären eine
 Datenbank, mehrere Dateien je Artikel oder eine einzelne Datei.
 
 **Entscheidung.** Eine Datei, `daten/aufbereitet/korpus.jsonl`, mit einer
@@ -293,7 +294,7 @@ einlesen.
   Rechtsänderung in der Versionsverwaltung mit. Das ist tragbar.
 * Schlecht: es gibt keine Prüfung, die sicherstellt, dass Korpus, Suchbestand
   und App-Datenbank zusammenpassen. Es gibt nur die Prüfsumme, mit der man es
-  feststellen **kann** — und am 03.10.2026 passten sie nicht zusammen.
+  feststellen **kann** — am 03.10.2026 passten sie nicht zusammen, am 04.10.2026 passen sie.
 
 ---
 
@@ -320,8 +321,12 @@ prüfen will, hat sie als Datei vor sich, nicht als flüchtige Antwort.
 * Schlecht: der Korpusbau greift bei fehlendem Volltext auf eine nicht amtliche
   Quelle zurück. Das ist eine Warnung im Befund, kein Abbruch. Am 03.10.2026
   ist das für die deutsche Fassung der Datenschutz-Grundverordnung eingetreten
-  — 1021 Einheiten stammen daher nicht aus dem Amtsblatt. Siehe
-  [datenquellen.md](datenquellen.md).
+  — 1021 Einheiten stammen daher nicht aus dem Amtsblatt. Der Abgleich gegen
+  das Amtsblatt ergab 51 Prozent Abweichung; Artikel 13 hatte 909 statt 3374
+  Zeichen. Seit dem 04.10.2026 kommen beide Verordnungen über Cellar aus dem
+  Amtsblatt, und die Rückfallquelle greift nur noch ein, wenn der amtliche Text
+  für einen Rechtsakt **ganz** fehlt — vorher mischte sie ihre Kennungen neben
+  die amtlichen. Siehe [datenquellen.md](datenquellen.md).
 * Die Mindestgröße als Erkennungsmerkmal ist grob: eine Datei, die groß genug
   ist, aber inhaltlich fehlerhaft, wird nicht erneut geholt.
 

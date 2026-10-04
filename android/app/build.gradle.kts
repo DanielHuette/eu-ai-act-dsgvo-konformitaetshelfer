@@ -37,8 +37,8 @@ android {
         applicationId = "de.konformitaetshelfer"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         // Nur die beiden Bauarten, die in echten Telefonen stecken. x86 und
         // x86_64 brauchen nur Emulatoren und würden das Paket um die Größe

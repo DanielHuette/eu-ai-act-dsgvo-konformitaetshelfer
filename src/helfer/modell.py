@@ -114,7 +114,15 @@ class Einheit(BaseModel):
         }.get(self.art, "%s")
         teil = stamm % self.nummer
         if self.absatz:
-            zaehlwort = "Nummer" if self.art is Einheitsart.ANHANG else "Absatz"
+            # Definitionsartikel zählen in Nummern, nicht in Absätzen:
+            # "Artikel 3 Nummer 39 KI-VO", nicht "Absatz 39".
+            zaehlwort = (
+                "Nummer"
+                if self.art is Einheitsart.ANHANG or self.absatz.startswith("Nummer ")
+                else "Absatz"
+            )
+            if self.absatz.startswith("Nummer "):
+                return "%s %s %s" % (teil, self.absatz, self.rechtsakt.value)
             teil += f" {zaehlwort} {self.absatz}"
         if self.art is Einheitsart.ERWAEGUNGSGRUND:
             return f"{teil} der {self.rechtsakt.value}"

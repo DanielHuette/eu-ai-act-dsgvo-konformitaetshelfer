@@ -394,6 +394,22 @@ def _fehlerantwort(zustandscode: int, satz: str, hinweis: str = "") -> JSONRespo
 # ------------------------------------------------------------- Die Anwendung
 
 
+def _fassung() -> str:
+    """Die Fassungsnummer aus der Paketangabe, nicht aus dem Programmtext.
+
+    Dreimal stand hier eine Zahl fest verdrahtet - in pyproject.toml, in der
+    Zitierangabe und hier -, und beim Fassungswechsel blieb eine zurück. Eine
+    Schnittstelle, die eine falsche Fassung meldet, ist schlimmer als eine, die
+    keine meldet: wer einen Fehler berichtet, nennt dann die falsche Nummer.
+    """
+    from importlib.metadata import PackageNotFoundError, version
+
+    try:
+        return version("konformitaetshelfer")
+    except PackageNotFoundError:
+        return "unbekannt"
+
+
 def anwendung_bauen() -> FastAPI:
     """Baut den Dienst. Als Funktion, damit Prüfläufe eigene Abläufe starten können."""
 
@@ -410,7 +426,7 @@ def anwendung_bauen() -> FastAPI:
         title="Konformitätshelfer",
         description="Belegte Auskunft zur KI-Verordnung und zum Datenschutzrecht. "
         "Keine Rechtsberatung.",
-        version="1.0.0",
+        version=_fassung(),
         lifespan=lebenslauf,
         # Die Fehlersuchseiten von FastAPI zeigen Innereien — abgeschaltet.
         debug=False,

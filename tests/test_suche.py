@@ -292,3 +292,30 @@ def test_begrenzung_liefert_trotzdem_die_volle_anzahl(kleiner_bestand):
             "Hochrisiko Pflichten", anzahl=anzahl, mit_neubewertung=False
         )
         assert len(treffer) == min(anzahl, len(kleiner_bestand.einheiten))
+
+
+def test_abgelegter_bestand_mit_fremden_kennungen_wird_abgewiesen(tmp_path, korpus):
+    """Gleich viele Einheiten, andere Kennungen — das muss auffallen.
+
+    Die Längenprüfung allein genügt nicht: derselbe Korpus kann umsortiert sein
+    oder eine Einheit durch eine andere ersetzt. Dann zeigt jeder Vektor auf die
+    falsche Fundstelle, und die Suche antwortet mit Stellen, die mit der Frage
+    nichts zu tun haben. Die Antwort sieht dabei aus wie immer — niemand würde
+    es merken. Darum wird hier ein Bestand gebaut, dessen Kennungen bewusst
+    nicht zum Korpus passen, und erwartet, dass das Laden abbricht.
+    """
+    import pytest
+
+    from helfer.suche.einbettung import Streuwerk
+    from helfer.suche.index import Suchbestand
+
+    einheiten = korpus[:20]
+    bestand = Suchbestand(einheiten, Streuwerk())
+    bestand.bauen()
+    ziel = tmp_path / "suchbestand"
+    bestand.ablegen(ziel)
+
+    # Dieselbe Anzahl, aber eine andere Reihenfolge: die letzte Einheit nach vorn.
+    verdreht = [einheiten[-1], *einheiten[:-1]]
+    with pytest.raises(RuntimeError, match="anderen Rechtsbestand"):
+        Suchbestand.laden(ziel, verdreht, Streuwerk())

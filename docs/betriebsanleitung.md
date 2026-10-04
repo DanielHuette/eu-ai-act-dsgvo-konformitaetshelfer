@@ -271,19 +271,17 @@ PYTHONPATH=src python -m helfer.korpus.bauen
 ```
 
 Danach `daten/aufbereitet/korpus_befund.json` lesen. Dort stehen Stückzahlen je
-Quelle und die Warnungen des Laufs. Der Befund vom 03.10.2026 enthält zwei
-Warnungen, die beide noch gelten:
-
-```
-ki-vo-de.html: 27 doppelte Kennungen übergangen
-amtlicher Volltext fehlt: dsgvo-de.html - es wird die artikelweise Fassung genutzt
-```
+Quelle und die Warnungen des Laufs. **Der Lauf vom 04.10.2026 hat keine
+Warnung.** Steht eine da, ist sie zu lesen und nicht zu übergehen: die Warnung
+„Kennungen doppelt MIT ABWEICHENDEM TEXT" nennt die betroffenen Kennungen und
+heißt, dass Rechtstext verschwindet.
 
 Prüfen Sie, dass die Stückzahlen zu den Erwartungen passen: die KI-Verordnung
 hat 113 Artikel, 13 Anhänge und 180 Erwägungsgründe, die
-Datenschutz-Grundverordnung 99 Artikel und 173 Erwägungsgründe. Diese Zahlen
-stehen als Erwartung in `src/helfer/korpus/eurlex.py`; weicht ein Lauf ab,
-steht das als Warnung im Befund.
+Datenschutz-Grundverordnung 99 Artikel und 173 Erwägungsgründe; zusammen 2811
+Einheiten. Diese Zahlen stehen als Erwartung in
+`src/helfer/korpus/eurlex.py` und in `tests/test_korpus.py`; weicht ein Lauf
+ab, steht das als Warnung im Befund und die Prüfung bricht ab.
 
 **Nach jedem Korpusbau muss beides neu gebaut werden,** sonst passen die
 Vektoren nicht mehr zum Text:
@@ -303,7 +301,8 @@ sha256sum daten/aufbereitet/korpus.jsonl
 ```
 
 Stimmen die beiden nicht überein, ist die App-Datenbank älter als der Korpus.
-Am 03.10.2026 war genau das der Fall.
+Am 04.10.2026 stimmen sie: beide tragen `e6606acd97e9394a…` bei 2811
+Einheiten.
 
 ### Das Regelwerk ändern
 
@@ -336,8 +335,19 @@ print('Fristenstufen:', len(w.fristen))
 "
 ```
 
-Erwartet, nachgemessen am 03.10.2026: Stand 2026-05-31, 57 Pflichten, 26
-Abschnitte, 5 Fristenstufen.
+Erwartet, nachgemessen am 04.10.2026: Stand 2026-05-31, 57 Pflichten, 26
+Abschnitte, 5 Fristenstufen. Dazu der Zweckkatalog mit 55 Einträgen, 107
+Zwecken und 21 Gegenzwecken:
+
+```bash
+PYTHONPATH=src python -c "
+from helfer.einstufung.zwecke import katalog_lesen
+z = katalog_lesen()
+print('Zeilen:', len(z))
+print('Fundstellen:', len({x.fundstelle for x in z}))
+print('Gegenzwecke:', sum(1 for x in z if x.gegenzweck))
+"
+```
 
 Und prüfen, dass jede genannte Rechtsgrundlage im Korpus steht:
 
@@ -422,7 +432,7 @@ python scripts/bestand_bauen.py
 Dasselbe gilt für die App: weicht die Prüfsumme in
 `daten/aufbereitet/android_export_befund.json` von
 `sha256sum daten/aufbereitet/korpus.jsonl` ab, muss
-`scripts/export_android.py` erneut laufen. Am 03.10.2026 wichen beide ab.
+`scripts/export_android.py` erneut laufen. Am 04.10.2026 stimmen beide.
 
 ### „ANTHROPIC_API_KEY ist nicht gesetzt" / „OPENAI_API_KEY ist nicht gesetzt"
 
@@ -452,39 +462,59 @@ Steckt Ollama hinter einer anderen Adresse, `OLLAMA_HOST` setzen.
 
 ### EUR-Lex liefert nur ein paar Kilobyte
 
-Das ist der häufigste Fehler beim Aktualisieren und kein Programmfehler.
-EUR-Lex antwortet auf Anfragen ohne vollständigen Browser-Kopf mit HTTP 202 und
-leerem Körper, und bremst bei wiederholten Abrufen. `scripts/holen_eurlex.py`
-trägt die nötigen Kopfzeilen, versucht es sechsmal und wartet 25 Sekunden
-zwischen den Versuchen. Hilft das nicht:
+Dann wird die falsche Adresse abgefragt. Die **Webseite** von EUR-Lex antwortet
+ohne vollständigen Browser-Kopf mit HTTP 202 und null Byte und schickt danach
+ein Captcha ihrer Firewall — sechs Versuche brachten jeweils 2035 Byte. Davor
+hilft keine Wartezeit und keine Kopfzeile.
 
-* Später erneut versuchen — die Bremse löst sich.
-* Das Protokoll `daten/roh/eurlex/_holen.log` lesen. Steht dort „gab nur 2035
-  Bytes", ist es die Bremse. Am 03.10.2026 war die deutsche Fassung der
-  Datenschutz-Grundverordnung so sechsmal nicht zu holen.
-* Als Rückfall greift der Korpusbau auf die artikelweise Fassung zurück und
-  schreibt eine Warnung in den Befund. Die Auskunft bleibt dann richtig, nennt
-  als Quelle aber nicht das Amtsblatt. Welche Teile das betrifft, steht in
-  [datenquellen.md](datenquellen.md).
-* Den Volltext notfalls von Hand aus dem Browser speichern, nach
-  `daten/roh/eurlex/dsgvo-de.html`, und neu bauen.
+Der amtliche Text kommt darum nicht von der Webseite, sondern aus der Ablage
+**Cellar**, vor der diese Firewall nicht steht:
 
-### Die Prüfung in GitHub Actions läuft, aber pytest findet nichts
+```bash
+python scripts/holen_amtsblatt.py
+```
 
-Richtig, das Verzeichnis `tests/` ist leer. Der Lauf behandelt „keine Prüfungen
-gefunden" deshalb nicht als Fehler. Sobald Prüfungen vorliegen, ist diese
-Ausnahme in `.github/workflows/pruefung.yml` zu entfernen.
+Das Skript holt beide Verordnungen über
+`http://publications.europa.eu/resource/cellar/<Kennung>` mit
+`Accept: application/xhtml+xml` und `Accept-Language: deu` und verwirft jede
+Antwort unter der Mindestgröße — eine halbe Datei wäre schlimmer als keine. Die
+Kennungen stehen in [datenquellen.md](datenquellen.md).
 
-### ruff oder mypy melden hunderte Punkte
+Die Rückfallquellen (`scripts/holen_kivo.py`, `scripts/holen_dsgvo.py`) greifen
+nur noch ein, wenn der amtliche Text für einen Rechtsakt **ganz** fehlt. Das
+ist Absicht: vorher mischten sie ihre Kennungen (`art-4/abs-14`) neben die
+amtlichen (`art-4/nr-14`), und beide standen im Bestand.
 
-Kein neuer Fehler. Nachgemessen am 03.10.2026: `ruff check .` meldet 277
-Punkte, davon 246 die Regel UP031 — die Schreibweise `"%s" % wert` statt einer
-f-Zeichenkette, die im ganzen Projekt durchgehend verwendet wird. `mypy src`
-meldet 28 Punkte in 10 Dateien, überwiegend fehlende Typangaben fremder Pakete.
-Beide Schritte sind im Prüflauf als Hinweis geführt und brechen ihn nicht ab.
-Wer das ändern will, ändert nicht die 246 Stellen, sondern die Auswahl der
-Regeln in `pyproject.toml` — und entscheidet das als Entscheidung, nicht
-nebenbei.
+### Die Prüfreihe wird mitten im Lauf abgebrochen („Killed")
+
+Der Arbeitsspeicher reicht nicht. Die Suchprüfungen bauen den Suchbestand mit
+bge-m3 im Speicher; unter 8 Gigabyte geht die ganze Reihe in einem Lauf nicht
+durch. Dann dateiweise prüfen:
+
+```bash
+for f in tests/test_*.py; do python3 -m pytest "$f" -q; done
+```
+
+### Eine Einstufung dauert zehn Sekunden oder länger
+
+Der Zweckweg rechnet mit einem Kreuzbewerter, und der kostet je verglichenem
+Satzpaar Rechenzeit. Auf zwei Prozessorkernen sind 3 bis 20 Sekunden normal, je
+nachdem, wie viele Sätze die Beschreibung hat. Mit Grafikkarte sind es
+Millisekunden.
+
+Wer die Einstufung ohne Zweckweg will — schneller, aber ungenauer —, benennt
+die Katalogdatei um oder entfernt sie: der Prüfer meldet das im Protokoll und
+entscheidet dann allein über die Wortlisten. Gemessen trifft er damit 55 von
+100 Unternehmensfragen statt 100. Für den Betrieb ist das keine Empfehlung,
+sondern eine Notlösung.
+
+### ruff oder mypy melden etwas
+
+Dann ist etwas zu beheben. Nachgemessen am 04.10.2026 laufen `ruff check .`,
+`ruff format --check .` und `mypy src` ohne Beanstandung durch, und der
+Prüfstand bricht bei einem Befund ab. Ein Lauf, der dauerhaft rot ist, wird
+nicht gelesen — dann fällt auch der erste echte Fehler nicht auf. Jede Ausnahme
+wird in `pyproject.toml` begründet.
 
 ### Der Dienst startet nicht: „Address already in use"
 

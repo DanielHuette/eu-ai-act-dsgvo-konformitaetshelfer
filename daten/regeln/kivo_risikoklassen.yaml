@@ -100,6 +100,16 @@ verbote:
     wenn:
       - feld: straftatvorhersage_person
         ist: true
+    # Das Verbot setzt voraus, dass die Vorhersage AUSSCHLIESSLICH auf dem
+    # Profiling beruht. Fehlt dieses Wort, ist der Tatbestand nicht erfuellt:
+    # eine Rueckfallprognose fuer die Polizei faellt dann unter Anhang III
+    # Nummer 6 Buchstabe d, also hohes Risiko mit Pflichten statt Verbot. Fuer
+    # den Nutzer ist das der Unterschied zwischen weitermachen mit Auflagen und
+    # einstellen - er darf nicht an der Aehnlichkeit einer Wortgruppe haengen.
+    # Gemessen loeste bisher das Wort "Rueckfall" allein das Verbot aus.
+    verlangt_wortlaut: [ausschliesslich, ausschließlich, allein, einzig,
+                        nur aufgrund, nur anhand, nur auf der grundlage,
+                        lediglich, ausschliessliche, ausschließliche]
     stichworte: [predictive policing person, straftat vorhersagen, rückfallrisiko
                  profiling, kriminalitätsprognose person]
     frage: >
@@ -332,8 +342,13 @@ hochrisiko_anhang_iii:
                    aufzeichnungen, meldet der leitung, abweicht vom, kuendigung,
                    kündigung, leistung, auffaellig, auffällig, aktivitaet,
                    aktivität, pausenzeiten]
+      # "kuendigung" steht NICHT unter den starken Woertern: eine Suche nach
+      # Kuendigungsfristen in Lieferverträgen hat mit Beschäftigung nichts zu
+      # tun, wurde aber als Anhang III Nummer 4 eingeordnet. Das Wort steht
+      # darum unter kombination.handlung und braucht ein Trägerwort wie
+      # "Mitarbeiter" oder "Beschäftigte" neben sich.
       starke_woerter: [bewerbung, bewerber, lebenslauf, recruiting, einstellung,
-        befoerderung, kuendigung, leistungsbewertung, mitarbeiterueberwachung,
+        befoerderung, leistungsbewertung, mitarbeiterueberwachung,
         personalauswahl, stellenanzeige, arbeitszeugnis, probezeit, personalakte,
         personalabteilung, arbeitsverhaeltnis, arbeitsverhältnis, stellenabbau, betriebsrat,
         einstellungsverfahren]
@@ -346,8 +361,13 @@ hochrisiko_anhang_iii:
         - Entscheidungen über Beförderung, Kündigung, Vertragsbedingungen
         - Aufgabenzuweisung anhand von Verhalten oder Persönlichkeitsmerkmalen
         - Überwachung und Bewertung von Leistung und Verhalten
+      # "kündigung" und "beförderung" stehen hier NICHT als Einzelwort: eine
+      # Suche nach Kündigungsfristen in Lieferverträgen nennt das Wort, hat mit
+      # Beschäftigung aber nichts zu tun. Beide Vorgänge sind über
+      # kombination.handlung erreichbar, wo ein Trägerwort daneben stehen muss.
       stichworte: [bewerbung filtern, lebenslauf sortieren, bewerberauswahl,
-                   beförderung, kündigung, leistungsbewertung mitarbeiter,
+                   beförderung mitarbeiter, kündigung mitarbeiter,
+                   leistungsbewertung mitarbeiter,
                    mitarbeiterüberwachung, schichtplanung verhalten, recruiting]
       frage: >
         Wirkt das System bei Einstellung, Beförderung, Kündigung,
@@ -482,7 +502,13 @@ transparenz:
   faelle:
     - kennung: t50-1-interaktion
       klasse: transparenz
-      rolle: anbieter
+      # Absatz 1 verpflichtet dem Wortlaut nach den Anbieter zur Gestaltung.
+      # Genannt wird der Fall aber auch dem Betreiber: er führt das Gespräch mit
+      # dem Kunden und muss das System nach Artikel 26 Absatz 1 so verwenden,
+      # wie die Anleitung es vorsieht - also den Hinweis sichtbar lassen. Ein
+      # Versandhändler, der einen Bot mit menschlichem Vornamen in der ersten
+      # Person schreiben lässt, bekäme sonst "minimal" zur Antwort.
+      rollen: [anbieter, betreiber]
       rechtsgrundlage: ["KI-VO/art-50/abs-1"]
       fundstelle: Artikel 50 Absatz 1 KI-VO
       wenn:
@@ -494,6 +520,11 @@ transparenz:
         denn, das ist aus den Umständen offensichtlich.
     - kennung: t50-2-synthetische-inhalte
       klasse: transparenz
+      # Absatz 2 bleibt beim Anbieter, und zwar nicht aus Formalismus: die
+      # maschinenlesbare Kennzeichnung entsteht im erzeugenden System. Ein
+      # Betreiber kann sie nicht anbringen. Wer ChatGPT für Werbetexte nutzt,
+      # bekam vorher die Pflicht des Modellanbieters vorgehalten - eine
+      # Auflage, die er nicht erfüllen kann, ist keine Auskunft.
       rolle: anbieter
       rechtsgrundlage: ["KI-VO/art-50/abs-2"]
       fundstelle: Artikel 50 Absatz 2 KI-VO
@@ -526,6 +557,16 @@ transparenz:
       wenn:
         - feld: erzeugt_deepfakes
           ist: true
+      # Zweiter Weg: wer erzeugte Bilder, Töne oder Videos veröffentlicht, muss
+      # wissen, dass Absatz 4 daran hängt, ob sie einen bestehenden Ort, eine
+      # Person oder ein Ereignis vortäuschen. Ein erfundener Raum mit echten
+      # Möbeln ist in der Regel keiner; sobald ein echter Ort oder eine
+      # erkennbare Person erscheint, kippt die Beurteilung. Der Fall wird
+      # genannt, nicht entschieden - die Auskunft trägt "zu prüfen".
+      oder_wenn:
+        - wenn:
+            - feld: veroeffentlicht_erzeugte_medien
+              ist: true
       stichworte: [deepfake, gesicht tauschen, stimme klonen, person imitieren]
       pflicht: >
         Deepfakes müssen offengelegt werden. Bei Texten zu Angelegenheiten von
@@ -537,6 +578,17 @@ transparenz:
 # ---------------------------------------------------------------------------
 gpai:
   gilt_ab: 2025-08-02
+  # Artikel 3 Nummer 63 nimmt Modelle aus, die vor dem Inverkehrbringen nur zu
+  # Forschung, Entwicklung oder fuer einen Prototyp eingesetzt werden. Sagt die
+  # Beschreibung das ausdruecklich, greifen die Pflichten fuer Modellanbieter
+  # nicht. Die Pruefung auf Wortgruppen allein konnte das nicht sehen: "wir
+  # bringen es nicht in Verkehr" enthaelt alle Woerter von "modell in verkehr"
+  # und loeste die Regel aus - die Verneinung ging verloren.
+  entlastung: [nicht in verkehr, nicht veroeffentlich, nicht veröffentlich,
+               nur zur forschung, nur fuer die forschung, nur für die forschung,
+               ausschliesslich fuer die eigene forschung,
+               ausschließlich für die eigene forschung, nur zur eigenen forschung,
+               nur intern, bleibt im unternehmen, nur als prototyp]
   kennung: g51-basismodell
   klasse: gpai
   rechtsgrundlage: ["KI-VO/art-51", "KI-VO/art-53"]

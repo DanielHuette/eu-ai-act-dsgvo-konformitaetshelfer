@@ -1,0 +1,430 @@
+# Unternehmensfragen — der Maßstab für die Genauigkeit der Einstufung.
+#
+# WOZU DIESE DATEI
+# Die 44 Anwendungsfälle in daten/faelle sind der Maßstab für die Pflichten.
+# Für die Genauigkeit taugen sie nicht allein: an ihnen wurden die Wortlisten
+# entwickelt, und 44 von 44 heißt dort nur, dass nichts zurückgefallen ist.
+#
+# Hier stehen 100 Beschreibungen, wie Unternehmen sie wirklich einreichen:
+# knapp, in eigener Sprache, oft als Frage, mit Produktnamen und ohne
+# Rechtsbegriffe. Die Hälfte aus Sicht eines Softwarehauses, das ein KI-Produkt
+# verkauft, die Hälfte aus Sicht eines Anwenders. 28 davon sind "minimal" - ein
+# Prüfer, der alles für Hochrisiko erklärt, wäre genauso wertlos wie einer, der
+# nichts erkennt.
+#
+# Die Soll-Einstufung ist aus dem Verordnungstext bestimmt, nicht aus dem, was
+# der Prüfer gerade liefert. Das Feld "stelle" nennt die Fundstelle, auf die
+# sich das Soll stützt - wer das Soll ändern will, muss dort nachlesen.
+#
+# GEMESSENER STAND
+#   nur Wortlisten                       55 %
+#   mit Zweckkatalog, erste Fassung      86 %
+#   nach Abarbeiten der 14 Fehlschläge   98 %
+#   nach der Rollentrennung in Artikel 50 und dem zweiten Weg zu Absatz 4
+#                                       100 %  (04.10.2026)
+#
+# Die Grenze in tests/test_zwecke.py liegt bei 95 und nicht bei 100: eine
+# Grenze, die beim ersten neuen Zwecksatz bricht, wird hochgesetzt statt
+# behoben. Fällt die Quote unter 95, ist etwas zurückgefallen.
+stand: "2026-10-04"
+fragen:
+  - frage: "Wir sind ein Softwarehaus und verkaufen eine Recruiting-Software. Die KI liest Lebensläufe und schlägt dem Personaler die drei besten Kandidaten vor. Was müssen wir beachten?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4a"
+  - frage: "Unser Produkt schaltet Stellenanzeigen automatisch dort, wo die KI die passendsten Kandidaten vermutet. Fallen wir unter den AI Act?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4a"
+  - frage: "Wir verkaufen ein Tool, das Videointerviews von Bewerbern auswertet und eine Eignungsnote ausgibt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4a"
+  - frage: "Unsere Software erstellt für Vorgesetzte monatliche Leistungsberichte über jeden Mitarbeiter aus Ticketzahlen und Bearbeitungszeiten."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Wir bieten eine Lösung an, die bei Stellenabbau vorschlägt, von welchen Mitarbeitern sich das Unternehmen trennen sollte."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Unser Werkzeug verteilt Aufträge an Außendienstmitarbeiter danach, wer in der Vergangenheit schneller abgeschlossen hat."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Wir verkaufen eine Software, die Probezeitgespräche vorbereitet und eine Empfehlung zur Übernahme ausspricht."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Unsere Plattform prüft bei Freiberuflern, ob sie für einen Auftrag zugelassen werden, und sperrt sie bei schlechter Bewertung."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Wir setzen in der Personalabteilung ein KI-Tool ein, das Bewerbungen vorsortiert. Was müssen wir tun?"
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4a"
+  - frage: "Wir messen mit einer KI die Gesprächsqualität im Callcenter: Wortwahl, Redeanteil, Tonfall. Die Ergebnisse gehen in die Leistungsbeurteilung der Agenten. Ist das zulässig?"
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Wir lassen eine KI die Schichtpläne schreiben. Sie berücksichtigt Qualifikation, Arbeitszeitkonten und wer wie oft kurzfristig krank war, und verteilt danach die gut bezahlten Nachtschichten."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "In unserer Logistik wertet eine KI die Scannerdaten der Lagerarbeiter aus und zeigt der Leitung, wer unter der Sollmenge liegt."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Unsere Personalabteilung nutzt ein System, das aus internen Daten vorhersagt, welche Mitarbeiter bald kündigen, damit wir gegensteuern können."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Wir lassen eine KI die Bewerbungsgespräche protokollieren und daraus eine Rangliste der Kandidaten erstellen."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4a"
+  - frage: "Bei uns entscheidet ein KI-System mit, wer die jährliche Bonuszahlung bekommt."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 4b"
+  - frage: "Unser Produkt ist ein Scoring für Ratenkredite. Banken kaufen es und binden es in ihre Kreditstrecke ein. Fallen wir unter den AI Act?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5b"
+  - frage: "Wir verkaufen eine Software, die bei Mietinteressenten die Zahlungsfähigkeit einschätzt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5b"
+  - frage: "Unsere Versicherung nutzt KI, um bei Lebensversicherungen das Risiko einzuschätzen und den Beitrag festzulegen. Was gilt da?"
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5c"
+  - frage: "Wir berechnen mit einer KI die Beiträge für unsere private Krankenversicherung aus den Angaben im Gesundheitsfragebogen."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5c"
+  - frage: "Unsere Bank lässt eine KI entscheiden, welche Kreditanträge von Privatkunden ohne Prüfung durch einen Sachbearbeiter abgelehnt werden."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5b"
+  - frage: "Wir verkaufen ein System an Jobcenter, das einschätzt, wer Anspruch auf eine Förderung hat."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5a"
+  - frage: "Unsere Stadtverwaltung prüft mit KI, ob Anträge auf Wohngeld bewilligt werden können."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5a"
+  - frage: "Wir liefern der Rettungsleitstelle eine Software, die eingehende Notrufe nach Dringlichkeit sortiert."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5d"
+  - frage: "In unserer Notaufnahme teilt eine KI die Patienten nach Behandlungsdringlichkeit ein."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 5d"
+  - frage: "Wir bieten eine Lernplattform für Schulen an. Die KI bewertet Aufsätze und gibt eine Note. Brauchen wir eine CE-Kennzeichnung?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3b"
+  - frage: "Unsere Software korrigiert Multiple-Choice-Klausuren an Hochschulen und setzt die Note."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3b"
+  - frage: "Wir verkaufen ein System, das bei der Studienplatzvergabe die Bewerber in eine Rangfolge bringt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3a"
+  - frage: "Unsere Prüfungsaufsicht per Webcam erkennt, ob Prüflinge während der Klausur abschauen."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3d"
+  - frage: "Unsere Volkshochschule stuft Teilnehmer mit einer KI in Sprachniveaus ein und weist sie danach den Kursen zu."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3a"
+  - frage: "Wir setzen eine KI ein, die bei Auszubildenden den Lernstand misst und danach die Lerninhalte vorgibt."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 3b"
+  - frage: "Wir verkaufen eine Software, die Überwachungskameras auswertet und Gesichter mit einer Besucherliste abgleicht. Was gilt für uns?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 1a"
+  - frage: "Unser Zutrittssystem für Rechenzentren erkennt Mitarbeiter am Gesicht, ohne dass sie eine Karte vorzeigen müssen."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 1a"
+  - frage: "Wir bieten eine Stimmanalyse, die aus einem Anruf das Alter und das Geschlecht des Anrufers schätzt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 1b"
+  - frage: "Unser Museum zählt Besucher und schätzt per Kamera deren Altersgruppe, um das Programm anzupassen."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 1b"
+  - frage: "Unser Stadtwerk steuert das Fernwärmenetz mit einer KI. Was gilt?"
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 2"
+  - frage: "Wir verkaufen eine Software, die in Netzleitstellen die Lastverteilung im Stromnetz regelt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 2"
+  - frage: "Unsere Software schaltet die Ampeln einer Großstadt nach Verkehrsaufkommen."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 2"
+  - frage: "Unser Wasserwerk überwacht mit KI die Druckverhältnisse im Leitungsnetz und schließt bei Rohrbruch automatisch Schieber."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 2"
+  - frage: "Wir liefern der Polizei eine Software, die aus Anzeigen die Glaubwürdigkeit von Zeugenaussagen bewertet."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 6c"
+  - frage: "Unser Produkt berechnet für Strafverfolgungsbehörden, wie hoch das Rückfallrisiko eines Beschuldigten ist."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 6d"
+  - frage: "Wir verkaufen der Grenzbehörde ein System, das bei Einreisenden ein Sicherheitsrisiko einschätzt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 7b"
+  - frage: "Unsere Software unterstützt das Bundesamt bei der Prüfung von Asylanträgen."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 7c"
+  - frage: "Wir bieten Gerichten ein Werkzeug, das aus der Aktenlage einen Urteilsvorschlag erstellt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 8a"
+  - frage: "Unsere Kanzlei nutzt KI, die in Schlichtungsverfahren einen Einigungsvorschlag berechnet."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 8a"
+  - frage: "Wir bauen ein KI-Modul für Werkzeugmaschinen, das den Not-Halt auslöst, wenn jemand in den Arbeitsraum greift. Die Maschine braucht eine CE-Konformitätsbewertung. Was kommt auf uns zu?"
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A1"
+  - frage: "Unsere KI sitzt in der Steuerung eines Industrieroboters und hält den Sicherheitsabstand zum Bedienpersonal ein."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A1"
+  - frage: "Wir entwickeln eine KI, die Röntgenbilder befundet. Das Gerät ist ein Medizinprodukt der Klasse IIb."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A11"
+  - frage: "Unsere Software ist selbst ein Medizinprodukt und überwacht auf der Intensivstation die Vitalwerte."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A11"
+  - frage: "Wir liefern die KI für den Notbremsassistenten eines Lastwagens."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I B18"
+  - frage: "Unsere KI steuert eine Drohne und hält sie von Hindernissen frei."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I B20"
+  - frage: "Wir bauen eine KI in die Steuerung eines Aufzugs ein, die die Kabine bei Seilproblemen festsetzt."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A4"
+  - frage: "Unsere KI wertet Laborproben aus und gibt den Befund als In-vitro-Diagnostikum aus."
+    rolle: anbieter
+    einstufung: hochrisiko_anhang_i
+    stelle: "Anh I A12"
+  - frage: "Unsere App misst über die Handykamera die Stimmung von Mitarbeitern im Großraumbüro, damit HR die Zufriedenheit tracken kann. Dürfen wir das verkaufen?"
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1f"
+  - frage: "Wir werten in der Schule die Mimik der Schüler aus, um den Lehrern zu zeigen, wer gelangweilt ist."
+    rolle: betreiber
+    einstufung: verboten
+    stelle: "Art 5 1f"
+  - frage: "Unser Produkt leitet aus Gesichtsfotos die politische Einstellung einer Person ab."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1g"
+  - frage: "Wir bieten eine Software, die aus einem Porträtfoto auf die sexuelle Orientierung schließt."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1g"
+  - frage: "Unsere Plattform vergibt jedem Kunden eine allgemeine Vertrauenspunktzahl aus Zahlungsmoral, Umgangston im Chat und Verhalten in sozialen Netzen, und sperrt danach Dienste."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1c"
+  - frage: "Wir sammeln Gesichtsbilder automatisch aus öffentlichen Profilen im Internet und bauen daraus eine Suchdatenbank auf."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1e"
+  - frage: "Unsere Werbung nutzt flackernde Reize unterhalb der Wahrnehmungsschwelle, damit Nutzer länger im Spiel bleiben und mehr kaufen."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1a"
+  - frage: "Wir bieten der Polizei ein System, das Personen auf Bahnhöfen in Echtzeit per Gesichtserkennung mit einer Fahndungsliste abgleicht."
+    rolle: anbieter
+    einstufung: verboten
+    stelle: "Art 5 1h"
+  - frage: "Wir trainieren ein eigenes Sprachmodell und verkaufen den Zugang über eine API an andere Softwarefirmen. Welche Pflichten haben wir?"
+    rolle: anbieter
+    einstufung: gpai
+    stelle: "Art 3 Nr 63"
+  - frage: "Unser Unternehmen veröffentlicht ein Bildmodell als offene Gewichte, das andere in ihre Produkte einbauen."
+    rolle: anbieter
+    einstufung: gpai
+    stelle: "Art 3 Nr 63"
+  - frage: "Wir haben ein vielseitiges Basismodell trainiert und stellen es nachgelagerten Anbietern bereit."
+    rolle: anbieter
+    einstufung: gpai
+    stelle: "Art 3 Nr 63"
+  - frage: "Wir trainieren ein Sprachmodell mit einem Rechenaufwand von 3 x 10^25 Gleitkommaoperationen und bringen es in Verkehr."
+    rolle: anbieter
+    einstufung: gpai_systemisch
+    stelle: "Art 51"
+  - frage: "Wir nutzen das Sprachmodell unseres Lieferanten über eine Programmierschnittstelle in unserer eigenen App."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "nur Betreiber"
+  - frage: "Wir trainieren ein Modell ausschließlich für die eigene Forschung und bringen es nicht in Verkehr."
+    rolle: anbieter
+    einstufung: minimal
+    stelle: "Art 3 Nr 63 Ausnahme"
+  - frage: "Wir verkaufen einen Chatbot für Online-Shops. Er beantwortet Fragen zu Produkten und Lieferzeiten. Was müssen wir tun?"
+    rolle: anbieter
+    einstufung: transparenz
+    stelle: "Art 50 1"
+  - frage: "Unser Produkt ist ein Sprachassistent, der Anrufe im Kundenservice selbstständig annimmt und beantwortet."
+    rolle: anbieter
+    einstufung: transparenz
+    stelle: "Art 50 1"
+  - frage: "Unser Tool erstellt Produktfotos komplett per KI, damit Händler nicht mehr fotografieren müssen. Gibt es da Auflagen?"
+    rolle: anbieter
+    einstufung: transparenz
+    stelle: "Art 50 2"
+  - frage: "Wir bieten eine Software, die aus einem Stichwort ganze Blogartikel schreibt."
+    rolle: anbieter
+    einstufung: transparenz
+    stelle: "Art 50 2"
+  - frage: "Unser Dienst erzeugt Werbespots mit künstlichen Sprecherstimmen."
+    rolle: anbieter
+    einstufung: transparenz
+    stelle: "Art 50 2"
+  - frage: "Wir setzen in unserer Marketingabteilung ein Werkzeug ein, das Gesichter bekannter Sportler in unsere Werbevideos einsetzt."
+    rolle: betreiber
+    einstufung: transparenz
+    stelle: "Art 50 4"
+  - frage: "Unsere Redaktion lässt Nachrichtentexte zu politischen Themen von einer KI schreiben und veröffentlicht sie ohne Gegenlesen."
+    rolle: betreiber
+    einstufung: transparenz
+    stelle: "Art 50 4"
+  - frage: "Wir betreiben an der Kasse ein System, das aus dem Gesicht die Altersgruppe des Kunden schätzt, um Werbung einzublenden."
+    rolle: betreiber
+    einstufung: hochrisiko_anhang_iii
+    stelle: "Anh III 1b, dazu Art 50 3 - Altersschaetzung aus dem Gesicht ist biometrische Kategorisierung, nicht nur eine Informationspflicht"
+  - frage: "Wir haben ein Tool gebaut, das aus Rechnungen die Beträge ausliest und in SAP überträgt. Betrifft uns der AI Act?"
+    rolle: anbieter
+    einstufung: minimal
+    stelle: "Buchhaltung"
+  - frage: "Wir nutzen ChatGPT, um Marketingtexte zu schreiben. Eine Kollegin liest alles gegen, bevor es online geht. Müssen wir etwas melden?"
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Betreiber, kein Deepfake"
+  - frage: "In unserem Werk prüft eine KI-Kamera, ob die Schweißnähte in Ordnung sind. Fällt das unter den AI Act?"
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Qualitätsprüfung"
+  - frage: "Wir haben Microsoft Copilot im Unternehmen ausgerollt. Was müssen wir beachten?"
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Bürowerkzeug"
+  - frage: "Unser Außendienst bekommt von einer KI die Tourenplanung vorgegeben. Zählt das als Hochrisiko?"
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Routenoptimierung"
+  - frage: "Wir setzen eine KI ein, die eingehende Mails nach Abteilung sortiert. Sie bewertet nichts und entscheidet nichts. Brauchen wir eine Risikobewertung?"
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Verfahrensaufgabe"
+  - frage: "Unsere KI sagt den Absatz unserer Produkte für das nächste Quartal voraus, damit der Einkauf planen kann."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Absatzprognose"
+  - frage: "Wir lassen eine KI unsere Lagerbestände optimieren und Nachbestellungen auslösen."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Lagerwirtschaft"
+  - frage: "Unser Werkzeug übersetzt technische Handbücher aus dem Deutschen ins Englische."
+    rolle: anbieter
+    einstufung: minimal
+    stelle: "Übersetzung"
+  - frage: "Wir nutzen eine KI, die Besprechungsprotokolle aus Tonaufnahmen erstellt, die wir selbst gegenlesen."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Protokoll"
+  - frage: "Unsere Software erkennt in Satellitenbildern Waldflächen und berechnet deren Größe."
+    rolle: anbieter
+    einstufung: minimal
+    stelle: "Fernerkundung"
+  - frage: "Wir setzen KI ein, die in der Produktion den Zeitpunkt der nächsten Wartung einer Pumpe vorhersagt."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Wartungsprognose"
+  - frage: "Unsere KI sortiert Pakete im Verteilzentrum nach Zieladresse."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Sortierung"
+  - frage: "Wir bieten eine Software, die Rechtschreibung und Grammatik in Geschäftsbriefen korrigiert."
+    rolle: anbieter
+    einstufung: minimal
+    stelle: "Korrektur"
+  - frage: "Unsere Suchfunktion im Intranet findet Dokumente nach Bedeutung statt nach Stichwort."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Suche"
+  - frage: "Wir nutzen eine KI, die aus Sensordaten den Energieverbrauch unserer Bürogebäude senkt."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Gebäudetechnik"
+  - frage: "Unser System erkennt in eingehenden Mails Spam und verschiebt ihn in einen Ordner."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Spamfilter"
+  - frage: "Wir lassen eine KI Produktbeschreibungen für unseren Webshop aus Datenblättern erzeugen, die unsere Redaktion freigibt."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Betreiber"
+  - frage: "Unsere KI liest Lieferscheine ein und vergleicht sie mit der Bestellung."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Belegprüfung"
+  - frage: "Wir setzen eine KI ein, die Kundenbewertungen zu Themen gruppiert, damit das Produktmanagement sie überblickt."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Textgruppierung"
+  - frage: "Unsere Software plant die Reihenfolge der Fertigungsaufträge an den Maschinen."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Fertigungsplanung"
+  - frage: "Wir nutzen KI, die in unseren Verträgen nach Kündigungsfristen sucht und sie auflistet."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Vertragssuche"
+  - frage: "Unsere KI erkennt in Aufnahmen unserer Obstsortieranlage faule Früchte und bläst sie aus."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Sortierung"
+  - frage: "Wir lassen eine KI die Preise unserer Hotelzimmer nach Nachfrage anpassen."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Preisgestaltung"
+  - frage: "Unser Werkzeug fasst lange Forschungsberichte für unsere Entwickler zusammen."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Zusammenfassung"
+  - frage: "Wir setzen eine KI ein, die aus Maschinendaten den Ausschuss in der Fertigung vorhersagt."
+    rolle: betreiber
+    einstufung: minimal
+    stelle: "Prozessprognose"

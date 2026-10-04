@@ -22,7 +22,7 @@ services:
         #     läuft ohne Netz). 0 = kleines Abbild mit Ersatzmodell, nur
         #     für Prüfläufe.
         MIT_SUCHMODELL: "${MIT_SUCHMODELL:-1}"
-    image: konformitaetshelfer:1.0.0
+    image: konformitaetshelfer:1.1.0
     container_name: konformitaetshelfer
 
     # Nur dieser eine Zugang, und nur an den eigenen Rechner gebunden. Ohne

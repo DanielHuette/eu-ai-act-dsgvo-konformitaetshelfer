@@ -76,6 +76,15 @@ class Zerlegung:
         return next((e for e in self.einheiten if e.kennung == kennung), None)
 
 
+#: Gruppenüberschriften innerhalb eines Anhangs. Sie kommen in zwei Formen vor:
+#: "Abschnitt A — Von Anbietern von Hochrisiko-KI-Systemen …" (Anhang VIII),
+#: "Abschnitt 1" ohne weiteren Text (Anhang XI) und "1. Schengener
+#: Informationssystem" (Anhang X). Alle drei setzen die Zählung darunter wieder
+#: auf den Anfang, darum gehört die Gruppe in die Kennung:
+#: KI-VO/anh-VIII/nr-A-1 statt dreimal KI-VO/anh-VIII/nr-1.
+_GRUPPE_IM_ANHANG = re.compile(r"^(?:Abschnitt\s+([A-Z]|\d{1,2})\b|(\d{1,2})\.\s+\S)")
+
+
 def _kennung(knoten: Tag | None) -> str:
     """Die id eines Knotens als Zeichenkette — immer.
 
@@ -88,7 +97,7 @@ def _kennung(knoten: Tag | None) -> str:
     """
     if knoten is None:
         return ""
-    wert = _kennung(knoten)
+    wert = knoten.get("id")
     if wert is None:
         return ""
     if isinstance(wert, str):
@@ -130,17 +139,30 @@ def _gliederung(knoten: Tag) -> tuple[str, str]:
     return kapitel, abschnitt
 
 
-def _absaetze_eines_artikels(behaelter: Tag) -> list[tuple[str, str]]:
+def _absaetze_eines_artikels(behaelter: Tag, nummer: str = "") -> list[tuple[str, str, Tag | None]]:
     """Die Absätze eines Artikels als (Absatzkennung, Text).
 
-    Erste Wahl sind die Absatzcontainer mit Kennung "006.003". Fehlen sie -
-    kurze Artikel haben manchmal nur Fließtext -, wird der Text des Artikels
-    ohne Überschrift als ein Absatz geführt.
+    Erste Wahl sind die Absatzcontainer mit Kennung "006.003" — die erste Zahl
+    ist der Artikel, die zweite der Absatz. Fehlen sie (kurze Artikel haben
+    manchmal nur Fließtext), wird der Text des Artikels ohne Überschrift als
+    ein Absatz geführt.
+
+    ``nummer`` ist die Nummer des Artikels, in dem gesucht wird, und sie ist
+    nicht nur Beiwerk: die Artikel 107 und 108 ändern andere Rechtsakte und
+    zitieren deren Absätze im Wortlaut. Das Amtsblatt gibt diesen Zitaten die
+    Kennung aus dem *fremden* Rechtsakt — in Artikel 107 steht ein Container
+    mit der Kennung "005.004". Ohne Abgleich entstünde daraus ein zweiter
+    "Artikel 5 Absatz 4", der den echten verdrängt oder stillschweigend
+    verworfen wird. Beides ist falsch: zitierter Text gehört in den Artikel,
+    der zitiert, nicht in den zitierten.
     """
-    gefunden: list[tuple[str, str]] = []
+    gefunden: list[tuple[str, str, Tag | None]] = []
     for kind in behaelter.find_all("div", recursive=False):
         treffer = _ABSATZ_ID.match(_kennung(kind))
         if not treffer:
+            continue
+        if nummer and str(int(treffer.group(1))) != str(nummer):
+            # Zitat aus einem fremden Rechtsakt — bleibt Teil des Artikeltexts.
             continue
         text = _text_von(kind)
         kennzahl = str(int(treffer.group(2)))
@@ -148,7 +170,7 @@ def _absaetze_eines_artikels(behaelter: Tag) -> list[tuple[str, str]]:
         if zaehlung and zaehlung.group(1) == kennzahl:
             text = text[zaehlung.end() :].strip()
         if text:
-            gefunden.append((kennzahl, text))
+            gefunden.append((kennzahl, text, kind))
     if gefunden:
         return gefunden
 
@@ -157,27 +179,135 @@ def _absaetze_eines_artikels(behaelter: Tag) -> list[tuple[str, str]]:
         text = _text_von(absatz)
         if text:
             teile.append(text)
-    return [("1", "\n\n".join(teile))] if teile else []
+    if not teile:
+        return []
+    # Ein Artikel ohne Absatzgliederung, der aber eine Buchstabenliste trägt:
+    # Artikel 16 zählt die Anbieterpflichten so auf, a) bis l), ohne je einen
+    # Absatz zu nennen. Zitiert wird er trotzdem als "Artikel 16 Buchstabe a",
+    # und darauf zeigen dreizehn Pflichten im Regelwerk. Der Artikel selbst
+    # ist dann der Container, aus dem die Buchstaben geholt werden.
+    hat_buchstaben = any(
+        re.fullmatch(r"[a-z]", _zaehlung_und_zelle(t)[0])
+        for t in behaelter.find_all("table", recursive=False)
+        if t.find_all("tr") and t.find_all("tr")[0].find_all(["td", "th"])
+    )
+    return [("1", "\n\n".join(teile), behaelter if hat_buchstaben else None)]
 
 
-def _buchstaben(text: str) -> list[tuple[str, str]]:
-    """Zerlegt einen Absatz in seine Buchstabenpunkte, wenn er welche hat."""
+def _begriffsbestimmungen(behaelter: Tag) -> list[tuple[str, str]]:
+    """Die nummerierten Begriffe eines Definitionsartikels.
+
+    Artikel 4 der Datenschutz-Grundverordnung und Artikel 3 der KI-Verordnung
+    haben keine Absätze, sondern durchnummerierte Begriffe — 26 beziehungsweise
+    68 Stück, jeder in einer eigenen Tabelle mit der Zählung in der ersten
+    Zelle. Ohne diese Zerlegung wäre der ganze Artikel eine Einheit von 19.000
+    Zeichen, und eine Antwort könnte nicht auf "Artikel 3 Nummer 39" zeigen —
+    die Definition des Emotionserkennungssystems, an der das Verbot nach
+    Artikel 5 Absatz 1 Buchstabe f hängt. Ebenso Artikel 4 Nummer 14 DSGVO,
+    die biometrischen Daten.
+    """
     stuecke: list[tuple[str, str]] = []
-    jetzt: str | None = None
-    gesammelt: list[str] = []
-    for zeile in re.split(r"(?=\b[a-z]\)\s)", text):
-        treffer = _BUCHSTABE.match(zeile.strip())
-        if treffer:
-            if jetzt:
-                stuecke.append((jetzt, " ".join(gesammelt).strip()))
-            jetzt = treffer.group(1)
-            gesammelt = [zeile.strip()[treffer.end() :]]
+    for tabelle in behaelter.find_all("table", recursive=False):
+        zeilen = tabelle.find_all("tr")
+        if not zeilen:
             continue
-        if jetzt:
-            gesammelt.append(zeile.strip())
-    if jetzt:
-        stuecke.append((jetzt, " ".join(gesammelt).strip()))
-    return [(b, t) for b, t in stuecke if len(t) > 40]
+        zellen = zeilen[0].find_all(["td", "th"])
+        if len(zellen) < 2:
+            continue
+        zaehlung = _saeubern(zellen[0].get_text(" ", strip=True)).rstrip(".)")
+        if not re.fullmatch(r"\d{1,3}", zaehlung):
+            continue
+        inhalt = _saeubern(tabelle.get_text(" ", strip=True))
+        inhalt = re.sub(rf"^{re.escape(zaehlung)}[.)]\s*", "", inhalt).strip()
+        if len(inhalt) > 30:
+            stuecke.append((zaehlung, inhalt))
+    return stuecke
+
+
+def _zaehlung_und_zelle(tabelle: Tag) -> tuple[str, Tag | None]:
+    """Zählung und Textzelle eines Aufzählungspunkts.
+
+    EUR-Lex setzt jeden Punkt in eine eigene Tabelle. Die Zählung steht aber
+    nicht immer in der ersten Zelle: eingerückte Aufzählungen haben davor eine
+    oder mehrere leere Zellen, die die Einrückung tragen. Anhang I ist so
+    gebaut — dort steht die Zählung in der zweiten Zelle. Wer blind die erste
+    liest, findet nichts und verliert den ganzen Anhang: 24 Rechtsakte, auf die
+    Artikel 6 Absatz 1 für das hohe Risiko über das Produktsicherheitsrecht
+    verweist. Darum werden führende leere Zellen übersprungen.
+    """
+    zeilen = tabelle.find_all("tr")
+    if not zeilen:
+        return "", None
+    zellen = zeilen[0].find_all(["td", "th"])
+    for i, zelle in enumerate(zellen[:-1]):
+        zaehlung = _saeubern(zelle.get_text(" ", strip=True))
+        if zaehlung:
+            return zaehlung.rstrip(".)"), zellen[i + 1]
+    return "", None
+
+
+def _buchstaben(behaelter: Tag) -> list[tuple[str, str]]:
+    """Die Buchstabenpunkte eines Absatzes — aus der Gliederung, nicht aus dem Text.
+
+    EUR-Lex setzt jeden Aufzählungspunkt in eine eigene Tabelle, die unmittelbar
+    im Absatzcontainer steht: erste Zelle die Zählung ("a)"), zweite der Text.
+
+    Über den Fließtext zu gehen war der Fehler, und zwar gleich dreifach:
+
+    * Artikel 5 Absatz 1 Buchstabe c enthält eine *verschachtelte* Aufzählung
+      "i)", "ii)". Im Fließtext sieht "i)" wie der Buchstabe i aus — und es gibt
+      in demselben Absatz auch einen echten Buchstaben i. Zwei verschiedene
+      Texte unter einer Kennung, einer davon ging verloren.
+    * Artikel 43 hat in Absatz 1 die Punkte a) und b) und in Absatz 3 wieder
+      a) bis d). Im Text eines ganzen Artikels gesucht, kollidieren sie.
+    * Artikel 3 hat gar keine Absätze, sondern 68 Begriffsbestimmungen —
+      Buchstaben im Fließtext stammen dort aus den Definitionen selbst.
+
+    Die Gliederung kennt diese Unterschiede. Der Text nicht.
+    """
+    stuecke: list[tuple[str, str]] = []
+    unterabsatz = 1
+    for tabelle in behaelter.find_all("table", recursive=False):
+        zaehlung, _zelle = _zaehlung_und_zelle(tabelle)
+        if not re.fullmatch(r"[a-z]", zaehlung):
+            continue
+        inhalt = _saeubern(tabelle.get_text(" ", strip=True))
+        inhalt = re.sub(rf"^{re.escape(zaehlung)}[.)]\s*", "", inhalt).strip()
+        if len(inhalt) <= 40:
+            continue
+        # Fängt die Zählung wieder von vorn an, steht eine zweite Aufzählung im
+        # selben Absatz — im Amtsblatt sind das zwei Unterabsätze. Artikel 43
+        # Absatz 1 hat so zweimal a) und b). Ohne die Unterscheidung trägt der
+        # zweite Punkt die Kennung des ersten, und einer von beiden fällt weg.
+        if any(z == zaehlung for z, _ in stuecke):
+            unterabsatz += 1
+        marke = zaehlung if unterabsatz == 1 else f"ua{unterabsatz:d}-{zaehlung}"
+        stuecke.append((marke, inhalt))
+    return stuecke
+
+
+def _unterpunkte_im_anhang(zelle: Tag, marke: str) -> list[tuple[str, str]]:
+    """Die Buchstabenpunkte innerhalb eines numerierten Anhangspunkts.
+
+    Anhang III nennt acht Bereiche, aber die Einstufung hängt nicht am Bereich,
+    sondern am einzelnen Buchstaben darunter: Nummer 4 Buchstabe a trifft die
+    Einstellung, Buchstabe b die Arbeitsbedingungen - zwei verschiedene
+    Sachverhalte unter einer Überschrift. Wer nur die Nummer kennt, kann einen
+    Fall nicht auf die Stelle zurückführen, die ihn trägt. EUR-Lex legt die
+    Punkte als Tabellen unmittelbar in die Textzelle der Nummer.
+    """
+    stuecke: list[tuple[str, str]] = []
+    for tabelle in zelle.find_all("table", recursive=False):
+        zaehlung, textzelle = _zaehlung_und_zelle(tabelle)
+        if textzelle is None or not re.fullmatch(r"[a-z]|[ivxlc]+", zaehlung):
+            continue
+        inhalt = _saeubern(tabelle.get_text(" ", strip=True))
+        inhalt = re.sub(rf"^{re.escape(zaehlung)}[.)]\s*", "", inhalt).strip()
+        if len(inhalt) <= 40:
+            continue
+        stuecke.append((f"{marke}-{zaehlung}", inhalt))
+        stuecke.extend(_unterpunkte_im_anhang(textzelle, f"{marke}-{zaehlung}"))
+    return stuecke
 
 
 def _anhangspunkte(behaelter: Tag) -> list[tuple[str, str]]:
@@ -189,21 +319,40 @@ def _anhangspunkte(behaelter: Tag) -> list[tuple[str, str]]:
     zeigen muss. Fehlen die Tabellen, wird der Fließtext nach Zählungen zerlegt.
     """
     stuecke: list[tuple[str, str]] = []
-    for tabelle in behaelter.find_all("table", recursive=False):
-        zeilen = tabelle.find_all("tr")
-        if not zeilen:
+    abschnitt = ""
+    # Durchlaufen wird in Dokumentreihenfolge, nicht nur über die Tabellen:
+    # ein Anhang kann in Abschnitte zerfallen, deren Zählung jeweils wieder bei
+    # 1 beginnt. Anhang VIII hat drei davon — Angaben des Anbieters, des
+    # Bevollmächtigten und des Betreibers —, Anhang X ebenfalls. Ohne den
+    # Abschnitt in der Kennung trägt jede Nummer dreimal denselben Namen, und
+    # zwei Drittel des Anhangs gehen beim Entdoppeln verloren.
+    for kind in behaelter.find_all(["p", "table"], recursive=False):
+        if kind.name == "p":
+            klassen: list[str] = list(kind.get("class") or [])
+            if any(str(k).startswith("oj-ti-grseq") for k in klassen):
+                kopf = _saeubern(kind.get_text(" ", strip=True))
+                treffer = _GRUPPE_IM_ANHANG.match(kopf)
+                # Nur ein erkannter Abschnittskopf setzt den Abschnitt neu. Ein
+                # Anhang kann der Abschnittszeile eine zweite Überschrift
+                # nachstellen - Anhang XI hat unter "Abschnitt 1" noch "Von
+                # allen Anbietern von KI-Modellen ...". Würde die den Abschnitt
+                # loeschen, traegt Abschnitt 2 wieder die Kennungen von
+                # Abschnitt 1, und einer der beiden fiele beim Entdoppeln weg.
+                if treffer:
+                    abschnitt = treffer.group(1) or treffer.group(2)
             continue
-        zellen = zeilen[0].find_all(["td", "th"])
-        if len(zellen) < 2:
-            continue
-        zaehlung = _saeubern(zellen[0].get_text(" ", strip=True)).rstrip(".)")
-        if not re.fullmatch(r"\d{1,2}|[a-z]|[ivxlc]+|[A-Z]", zaehlung):
+
+        tabelle = kind
+        zaehlung, textzelle = _zaehlung_und_zelle(tabelle)
+        if textzelle is None or not re.fullmatch(r"\d{1,2}|[a-z]|[ivxlc]+|[A-Z]", zaehlung):
             continue
         inhalt = _saeubern(tabelle.get_text(" ", strip=True))
         # Die Zählung steht am Anfang des Gesamttexts noch einmal - weg damit.
         inhalt = re.sub(rf"^{re.escape(zaehlung)}[.)]\s*", "", inhalt).strip()
+        marke = f"{abschnitt}-{zaehlung}" if abschnitt else zaehlung
         if len(inhalt) > 60:
-            stuecke.append((zaehlung, inhalt))
+            stuecke.append((marke, inhalt))
+        stuecke.extend(_unterpunkte_im_anhang(textzelle, marke))
 
     if stuecke:
         return stuecke
@@ -241,11 +390,48 @@ def zerlegen(
         titelknoten = behaelter.find(class_="eli-title") or behaelter.find(class_="oj-sti-art")
         titel = _text_von(titelknoten) if titelknoten else ""
         kapitel, abschnitt = _gliederung(behaelter)
-        absaetze = _absaetze_eines_artikels(behaelter)
+        begriffe = _begriffsbestimmungen(behaelter)
+        if begriffe:
+            # Definitionsartikel: Nummern statt Absätze.
+            ergebnis.einheiten.append(
+                Einheit(
+                    kennung=f"{rechtsakt.value}/art-{nummer}",
+                    rechtsakt=rechtsakt,
+                    art=Einheitsart.ARTIKEL,
+                    nummer=nummer,
+                    absatz=None,
+                    titel=titel,
+                    kapitel=kapitel,
+                    abschnitt=abschnitt,
+                    text=_text_von(behaelter),
+                    quelle=quelle,
+                    stand=stand,
+                )
+            )
+            for zahl, inhalt in begriffe:
+                ergebnis.einheiten.append(
+                    Einheit(
+                        kennung=f"{rechtsakt.value}/art-{nummer}/nr-{zahl}",
+                        rechtsakt=rechtsakt,
+                        art=Einheitsart.ARTIKEL,
+                        nummer=nummer,
+                        absatz=f"Nummer {zahl}",
+                        titel=titel,
+                        kapitel=kapitel,
+                        abschnitt=abschnitt,
+                        text=inhalt,
+                        quelle=quelle,
+                        stand=stand,
+                    )
+                )
+            ergebnis.befund["begriffe"] = ergebnis.befund.get("begriffe", 0) + len(begriffe)
+            continue
+
+        absaetze = _absaetze_eines_artikels(behaelter, nummer)
         if not absaetze:
             continue
 
-        volltext = "\n\n".join(f"({kennung}) {text}" for kennung, text in absaetze)
+        volltext = "\n\n".join(f"({kennung}) {text}" for kennung, text, _ in absaetze)
         ergebnis.einheiten.append(
             Einheit(
                 kennung=f"{rechtsakt.value}/art-{nummer}",
@@ -262,7 +448,7 @@ def zerlegen(
             )
         )
 
-        for kennung, text in absaetze:
+        for kennung, text, container in absaetze:
             if len(text) < 25:
                 continue
             ergebnis.einheiten.append(
@@ -280,7 +466,7 @@ def zerlegen(
                     stand=stand,
                 )
             )
-            for buchstabe, inhalt in _buchstaben(text):
+            for buchstabe, inhalt in _buchstaben(container) if container else []:
                 ergebnis.einheiten.append(
                     Einheit(
                         kennung=f"{rechtsakt.value}/art-{nummer}/abs-{kennung}-{buchstabe}",
@@ -357,18 +543,32 @@ def zerlegen(
         )
 
     # -------------------------------------------------------------- Befund
-    doppelt = 0
-    gesehen: set[str] = set()
+    # Doppelte Kennungen: die zweite wird übergangen. Die Warnung nennt sie
+    # beim Namen und sagt, ob der übergangene Text derselbe war — denn nur dann
+    # ist das Übergehen harmlos. Steht ein anderer Text dahinter, geht Inhalt
+    # verloren, und das muss auffallen statt in einer Zahl zu verschwinden.
+    gesehen: dict[str, str] = {}
     sauber: list[Einheit] = []
+    gleich: list[str] = []
+    verschieden: list[str] = []
     for einheit in ergebnis.einheiten:
-        if einheit.kennung in gesehen:
-            doppelt += 1
+        vorher = gesehen.get(einheit.kennung)
+        if vorher is not None:
+            (gleich if vorher == einheit.text else verschieden).append(einheit.kennung)
             continue
-        gesehen.add(einheit.kennung)
+        gesehen[einheit.kennung] = einheit.text
         sauber.append(einheit)
     ergebnis.einheiten = sauber
-    if doppelt:
-        ergebnis.warnungen.append(f"{doppelt:d} doppelte Kennungen übergangen")
+    if gleich:
+        ergebnis.warnungen.append(
+            "%d wortgleiche Dubletten übergangen: %s"
+            % (len(gleich), ", ".join(sorted(set(gleich))[:6]))
+        )
+    if verschieden:
+        ergebnis.warnungen.append(
+            "ACHTUNG: %d Kennungen doppelt MIT ABWEICHENDEM TEXT — hier geht "
+            "Inhalt verloren: %s" % (len(verschieden), ", ".join(sorted(set(verschieden))[:10]))
+        )
 
     ergebnis.befund = {
         "einheiten": len(ergebnis.einheiten),

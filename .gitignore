@@ -40,6 +40,22 @@ daten/roh/
 daten/aufbereitet/_bestand_teile/
 daten/aufbereitet/_bestand_lauf.log
 
+# Die eingebetteten Zwecksaetze. Werden beim ersten Gebrauch gerechnet und
+# traegen die Anzahl der Saetze mit; aendert sich der Zweckkatalog, rechnet der
+# Helfer sie neu. Ein mitgelieferter Zwischenstand koennte nicht mehr passen.
+daten/regeln/_zwecke_vektoren.json.gz
+
+# Die Beigaben der Android-App: Rechtsdatenbank (10,7 MB), umgewandelter
+# Einbetter (118 MB) und Wortschatz (17 MB), zusammen rund 146 MB. GitHub
+# nimmt keine Datei ueber 100 MB, und abgelegt waeren sie ein zweites Mal
+# dasselbe: sie entstehen vollstaendig aus korpus.jsonl, den Regeldateien und
+# den Faellen. Neu bauen mit
+#     python scripts/export_android.py
+# Der Lauf prueft sich selbst und schreibt keine halbfertige Datenbank; der
+# Befund steht in daten/aufbereitet/android_export_befund.json und ist
+# abgelegt, damit der Stand der App auch ohne die Dateien nachlesbar ist.
+android/app/src/main/assets/
+
 # Modellspeicher, falls jemand ihn ins Verzeichnis legt
 modelle/
 *.safetensors

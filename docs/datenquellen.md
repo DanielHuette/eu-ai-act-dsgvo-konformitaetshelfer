@@ -8,11 +8,11 @@ lizenzrechtlich steht.
 
 | | Datum | Woher die Zahl kommt |
 |---|---|---|
-| **Regelwerk** (Einstufung, Pflichten, Datenschutzpfad) | **31.05.2026** | Feld `stand` in den drei Dateien unter `daten/regeln`, nachgelesen am 03.10.2026 |
-| **Rechtstext** (Wortlaut im Bestand) | **03.10.2026** | Feld `gebaut` in `daten/aufbereitet/korpus_befund.json` |
+| **Regelwerk** (Einstufung, Pflichten, Datenschutzpfad) | **31.05.2026** | Feld `stand` in den Dateien unter `daten/regeln`, nachgelesen am 04.10.2026 |
+| **Rechtstext** (Wortlaut im Bestand) | **04.10.2026** | Feld `gebaut` in `daten/aufbereitet/korpus_befund.json` |
 
 Die beiden Daten unterscheiden sich, weil es zwei verschiedene Dinge sind. Der
-Wortlaut der Verordnung wurde am 03.10.2026 geholt. Die Bewertung, welche
+Wortlaut der Verordnung wurde am 04.10.2026 geholt. Die Bewertung, welche
 Pflicht aus welcher Klasse folgt, ist von Hand geschrieben und auf dem Stand
 vom 31.05.2026. **Die Auskunft ist also inhaltlich auf dem Stand Mai 2026.**
 Rechtsprechung, Leitlinien des Europäischen Datenschutzausschusses,
@@ -28,92 +28,112 @@ Der Vorbehalt steht im Regelwerk selbst und wird in jeder Auskunft mitgegeben:
 
 ## Was im Bestand liegt
 
-Nachgemessen am 03.10.2026 an `daten/aufbereitet/korpus.jsonl`: 2721
-Rechtseinheiten, 1 966 046 Zeichen.
+Nachgemessen am 04.10.2026 an `daten/aufbereitet/korpus.jsonl`: 2811
+Rechtseinheiten, 2 089 375 Zeichen. Der Korpusbau lief **ohne Warnung**.
 
 | Rechtsakt | Art der Einheit | Stück |
 |---|---|---|
-| KI-Verordnung | Artikel und Absätze | 1054 |
-| KI-Verordnung | Anhänge und Anhangspunkte | 65 |
+| KI-Verordnung | Artikel, Absätze und Nummern | 1042 |
+| KI-Verordnung | Anhänge, Nummern und Buchstaben | 164 |
 | KI-Verordnung | Erwägungsgründe | 180 |
-| Datenschutz-Grundverordnung | Artikel | 848 |
+| Datenschutz-Grundverordnung | Artikel, Absätze und Nummern | 851 |
 | Datenschutz-Grundverordnung | Erwägungsgründe | 173 |
 | Bundesdatenschutzgesetz | Paragrafen | 357 |
 | Anwendungsfälle (keine Rechtsquelle) | Fallbeispiele | 44 |
 
 Eine Rechtseinheit ist das kleinste Stück, auf das sich zeigen lässt: ein
-Absatz eines Artikels, eine Nummer eines Anhangs, ein Erwägungsgrund, ein
-Paragraf. Dass es mehr Einheiten als Artikel gibt, liegt daran: Artikel 6 der
-KI-Verordnung liefert mehrere Einheiten, eine je Absatz.
+Absatz eines Artikels, eine Nummer oder ein Buchstabe eines Anhangs, eine
+Begriffsbestimmung, ein Erwägungsgrund, ein Paragraf.
+
+Darin enthalten und für die Einstufung entscheidend:
+
+* die **23 Buchstabenpunkte des Anhangs III** unter den acht Bereichen. Nummer
+  4 Buchstabe a trifft die Einstellung, Buchstabe b die Arbeitsbedingungen —
+  zwei verschiedene Sachverhalte unter einer Überschrift.
+* die **20 Rechtsakte des Anhangs I**, auf die Artikel 6 Absatz 1 für das hohe
+  Risiko über das Produktsicherheitsrecht verweist.
+* die **68 Begriffsbestimmungen des Artikels 3** und die **26 des Artikels 4
+  der Datenschutz-Grundverordnung**, jede als eigene Einheit.
 
 ## Quelle für Quelle
 
-### 1. KI-Verordnung, amtlicher Volltext — 1228 Einheiten
+Beide Verordnungen kommen aus dem amtlichen Volltext des Amtsblatts. Geholt
+werden sie nicht über die Webseite von EUR-Lex, sondern über deren Ablage
+**Cellar**:
+
+```
+http://publications.europa.eu/resource/cellar/<Kennung>
+Accept: application/xhtml+xml
+Accept-Language: deu
+```
+
+**Warum nicht über die Webseite:** `eur-lex.europa.eu` antwortet ohne
+vollständigen Browser-Kopf mit HTTP 202 und null Byte und schickt danach ein
+Captcha der Firewall. Sechs Versuche brachten jeweils 2035 Byte statt der
+erwarteten über einer Million. Vor Cellar steht diese Firewall nicht. Das
+Skript `scripts/holen_amtsblatt.py` holt beide Verordnungen so und verwirft
+jede Antwort, die unter der Mindestgröße bleibt — eine halbe Datei wäre
+schlimmer als keine.
+
+### 1. KI-Verordnung, amtlicher Volltext — 1386 Einheiten
 
 * **Rechtsakt:** Verordnung (EU) 2024/1689 über künstliche Intelligenz
-* **Adresse:** `https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32024R1689`
-* **Kennung:** CELEX 32024R1689
+* **Kennung:** CELEX 32024R1689, Cellar `dc8116a1-3fe6-11ef-865a-01aa75ed71a1`
 * **Fassung:** Amtsblatt der Europäischen Union vom 12. Juli 2024
-* **Geholt:** 03.10.2026, Datei `daten/roh/eurlex/ki-vo-de.html`, 1 340 252 Byte
-* **Geliefert:** 1228 Einheiten — 113 Artikel mit 870 Absätzen, 13 Anhänge mit
-  52 Punkten, 180 Erwägungsgründe
-* **Warnung des Laufs:** 27 doppelte Kennungen übergangen. Das heißt: der
-  Zerleger traf 27 Stellen, deren Kennung schon belegt war, und hat sie
-  übersprungen. Welche das sind, ist nicht untersucht.
+* **Datei:** `daten/roh/kivo_amtsblatt_de.xhtml`
+* **Geliefert:** 1386 Einheiten — 113 Artikel mit 929 Absätzen und Nummern,
+  13 Anhänge mit 151 Nummern und Buchstaben, 180 Erwägungsgründe
+* **Warnungen:** keine
 * **Lizenzlage:** amtlicher Text der Europäischen Union. Für die
   Weiterverwendung von Kommissionsdokumenten gilt der Beschluss 2011/833/EU.
   Verbindlich ist allein die Veröffentlichung im Amtsblatt; die hier
   mitgelieferte Fassung ist eine maschinell zerlegte Kopie.
 
-Der Zerleger `src/helfer/korpus/eurlex.py` arbeitet über die Anker des
-Dokuments (`div#art_6`, `div#006.003`, `div#anx_III`, `*#rct_60`), nicht über
-Textmuster. Ein Textmuster hielte jede Erwähnung von „Artikel 99" im Fließtext
-für einen Artikelanfang.
+### 2. Datenschutz-Grundverordnung, amtlicher Volltext — 1024 Einheiten
 
-### 2. KI-Verordnung, artikelweise Ergänzung — 71 Einheiten
+* **Rechtsakt:** Verordnung (EU) 2016/679
+* **Kennung:** CELEX 32016R0679, Cellar `3e485e15-11bd-11e6-ba9a-01aa75ed71a1`
+* **Fassung:** Amtsblatt L 119 vom 4. Mai 2016, Seite 1
+* **Datei:** `daten/roh/dsgvo_amtsblatt_de.xhtml`
+* **Geliefert:** 1024 Einheiten — 99 Artikel mit 752 Absätzen und Nummern,
+  173 Erwägungsgründe
+* **Warnungen:** keine
+* **Lizenzlage:** wie bei der KI-Verordnung.
 
-* **Adresse:** `https://artificialintelligenceact.eu/de/article/<Nummer>/`
-* **Geholt:** 03.10.2026 über `scripts/holen_kivo.py`
-* **Umfang:** 71 Einheiten, die im amtlichen Volltext nicht zugeordnet werden
-  konnten — darunter 65 Einheiten zu Artikel 3, den
-  Begriffsbestimmungen, sowie 6 Einheiten zu den Artikeln 108 und 110
-* **Lizenzlage:** der Normtext ist der der Verordnung. Die redaktionelle
-  Aufbereitung der Seite liegt bei ihrem Betreiber. Diese Quelle ist **nicht
-  amtlich**.
+Die Fundstellen zur Datenschutz-Grundverordnung sind damit **absatzgenau**. Die
+frühere Fassung kam von einer nicht amtlichen Seite und lag nur je Artikel vor;
+sie wies gegenüber dem Amtsblatt 51 Prozent Abweichung auf, und Artikel 13
+hatte dort 909 statt 3374 Zeichen. Die Rückfallquelle greift nur noch ein, wenn
+der amtliche Text für einen Rechtsakt **ganz** fehlt — vorher mischte sie ihre
+Kennungen (`art-4/abs-14`) neben die amtlichen (`art-4/nr-14`).
 
-Dass Artikel 3 über diesen Weg kam, ist bemerkenswert, weil die
-Begriffsbestimmungen für die Einstufung wichtig sind. Wer eine Auskunft prüft,
-die sich auf Artikel 3 stützt, gleicht sie am Amtsblatt ab.
+### 3. Der Zerleger
 
-### 3. Datenschutz-Grundverordnung — 1021 Einheiten
+`src/helfer/korpus/eurlex.py` arbeitet über die Anker des Dokuments
+(`div#art_6`, `div#006.003`, `div#anx_III`, `*#rct_60`,
+`p.oj-ti-grseq-1`), nie über Textmuster. Ein Textmuster hielte jede Erwähnung
+von „Artikel 99" im Fließtext für einen Artikelanfang und machte Artikel 5
+31 828 Zeichen lang.
 
-* **Rechtsakt:** Verordnung (EU) 2016/679, CELEX 32016R0679
-* **Verwendete Adresse:** `https://dsgvo-gesetz.de/art-<Nummer>-dsgvo/` und
-  `https://dsgvo-gesetz.de/erwaegungsgruende/nr-<Nummer>/`
-* **Geholt:** 03.10.2026 über `scripts/holen_dsgvo.py`
-* **Umfang:** 848 Artikeleinheiten und 173 Erwägungsgründe
-* **Lizenzlage:** der Normtext ist der der Verordnung; die redaktionelle
-  Aufbereitung liegt beim Betreiber der Seite. **Nicht amtlich.**
+Vier Eigenheiten des Amtsblatts, an denen eine naive Fassung scheitert:
 
-**Warum nicht der amtliche Volltext:** EUR-Lex gab die deutsche Fassung nicht
-heraus. Das Protokoll `daten/roh/eurlex/_holen.log` vom 03.10.2026 zeigt sechs
-Versuche, jeder mit 2035 Byte Antwort statt der erwarteten über 100 000 Byte;
-danach `dsgvo-de.html: NICHT GEHOLT`. Der Korpusbau hat deshalb auf die
-artikelweise Fassung zurückgegriffen und das als Warnung vermerkt:
+* **Die Zählung steht nicht immer in der ersten Tabellenzelle.** Eingerückte
+  Aufzählungen haben davor eine leere Zelle, die die Einrückung trägt. Anhang I
+  ist so gebaut und ging deshalb vollständig verloren.
+* **Abschnittsköpfe setzen die Zählung zurück.** Anhang VIII hat drei
+  Abschnitte, jeder zählt wieder ab 1; Anhang XI nennt seinen Abschnitt nur
+  „Abschnitt 1" und stellt ihm eine zweite Überschrift nach. Der Abschnitt
+  gehört in die Kennung, sonst tragen drei Nummern denselben Namen.
+* **Verschachtelte Aufzählungen.** Artikel 5 Absatz 1 Buchstabe c enthält „i)"
+  und „ii)"; im Fließtext sieht „i)" wie der Buchstabe i aus, den es dort auch
+  echt gibt.
+* **Fremde Anker.** Artikel 107 und 108 zitieren fremde Rechtsakte mit deren
+  Ankern (`005.004` steht in `art_107`). Die Absatznummer wird darum gegen die
+  Artikelnummer geprüft.
 
-```
-amtlicher Volltext fehlt: dsgvo-de.html - es wird die artikelweise Fassung genutzt
-```
-
-**Folge für die Genauigkeit:** diese Fassung liegt je Artikel vor, nicht nach
-Absätzen getrennt. Eine Fundstelle zur Datenschutz-Grundverordnung zeigt daher
-auf die ganze Vorschrift; der genaue Absatz steht im Text der Pflicht, nicht in
-der Kennung. Der Hinweis dazu steht in `daten/regeln/dsgvo_pruefpfad.yaml` im
-Feld `hinweis_zur_granularitaet`.
-
-Die englische Fassung des amtlichen Volltextes liegt vor
-(`daten/roh/eurlex/dsgvo-en.html`, 809 035 Byte) und geht derzeit nicht in den
-Bestand ein.
+Der Bau bricht ab, wenn eine Kennung zweimal mit **verschiedenem** Text
+vorkommt, und nennt die betroffenen Kennungen — eine Zahl allein sagte nicht,
+wo zu suchen ist.
 
 ### 4. Bundesdatenschutzgesetz — 357 Einheiten
 
@@ -154,39 +174,50 @@ unter „Anwendungsfall: <Titel>", nicht als Artikelzitat.
 
 ## Das Regelwerk
 
-Drei Dateien, alle von Hand geschrieben, alle mit Stand 31.05.2026.
+Vier Dateien, alle von Hand geschrieben, alle mit Stand 31.05.2026 — der
+Zweckkatalog mit Stand 04.10.2026.
 
 | Datei | Inhalt | Nachgemessen |
 |---|---|---|
 | `daten/regeln/kivo_risikoklassen.yaml` | Verbote, Anhang I, Anhang III, die Ausnahme nach Artikel 6 Absatz 3, Transparenz, Modelle mit allgemeinem Verwendungszweck, Rollenwechsel, Fristen, Sanktionen | 8 Verbotstatbestände, 5 Fristenstufen, 3 Sanktionsstufen; als Einstufungsregeln in die App ausgegeben: 28 |
 | `daten/regeln/kivo_pflichten.yaml` | die Pflichten mit Klasse, Rolle, Fundstelle, Frist, Nachweis und Folge bei Verstoß | 57 Pflichten |
 | `daten/regeln/dsgvo_pruefpfad.yaml` | der Prüfpfad des Datenschutzrechts in der Reihenfolge, in der er abzuarbeiten ist | 26 Abschnitte, davon 14 immer geltend und 12 bedingt |
+| `daten/regeln/kivo_zweckkatalog.yaml` | zu jeder Fundstelle derselbe Zweck in Unternehmenssprache; das Feld `regel` zeigt auf die bestehenden Kennungen der Risikoklassendatei | 55 Einträge, 107 Zwecke, 21 Gegenzwecke |
 
 Jede Pflicht und jeder Abschnitt nennt seine Rechtsgrundlagen als Kennungen.
-Nachgemessen am 03.10.2026: alle genannten Rechtsgrundlagen sind im Korpus
-vorhanden, keine einzige ohne Fundstelle. Der Befehl dafür steht in
+Nachgemessen am 04.10.2026: alle genannten Rechtsgrundlagen sind im Korpus
+vorhanden, keine einzige ohne Fundstelle — das gilt auch für die 55
+Fundstellen des Zweckkatalogs, die eine eigene Prüfung abgleicht. Der Befehl dafür steht in
 [betriebsanleitung.md](betriebsanleitung.md), Abschnitt c.
 
 ## Was die App kennt
 
-`android/app/src/main/assets/recht.db`, gebaut am 03.10.2026, 8 396 800 Byte:
+`android/app/src/main/assets/recht.db`, gebaut am 04.10.2026, 10 747 904 Byte:
 
 | Tabelle | Zeilen |
 |---|---|
-| `einheit` | 1972 |
-| `vektor` | 1972 |
+| `einheit` | 2811 |
+| `vektor` | 2811 |
 | `pflicht` | 57 |
 | `risikoregel` | 28 |
 | `fall` | 44 |
 | `pruefabschnitt` | 26 |
 | `meta` | 12 |
 
-**Die Datei ist älter als der Korpus.** Sie trägt die Prüfsumme des Korpus, aus
-dem sie gebaut wurde — `ee77d5ad168f28d9…` — und der heutige Korpus hat die
-Prüfsumme `77d4cb0ada9d3cd8…` bei 2721 Einheiten. Die App kennt also 749
-Einheiten weniger als der Rechner. Regelwerk, Pflichten, Fälle und Prüfpfad
-sind auf beiden Seiten gleich; es fehlt Rechtstext für die Belegstellen. Der
-nächste Lauf von `scripts/export_android.py` bringt beides zusammen.
+**Die App kennt denselben Rechtstext wie der Rechner.** Die Datenbank trägt die
+Prüfsumme des Korpus, aus dem sie gebaut wurde — `e6606acd97e9394a…` —, und das
+ist die des heutigen Korpus. Jede Rechtsgrundlage der Pflichten findet dort ihre
+Fundstelle; der Ausgabelauf prüft das und schreibt keine halbfertige Datenbank.
+
+**Was die App nicht hat, ist der Zweckweg.** Der Kreuzbewerter wiegt 568
+Millionen Werte und läuft nicht auf einem Telefon. Auf dem Gerät entscheiden die
+Wortlisten allein — gemessen 55 von 100 Unternehmensfragen gegen 100 auf dem
+Rechner. Für eine erste Einordnung unterwegs trägt das; für die Entscheidung
+gehört die Frage auf den Rechner oder in den Container.
+
+**Die Vektoren der App sind 8-Bit-Werte.** Das umgewandelte Modell
+(`einbetter.onnx`, 118,1 MB) rechnet grober als das ursprüngliche; gemessene
+Ähnlichkeit zwischen beiden am 04.10.2026: 0,9907.
 
 ## Was nicht drin ist
 

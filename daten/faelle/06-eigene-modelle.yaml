@@ -24,7 +24,7 @@ faelle:
       Pflicht zur KI-Kompetenz nach Artikel 4. Die Einstufung verschiebt sich,
       sobald das Büro das Modell Dritten bereitstellt oder es für Aufgaben
       aus Anhang III einsetzt.
-    rechtsgrundlage: [KI-VO/art-3/abs-1, KI-VO/art-51, KI-VO/art-53, KI-VO/art-4, KI-VO/anh-III]
+    rechtsgrundlage: [KI-VO/art-3/nr-1, KI-VO/art-51, KI-VO/art-53, KI-VO/art-4, KI-VO/anh-III]
     pflichten:
       - Für die KI-Kompetenz der Ingenieure sorgen, die mit dem Modell arbeiten.
       - Prüfen, ob die Lizenz des Ausgangsmodells die Feinabstimmung und den Einsatz erlaubt.

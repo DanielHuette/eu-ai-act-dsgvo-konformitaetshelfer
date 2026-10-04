@@ -11,40 +11,98 @@ Auskunft bekommt, ist ein geänderter Artikelverweis wichtiger als jede
 Programmänderung. Jeder Eintrag zum Datenstand nennt das Datum, auf dem das
 Regelwerk danach steht.
 
-## Unveröffentlicht
+## 1.1.0 — 04.10.2026
 
-### Dokumentation
+Diese Fassung dreht sich um eine einzige Zahl: wie oft die Einstufung richtig
+ist, wenn die Frage nicht aus der eigenen Sammlung kommt. Sie lag bei 55 von
+100 und liegt jetzt bei 100 von 100. Die Prüfung verlangt mindestens 95: eine
+Grenze, die beim ersten neuen Zwecksatz bricht, wird hochgesetzt statt
+behoben.
 
-* README, Lizenz- und Hinweisdateien, die sechs Blätter unter `docs/`, die
-  Mitarbeitsregeln, der Verhaltenskodex, die Sicherheitsmeldung, diese
-  Änderungsliste, die Zitierangabe, die Vorlagen für Fehlerberichte und
-  Änderungsvorschläge sowie der Prüflauf für den Python-Teil angelegt.
-* Alle Mengenangaben darin sind am 03.10.2026 am Verzeichnis nachgemessen.
+### Datenstand
 
-### Festgehalten, nicht behoben
+* Rechtsbestand neu gebaut am **04.10.2026**: **2811** Rechtseinheiten,
+  2 089 375 Zeichen, **keine Warnung** aus dem Korpusbau.
+  * KI-Verordnung aus dem Amtsblatt, CELEX 32024R1689: 1386 Einheiten —
+    113 Artikel mit 929 Absätzen und Nummern, 13 Anhänge mit 151 Nummern und
+    Buchstaben, 180 Erwägungsgründe.
+  * Datenschutz-Grundverordnung aus dem Amtsblatt, CELEX 32016R0679: 1024
+    Einheiten — 99 Artikel mit 752 Absätzen und Nummern, 173 Erwägungsgründe.
+    Die Rückfallquelle dsgvo-gesetz.de wird nicht mehr gebraucht.
+  * Bundesdatenschutzgesetz: 357 Einheiten. Anwendungsfälle: 44.
+* **Anhang III bis zum Buchstaben zerlegt.** Vorher gab es acht
+  Bereichsnummern, jetzt zusätzlich die 23 Buchstabenpunkte darunter. Die
+  Einstufung hängt am Buchstaben, nicht am Bereich: Nummer 4 Buchstabe a trifft
+  die Einstellung, Buchstabe b die Arbeitsbedingungen.
+* **Anhang I war vollständig verloren** und ist jetzt da: 20 Rechtsakte, auf
+  die Artikel 6 Absatz 1 für das hohe Risiko über das Produktsicherheitsrecht
+  verweist. Ursache: seine Tabellen tragen vor der Zählung eine leere Zelle für
+  die Einrückung, und der Zerleger las blind die erste Zelle.
+* **Anhang XI wurde um zwei Drittel gekürzt.** Sein Abschnittskopf heißt nur
+  „Abschnitt 1", und ihm folgt eine zweite Überschrift, die den Abschnitt
+  wieder löschte — Abschnitt 2 trug danach die Kennungen von Abschnitt 1.
+* Neu: `daten/regeln/kivo_zweckkatalog.yaml` — 55 Einträge, 107 Zwecke, 21
+  Gegenzwecke.
+* Neu: `daten/pruefung/unternehmensfragen.yaml` — 100 Beschreibungen, wie
+  Unternehmen sie wirklich einreichen, mit der Fundstelle, auf die sich jedes
+  Soll stützt.
 
-Diese Punkte sind beim Schreiben der Dokumentation aufgefallen und
-nachgemessen. Sie sind in [docs/architektur.md](docs/architektur.md) unter
-„Grenzen des Systems" und „Was noch nicht da ist" beschrieben:
+### Einstufung
 
-* Die App-Datenbank `android/app/src/main/assets/recht.db` ist älter als der
-  Rechtsbestand: 1972 Einheiten gegen 2721, und die Prüfsumme des Korpus in
-  `daten/aufbereitet/android_export_befund.json` (`ee77d5ad…`) weicht von der
-  heutigen (`77d4cb0a…`) ab. Behoben wird das durch einen Lauf von
-  `scripts/export_android.py`.
-* Der Suchbestand für den Rechner liegt nicht im Verzeichnis. Der Lauf vom
-  03.10.2026 ist nach dem Laden des Modells abgebrochen; das Protokoll
-  `daten/aufbereitet/_bestand_lauf.log` endet bei „Bestand bauen: 2721
-  Einheiten".
-* Das Container-Abbild ist in diesem Verzeichnis nie gebaut worden. Die
-  Angaben dazu in README und Betriebsanleitung stammen aus `Dockerfile`,
-  `docker-compose.yml` und den Startskripten, nicht aus einem Lauf.
-* `ruff check .` meldet 277 Punkte, davon 246 die Regel UP031 — die durchgehend
-  verwendete Schreibweise `"%s" % wert`. `mypy src` meldet 28 Punkte in 10
-  Dateien. Beides ist im Prüflauf als Hinweis geführt und bricht ihn nicht ab.
-* Das Verzeichnis `tests/` ist leer. Für den Python-Teil gibt es keine
-  Prüfungen; der Prüflauf behandelt „keine Prüfungen gefunden" deshalb nicht
-  als Fehler.
+* **Zweiter Eingang in dasselbe Regelwerk.** Jede Stufe ist nun über
+  kennzeichnende Wörter *und* über den Zweck erreichbar. Das Feld `regel` im
+  Zweckkatalog zeigt auf die bestehenden Kennungen in
+  `kivo_risikoklassen.yaml`; Rollenprüfung, Merkmalsfilter, Ausnahmen und
+  Pflichtenableitung gelten unverändert. Die Einstufung kommt weiter aus dem
+  Regelwerk — das Modell findet nur die Stelle.
+* **Artikel 50 beachtet jetzt die Rolle.** Absatz 1 und 2 binden den Anbieter,
+  Absatz 3 und 4 den Betreiber. Vorher bekam ein Unternehmen, das ChatGPT
+  benutzt, die Kennzeichnungspflicht des Modellanbieters vorgehalten.
+* **Verbote brauchen mehr Beleg als die übrigen Klassen.** Der Zweckweg
+  verlangt für „verboten" 0,85 statt 0,50. Gemessen traf eine Lernplattform,
+  die Aufsätze benotet, den Satz zur Emotionserkennung bei Schülern mit 0,6297
+  — ein Verbot wäre dort falsch gewesen und hätte ein zulässiges Geschäft
+  untersagt.
+* **Verlangter Wortlaut.** Artikel 5 Absatz 1 Buchstabe d verbietet die
+  Vorhersage von Straftaten nur, wenn sie *ausschließlich* auf Profiling
+  beruht. Vorher löste das Wort „Rückfall" allein das Verbot aus, und eine
+  zulässige Polizeiprognose nach Anhang III Nummer 6 Buchstabe d wurde
+  untersagt. Das Merkmal wird nun auf beiden Wegen verlangt — im Regelwerk als
+  `verlangt_wortlaut`, im Katalog als `verlangt`.
+* **Modelle mit allgemeinem Verwendungszweck: Ausnahme des Artikels 3 Nummer
+  63.** „Wir bringen es nicht in Verkehr" enthält alle Wörter der Wortgruppe
+  „Modell in Verkehr" und löste die Pflichten für Modellanbieter aus — die
+  Verneinung ging verloren. Jetzt entlastet die ausdrückliche Aussage.
+* `kuendigung` und `befoerderung` lösen nicht mehr allein den Bereich
+  Beschäftigung aus. Eine Suche nach Kündigungsfristen in Lieferverträgen
+  wurde so zum Personalvorgang.
+
+### Prüfungen
+
+* Neu: `tests/test_zwecke.py` — 18 Prüfungen auf die Form des Zweckkatalogs
+  (jede Fundstelle zeigt auf echten amtlichen Text, jede Regel existiert, jeder
+  Zwecksatz steht in der gemessenen Satzform), auf die Satzzerlegung samt
+  Gegenprobe, dass ein Mensch als Satzsubjekt nicht zum System wird, und auf
+  die Genauigkeit über alle 100 Unternehmensfragen.
+* Der Zerleger bricht ab, wenn eine Kennung zweimal mit *verschiedenem* Text
+  vorkommt, und nennt die betroffenen Kennungen. Eine Zahl allein sagte nicht,
+  wo zu suchen ist.
+
+### Berichtigungen
+
+* `_kennung()` rief sich selbst auf und brach mit Endlosrekursion ab. Der
+  Zerleger war damit seit dem Aufräumen mit ruff unbrauchbar, während alle
+  Prüfungen grün blieben — sie prüfen den fertigen Korpus, nicht den Zerleger.
+* Die Buchstabenpunkte eines Absatzes werden über die Tabellenstruktur geholt,
+  nicht über den Fließtext. Dort sah „i)" aus einer verschachtelten Aufzählung
+  wie der Buchstabe i aus, und die Punkte a) bis b) aus Absatz 1 kollidierten
+  mit a) bis d) aus Absatz 3 desselben Artikels.
+* Die Begriffsbestimmungen fehlten: Artikel 3 der KI-Verordnung mit 68 Nummern
+  und Artikel 4 der Datenschutz-Grundverordnung mit 26.
+* `src/helfer/einstufung/bereiche.py` entfernt. Der erste Versuch eines
+  Bedeutungswegs ging über die ganzen Bereichstexte und traf 7 von 11 — die
+  acht Anhang-III-Texte sind juristisch zu ähnlich formuliert. Der Zweckkatalog
+  ersetzt ihn.
 
 ## 1.0.0 — 03.10.2026
 

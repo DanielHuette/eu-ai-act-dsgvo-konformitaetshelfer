@@ -207,7 +207,10 @@ Siehe [Grenzen](#grenzen-des-systems).
 |---|---|---|
 | Datenmodell | `src/helfer/modell.py` | Alles, was durch das System läuft, hat hier eine streng geprüfte Form. Lieber ein Fehler beim Einlesen als eine erfundene Pflicht. |
 | Prüfer | `src/helfer/einstufung/pruefer.py` | Hier und nur hier entsteht die Einstufung. Deterministisch und bis zur Regel zurückverfolgbar. |
+| Zweckweg | `src/helfer/einstufung/zwecke.py` | Findet zu einer Beschreibung die Stellen des Gesetzes, die sie tragen — und nur das. Er stuft nicht ein, er sagt, WELCHE Regel zu prüfen ist. Zwei Stufen: der Einbetter wählt je Satz höchstens fünf Fundstellen aus, der Kreuzbewerter entscheidet. Fehlt ein Modell, liefert er eine leere Liste, und die Wortlisten entscheiden allein. |
+| Zweckkatalog | `daten/regeln/kivo_zweckkatalog.yaml` | Zu jeder Fundstelle derselbe Zweck in Unternehmenssprache, als Aussagesatz in der ersten Person. Das Feld `regel` zeigt auf die bestehenden Kennungen des Regelwerks: ein zweiter Eingang in dieselbe Regel, kein zweites Regelwerk. |
 | Regelwerk | `daten/regeln/*.yaml` | Die Regeln stehen in Textdateien, nicht im Programm. Eine Rechtsänderung ändert eine Datei, nicht den Quelltext. |
+| Unternehmensfragen | `daten/pruefung/unternehmensfragen.yaml` | 100 Beschreibungen, wie Unternehmen sie wirklich einreichen, mit der Fundstelle je Soll. Der Maßstab für die Genauigkeit — die 44 Anwendungsfälle taugen dafür nicht, an ihnen wurden die Wortlisten entwickelt. |
 | Anwendungsfälle | `daten/faelle/*.yaml` | 44 ausgearbeitete Beispiele. Sie gehen als Belegstellen in die Suche ein und sind als „Leitlinie" gekennzeichnet, weil sie keine Rechtsquelle sind. |
 | Einbettung | `src/helfer/suche/einbettung.py` | Austauschbare Schnittstelle, damit Rechner und Telefon je ihr Modell haben können. Jeder Bestand trägt den Modellnamen, weil Einbettungen verschiedener Modelle nicht vergleichbar sind. |
 | Suchbestand | `src/helfer/suche/index.py` | Die vier Wege, die Rangfusion und die Neubewertung. |
@@ -311,17 +314,17 @@ während die Einstufung auf beiden Seiten aus demselben Regelwerk kommt und
 gleich ausfällt.
 
 **Die Vektoren der App sind 8-Bit-Werte.** Das umgewandelte Modell rechnet
-grober als das ursprüngliche; der Ausgabebefund vom 03.10.2026 nennt eine
+grober als das ursprüngliche; der Ausgabebefund vom 04.10.2026 nennt eine
 gemessene Ähnlichkeit von 0,9907 zwischen beidem. Die Einheiten im Bestand sind
 mit dem feineren Modell gerechnet, die Fragen rechnet das Telefon mit dem
 groben — die 0,9907 sagen, wie weit beide auseinanderliegen.
 
-**Die App-Datenbank im Verzeichnis ist älter als der Korpus.** Nachgemessen am
-03.10.2026: `recht.db` enthält 1972 Einheiten und trägt die Prüfsumme
-`ee77d5ad…` des Korpus, aus dem sie gebaut wurde; `korpus.jsonl` enthält
-inzwischen 2721 Einheiten und hat die Prüfsumme `77d4cb0a…`. Der nächste Lauf
-von `scripts/export_android.py` bringt beides zusammen. Bis dahin kennt die App
-weniger Rechtstext als der Rechner.
+**Die App stuft ohne den Zweckweg ein.** Der Kreuzbewerter wiegt 568 Millionen
+Werte und läuft nicht auf einem Telefon. Auf dem Gerät entscheiden darum die
+Wortlisten allein — gemessen 55 von 100 Unternehmensfragen gegen 100 auf dem
+Rechner. Für eine erste Einordnung unterwegs trägt das; für die Entscheidung
+gehört die Frage auf den Rechner oder in den Container. Die App sagt das in
+ihrer Standanzeige.
 
 **Erwägungsgründe stehen neben dem Normtext.** Sie können als Belegstelle
 auftauchen. Ein Erwägungsgrund begründet eine Verordnung, er regelt nicht; wer
@@ -335,29 +338,30 @@ geprüft.
 
 ## Was noch nicht da ist
 
-Damit niemand danach sucht. Stand 03.10.2026:
+Damit niemand danach sucht. Stand 04.10.2026:
 
-* **Das Container-Abbild ist in diesem Verzeichnis nie gebaut worden.**
-  `Dockerfile`, `docker-compose.yml` und die Startskripte liegen vor und sind
-  gelesen, aber es gibt keinen Lauf, der belegt, dass das Abbild durchbaut:
-  die drei Stufen ziehen Pakete und ein 2,3-Gigabyte-Modell aus dem Netz. Die
-  Angaben dazu in diesem Blatt und in der Betriebsanleitung stammen aus den
-  Dateien, nicht aus einem Lauf.
-* **Keine Prüfungen für den Python-Teil.** Das Verzeichnis `tests/` ist leer.
-  Geprüft wird derzeit nur der Kotlin-Teil, mit 65 Prüfungen. Für den
-  Python-Teil heißt das: die Angaben in diesem Blatt beruhen auf dem Quelltext
-  und auf einzelnen Läufen von Hand, nicht auf einer Prüfreihe.
-* **Kein abgelegter Suchbestand.** Unter `daten/aufbereitet` liegen Korpus und
-  Befunde, aber keine `suchbestand.*`-Dateien. Der Lauf vom 03.10.2026 ist nach
-  dem Laden des Modells abgebrochen; das Protokoll in
-  `daten/aufbereitet/_bestand_lauf.log` endet bei „Bestand bauen: 2721
-  Einheiten". Ohne abgelegten Bestand fällt die Suche auf ein Ersatzverfahren
-  zurück, das nur Wörter vergleicht; `konformitaetshelfer stand` sagt das
-  ausdrücklich, und die Einstufung ist davon nicht betroffen.
-* **Die Prüfung mit ruff und mypy läuft nicht durch.** Nachgemessen am
-  03.10.2026: `ruff check .` meldet 277 Punkte, davon 246 die Regel UP031 —
-  das ist die durchgehend verwendete Schreibweise `"%s" % wert` statt einer
-  f-Zeichenkette, also eine Stilentscheidung und kein Fehler. `mypy src` meldet
-  28 Punkte in 10 Dateien, die meisten davon fehlende Typangaben fremder
-  Pakete. Beides ist im Prüflauf als Hinweis geführt und nicht als Abbruch;
-  siehe `.github/workflows/pruefung.yml`.
+* **Der Zweckweg braucht zwei lokale Modelle.** Einbetter (bge-m3, 2,3
+  Gigabyte) und Kreuzbewerter (bge-reranker-v2-m3). Fehlt einer, bleibt der
+  Zweckweg aus, die Wortlisten entscheiden allein, und das steht im Protokoll.
+  Die Einstufung bleibt damit richtig, wird aber ungenauer — gemessen 55 von
+  100 statt 100.
+* **Der Kreuzbewerter rechnet je Paar.** Auf zwei Prozessorkernen dauert eine
+  Einstufung mit Zweckweg 3 bis 20 Sekunden, je nachdem, wie viele Sätze die
+  Beschreibung hat. Die Vorauswahl hält die Paarzahl klein, aber sie schafft
+  die Rechenzeit nicht weg. Mit Grafikkarte ist es Millisekunden; ohne
+  Zweckweg ebenfalls.
+* **Das Container-Abbild ist in diesem Verzeichnis nicht gebaut worden.**
+  `Dockerfile`, `docker-compose.yml` und die Startskripte liegen vor, aber es
+  gibt hier keinen Lauf, der belegt, dass das Abbild durchbaut: die drei Stufen
+  ziehen Pakete und ein 2,3-Gigabyte-Modell aus dem Netz. Die Angaben dazu in
+  diesem Blatt und in der Betriebsanleitung stammen aus den Dateien.
+* **Die Prüfreihe braucht mehr Arbeitsspeicher als 8 Gigabyte,** wenn sie in
+  einem Lauf durchgeht: die Suchprüfungen bauen den Bestand mit bge-m3 im
+  Speicher. Dateiweise läuft sie durch. `scripts/alles_pruefen.sh` ruft sie in
+  einem Lauf auf, wie der Prüfstand auf GitHub es tut.
+* **Die 100 Unternehmensfragen sind selbst geschrieben.** Ihre Soll-Einstufung
+  ist aus dem Verordnungstext bestimmt und mit einer Fundstelle versehen, aber
+  sie wurden nicht von einer Kanzlei gegengelesen. Dass alle hundert treffen,
+  heißt nicht, dass jede Beschreibung trifft — es heißt, dass diese hundert
+  Formen abgedeckt sind. Die Grenze in der Prüfung liegt bei 95, damit ein
+  echter Rückfall auffällt und nicht jede neue Formulierung.

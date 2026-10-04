@@ -906,8 +906,8 @@ pflichten:
       - KI-VO/art-53/abs-1-a
       - KI-VO/art-53/abs-2
       - KI-VO/anh-XI
-      - KI-VO/anh-XI/nr-1
-      - KI-VO/anh-XI/nr-2
+      - KI-VO/anh-XI/nr-1-1
+      - KI-VO/anh-XI/nr-2-1
     fundstellen_text: "Artikel 53 Absatz 1 Buchstabe a KI-VO mit Anhang XI"
     rollen: [anbieter]
     klassen: [gpai, gpai_systemisch]
@@ -921,7 +921,6 @@ pflichten:
     was_zu_tun_ist: "Zu tun ist: Informationen und Unterlagen erstellen, aktuell halten und denjenigen Anbietern von KI-Systemen bereitstellen, die Ihr Modell in ihre Systeme einbauen wollen. Die Unterlagen müssen diese Anbieter in die Lage versetzen, Fähigkeiten und Grenzen des Modells gut zu verstehen und ihre eigenen Pflichten aus der Verordnung zu erfüllen, und mindestens die Angaben aus Anhang XII enthalten. Rechte des geistigen Eigentums und Geschäftsgeheimnisse bleiben geschützt. Diese Pflicht entfällt für Modelle unter einer freien und quelloffenen Lizenz nach Artikel 53 Absatz 2, nicht aber bei systemischem Risiko."
     rechtsgrundlage:
       - KI-VO/art-53/abs-1-b
-      - KI-VO/art-53/abs-1-i
       - KI-VO/art-53/abs-2
       - KI-VO/anh-XII
       - KI-VO/anh-XII/nr-1

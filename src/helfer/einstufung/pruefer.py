@@ -39,6 +39,8 @@ from typing import Any, ClassVar
 
 import yaml
 
+from helfer.einstufung.zwecke import Zweckfinder, Zwecktreffer
+from helfer.einstufung.zwecke import zweckfinder as gemeinsamer_zweckfinder
 from helfer.modell import (
     Einstufung,
     Pflicht,
@@ -200,6 +202,25 @@ _STICHWORTFELDER = {
         "spricht mit kunden",
         "beantwortet fragen von kunden",
     ],
+    # Veröffentlichte, von einer KI erzeugte Bilder, Töne oder Videos. Ob sie
+    # unter Artikel 50 Absatz 4 fallen, hängt daran, ob sie einen bestehenden
+    # Ort, eine Person oder ein Ereignis vortäuschen - das kann der Helfer nicht
+    # entscheiden, aber er muss den Fall nennen. Nur Bild, Ton und Video: bei
+    # Text greift Absatz 4 erst für Themen von öffentlichem Interesse.
+    "veroeffentlicht_erzeugte_medien": [
+        "bilder erzeug shop",
+        "bilder erzeug veroeffentlich",
+        "bilder darstellen lassen",
+        "produktbilder erzeug",
+        "produktfotos erzeug",
+        "bilder ki erzeug shop",
+        "erzeugte bilder stellt",
+        "ergebnisse in seinen shop",
+        "bilder in gestalteten raeumen",
+        "bilder in gestalteten räumen",
+        "video erzeug veroeffentlich",
+        "werbespots erzeug",
+    ],
     "erzeugt_deepfakes": [
         "deepfake",
         "gesicht tausch",
@@ -226,17 +247,29 @@ _STICHWORTFELDER = {
         "bonitaet",
         "bonität",
     ],
+    # Ein Modell mit allgemeinem Verwendungszweck im Sinne des Artikels 51 ist
+    # nicht, wer irgendein Modell trainiert — es ist, wer eines *in Verkehr
+    # bringt*. Ein Ingenieurbüro, das ein freies Modell auf die eigene
+    # Fachsprache nachstimmt und nichts nach außen gibt, bleibt Betreiber.
+    # Darum verlangt jede Wendung hier entweder den ausdrücklichen Begriff
+    # oder das Bereitstellen für andere. Wortstämme, keine gebeugten Formen:
+    # "trainier" trifft "trainieren" wie "trainiert".
     "ist_basismodell": [
         "basismodell",
         "foundation model",
-        "eigenes modell trainiert",
-        "eigenes sprachmodell",
-        "sprachmodell trainiert",
-        "modell von grund auf",
-        "wir trainieren ein modell",
         "allgemeiner verwendungszweck",
-        "viele verschiedene aufgaben",
+        "modell von grund auf",
+        "modell andere unternehmen bereit",
+        "modell anderen zur verfuegung",
         "modell ueber programmierschnittstelle",
+        "modell in verkehr",
+        "modell veroeffentlich",
+        "modell herausgeb",
+        # "bieten es an" ist ein getrenntes Verb: der Stamm "biet" trifft es,
+        # "anbiet" nicht.
+        "sprachmodell biet",
+        "modell biet",
+        "modell nachgelagerte anbieter",
     ],
     "beschaeftigtendaten": [
         "mitarbeiter",
@@ -598,7 +631,46 @@ _AUSNAHME_SICHERHEIT_MEDIZIN = (
 
 
 def _enthaelt(text: str, woerter: tuple[str, ...] | list[str]) -> bool:
-    return any(wort in text for wort in woerter)
+    """Trifft eine der Wendungen im Text?
+
+    Eine Wendung aus mehreren Wörtern gilt als getroffen, wenn *alle* ihre
+    tragenden Wörter im Text stehen — nicht nur, wenn sie zufällig unmittelbar
+    nebeneinander vorkommen. "Wir entwickeln ein Sprachmodell und trainieren
+    es" enthält "sprachmodell trainier" nicht als Zeichenfolge, meint aber
+    genau das. Ein reiner Zeichenfolgenvergleich übersah solche Sätze, und ein
+    Modell mit systemischem Risiko fiel als "minimal" durch.
+
+    Einzelne Wörter treffen weiter als Wortstamm am Wortanfang: "trainier"
+    trifft "trainieren" wie "trainiert".
+    """
+    for wendung in woerter:
+        teile = [t for t in wendung.split() if len(t) > 3]
+        if not teile:
+            # Zu kurz für einen Wortstamm: dann muss es wörtlich dastehen.
+            if wendung in text:
+                return True
+            continue
+        if all(_wortstamm_trifft(t, text) for t in teile):
+            return True
+    return False
+
+
+def _wortstamm_trifft(stamm: str, text: str) -> bool:
+    """Trifft ein Wortstamm — auch als hinterer Teil eines zusammengesetzten Worts?
+
+    Deutsch setzt zusammen: "Sprachmodell", "Basismodell", "KI-Modell",
+    "Krankenversicherung", "Bewerbungsgespräch". Ein Stamm nur am Wortanfang
+    zu suchen, übersieht genau die Wörter, die ein Nutzer schreibt — ein Modell
+    mit systemischem Risiko fiel so als "minimal" durch, weil "modell" in
+    "Sprachmodell" nicht am Anfang steht.
+
+    Im Wortinneren wird aber erst ab fünf Zeichen gesucht. Kürzere Stämme
+    stecken zu leicht zufällig in anderen Wörtern: "note" in "Notebook",
+    "bild" in "Abbildung". Bei denen bleibt es beim Wortanfang.
+    """
+    if re.search(r"\b%s" % re.escape(stamm), text):
+        return True
+    return len(stamm) >= 5 and stamm in text
 
 
 def merkmale_aus_freitext(beschreibung: Systembeschreibung) -> dict[str, bool]:
@@ -650,19 +722,88 @@ def _feld(beschreibung: Systembeschreibung, aus_text: dict[str, bool], name: str
 class Pruefer:
     """Stuft eine Systembeschreibung ein und leitet die Pflichten ab."""
 
-    def __init__(self, werk: Regelwerk | None = None) -> None:
+    def __init__(
+        self, werk: Regelwerk | None = None, zweckfinder: Zweckfinder | None = None
+    ) -> None:
         self.werk = werk or regelwerk()
+        # Der Zweckweg ist der zweite Eingang in dieselben Regeln. Er wird erst
+        # beim ersten Gebrauch gebaut, damit ein Lauf ohne Modelle - Prüfstand,
+        # Telefon, Rechner ohne Netz - nicht am Laden eines Modells hängt.
+        self._zweckfinder = zweckfinder
+        self._zweckfinder_versucht = zweckfinder is not None
+
+    def zweckfinder(self) -> Zweckfinder | None:
+        """Der Zweckweg, einmal gebaut. ``None``, wenn er nicht verfügbar ist."""
+        if not self._zweckfinder_versucht:
+            self._zweckfinder_versucht = True
+            try:
+                self._zweckfinder = gemeinsamer_zweckfinder()
+            except Exception as fehler:
+                protokoll.warning(
+                    "Zweckkatalog nicht lesbar (%s) — die Einstufung läuft allein "
+                    "über die Stichworte des Regelwerks",
+                    fehler,
+                )
+        return self._zweckfinder
+
+    def _zwecke(self, beschreibung: Systembeschreibung) -> dict[str, Zwecktreffer]:
+        """Zu jeder angestoßenen Regel der beste Zwecktreffer."""
+        finder = self.zweckfinder()
+        if finder is None:
+            return {}
+        text = " ".join(
+            t
+            for t in (
+                beschreibung.freitext,
+                beschreibung.zweck,
+                beschreibung.einsatzbereich,
+            )
+            if t
+        )
+        gefunden: dict[str, Zwecktreffer] = {}
+        for treffer in finder.finden(text):
+            vorhanden = gefunden.get(treffer.regel)
+            if vorhanden is None or treffer.wert > vorhanden.wert:
+                gefunden[treffer.regel] = treffer
+        return gefunden
+
+    @staticmethod
+    def _zweckbegruendung(treffer: Zwecktreffer) -> str:
+        """Der Satz, der sagt, warum der Zweckweg diese Stelle gezogen hat.
+
+        Er nennt die Stelle, den Satz der Beschreibung und den Wert. Ohne diese
+        drei Angaben kann niemand nachvollziehen, woher die Einstufung kommt —
+        und eine Einstufung, die man nicht nachvollziehen kann, ist für den
+        Nutzer wertlos.
+        """
+        return (
+            f"Der beschriebene Zweck entspricht {treffer.fundstelle} "
+            f"({treffer.sicherheit}): {treffer.satz!r} trifft "
+            f"{treffer.zweck!r} (Nähe {treffer.wert:.2f})."
+        )
 
     # ------------------------------------------------------------- Verbote
 
     def _verbote(
-        self, beschreibung: Systembeschreibung, aus_text: dict[str, bool]
+        self,
+        beschreibung: Systembeschreibung,
+        aus_text: dict[str, bool],
+        zwecke: dict[str, Zwecktreffer] | None = None,
     ) -> list[Risikohinweis]:
+        zwecke = zwecke or {}
         hinweise: list[Risikohinweis] = []
         for regel in self.werk.risikoklassen.get("verbote", []):
             bedingungen = regel.get("wenn", [])
             werte = [_feld(beschreibung, aus_text, b["feld"]) for b in bedingungen]
-            if not werte or any(w is not True for w in werte):
+            ueber_zweck = zwecke.get(regel["kennung"])
+            if (not werte or any(w is not True for w in werte)) and ueber_zweck is None:
+                continue
+
+            # Verlangt der Tatbestand ein ausdrückliches Merkmal, so entscheidet
+            # das Wort und nicht die Ähnlichkeit. Steht es nicht da, greift das
+            # Verbot nicht - die Stelle bleibt über die anderen Prüfwege
+            # erreichbar, dort aber mit Pflichten statt Untersagung.
+            if not self._wortlaut_steht(regel, beschreibung):
                 continue
 
             # Trägt die Regel eine Ausnahme und ist sie in der Beschreibung
@@ -696,18 +837,34 @@ class Pruefer:
                 continue
             # Ein Verbot, das nur aus dem Freitext kommt, ist ein Verdacht.
             nur_text = any(b["feld"] in aus_text for b in bedingungen)
+            begruendung = self._mit_ausnahme(regel)
+            grundlage = tuple(regel.get("rechtsgrundlage", []))
+            if ueber_zweck is not None:
+                begruendung += " " + self._zweckbegruendung(ueber_zweck)
+                if ueber_zweck.fundstelle not in grundlage:
+                    grundlage = (ueber_zweck.fundstelle, *grundlage)
+                nur_text = True
             hinweise.append(
                 Risikohinweis(
                     klasse=Risikoklasse.VERBOTEN,
                     regel=regel["kennung"],
-                    begruendung=self._mit_ausnahme(regel),
-                    rechtsgrundlage=tuple(regel.get("rechtsgrundlage", [])),
+                    begruendung=begruendung,
+                    rechtsgrundlage=grundlage,
                     sicherheit="zu_pruefen"
                     if nur_text
                     else regel.get("sicherheit", "wahrscheinlich"),
                 )
             )
         return hinweise
+
+    @staticmethod
+    def _wortlaut_steht(regel: dict[str, Any], beschreibung: Systembeschreibung) -> bool:
+        """Steht ein Wort da, das der Tatbestand der Regel ausdrücklich verlangt?"""
+        verlangt = regel.get("verlangt_wortlaut") or []
+        if not verlangt:
+            return True
+        text = _flach(" ".join((beschreibung.freitext, beschreibung.zweck)))
+        return any(_flach(wort) in text for wort in verlangt)
 
     @staticmethod
     def _mit_ausnahme(regel: dict[str, Any]) -> str:
@@ -719,11 +876,16 @@ class Pruefer:
     # ---------------------------------------------------------- Hochrisiko
 
     def _anhang_i(
-        self, beschreibung: Systembeschreibung, aus_text: dict[str, bool]
+        self,
+        beschreibung: Systembeschreibung,
+        aus_text: dict[str, bool],
+        zwecke: dict[str, Zwecktreffer] | None = None,
     ) -> Risikohinweis | None:
+        zwecke = zwecke or {}
         regel = self.werk.risikoklassen.get("hochrisiko_anhang_i") or {}
         if not regel:
             return None
+        ueber_zweck = zwecke.get(regel["kennung"])
         werte = [_feld(beschreibung, aus_text, b["feld"]) for b in regel.get("wenn", [])]
         sicher = bool(werte) and all(w is True for w in werte)
 
@@ -739,14 +901,29 @@ class Pruefer:
             )
             produkt = any(self._stichwort_trifft(w, text) for w in regel.get("stichworte", []))
             traeger = _feld(beschreibung, aus_text, "eingebaut_in_produkt") is True
-            if not (produkt and traeger):
+            # Der Zweckweg nennt die Produktgattung selbst - "Wir bauen ein
+            # KI-Teil, das eine Maschine sicher hält". Damit ist der Einbau
+            # mitgesagt, und das Merkmal muss nicht zusätzlich gesetzt sein:
+            # wer die Gattung nicht kennt, kann das Feld auch nicht füllen.
+            if not (produkt and traeger) and ueber_zweck is None:
                 return None
 
+        begruendung = " ".join(regel.get("begruendung", "").split())
+        grundlage = tuple(regel.get("rechtsgrundlage", []))
+        if ueber_zweck is not None:
+            begruendung += " " + self._zweckbegruendung(ueber_zweck)
+            if ueber_zweck.fundstelle not in grundlage:
+                grundlage = (ueber_zweck.fundstelle, *grundlage)
+            begruendung += (
+                " Zu prüfen bleibt, ob für dieses Produkt eine "
+                "Konformitätsbewertung durch eine dritte Stelle verlangt wird — "
+                "nur dann greift Artikel 6 Absatz 1."
+            )
         return Risikohinweis(
             klasse=Risikoklasse.HOCHRISIKO_ANHANG_I,
             regel=regel["kennung"],
-            begruendung=" ".join(regel.get("begruendung", "").split()),
-            rechtsgrundlage=tuple(regel.get("rechtsgrundlage", [])),
+            begruendung=begruendung,
+            rechtsgrundlage=grundlage,
             sicherheit="wahrscheinlich" if sicher else "zu_pruefen",
         )
 
@@ -777,7 +954,10 @@ class Pruefer:
         return all(cls._stamm_trifft(t, text) for t in teile)
 
     def _anhang_iii(
-        self, beschreibung: Systembeschreibung, _aus_text: dict[str, bool] | None = None
+        self,
+        beschreibung: Systembeschreibung,
+        _aus_text: dict[str, bool] | None = None,
+        zwecke: dict[str, Zwecktreffer] | None = None,
     ) -> list[Risikohinweis]:
         """Findet die Anhang-III-Bereiche über die Stichworte der Regeldatei.
 
@@ -786,6 +966,7 @@ class Pruefer:
         Merkmale. Der Unterstrich sagt das; das Argument bleibt, damit alle
         Prüfwege dieselbe Form haben.
         """
+        zwecke = zwecke or {}
         teil = self.werk.risikoklassen.get("hochrisiko_anhang_iii") or {}
         text = _flach(
             " ".join(
@@ -819,25 +1000,53 @@ class Pruefer:
                 if traeger and handlung:
                     treffer += [f"{traeger[0]} + {handlung[0]}"]
 
-            if not treffer or entlastet:
+            ueber_zweck = zwecke.get(bereich["kennung"])
+            # Kommt ein Bereich allein über den Zweckweg und sagt die
+            # Beschreibung ausdrücklich, dass nichts bewertet und nichts
+            # entschieden wird, so wird er nicht gezogen. Der Zweckweg hat dann
+            # nur eine Wortverwandtschaft gefunden - gemessen traf "eingehende
+            # Mails nach Abteilung sortiert" den Satz "Wir sichten Bewerbungen
+            # und sortieren sie vor" mit 0,75, weil beide Male sortiert wird.
+            # Gegen eine ausdrückliche Verneinung wiegt das nicht. Der
+            # Stichwortweg bleibt davon unberührt: wer "Bewerbungen bewertet,
+            # entscheidet aber nichts" schreibt, fällt weiter unter Anhang III
+            # Nummer 4, und erst Artikel 6 Absatz 3 entlastet ihn.
+            if not treffer and ueber_zweck is not None and self._kein_einfluss(beschreibung):
+                continue
+            if (not treffer and ueber_zweck is None) or entlastet:
                 continue
             umfasst = bereich.get("umfasst") or []
-            begruendung = (
-                "Der beschriebene Einsatz fällt in den Bereich {!r} des "
-                "Anhangs III (Stichworte: {}).".format(
-                    bereich.get("titel", ""), ", ".join(treffer[:3])
+            if treffer:
+                begruendung = (
+                    "Der beschriebene Einsatz fällt in den Bereich {!r} des "
+                    "Anhangs III (Stichworte: {}).".format(
+                        bereich.get("titel", ""), ", ".join(treffer[:3])
+                    )
                 )
-            )
+            else:
+                begruendung = (
+                    "Der beschriebene Einsatz fällt in den Bereich {!r} des Anhangs III.".format(
+                        bereich.get("titel", "")
+                    )
+                )
             if umfasst:
                 begruendung += " Der Bereich umfasst: {}.".format("; ".join(umfasst))
             if bereich.get("ausnahme"):
                 begruendung += " Zu beachten: {}".format(" ".join(bereich["ausnahme"].split()))
+            grundlage = tuple(bereich.get("rechtsgrundlage", []))
+            if ueber_zweck is not None:
+                begruendung += " " + self._zweckbegruendung(ueber_zweck)
+                # Die Fundstelle des Zweckwegs steht vor der des Bereichs: sie
+                # ist der Buchstabe, nicht die Nummer, und damit die Stelle,
+                # die den Fall wirklich trägt.
+                if ueber_zweck.fundstelle not in grundlage:
+                    grundlage = (ueber_zweck.fundstelle, *grundlage)
             hinweise.append(
                 Risikohinweis(
                     klasse=Risikoklasse.HOCHRISIKO_ANHANG_III,
                     regel=bereich["kennung"],
                     begruendung=begruendung,
-                    rechtsgrundlage=tuple(bereich.get("rechtsgrundlage", [])),
+                    rechtsgrundlage=grundlage,
                     sicherheit="zu_pruefen",
                 )
             )
@@ -926,23 +1135,62 @@ class Pruefer:
     # --------------------------------------------------------- Transparenz
 
     def _transparenz(
-        self, beschreibung: Systembeschreibung, aus_text: dict[str, bool]
+        self,
+        beschreibung: Systembeschreibung,
+        aus_text: dict[str, bool],
+        zwecke: dict[str, Zwecktreffer] | None = None,
     ) -> list[Risikohinweis]:
+        zwecke = zwecke or {}
         teil = self.werk.risikoklassen.get("transparenz") or {}
         hinweise: list[Risikohinweis] = []
         for fall in teil.get("faelle", []):
+            # Artikel 50 verteilt seine Pflichten auf zwei Adressaten:
+            # Absatz 1 und 2 binden den Anbieter, Absatz 3 und 4 den Betreiber.
+            # Wer ChatGPT benutzt, muss die erzeugten Texte nicht mit einem
+            # Wasserzeichen versehen - das ist Sache des Modellanbieters. Die
+            # Rolle steht in der Regeldatei und wird hier angewandt; ohne sie
+            # bekam ein Betreiber die Pflichten des Anbieters vorgehalten.
+            # Ein Fall nennt entweder eine Rolle oder mehrere. Mehrere stehen
+            # da, wo die Pflicht dem Wortlaut nach eine Rolle trifft, der Fall
+            # aber auch der anderen zu sagen ist.
+            erlaubt = fall.get("rollen") or ([fall["rolle"]] if fall.get("rolle") else [])
+            if (
+                erlaubt
+                and beschreibung.rollen
+                and not any(Rolle(r) in beschreibung.rollen for r in erlaubt)
+            ):
+                continue
             werte = [_feld(beschreibung, aus_text, b["feld"]) for b in fall.get("wenn", [])]
-            if not werte or any(w is not True for w in werte):
+            getroffen = bool(werte) and all(w is True for w in werte)
+            # "oder_wenn": eine Alternative genügt. Artikel 50 Absatz 4 braucht
+            # sie: er greift bei Deepfakes, und daneben steht die Frage, ob
+            # veröffentlichte erzeugte Bilder einen echten Ort oder eine
+            # erkennbare Person vortäuschen - das ist zu prüfen und nicht zu
+            # entscheiden, muss dem Nutzer aber gesagt werden.
+            for satz in fall.get("oder_wenn", []):
+                einzeln = [_feld(beschreibung, aus_text, b["feld"]) for b in satz.get("wenn", [])]
+                if einzeln and all(w is True for w in einzeln):
+                    getroffen = True
+                    break
+            ueber_zweck = zwecke.get(fall["kennung"])
+            if not getroffen and ueber_zweck is None:
                 continue
             nur_text = any(b["feld"] in aus_text for b in fall.get("wenn", []))
+            begruendung = "{} ({})".format(
+                " ".join(fall.get("pflicht", "").split()), fall.get("fundstelle", "")
+            )
+            grundlage = tuple(fall.get("rechtsgrundlage", []))
+            if ueber_zweck is not None:
+                begruendung += " " + self._zweckbegruendung(ueber_zweck)
+                if ueber_zweck.fundstelle not in grundlage:
+                    grundlage = (ueber_zweck.fundstelle, *grundlage)
+                nur_text = True
             hinweise.append(
                 Risikohinweis(
                     klasse=Risikoklasse.TRANSPARENZ,
                     regel=fall["kennung"],
-                    begruendung="{} ({})".format(
-                        " ".join(fall.get("pflicht", "").split()), fall.get("fundstelle", "")
-                    ),
-                    rechtsgrundlage=tuple(fall.get("rechtsgrundlage", [])),
+                    begruendung=begruendung,
+                    rechtsgrundlage=grundlage,
                     sicherheit="zu_pruefen" if nur_text else "wahrscheinlich",
                 )
             )
@@ -951,24 +1199,49 @@ class Pruefer:
     # ---------------------------------------------------------------- GPAI
 
     def _gpai(
-        self, beschreibung: Systembeschreibung, aus_text: dict[str, bool]
+        self,
+        beschreibung: Systembeschreibung,
+        aus_text: dict[str, bool],
+        zwecke: dict[str, Zwecktreffer] | None = None,
     ) -> list[Risikohinweis]:
+        zwecke = zwecke or {}
         teil = self.werk.risikoklassen.get("gpai") or {}
         if not teil:
             return []
         werte = [_feld(beschreibung, aus_text, b["feld"]) for b in teil.get("wenn", [])]
-        if not werte or any(w is not True for w in werte):
+        ueber_zweck = zwecke.get(teil["kennung"])
+        if (not werte or any(w is not True for w in werte)) and ueber_zweck is None:
             return []
+
+        # Sagt die Beschreibung ausdrücklich, dass das Modell nicht in Verkehr
+        # kommt, greift die Ausnahme des Artikels 3 Nummer 63.
+        freitext = _flach(" ".join((beschreibung.freitext, beschreibung.zweck)))
+        if any(_flach(w) in freitext for w in teil.get("entlastung", [])):
+            return []
+
+        # Die Artikel 51 und 53 richten sich an *Anbieter* von KI-Modellen mit
+        # allgemeinem Verwendungszweck. Wer eines einkauft, ist Betreiber — und
+        # zwar auch dann, wenn in seiner Beschreibung das Wort "Modellanbieter"
+        # vorkommt, weil er von seinem Lieferanten spricht. Wortlisten können
+        # das nicht unterscheiden; die Rolle kann es.
+        if Rolle.BETREIBER in beschreibung.rollen and Rolle.ANBIETER not in beschreibung.rollen:
+            return []
+
+        begruendung = (
+            "Es wird selbst ein KI-Modell mit allgemeinem Verwendungszweck "
+            "bereitgestellt. Damit greifen die Pflichten für Modellanbieter."
+        )
+        grundlage = tuple(teil.get("rechtsgrundlage", []))
+        if ueber_zweck is not None:
+            begruendung += " " + self._zweckbegruendung(ueber_zweck)
+            if ueber_zweck.fundstelle not in grundlage:
+                grundlage = (ueber_zweck.fundstelle, *grundlage)
         hinweise = [
             Risikohinweis(
                 klasse=Risikoklasse.GPAI,
                 regel=teil["kennung"],
-                begruendung=(
-                    "Es wird selbst ein KI-Modell mit allgemeinem "
-                    "Verwendungszweck bereitgestellt. Damit greifen die "
-                    "Pflichten für Modellanbieter."
-                ),
-                rechtsgrundlage=tuple(teil.get("rechtsgrundlage", [])),
+                begruendung=begruendung,
+                rechtsgrundlage=grundlage,
                 sicherheit="wahrscheinlich",
             )
         ]
@@ -1299,16 +1572,19 @@ class Pruefer:
     def pruefen(self, beschreibung: Systembeschreibung) -> Einstufung:
         """Die eigentliche Einstufung."""
         aus_text = merkmale_aus_freitext(beschreibung)
+        # Der Zweckweg läuft einmal und wird an alle Prüfwege weitergegeben.
+        # Zweimal zu rechnen wäre zweimal Rechenzeit für dasselbe Ergebnis.
+        zwecke = self._zwecke(beschreibung)
         hinweise: list[Risikohinweis] = []
 
-        verbote = self._verbote(beschreibung, aus_text)
+        verbote = self._verbote(beschreibung, aus_text, zwecke)
         hinweise.extend(verbote)
 
         if not verbote:
-            anhang_i = self._anhang_i(beschreibung, aus_text)
+            anhang_i = self._anhang_i(beschreibung, aus_text, zwecke)
             if anhang_i:
                 hinweise.append(anhang_i)
-            anhang_iii = self._anhang_iii(beschreibung, aus_text)
+            anhang_iii = self._anhang_iii(beschreibung, aus_text, zwecke)
             hinweise.extend(anhang_iii)
             if anhang_iii:
                 ausnahme = self._ausnahme_pruefen(beschreibung, aus_text)
@@ -1323,8 +1599,8 @@ class Pruefer:
                             if h.klasse is not Risikoklasse.HOCHRISIKO_ANHANG_III
                         ]
                     hinweise.append(ausnahme)
-            hinweise.extend(self._transparenz(beschreibung, aus_text))
-            hinweise.extend(self._gpai(beschreibung, aus_text))
+            hinweise.extend(self._transparenz(beschreibung, aus_text, zwecke))
+            hinweise.extend(self._gpai(beschreibung, aus_text, zwecke))
 
         klassen = {h.klasse for h in hinweise}
         if not klassen:
@@ -1417,7 +1693,60 @@ def rollen_aus_text(text: str) -> tuple[Rolle, ...]:
     return tuple(gefunden)
 
 
+#: Der Trainingsaufwand, wie Menschen ihn schreiben: "10^25", "10²⁵", "1e26",
+#: "10 hoch 25", "2,5 x 10^25 Gleitkommaoperationen". Artikel 51 Absatz 2 knüpft
+#: die Vermutung des systemischen Risikos an 10^25 Gleitkommaoperationen — eine
+#: Beschreibung, die diese Zahl nennt, muss sie auch erkannt bekommen, sonst
+#: fällt ein Modell mit systemischem Risiko als "minimal" durch.
+_HOCHZAHLEN = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
+#: Die hochgestellten Ziffern liegen in zwei Unicode-Blöcken: ⁰ und ⁴ bis ⁹
+#: stehen bei U+2070 ff., ¹ ² ³ dagegen bei U+00B9, U+00B2, U+00B3 — ein Rest
+#: aus Latin-1. Wer nur den ersten Block aufzählt, erkennt 10²⁵ nicht.
+_ZIFFERN = "0-9\u2070\u2074-\u2079\u00b9\u00b2\u00b3"
+_RECHENAUFWAND = re.compile(
+    r"(?:(\d+(?:[.,]\d+)?)\s*(?:x|\*|·|mal)\s*)?"
+    r"(?:10\s*(?:\^|\*\*|hoch\s*)?|1\s*e)\s*([" + _ZIFFERN + r"]{1,3})"
+    r"(?=[^0-9]|$)",
+    re.IGNORECASE,
+)
+
+
+def rechenaufwand_aus_text(text: str) -> float | None:
+    """Liest den Trainingsaufwand aus der Beschreibung — oder None.
+
+    Gelesen wird nur, was eindeutig als Rechenaufwand gemeint ist: die Zahl
+    muss in der Nähe eines Wortes stehen, das den Aufwand benennt. Sonst würde
+    jede Jahreszahl oder Stückzahl als Rechenaufwand gelten.
+    """
+    flach = _flach(text)
+    if not any(
+        wort in flach
+        for wort in (
+            "rechenoperation",
+            "gleitkommaoperation",
+            "flop",
+            "rechenaufwand",
+            "rechenleistung",
+            "trainingsaufwand",
+            "operationen trainiert",
+        )
+    ):
+        return None
+    treffer = _RECHENAUFWAND.search(text)
+    if not treffer:
+        return None
+    vorfaktor = float((treffer.group(1) or "1").replace(",", "."))
+    hochzahl = int(treffer.group(2).translate(_HOCHZAHLEN))
+    if not 10 <= hochzahl <= 40:
+        return None
+    return vorfaktor * (10.0**hochzahl)
+
+
 def beschreibung_aus_text(text: str) -> Systembeschreibung:
     """Baut aus einer freien Beschreibung das Prüfobjekt."""
     text = re.sub(r"\s+", " ", text).strip()
-    return Systembeschreibung(freitext=text[:20_000], rollen=rollen_aus_text(text))
+    return Systembeschreibung(
+        freitext=text[:20_000],
+        rollen=rollen_aus_text(text),
+        rechenaufwand_flop=rechenaufwand_aus_text(text),
+    )

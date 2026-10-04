@@ -1,18 +1,20 @@
 {
  "quellen": {
-  "ki-vo-de.html": {
-   "einheiten": 1228,
+  "kivo_amtsblatt_de.xhtml": {
+   "einheiten": 1386,
    "artikel": 113,
-   "absaetze": 870,
+   "absaetze": 929,
    "anhang": 13,
-   "anhangspunkte": 52,
+   "anhangspunkte": 151,
    "erwaegungsgrund": 180
   },
-  "kivo (Rückfall)": {
-   "ergänzt": 71
-  },
-  "dsgvo (Rückfall)": {
-   "ergänzt": 1021
+  "dsgvo_amtsblatt_de.xhtml": {
+   "einheiten": 1024,
+   "artikel": 99,
+   "absaetze": 752,
+   "anhang": 0,
+   "anhangspunkte": 0,
+   "erwaegungsgrund": 173
   },
   "bdsg.html": {
    "einheiten": 357
@@ -21,20 +23,17 @@
    "fallbeispiele": 44
   }
  },
- "warnungen": [
-  "ki-vo-de.html: 27 doppelte Kennungen übergangen",
-  "amtlicher Volltext fehlt: dsgvo-de.html - es wird die artikelweise Fassung genutzt"
- ],
+ "warnungen": [],
  "bestand": {
   "BDSG/paragraf": 357,
-  "DSGVO/artikel": 848,
+  "DSGVO/artikel": 851,
   "DSGVO/erwaegungsgrund": 173,
-  "KI-VO/anhang": 65,
-  "KI-VO/artikel": 1054,
+  "KI-VO/anhang": 164,
+  "KI-VO/artikel": 1042,
   "KI-VO/erwaegungsgrund": 180,
   "Leitlinie/fallbeispiel": 44
  },
- "einheiten": 2721,
- "zeichen": 1966046,
- "gebaut": "2026-10-03"
+ "einheiten": 2811,
+ "zeichen": 2089375,
+ "gebaut": "2026-10-04"
 }
