@@ -11,3 +11,9 @@
 
 /durchlauf.js
   Cache-Control: public, max-age=3600, must-revalidate
+
+# Das Vorschaubild darf von fremden Seiten geladen werden. Es ist dafuer da,
+# beim Teilen zu erscheinen; ohne diese Zeile verweigern Browser den Zugriff.
+/vorschau.jpg
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
