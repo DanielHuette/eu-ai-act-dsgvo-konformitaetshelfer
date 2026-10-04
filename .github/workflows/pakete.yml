@@ -75,12 +75,33 @@ jobs:
         # ausliefert — sonst merkt es der erste Nutzer.
         run: python verpacken/start_pruefen.py
 
+      - name: Windows-Archiv
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        # Das Archiv ist die Rueckfallebene: es entsteht immer, auch wenn das
+        # Installationsprogramm scheitert. Wer es auspackt, hat ein lauffaehiges
+        # Programm - ohne Installation.
+        run: |
+          Compress-Archive -Path dist\Konformitaetshelfer\* `
+            -DestinationPath dist\${{ matrix.paket }}.zip -Force
+
+      - name: Inno Setup holen
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        # Auf den Maschinen von GitHub ist Inno Setup nicht mehr vorinstalliert.
+        run: choco install innosetup --no-progress -y
+
       - name: Windows-Installationsprogramm
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
-          & "$env:ProgramFiles(x86)\Inno Setup 6\ISCC.exe" verpacken\windows.iss
-        continue-on-error: true
+          $iscc = Get-ChildItem -Path `
+            "$env:ProgramFiles(x86)\Inno Setup 6\ISCC.exe", `
+            "$env:ProgramFiles\Inno Setup 6\ISCC.exe" `
+            -ErrorAction SilentlyContinue | Select-Object -First 1
+          if (-not $iscc) { throw "ISCC.exe nicht gefunden" }
+          & $iscc.FullName verpacken\windows.iss
+          Get-ChildItem verpacken\Ausgabe
 
       - name: Mac-Abbild
         if: matrix.os == 'macos-latest'
@@ -105,9 +126,9 @@ jobs:
           path: |
             dist/*.dmg
             dist/*.tar.gz
-            dist/*.exe
+            dist/*.zip
             verpacken/Ausgabe/*.exe
-          if-no-files-found: warn
+          if-no-files-found: error
 
       - name: An die Veröffentlichung hängen
         if: startsWith(github.ref, 'refs/tags/v')
@@ -116,4 +137,5 @@ jobs:
           files: |
             dist/*.dmg
             dist/*.tar.gz
+            dist/*.zip
             verpacken/Ausgabe/*.exe
