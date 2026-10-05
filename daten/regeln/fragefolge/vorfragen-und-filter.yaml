@@ -33,7 +33,7 @@ vorfragen:
     wirkung: "Nur wenn das zutrifft, ist es überhaupt ein KI-System im Sinne des Artikels 3 Nummer 1 und kann eingestuft werden. Lautet die Antwort Nein, endet die Prüfung hier."
     beleg: "(8)"
     erfasst:
-      - text: "Ein maschinengestütztes System, das mit unterschiedlichem Grad an Eigenständigkeit arbeitet, nach dem Einsatz anpassungsfähig sein kann und für ausdrückliche oder stillschweigende Ziele aus den Eingaben ableitet, wie es Ausgaben erzeugt, die physische oder virtülle Umgebungen beeinflussen können."
+      - text: "Ein maschinengestütztes System, das mit unterschiedlichem Grad an Eigenständigkeit arbeitet, nach dem Einsatz anpassungsfähig sein kann und für ausdrückliche oder stillschweigende Ziele aus den Eingaben ableitet, wie es Ausgaben erzeugt, die physische oder virtuelle Umgebungen beeinflussen können."
         beleg: "(8)"
     nicht_erfasst:
       - text: "Nicht jede Software und nicht jedes automatisierte Entscheidungssystem fallen darunter; nur Systeme, die diese Begriffsbestimmung erfüllen."

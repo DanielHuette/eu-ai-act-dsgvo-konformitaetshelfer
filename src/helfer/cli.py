@@ -554,7 +554,9 @@ def zerleger_bauen() -> argparse.ArgumentParser:
     # argparse schreibt seinen Hilfetext auf Englisch. Der eine Satz, den der
     # Nutzer liest, wird deshalb selbst gesetzt; die Abschnittsköpfe von
     # argparse bleiben, weil sie das Fremdpaket vorgibt.
-    zerleger.add_argument("-h", "--hilfe", action="help", help="diese Hilfe zeigen und beenden")
+    zerleger.add_argument(
+        "-h", "--hilfe", "--help", action="help", help="diese Hilfe zeigen und beenden"
+    )
 
     # Diese zwei Angaben gelten für jeden Unterbefehl. Sie stehen zweimal da —
     # einmal vorn am Programm, einmal über einen gemeinsamen Elternzerleger an
